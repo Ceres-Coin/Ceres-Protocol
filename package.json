@@ -1,11 +1,12 @@
 {
   "name": "ceres-protocol",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Ceres-Protocol",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "git" : "git add . & git cz"
+    "git": "git add . & git cz",
+    "changelog": "npx standard-version"
   },
   "repository": {
     "type": "git",

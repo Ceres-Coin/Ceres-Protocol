@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile" : "rm -rf build & truffle compile --all",
+    "migration" : "truffle migrate --network development --skip-dry-run --reset",
     "clean_build_migrate_all": "rm -rf build & truffle compile --all & truffle migrate --network development --skip-dry-run --reset",
     "test": "truffle test",
     "git add": "git add . & git cz",

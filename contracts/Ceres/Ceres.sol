@@ -13,8 +13,8 @@ import "../Governance/AccessControl.sol";
 
 contract CEREStable is ERC20Custom, AccessControl {
     using SafeMath for uint256;
-    string public symbol; 
     string public name; 
+    string public symbol; 
     uint8 public constant decimals = 18; 
 
     address public owner_address; 

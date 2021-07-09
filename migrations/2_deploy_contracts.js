@@ -29,9 +29,9 @@ module.exports = async function(deployer,network,accounts) {
   await deployer.deploy(ERC20,"sample","sample");
 
   const sampleERC20 = await ERC20.deployed();
-  console.log(`sampleERC20: ${sampleERC20.address}`);
+//   console.log(`sampleERC20: ${sampleERC20.address}`);
 
   await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER);
-	const ceresInstance = await CEREStable.deployed();
+  const ceresInstance = await CEREStable.deployed();
   console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
 };

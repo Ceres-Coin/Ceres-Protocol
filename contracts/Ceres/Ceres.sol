@@ -26,6 +26,7 @@ contract CEREStable is ERC20Custom, AccessControl {
     uint256 public constant genesis_supply = 1000000e18; 
 
     mapping(address => bool) public ceres_pools; //test case done
+    address[] public ceres_pools_array; //test case done
 
     constructor(
         string memory _name,
@@ -52,5 +53,42 @@ contract CEREStable is ERC20Custom, AccessControl {
         require(msg.sender == owner_address || msg.sender == timelock_address || msg.sender == controller_address, "You are not the owner, controller, or the governance timelock");
         _;
     }
+
+    /* ========== RESTRICTED FUNCTIONS ========== */
+    function pool_mint(address m_address, uint256 m_amount) public onlyPools {
+        super._mint(m_address, m_amount);
+        emit CERESMinted(msg.sender, m_address, m_amount);
+    }
+
+    // [FUNC][addPool]
+    function addPool(address pool_address) public onlyByOwnerOrGovernance {
+        require(ceres_pools[pool_address] == false, "address already exists");
+        ceres_pools[pool_address] = true; 
+        ceres_pools_array.push(pool_address);
+    }
+
+    // Remove a pool 
+    function removePool(address pool_address) public onlyByOwnerOrGovernance {
+        require(ceres_pools[pool_address] == true, "address doesn't exist already");
+        
+        // Delete from the mapping
+        delete ceres_pools[pool_address];
+
+        // 'Delete' from the array by setting the address to 0x0
+        for (uint i = 0; i < ceres_pools_array.length; i++){ 
+            if (ceres_pools_array[i] == pool_address) {
+                ceres_pools_array[i] = address(0); // This will leave a null in the array and keep the indices the same
+                break;
+            }
+        }
+    }
+
+    /* ========== EVENTS ========== */
+
+    // Track Ceres burned
+    event CERESBurned(address indexed from, address indexed to, uint256 amount);
+
+    // Track Ceres minted
+    event CERESMinted(address indexed from, address indexed to, uint256 amount);
 
 }

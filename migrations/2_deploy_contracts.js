@@ -1,8 +1,27 @@
 const ConvertLib = artifacts.require("ConvertLib");
 const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
+const CEREStable = artifacts.require("Ceres/CEREStable");
+
+const chalk = require('chalk');
 
 module.exports = async function(deployer,network,accounts) {
+  // Set the Network Settings
+	const IS_MAINNET = (network == 'mainnet');
+	const IS_ROPSTEN = (network == 'ropsten');
+	const IS_DEV = (network == 'development');
+	const IS_GANACHE = (network == 'devganache');
+  const IS_BSC_TESTNET = (network == 'testnet');
+	const IS_RINKEBY = (network == 'rinkeby');
+
+	// set the deploy address
+	const OWNER = accounts[0];
+	const ADMIN = accounts[1];
+	const account0 = accounts[0];
+	const account1 = accounts[1];
+	const account2 = accounts[2];
+	const account3 = accounts[3];
+
   deployer.deploy(ConvertLib);
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(MetaCoin);
@@ -11,4 +30,8 @@ module.exports = async function(deployer,network,accounts) {
 
   const sampleERC20 = await ERC20.deployed();
   console.log(`sampleERC20: ${sampleERC20.address}`);
+
+  await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER);
+	const ceresInstance = await CEREStable.deployed();
+  console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
 };

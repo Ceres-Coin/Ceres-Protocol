@@ -2,7 +2,7 @@
 bin-debug/
 bin-release/
 node_modules/
-build
+build/
 [Oo]bj/
 [Bb]in/
 

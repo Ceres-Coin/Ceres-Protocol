@@ -11,7 +11,7 @@ module.exports = async function(deployer,network,accounts) {
 	const IS_ROPSTEN = (network == 'ropsten');
 	const IS_DEV = (network == 'development');
 	const IS_GANACHE = (network == 'devganache');
-  const IS_BSC_TESTNET = (network == 'testnet');
+  	const IS_BSC_TESTNET = (network == 'testnet');
 	const IS_RINKEBY = (network == 'rinkeby');
 
 	// set the deploy address
@@ -31,7 +31,7 @@ module.exports = async function(deployer,network,accounts) {
   const sampleERC20 = await ERC20.deployed();
 //   console.log(`sampleERC20: ${sampleERC20.address}`);
 
-  await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER);
+  await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER,{from: OWNER});
   const ceresInstance = await CEREStable.deployed();
   console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
 };

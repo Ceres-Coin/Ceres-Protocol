@@ -17,10 +17,10 @@ contract CEREStable is ERC20Custom, AccessControl {
     string public symbol; 
     uint8 public constant decimals = 18; 
 
-    address public owner_address; 
     address public creator_address; 
     address public timelock_address; 
     address public DEFAULT_ADMIN_ADDRESS; 
+    address public owner_address; 
     uint256 public constant genesis_supply = 1000000e18; 
 
     constructor(

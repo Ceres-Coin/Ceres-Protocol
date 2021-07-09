@@ -52,5 +52,29 @@ contract('CERES.sol', async (accounts) => {
 
     it('check ceres.balanceOf(creator_address) = ONE_MILLION_DEC18', async() => {
         expect(parseFloat(await instanceCERES.balanceOf(await instanceCERES.creator_address()))).to.equal(parseFloat(ONE_MILLION_DEC18));
-    })
+    });
+
+    it ('check ceres.ceres_pools(creator_address) = false', async() => {
+        expect(await instanceCERES.ceres_pools.call(await instanceCERES.creator_address())).to.equal(false);
+    });
+
+    it ('check ceres.ceres_pools(owner_address) = false', async() => {
+        expect(await instanceCERES.ceres_pools.call(await instanceCERES.owner_address())).to.equal(false);
+    });
+
+    it ('check ceres.ceres_pools(OWNER) = false', async() => {
+        expect(await instanceCERES.ceres_pools.call(OWNER)).to.equal(false);
+    });
+
+    it ('check ceres.addPool(ADMIN,{from: OWNER}) + removePool(ADMIN,{from: OWNER})', async() => {
+        // BEFORE
+        expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(false);
+        // ACTION
+        await instanceCERES.addPool(ADMIN,{from: OWNER});
+        expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(true);
+
+        // ROLLBACK CODE
+        await instanceCERES.removePool(ADMIN,{from: OWNER});
+        expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(false);
+    });
 });

@@ -1,7 +1,10 @@
+const BigNumber = require('bignumber.js');
+const BN = BigNumber.clone({ DECIMAL_PLACES: 9 })
 const chalk = require('chalk');
 const { assert, expect } = require('chai');
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
+const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 
 contract('CERES.sol', async (accounts) => {
 
@@ -41,5 +44,9 @@ contract('CERES.sol', async (accounts) => {
 
     it('check CERES owner_address = OWNER ', async () => {
         expect(await instanceCERES.owner_address()).to.equal(OWNER);
+    });
+
+    it('check CERES genesis_supply = ONE_MILLION_DEC18 ', async () => {
+        expect(parseFloat(await instanceCERES.genesis_supply())).to.equal(parseFloat(ONE_MILLION_DEC18));
     });
 });

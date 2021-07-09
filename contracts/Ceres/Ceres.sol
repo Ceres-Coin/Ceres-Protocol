@@ -11,6 +11,7 @@ import "../Math/SafeMath.sol";
 import "../Governance/AccessControl.sol";
 
 
+
 contract CEREStable is ERC20Custom, AccessControl {
     using SafeMath for uint256;
     string public name; 

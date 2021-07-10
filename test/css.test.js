@@ -6,6 +6,7 @@ const { assert, expect,chai} = require('chai');
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
+const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 
 contract('CSS.sol', async (accounts) => {
 
@@ -34,6 +35,11 @@ contract('CSS.sol', async (accounts) => {
     it('check CSS decimals_VALUE = 18 ', async () => {
         const decimals_VALUE = 18;
         expect(parseFloat(await instanceCSS.decimals())).to.equal(decimals_VALUE);
+    });
+
+    it('check CSS genesis_supply = ONE_HUNDRED_MILLION_DEC18 ', async () => {
+        const genesis_supply_VALUE = parseFloat(ONE_HUNDRED_MILLION_DEC18);
+        expect(parseFloat(await instanceCSS.genesis_supply())).to.equal(genesis_supply_VALUE);
     });
 
     

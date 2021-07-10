@@ -31,5 +31,10 @@ contract('CSS.sol', async (accounts) => {
         expect(await instanceCSS.symbol()).to.equal(SYMBOL_VALUE);
     });
 
+    it('check CSS decimals_VALUE = 18 ', async () => {
+        const decimals_VALUE = 18;
+        expect(parseFloat(await instanceCSS.decimals())).to.equal(decimals_VALUE);
+    });
+
     
 });

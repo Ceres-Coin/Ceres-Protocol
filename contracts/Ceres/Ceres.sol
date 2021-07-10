@@ -44,23 +44,26 @@ contract CEREStable is ERC20Custom, AccessControl {
     }
 
     /* ========== MODIFIERS ========== */
+    // TEST CASE DONE
     modifier onlyPools() {
        require(ceres_pools[msg.sender] == true, "Only ceres pools can call this function");
         _;
     }
-
+    // TEST CASE DONE
     modifier onlyByOwnerOrGovernance() {
         require(msg.sender == owner_address || msg.sender == timelock_address || msg.sender == controller_address, "You are not the owner, controller, or the governance timelock");
         _;
     }
 
     /* ========== RESTRICTED FUNCTIONS ========== */
+    // TEST CASE DONE
     function pool_mint(address m_address, uint256 m_amount) public onlyPools {
         super._mint(m_address, m_amount);
         emit CERESMinted(msg.sender, m_address, m_amount);
     }
 
     // [FUNC][addPool]
+    // TEST CASE DONE
     function addPool(address pool_address) public onlyByOwnerOrGovernance {
         require(ceres_pools[pool_address] == false, "address already exists");
         ceres_pools[pool_address] = true; 
@@ -68,6 +71,7 @@ contract CEREStable is ERC20Custom, AccessControl {
     }
 
     // Remove a pool 
+    // TEST CASE DONE
     function removePool(address pool_address) public onlyByOwnerOrGovernance {
         require(ceres_pools[pool_address] == true, "address doesn't exist already");
         

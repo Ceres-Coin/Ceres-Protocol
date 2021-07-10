@@ -14,15 +14,24 @@ import "../Governance/AccessControl.sol";
 
 contract CEREStable is ERC20Custom, AccessControl {
     using SafeMath for uint256;
+    //TEST CASE DONE
     string public name; 
+    //TEST CASE DONE
     string public symbol; 
+    //TEST CASE DONE
     uint8 public constant decimals = 18; 
-
+    
+    //TEST CASE DONE
     address public creator_address; 
+    //TEST CASE DONE
     address public timelock_address; 
+    //TEST CASE DONE
     address public DEFAULT_ADMIN_ADDRESS; 
+    //TEST CASE DONE
     address public owner_address; 
+    //TEST CASE DONE
     address public controller_address;
+    //TEST CASE DONE
     uint256 public constant genesis_supply = 1000000e18; 
 
     mapping(address => bool) public ceres_pools; //test case done

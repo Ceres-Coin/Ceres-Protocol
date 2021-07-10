@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 const BN = BigNumber.clone({ DECIMAL_PLACES: 9 })
 const chalk = require('chalk');
 const { assert, expect,chai} = require('chai');
+const { expectEvent, send, shouldFail, time, constants, balance} = require('@openzeppelin/test-helpers');
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
@@ -20,6 +21,7 @@ contract('CSS.sol', async (accounts) => {
     let instanceCSS;
     beforeEach(async() => {
         instanceCSS = await CEREShares.deployed();
+        instanceCERES = await CEREStable.deployed();
     });
 
     it('check CSS name = "CERES Share" ', async () => {
@@ -101,6 +103,15 @@ contract('CSS.sol', async (accounts) => {
         await instanceCSS.setOwner(OWNER,{from: ADMIN});
         expect(await instanceCSS.owner_address()).to.equal(OWNER);
     });
+
+    it('check CSS.CERES address, its default value is ZERO_ADDRESS ', async () => {
+        const instanceCSS_ceres_default = await instanceCSS.CERES();
+        expect(instanceCSS_ceres_default).to.equal(constants.ZERO_ADDRESS);
+    });
+
+    // it('check CSS.setCERESAddress, it value will be as instanceCERES.address', async() => {
+
+    // });
 
     
 });

@@ -79,10 +79,13 @@ contract('CERES.sol', async (accounts) => {
     });
 
     it ('check ceres.pool_mint(account3,100)',async() => {
+        const POOL_MINT_VALUE = 1000;
         await instanceCERES.addPool(ADMIN,{from: OWNER});
         expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(true);
 
-        await instanceCERES.pool_mint(account3,100,{from: ADMIN});
+        expect(parseFloat(await instanceCERES.balanceOf(account3))).to.equal(0);
+        await instanceCERES.pool_mint(account3,POOL_MINT_VALUE,{from: ADMIN});
+        expect(parseFloat(await instanceCERES.balanceOf(account3))).to.equal(POOL_MINT_VALUE);
         
         // ROLLBACK CODE
         await instanceCERES.removePool(ADMIN,{from: OWNER});
@@ -90,12 +93,9 @@ contract('CERES.sol', async (accounts) => {
     });
 
     it ('check ceres.pool_mint(account3,100),without addPool()',async() => {
-        // await instanceCERES.addPool(ADMIN,{from: OWNER});
-        // expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(true);
-
+        // uncomment below code for revert error
+        // uncomment below code for revert error
+        // uncomment below code for revert error
         // await instanceCERES.pool_mint(account3,100,{from: ADMIN});
-        // await expect(instanceCERES.pool_mint(account3,100,{from: ADMIN})).to.be.reverted;
-        
-        expect(1).to.equal(1);
     });
 });

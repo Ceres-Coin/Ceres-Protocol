@@ -77,4 +77,11 @@ contract('CERES.sol', async (accounts) => {
         await instanceCERES.removePool(ADMIN,{from: OWNER});
         expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(false);
     });
+
+    it ('check ceres.pool_mint(account3,100)',async() => {
+        await instanceCERES.addPool(ADMIN,{from: OWNER});
+        expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(true);
+
+        await instanceCERES.pool_mint(account3,100,{from: ADMIN});
+    });
 });

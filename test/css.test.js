@@ -42,5 +42,17 @@ contract('CSS.sol', async (accounts) => {
         expect(parseFloat(await instanceCSS.genesis_supply())).to.equal(genesis_supply_VALUE);
     });
 
+    it('check CSS owner_address, its default value is OWNER ', async () => {
+        expect(await instanceCSS.owner_address()).to.equal(OWNER);
+    });
+
+    it('check CSS oracle_address, its default value is OWNER ', async () => {
+        expect(await instanceCSS.oracle_address()).to.equal(OWNER);
+    });
+
+    it('check CSS timelock_address, its default value is OWNER ', async () => {
+        expect(await instanceCSS.timelock_address()).to.equal(OWNER);
+    });
+
     
 });

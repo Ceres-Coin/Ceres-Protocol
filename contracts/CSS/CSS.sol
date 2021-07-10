@@ -23,7 +23,7 @@ contract CEREShares is ERC20Custom, AccessControl {
     address public oracle_address; //TEST CASE DONE
     
     address public timelock_address; // Governance timelock address //TEST CASE DONE
-    CEREStable private CERES; //PRIVATE, NOTHING TO DO
+    CEREStable public CERES; //PRIVATE, NOTHING TO DO
 
 
     /* ========== MODIFIERS ========== */
@@ -55,6 +55,23 @@ contract CEREShares is ERC20Custom, AccessControl {
         _mint(owner_address, genesis_supply);
     }
 
+    /* ========== RESTRICTED FUNCTIONS ========== */
+    function setOracle(address new_oracle) external onlyByOwnerOrGovernance {
+        oracle_address = new_oracle;
+    }
+
+    function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
+        owner_address = _owner_address;
+    }
+
+    function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
+        timelock_address = new_timelock;
+    }
+    
+    function setCERESAddress(address ceres_contract_address) external onlyByOwnerOrGovernance {
+        CERES = CEREStable(ceres_contract_address);
+    }
+    
     /* ========== EVENTS ========== */
 
     // Track CSS burned

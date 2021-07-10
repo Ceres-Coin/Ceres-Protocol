@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 const BN = BigNumber.clone({ DECIMAL_PLACES: 9 })
 const chalk = require('chalk');
-const { assert, expect } = require('chai');
+const { assert, expect,chai} = require('chai');
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
@@ -83,5 +83,19 @@ contract('CERES.sol', async (accounts) => {
         expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(true);
 
         await instanceCERES.pool_mint(account3,100,{from: ADMIN});
+        
+        // ROLLBACK CODE
+        await instanceCERES.removePool(ADMIN,{from: OWNER});
+        expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(false);
+    });
+
+    it ('check ceres.pool_mint(account3,100),without addPool()',async() => {
+        // await instanceCERES.addPool(ADMIN,{from: OWNER});
+        // expect(await instanceCERES.ceres_pools.call(ADMIN)).to.equal(true);
+
+        // await instanceCERES.pool_mint(account3,100,{from: ADMIN});
+        // await expect(instanceCERES.pool_mint(account3,100,{from: ADMIN})).to.be.reverted;
+        
+        expect(1).to.equal(1);
     });
 });

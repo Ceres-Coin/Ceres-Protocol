@@ -1,0 +1,64 @@
+Arguments: 
+  /usr/local/bin/node /Users/cooper/.npm-global/bin/yarn add --dev mocha chai
+
+PATH: 
+  /Users/cooper/.npm-global/bin:/Users/cooper/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/cooper/go/bin:/Users/cooper/gowork/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.6.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://github.com/Digital-MOB-Filecoin/filecoin-signing-tools-js: ETIMEDOUT
+      at Timeout._onTimeout (/Users/cooper/.npm-global/lib/node_modules/yarn/lib/cli.js:141322:19)
+      at listOnTimeout (internal/timers.js:531:17)
+      at processTimers (internal/timers.js:475:7)
+
+npm manifest: 
+  {
+    "name": "ceres-protocol",
+    "version": "1.5.1",
+    "description": "Ceres-Protocol",
+    "main": "index.js",
+    "scripts": {
+      "compile": "rm -rf build & truffle compile --all",
+      "migration": "truffle migrate --network development --skip-dry-run --reset",
+      "clean_build_migrate_all": "rm -rf build & truffle compile --all & truffle migrate --network development --skip-dry-run --reset",
+      "testSingleFile": "truffle test test/ceres.test.js",
+      "test": "truffle test",
+      "git add": "git add . & git cz",
+      "changelog": "npx standard-version"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Ceres-Coin/Ceres-Protocol.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Ceres-Coin/Ceres-Protocol/issues"
+    },
+    "homepage": "https://github.com/Ceres-Coin/Ceres-Protocol#readme",
+    "devDependencies": {
+      "cz-conventional-changelog": "^3.3.0"
+    },
+    "config": {
+      "commitizen": {
+        "path": "./node_modules/cz-conventional-changelog"
+      }
+    },
+    "dependencies": {
+      "truffle": "^5.3.14"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

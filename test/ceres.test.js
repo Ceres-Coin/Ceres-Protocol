@@ -30,6 +30,11 @@ contract('CERES.sol', async (accounts) => {
         expect(await instanceCERES.symbol()).to.equal(SYMBOL_VALUE);
     });
 
+    it('check CERES decimals = 18 ', async () => {
+        const decimals_VALUE = 18;
+        expect(parseFloat(await instanceCERES.decimals())).to.equal(decimals_VALUE);
+    });
+
     it('check CERES creator_address = OWNER ', async () => {
         expect(await instanceCERES.creator_address()).to.equal(OWNER);
     });

@@ -66,5 +66,17 @@ contract('CSS.sol', async (accounts) => {
         expect(parseFloat(await instanceCSS.balanceOf(account3))).to.equal(balanceOf_VALUE);
     });
 
+    it('check CSS setOracle, its value will set as ADMIN  ', async () => {
+        // BEFORE
+        expect(await instanceCSS.oracle_address()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await instanceCSS.setOracle(ADMIN,{from: OWNER});
+        expect(await instanceCSS.oracle_address()).to.equal(ADMIN);
+
+        // ROLLBACK CODE
+        await instanceCSS.setOracle(OWNER,{from: OWNER});
+        expect(await instanceCSS.oracle_address()).to.equal(OWNER);
+    });
+
     
 });

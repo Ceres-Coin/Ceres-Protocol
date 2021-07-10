@@ -2,6 +2,7 @@ const ConvertLib = artifacts.require("ConvertLib");
 const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const CEREStable = artifacts.require("Ceres/CEREStable");
+const CEREShares = artifacts.require("CSS/CEREShares");
 
 const chalk = require('chalk');
 
@@ -34,4 +35,8 @@ module.exports = async function(deployer,network,accounts) {
   await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER,{from: OWNER});
   const ceresInstance = await CEREStable.deployed();
   console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
+
+  await deployer.deploy(CEREShares, "CERES Share", "CSS", OWNER, OWNER,OWNER,{from: OWNER});
+  const cssInstance = await CEREShares.deployed();
+  console.log(chalk.red.bold(`cssInstance: ${await cssInstance.address}`));
 };

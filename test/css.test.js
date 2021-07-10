@@ -121,5 +121,23 @@ contract('CSS.sol', async (accounts) => {
         expect(await instanceCSS.CERES()).to.equal(constants.ZERO_ADDRESS);
     });
 
+    it('check CSS.CeresInstance, its name,symbol & decimals', async() => {
+        // BEFORE
+        expect(await instanceCSS.CERES()).to.equal(constants.ZERO_ADDRESS);
+        // ACTION & ASSERTION
+        await instanceCSS.setCERESAddress(instanceCERES.address,{from: OWNER});
+        expect(await instanceCSS.CERES()).to.equal(instanceCERES.address);
+
+        const css_ceres = await CEREStable.at(await instanceCSS.CERES());
+        const NAME_VALUE = 'CERES';
+        expect(await css_ceres.name()).to.equal(NAME_VALUE);
+
+        const SYMBOL_VALUE = 'CERES';
+        expect(await instanceCERES.symbol()).to.equal(SYMBOL_VALUE);
+
+        const decimals_value = 18;
+        expect(parseFloat(await instanceCERES.decimals())).to.equal(decimals_value);
+    });
+
     
 });

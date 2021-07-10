@@ -60,12 +60,6 @@ contract CEREShares is ERC20Custom, AccessControl {
         _mint(owner_address, genesis_supply);
     }
 
-    function getChainId() internal pure returns (uint) {
-        uint256 chainId;
-        assembly { chainId := chainid() }
-        return chainId;
-    }
-
     /* ========== EVENTS ========== */
     
     /// @notice An event thats emitted when a voters account's vote balance changes

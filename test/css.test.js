@@ -109,9 +109,17 @@ contract('CSS.sol', async (accounts) => {
         expect(instanceCSS_ceres_default).to.equal(constants.ZERO_ADDRESS);
     });
 
-    // it('check CSS.setCERESAddress, it value will be as instanceCERES.address', async() => {
+    it('check CSS.setCERESAddress, its value will be as instanceCERES.address', async() => {
+        // BEFORE
+        expect(await instanceCSS.CERES()).to.equal(constants.ZERO_ADDRESS);
+        // ACTION & ASSERTION
+        await instanceCSS.setCERESAddress(instanceCERES.address,{from: OWNER});
+        expect(await instanceCSS.CERES()).to.equal(instanceCERES.address);
 
-    // });
+        // ROLLBACK CODE
+        await instanceCSS.setCERESAddress(constants.ZERO_ADDRESS,{from: OWNER});
+        expect(await instanceCSS.CERES()).to.equal(constants.ZERO_ADDRESS);
+    });
 
     
 });

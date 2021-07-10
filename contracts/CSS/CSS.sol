@@ -39,7 +39,7 @@ contract CEREShares is ERC20Custom, AccessControl {
     }
 
     /* ========== CONSTRUCTOR ========== */
-
+    //TEST CASE DONE
     constructor(
         string memory _name,
         string memory _symbol, 

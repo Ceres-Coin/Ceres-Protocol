@@ -90,5 +90,17 @@ contract('CSS.sol', async (accounts) => {
         expect(await instanceCSS.timelock_address()).to.equal(OWNER);
     });
 
+    it('check CSS setOwner, its value will be set as ADMIN', async () => {
+        // BEFORE
+        expect(await instanceCSS.owner_address()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await instanceCSS.setOwner(ADMIN,{from: OWNER});
+        expect(await instanceCSS.owner_address()).to.equal(ADMIN);
+
+        // ROLLBACK CODE
+        await instanceCSS.setOwner(OWNER,{from: ADMIN});
+        expect(await instanceCSS.owner_address()).to.equal(OWNER);
+    });
+
     
 });

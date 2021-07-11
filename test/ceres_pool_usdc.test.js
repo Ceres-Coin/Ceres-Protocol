@@ -35,4 +35,8 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC.USDC_address.call()).to.equal(instanceSampleERC20.address);
     });
 
+    it('check instance_Pool_USDC.ceres_contract_address is instanceCERES.address" ', async () => {
+        expect(await instance_Pool_USDC.ceres_contract_address.call()).to.equal(instanceCERES.address);
+    });
+
 });

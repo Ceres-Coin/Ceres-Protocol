@@ -10,12 +10,18 @@ const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 contract('CERES.sol', async (accounts) => {
 
     // set the deploy address
-	const OWNER = accounts[0];
-	const ADMIN = accounts[1];
 	const account0 = accounts[0];
 	const account1 = accounts[1];
 	const account2 = accounts[2];
 	const account3 = accounts[3];
+    const account4 = accounts[4];
+    const account5 = accounts[5];
+    const account6 = accounts[6];
+    const account7 = accounts[7];
+
+    const OWNER = account0;
+	const ADMIN = account1;
+    const TEST_ACCOUNT = account7;
     let instanceCERES;
     beforeEach(async() => {
         instanceCERES = await CEREStable.deployed();
@@ -106,6 +112,18 @@ contract('CERES.sol', async (accounts) => {
     });
 
     it('check ceres.controller_address, its default value is ZERO_ADDRESS ', async () => {
+        expect(await instanceCERES.controller_address.call()).to.equal(constants.ZERO_ADDRESS);
+    });
+
+    it('check ceres.setController()', async () => {
+        // BEFORE
+        expect(await instanceCERES.controller_address.call()).to.equal(constants.ZERO_ADDRESS);
+        // ACTION & ASSERTION
+        await instanceCERES.setController(TEST_ACCOUNT,{from: OWNER});
+        expect(await instanceCERES.controller_address.call()).to.equal(TEST_ACCOUNT);
+
+        // ROLLBACK CODE
+        await instanceCERES.setController(constants.ZERO_ADDRESS,{from: TEST_ACCOUNT});
         expect(await instanceCERES.controller_address.call()).to.equal(constants.ZERO_ADDRESS);
     });
 });

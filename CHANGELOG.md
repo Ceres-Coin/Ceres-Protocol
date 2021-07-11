@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.9.0...v1.10.0) (2021-07-11)
+
+
+### Features
+
+* **contracts/ceres/pools/pool_usdc.sol:** [CREATED][CONTRACT]: ADD NEW CONTRACT "Pool_USDC.sol" ([e8cf9d9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e8cf9d92a073c5df0e8fbe722a612ed48b40780c))
+
 ## [1.9.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.8.0...v1.9.0) (2021-07-11)
 
 

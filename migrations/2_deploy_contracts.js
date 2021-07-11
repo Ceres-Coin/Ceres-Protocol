@@ -23,20 +23,23 @@ module.exports = async function(deployer,network,accounts) {
 	const account2 = accounts[2];
 	const account3 = accounts[3];
 
-  deployer.deploy(ConvertLib);
-  deployer.link(ConvertLib, MetaCoin);
-  deployer.deploy(MetaCoin);
+	deployer.deploy(ConvertLib);
+	deployer.link(ConvertLib, MetaCoin);
+	deployer.deploy(MetaCoin);
 
-  await deployer.deploy(ERC20,"sample","sample");
+	await deployer.deploy(ERC20,"sample","sample");
 
-  const sampleERC20 = await ERC20.deployed();
-//   console.log(`sampleERC20: ${sampleERC20.address}`);
+	const sampleERC20 = await ERC20.deployed();
+	//   console.log(`sampleERC20: ${sampleERC20.address}`);
 
-  await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER,{from: OWNER});
-  const ceresInstance = await CEREStable.deployed();
-  console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
 
-  await deployer.deploy(CEREShares, "CERES Share", "CSS", OWNER, OWNER,OWNER,{from: OWNER});
-  const cssInstance = await CEREShares.deployed();
-  console.log(chalk.red.bold(`cssInstance: ${await cssInstance.address}`));
+	await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER,{from: OWNER});
+	const ceresInstance = await CEREStable.deployed();
+	console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
+
+	await deployer.deploy(CEREShares, "CERES Share", "CSS", OWNER, OWNER,OWNER,{from: OWNER});
+	const cssInstance = await CEREShares.deployed();
+	console.log(chalk.red.bold(`cssInstance: ${await cssInstance.address}`));
+
+
 };

@@ -64,7 +64,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         _;
     }
 
-    /* ========== RESTRICTED FUNCTIONS ========== */
+    /* ========== RESTRICTED FUNCTIONS PART I (FUNC)========== */
     // TEST CASE DONE
     function pool_mint(address m_address, uint256 m_amount) public onlyPools {
         super._mint(m_address, m_amount);
@@ -95,6 +95,21 @@ contract CEREStable is ERC20Custom, AccessControl {
             }
         }
     }
+
+    /* ========== RESTRICTED FUNCTIONS PART II (ROLE)========== */
+    function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
+        owner_address = _owner_address;
+    }
+
+    function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
+        timelock_address = new_timelock;
+    }
+
+    function setController(address _controller_address) external onlyByOwnerOrGovernance {
+        controller_address = _controller_address;
+    }
+
+
 
     /* ========== EVENTS ========== */
 

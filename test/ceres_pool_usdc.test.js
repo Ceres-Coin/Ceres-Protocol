@@ -60,4 +60,8 @@ contract('CeresPool', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(FIVE_MILLION_DEC18));
     });
 
+    it('check instance_Pool_USDC.missing_decimals is 0', async() => {
+        expect(parseFloat(await instance_Pool_USDC.missing_decimals())).to.equal(0);
+    });
+
 });

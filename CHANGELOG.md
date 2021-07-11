@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.3](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.2...v1.10.3) (2021-07-11)
+
+
+### Tests
+
+* **test/ceres_pool_usdc.test.js:** [ADD][SCRIPTS]: 'check instance_Pool_USDC.ceres_contract_address ([31d3fce](https://github.com/Ceres-Coin/Ceres-Protocol/commit/31d3fce0541d60a4c3744e868eecbea9fcf0281f))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check pool_ceiling is FIVE_MILLION_DEC18' ([ba9fe5c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ba9fe5c18f7391edb9f5508860ad8e650d7d75c4))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check USDC_address is sampleERC20 ([b2f7d5b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b2f7d5bc66cb8b34789281e9c0a38d77b769fcd6))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: check css_contract_address & collateral ([df758b9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/df758b9f56b543a1ecd73ecdc9e05cf5e968153b))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: Pool_USDC.owner_address & timelock_address ([c6388ff](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c6388ff026f0265ea514b11baf3a694e8dc1d2e1))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRITPS]: 'check missing_decimals is 0' ([e6cc626](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e6cc6265a3bed5d6becfd54d10ebbbfa1d09fd84))
+
+
+### Styling
+
+* **contracts/ceres/pools/cerespool.sol:** [FORMATTING]: MOVE CODE IN constructor() ([f11922e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f11922ea0706811946379aad2fdfd7797c0482ea))
+
 ### [1.10.2](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.1...v1.10.2) (2021-07-11)
 
 

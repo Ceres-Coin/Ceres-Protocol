@@ -138,4 +138,16 @@ contract('CERES.sol', async (accounts) => {
         await instanceCERES.setTimelock(OWNER,{from: TEST_ACCOUNT});
         expect(await instanceCERES.timelock_address.call()).to.equal(OWNER);
     });
+
+    it('check ceres.setOwner()', async () => {
+        // BEFORE
+        expect(await instanceCERES.owner_address.call()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await instanceCERES.setOwner(TEST_ACCOUNT,{from: OWNER});
+        expect(await instanceCERES.owner_address.call()).to.equal(TEST_ACCOUNT);
+
+        // ROLLBACK CODE
+        await instanceCERES.setOwner(OWNER,{from: TEST_ACCOUNT});
+        expect(await instanceCERES.owner_address.call()).to.equal(OWNER);
+    });
 });

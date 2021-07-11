@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.2](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.1...v1.10.2) (2021-07-11)
+
+
+### Tests
+
+* **test/ceres_pool_usdc.test.js;package.json:** [CREATED][TEST SCRIPTS]: new scripts for pool_usdc ([27746c0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/27746c0117222179dc5934d4e84964f1f0c5268d))
+
 ### [1.10.1](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.0...v1.10.1) (2021-07-11)
 
 

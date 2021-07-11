@@ -47,4 +47,12 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC.collateral_address.call()).to.equal(instanceSampleERC20.address);
     });
 
+    it('check instance_Pool_USDC.owner_address is OWNER" ', async () => {
+        expect(await instance_Pool_USDC.owner_address.call()).to.equal(OWNER);
+    });
+
+    it('check instance_Pool_USDC.timelock_address is OWNER" ', async () => {
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
+    });
+
 });

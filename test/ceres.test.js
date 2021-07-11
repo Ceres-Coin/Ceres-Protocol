@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 const BN = BigNumber.clone({ DECIMAL_PLACES: 9 })
 const chalk = require('chalk');
 const { assert, expect,chai} = require('chai');
+const { expectEvent, send, shouldFail, time, constants, balance} = require('@openzeppelin/test-helpers');
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
@@ -102,5 +103,9 @@ contract('CERES.sol', async (accounts) => {
         // uncomment below code for revert error
         // uncomment below code for revert error
         // await instanceCERES.pool_mint(account3,100,{from: ADMIN});
+    });
+
+    it('check ceres.controller_address, its default value is ZERO_ADDRESS ', async () => {
+        expect(await instanceCERES.controller_address.call()).to.equal(constants.ZERO_ADDRESS);
     });
 });

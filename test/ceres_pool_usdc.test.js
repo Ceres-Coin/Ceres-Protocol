@@ -10,6 +10,7 @@ const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ERC20 = artifacts.require("ERC20");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
+const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
 contract('CeresPool', async (accounts) => {
 
@@ -53,6 +54,10 @@ contract('CeresPool', async (accounts) => {
 
     it('check instance_Pool_USDC.timelock_address is OWNER" ', async () => {
         expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
+    });
+
+    it('check instance_Pool_USDC.pool_ceiling is FIVE_MILLION_DEC18', async() => {
+        expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(FIVE_MILLION_DEC18));
     });
 
 });

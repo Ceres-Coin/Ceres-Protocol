@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.1](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.0...v1.10.1) (2021-07-11)
+
+
+### Bug Fixes
+
+* **contracts/erc20/erc20.sol:** [MODIFY][CONTRACT]: ADD INITIAL AMOUNT FOR ERC20 = 100 MILLIONS ([799b3db](https://github.com/Ceres-Coin/Ceres-Protocol/commit/799b3dbd291cb91a12fb734a177741ec164578a6))
+* **migrations/2_deploy_contracts.js:** [ADD][DEPLOYMENT SCRIPTS]: ADD NEW DEPLOYMENT OF Pool_USDC ([7312848](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7312848fe18fee470713215a237381b6136c9a25))
+
+
+### Styling
+
+* **migrations/2_deploy_contracts.js:** [formatting] ([83c246c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/83c246cb8268224620c6132d87b939cfd74875f8))
+
 ## [1.10.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.9.0...v1.10.0) (2021-07-11)
 
 

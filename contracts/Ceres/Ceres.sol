@@ -97,14 +97,15 @@ contract CEREStable is ERC20Custom, AccessControl {
     }
 
     /* ========== RESTRICTED FUNCTIONS PART II (ROLE)========== */
+    // TEST CASE DONE
     function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
         owner_address = _owner_address;
     }
-
+    // TEST CASE DONE
     function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
         timelock_address = new_timelock;
     }
-
+    // TEST CASE DONE
     function setController(address _controller_address) external onlyByOwnerOrGovernance {
         controller_address = _controller_address;
     }

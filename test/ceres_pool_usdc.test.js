@@ -7,6 +7,7 @@ const { expectEvent, send, shouldFail, time, constants, balance} = require('@ope
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
+const ERC20 = artifacts.require("ERC20");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 
@@ -23,9 +24,15 @@ contract('CeresPool', async (accounts) => {
     let instanceCERES;
     let instance_Pool_USDC;
     beforeEach(async() => {
+        instanceSampleERC20 = await ERC20.deployed();
         instanceCSS = await CEREShares.deployed();
         instanceCERES = await CEREStable.deployed();
         instance_Pool_USDC = await Pool_USDC.deployed();
     });
-        
+
+    it('check instance_Pool_USDC.USDC_address is sampleERC20" ', async () => {
+        // console.log(chalk.yellow(`USDC_address: ${await instance_Pool_USDC.USDC_address.call()}`));
+        expect(await instance_Pool_USDC.USDC_address.call()).to.equal(instanceSampleERC20.address);
+    });
+
 });

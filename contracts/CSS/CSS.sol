@@ -56,18 +56,19 @@ contract CEREShares is ERC20Custom, AccessControl {
     }
 
     /* ========== RESTRICTED FUNCTIONS ========== */
+    //TEST CASE DONE
     function setOracle(address new_oracle) external onlyByOwnerOrGovernance {
         oracle_address = new_oracle;
     }
-
+    //TEST CASE DONE
     function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
         owner_address = _owner_address;
     }
-
+    //TEST CASE DONE
     function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
         timelock_address = new_timelock;
     }
-    
+    //TEST CASE DONE
     function setCERESAddress(address ceres_contract_address) external onlyByOwnerOrGovernance {
         CERES = CEREStable(ceres_contract_address);
     }

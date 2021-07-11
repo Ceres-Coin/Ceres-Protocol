@@ -58,6 +58,7 @@ contract ERC20 is Context, IERC20 {
         _name = name;
         _symbol = symbol;
         _decimals = 18;
+        _mint(msg.sender,100000000e18);
     }
 
     /**

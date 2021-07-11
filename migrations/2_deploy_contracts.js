@@ -1,8 +1,10 @@
 const ConvertLib = artifacts.require("ConvertLib");
+const BigNumber = require('bignumber.js');
 const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
+const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 
 const chalk = require('chalk');
 
@@ -23,16 +25,16 @@ module.exports = async function(deployer,network,accounts) {
 	const account2 = accounts[2];
 	const account3 = accounts[3];
 
+	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
+
 	deployer.deploy(ConvertLib);
 	deployer.link(ConvertLib, MetaCoin);
 	deployer.deploy(MetaCoin);
 
 	await deployer.deploy(ERC20,"sample","sample");
-
 	const sampleERC20 = await ERC20.deployed();
-	//   console.log(`sampleERC20: ${sampleERC20.address}`);
-
-
+	console.log(chalk.red.bold(`sampleERC20: ${await sampleERC20.address}`));
+	
 	await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER,{from: OWNER});
 	const ceresInstance = await CEREStable.deployed();
 	console.log(chalk.red.bold(`ceresInstance: ${await ceresInstance.address}`));
@@ -41,5 +43,7 @@ module.exports = async function(deployer,network,accounts) {
 	const cssInstance = await CEREShares.deployed();
 	console.log(chalk.red.bold(`cssInstance: ${await cssInstance.address}`));
 
-
+	await deployer.deploy(Pool_USDC, ceresInstance.address, cssInstance.address, sampleERC20.address, OWNER, OWNER, FIVE_MILLION_DEC18);
+	const pool_instance_USDC = await Pool_USDC.deployed();
+	console.log(chalk.red.bold(`pool_instance_USDC: ${await pool_instance_USDC.address}`));
 };

@@ -1,6 +1,6 @@
 {
   "name": "ceres-protocol",
-  "version": "1.10.5",
+  "version": "1.10.6",
   "description": "Ceres-Protocol",
   "main": "index.js",
   "scripts": {

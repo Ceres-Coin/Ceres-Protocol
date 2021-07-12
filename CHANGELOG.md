@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.6](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.5...v1.10.6) (2021-07-12)
+
+
+### Bug Fixes
+
+* **contracts/ceres/pools/cerespool.sol:** [ADD][FUNC]: ADD NEW PUBLIC FUNC "setPoolParameters" ([f3ef2d6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f3ef2d6d79e64dacf4704ca243734d096490c8b2))
+* **contracts/ceres/pools/cerespool.sol:** [ADD][FUNC]: ADD TWO PUBLIC FUNC (setTimelock;setOwner) ([d752ca1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d752ca16137589c71b0baccf060bc262b53c6157))
+
+
+### Tests
+
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.setOwner() func' ([94218b7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/94218b705710aba97f01ed6159d89cc0718fc405))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.setPoolParameters()' ([4988134](https://github.com/Ceres-Coin/Ceres-Protocol/commit/49881348576002eaf123d7a93bdfa0d56fca9662))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.setTimelock() func' ([3c7501a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3c7501a65b32a258e5d784d9ce06990d2276acef))
+
+
+### Styling
+
+* **contracts/ceres/pools/cerespool.sol:** [MOVE][CODE] ([a96c857](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a96c857a36e47e17422dde90a520e7cf3572fbac))
+* **test/ceres_pool_usdc.test.js:** [MOVE][CODE] ([84ddfb0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/84ddfb05b7aed469ae73f364b1144a96ba35d600))
+
 ### [1.10.5](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.4...v1.10.5) (2021-07-12)
 
 

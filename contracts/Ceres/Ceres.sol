@@ -45,7 +45,7 @@ contract CEREStable is ERC20Custom, AccessControl {
     ChainlinkETHUSDPriceConsumer public eth_usd_pricer; //test case done
 
     // CONSTANTS
-    uint256 public constant PRICE_PRECISION = 1e6; 
+    uint256 public constant PRICE_PRECISION = 1e6; //TODO: ADD TEST SCRIPTS
 
     address public ceres_eth_oracle_address; //TODO: ADD TEST SCRIPTS
     UniswapPairOracle public CeresEthOracle; //TODO: ADD TEST SCRIPTS
@@ -78,7 +78,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         _;
     }
     /* ========== PUBLIC FUNCTIONS PART I (FUNC)========== */
-
+    // TEST CASE DONE
     function getCeresEthOracle_consult() public view returns (uint256) {
         uint256 consult = CeresEthOracle.consult(weth_address, PRICE_PRECISION);
         return consult;
@@ -135,16 +135,12 @@ contract CEREStable is ERC20Custom, AccessControl {
         eth_usd_pricer = ChainlinkETHUSDPriceConsumer(eth_usd_consumer_address);
         eth_usd_pricer_decimals = eth_usd_pricer.getDecimals();
     }
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function setCeresEthOracle(address _ceres_oracle_addr, address _weth_address) public onlyByOwnerOrGovernance {
         ceres_eth_oracle_address = _ceres_oracle_addr;
         CeresEthOracle = UniswapPairOracle(_ceres_oracle_addr); 
         weth_address = _weth_address;
     }
-
-    
-
-
 
     /* ========== EVENTS ========== */
 

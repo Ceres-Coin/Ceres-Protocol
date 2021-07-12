@@ -175,5 +175,5 @@ contract('CERES.sol', async (accounts) => {
     it ('check ceres.getCeresEthOracle_consult(), its default value is SIX_HUNDRED_DEC6', async() => {
         const expected_value = parseFloat(SIX_HUNDRED_DEC6);
         expect(parseFloat(await instanceCERES.getCeresEthOracle_consult())).to.equal(expected_value);
-    })
+    });
 });

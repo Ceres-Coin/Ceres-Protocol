@@ -13,14 +13,20 @@ const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
 contract('CeresPool', async (accounts) => {
-
     // set the deploy address
-	const OWNER = accounts[0];
-	const ADMIN = accounts[1];
 	const account0 = accounts[0];
 	const account1 = accounts[1];
 	const account2 = accounts[2];
 	const account3 = accounts[3];
+    const account4 = accounts[4];
+    const account5 = accounts[5];
+    const account6 = accounts[6];
+    const account7 = accounts[7];
+
+    const OWNER = account0;
+	const ADMIN = account1;
+    const TEST_ACCOUNT = account7;
+
     let instanceCSS;
     let instanceCERES;
     let instance_Pool_USDC;
@@ -115,6 +121,18 @@ contract('CeresPool', async (accounts) => {
     it('check Pool_USDC.CSS.totalSupply() = ONE_HUNDRED_MILLION_DEC18', async() => {
         const value = parseFloat(ONE_HUNDRED_MILLION_DEC18);
         expect(parseFloat(await instance_Pool_USDC_CSS.totalSupply.call())).to.equal(value);
+    });
+
+    it('check Pool_USDC.setTimelock() func', async() => {
+        // BEFORE
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.setTimelock(TEST_ACCOUNT,{from: OWNER});
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(TEST_ACCOUNT);
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.setTimelock(OWNER,{from: OWNER});
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
     });
 
 

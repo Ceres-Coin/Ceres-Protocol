@@ -94,4 +94,6 @@ module.exports = async function(deployer,network,accounts) {
 
 	const oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
 	await oracle_instance_CERES_WETH.update({from: OWNER});
+
+	ceresInstance.setCeresEthOracle(oracle_instance_CERES_WETH.address, wethInstance.address, { from: OWNER });
 };

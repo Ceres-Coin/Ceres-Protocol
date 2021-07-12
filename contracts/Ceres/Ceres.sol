@@ -10,6 +10,7 @@ import "../ERC20/ERC20.sol";
 import "../Math/SafeMath.sol";
 import "../Governance/AccessControl.sol";
 import "../Oracle/ChainlinkETHUSDPriceConsumer.sol";
+import "../Oracle/UniswapPairOracle.sol";
 
 
 
@@ -42,6 +43,10 @@ contract CEREStable is ERC20Custom, AccessControl {
     address public eth_usd_consumer_address; //test case done
     uint8 public eth_usd_pricer_decimals;  //test case done
     ChainlinkETHUSDPriceConsumer public eth_usd_pricer; //test case done
+
+    address public ceres_eth_oracle_address; //TODO: ADD TEST SCRIPTS
+    UniswapPairOracle public CeresEthOracle; //TODO: ADD TEST SCRIPTS
+    address public weth_address; //TODO: ADD TEST SCRIPTS
 
     constructor(
         string memory _name,
@@ -120,6 +125,12 @@ contract CEREStable is ERC20Custom, AccessControl {
         eth_usd_consumer_address = _eth_usd_consumer_address;
         eth_usd_pricer = ChainlinkETHUSDPriceConsumer(eth_usd_consumer_address);
         eth_usd_pricer_decimals = eth_usd_pricer.getDecimals();
+    }
+    // TODO: ADD TEST SCRIPTS
+    function setCeresEthOracle(address _ceres_oracle_addr, address _weth_address) public onlyByOwnerOrGovernance {
+        ceres_eth_oracle_address = _ceres_oracle_addr;
+        CeresEthOracle = UniswapPairOracle(_ceres_oracle_addr); 
+        weth_address = _weth_address;
     }
 
 

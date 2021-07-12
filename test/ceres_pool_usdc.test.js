@@ -123,18 +123,6 @@ contract('CeresPool', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC_CSS.totalSupply.call())).to.equal(value);
     });
 
-    it('check Pool_USDC.setTimelock() func', async() => {
-        // BEFORE
-        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
-        // ACTION & ASSERTION
-        await instance_Pool_USDC.setTimelock(TEST_ACCOUNT,{from: OWNER});
-        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(TEST_ACCOUNT);
-
-        // ROLLBACK CODE
-        await instance_Pool_USDC.setTimelock(OWNER,{from: OWNER});
-        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
-    });
-
     it('check Pool_USDC.setOwner() func', async() => {
         // BEFORE
         expect(await instance_Pool_USDC.owner_address.call()).to.equal(OWNER);
@@ -145,6 +133,18 @@ contract('CeresPool', async (accounts) => {
         // ROLLBACK CODE
         await instance_Pool_USDC.setOwner(OWNER,{from: OWNER});
         expect(await instance_Pool_USDC.owner_address.call()).to.equal(OWNER);
+    });
+
+    it('check Pool_USDC.setTimelock() func', async() => {
+        // BEFORE
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.setTimelock(TEST_ACCOUNT,{from: OWNER});
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(TEST_ACCOUNT);
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.setTimelock(OWNER,{from: OWNER});
+        expect(await instance_Pool_USDC.timelock_address.call()).to.equal(OWNER);
     });
 
     it('check Pool_USDC.setPoolParameters() func', async() => {

@@ -102,5 +102,10 @@ contract('CeresPool', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC_CERES.totalSupply.call())).to.equal(value);
     });
 
+    it('check Pool_USDC.CSS.name() = CERES Share', async() => {
+        const value = "CERES Share"
+        expect(await instance_Pool_USDC_CSS.name.call()).to.equal(value);
+    });
+
 
 });

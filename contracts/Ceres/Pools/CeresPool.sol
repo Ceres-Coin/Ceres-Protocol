@@ -63,7 +63,19 @@ contract CeresPool is AccessControl {
         missing_decimals = uint(18).sub(collateral_token.decimals());
     }
 
-    // TODO: ADD RESTRICTED FUNC FIRST
+    // ADD RESTRICTED FUNC FIRST
+    /* ========== RESTRICTED FUNCTIONS ========== */
+    function setPoolParameters(uint256 new_ceiling) external onlyByOwnerOrGovernance {
+        pool_ceiling = new_ceiling;
+    }
 
+    // [FUNC][setTimelock] test scripts
+    function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
+        timelock_address = new_timelock;
+    }
 
+    // [FUNC][setOwner]
+    function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
+        owner_address = _owner_address;
+    }
 }

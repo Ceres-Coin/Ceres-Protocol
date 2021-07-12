@@ -34,6 +34,7 @@ module.exports = async function(deployer,network,accounts) {
 	const account3 = accounts[3];
 
 	let wethInstance;
+	let uniswapFactoryInstance;
 
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
@@ -43,6 +44,7 @@ module.exports = async function(deployer,network,accounts) {
 		console.log(chalk.red.bold(`wethInstance: ${await wethInstance.address}`));
 
 		await deployer.deploy(UniswapV2Factory, DUMP_ADDRESS);
+		uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
 	}
 	
 

@@ -10,6 +10,7 @@ const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHU
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
+const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
 
@@ -35,10 +36,13 @@ module.exports = async function(deployer,network,accounts) {
 	const account2 = accounts[2];
 	const account3 = accounts[3];
 
+
 	let wethInstance;
 	let uniswapFactoryInstance;
 	let routerInstance;
 	let swapToPriceInstance;
+	const ceresInstance = await CEREStable.deployed();
+	const cssInstance = await CEREShares.deployed();
 
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
@@ -56,4 +60,7 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(SwapToPrice, uniswapFactoryInstance.address, routerInstance.address);
 	swapToPriceInstance = await SwapToPrice.deployed();
 
+	await uniswapFactoryInstance.createPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+	const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+	const pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
 };

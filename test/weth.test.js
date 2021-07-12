@@ -30,6 +30,7 @@ contract('CERES.sol', async (accounts) => {
     const OWNER = account0;
 	const ADMIN = account1;
     const TEST_ACCOUNT = account7;
+
     let instanceCERES;
     let wethInstance;
 
@@ -54,8 +55,24 @@ contract('CERES.sol', async (accounts) => {
     });
 
     it ('check wethInstance.balanceOf(OWNER).call(), its default value is 999999E18', async() => {
-        const expected_value = new BigNumber("999999e18");
-        expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value));
+        const expected_value_owner = new BigNumber("999999e18");
+        expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value_owner));
+    });
+
+    it ('check weth.transfer(test_account, 1dec18)',async() => {
+        // before
+        const expected_value_owner = new BigNumber("999999e18");
+        expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value_owner));
+        const expected_value_test_account = 0;
+        expect(parseFloat(await wethInstance.balanceOf(TEST_ACCOUNT))).to.equal(parseFloat(expected_value_test_account));
+        // ACTION & ASSERTION
+        await wethInstance.transfer(TEST_ACCOUNT,BIG18,{from: OWNER});
+        const expected_value_test_account_AFTER = BIG18;
+        expect(parseFloat(await wethInstance.balanceOf(TEST_ACCOUNT))).to.equal(parseFloat(expected_value_test_account_AFTER));
+
+        // ROLLBACK CODE
+        await wethInstance.transfer(OWNER,BIG18,{from: TEST_ACCOUNT});
+        expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value_owner));
     });
 
     

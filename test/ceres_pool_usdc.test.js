@@ -24,11 +24,16 @@ contract('CeresPool', async (accounts) => {
     let instanceCSS;
     let instanceCERES;
     let instance_Pool_USDC;
+    let instance_Pool_USDC_collateral_token;
     beforeEach(async() => {
         instanceSampleERC20 = await ERC20.deployed();
         instanceCSS = await CEREShares.deployed();
         instanceCERES = await CEREStable.deployed();
         instance_Pool_USDC = await Pool_USDC.deployed();
+
+        instance_Pool_USDC_collateral_token = await ERC20.at(await instance_Pool_USDC.collateral_token());
+        instance_Pool_USDC_CERES = await CEREStable.at(await instance_Pool_USDC.CERES());
+        instance_Pool_USDC_CSS = await CEREShares.at(await instance_Pool_USDC.CSS());
     });
 
     it('check instance_Pool_USDC.USDC_address is instanceSampleERC20.address" ', async () => {
@@ -62,6 +67,14 @@ contract('CeresPool', async (accounts) => {
 
     it('check instance_Pool_USDC.missing_decimals is 0', async() => {
         expect(parseFloat(await instance_Pool_USDC.missing_decimals())).to.equal(0);
+    });
+
+    it('check instance_Pool_USDC_collateral_token.name() = sample', async() => {
+        // console.log(chalk.blue(`instance_Pool_USDC_collateral_token: ${instance_Pool_USDC_collateral_token.address}`));
+        // console.log(chalk.blue(`instance_Pool_USDC_CERES: ${instance_Pool_USDC_CERES.address}`));
+        // console.log(chalk.blue(`instance_Pool_USDC_CSS: ${instance_Pool_USDC_CSS.address}`));
+        const name_value = "sample"
+        expect(await instance_Pool_USDC_collateral_token.name.call()).to.equal(name_value);
     });
 
 });

@@ -48,5 +48,10 @@ contract('CERES.sol', async (accounts) => {
         expect(await wethInstance.symbol.call()).to.equal(expected_value);
     });
 
+    it ('check wethInstance.decimals.call(), its value is "WETH"', async() => {
+        const expected_value = 18;
+        expect(parseFloat(await wethInstance.decimals.call())).to.equal(expected_value);
+    });
+
     
 });

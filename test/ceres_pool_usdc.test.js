@@ -69,7 +69,7 @@ contract('CeresPool', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.missing_decimals())).to.equal(0);
     });
 
-    it('check instance_Pool_USDC_collateral_token.name() = sample', async() => {
+    it('check collateral_token.name() = sample', async() => {
         // console.log(chalk.blue(`instance_Pool_USDC_collateral_token: ${instance_Pool_USDC_collateral_token.address}`));
         // console.log(chalk.blue(`instance_Pool_USDC_CERES: ${instance_Pool_USDC_CERES.address}`));
         // console.log(chalk.blue(`instance_Pool_USDC_CSS: ${instance_Pool_USDC_CSS.address}`));
@@ -80,6 +80,11 @@ contract('CeresPool', async (accounts) => {
     it('check collateral_token.symbol() = "sample"', async() => {
         const value = "sample"
         expect(await instance_Pool_USDC_collateral_token.symbol.call()).to.equal(value);
+    });
+
+    it('check collateral_token.totalSupply() = ONE_HUNDRED_MILLION', async() => {
+        const value = parseFloat(ONE_HUNDRED_MILLION_DEC18);
+        expect(parseFloat(await instance_Pool_USDC_collateral_token.totalSupply.call())).to.equal(value);
     });
 
 });

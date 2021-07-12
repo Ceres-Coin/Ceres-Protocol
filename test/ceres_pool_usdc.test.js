@@ -87,4 +87,9 @@ contract('CeresPool', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC_collateral_token.totalSupply.call())).to.equal(value);
     });
 
+    it('check Pool_USDC.CERES.name() = CERES', async() => {
+        const value = "CERES"
+        expect(await instance_Pool_USDC_CERES.name.call()).to.equal(value);
+    });
+
 });

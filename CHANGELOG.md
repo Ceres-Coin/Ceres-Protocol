@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.11.1...v1.12.0) (2021-07-12)
+
+
+### Features
+
+* **contracts/ceres/ceres.sol:** [ADDED][FUNC]: ADD setCeresEthOracle() IN contracts/Ceres/Ceres.sol ([531e6f2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/531e6f2556e312ca98ef72d5d129f922a445d238))
+* **contracts/erc20/weth.sol & contracts/erc20/iweth.sol:** [CREATED][CONTRACTS]: weth.sol & iweth ([8471c5a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8471c5ab84d4b49699a5f857304532ee0fb1bde9))
+* **contracts/oracle/variants/uniswappairoracle_ceres_weth.sol:** [CREATED][CONTRACT]:CERES_WETH.sol ([e5d94ac](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e5d94ac1fca44013959ef91e769fefcda4986125))
+* **contracts/uniswap/:** [CREATED][CONTRACTS]: CREATED 7 NEW CONTRACTS FILE ([8e90d83](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8e90d83eb3f9c2804a9e78d53d27ab572a448b69))
+* **contracts/uniswap/swaptoprice.sol:** [CREATED][CONTRACTS]: contracts/Uniswap/SwapToPrice.sol ([47b92a0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/47b92a0b1139c8e57f89fbd7c7972ab4a216c0c7))
+* **contracts/uniswap/uniswapv2router02_modified.sol:** [CREATED][CONTRACTS]: ADDED 4 NEW CONTRACTS ([b88034d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b88034da441a9f2797954a1f81a585f34e8fa721))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADD WETH.SOL deploy ([b094efe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b094efe326f97751b1e14dce77e8a24204dfb6d5))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED "SwapToPrice" ([8fc3bbe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8fc3bbec9677c69f83921cfeb53b2516c0ebf11f))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: CERES_WETH.update ([6cc29ac](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6cc29acc88ccd9c42ca9c4cbe0d15ca9f2218c39))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: router.addLiquidity ([60d9b66](https://github.com/Ceres-Coin/Ceres-Protocol/commit/60d9b664a935dd07639dc4efcafde124717619b1))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: UniswapV2Factory ([6ae5c3f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6ae5c3f4d70d84d51ea4e4fe7472b39521d7ae24))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]:unisFactory.createPair ([8b02fbd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8b02fbda71b8cec5cbcc3e61c093c2419acb1a4e))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT]: UniswapV2Router02_Modified ([fcec7f5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fcec7f5597d02ea5430a83ef2eb2f6bb60a0749f))
+
+
+### Bug Fixes
+
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: Oracle_CERES_WETH ([7497afe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7497afee81a05354e9bb529ea495cc8b1a868674))
+
+
+### Tests
+
+* **test/ceres.test.js:** [MODIFIED][TEST SCRIPTS]: eth_usd_pricer.getDecimals() & getlatestprice() ([e15cc70](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e15cc702fd148caeb59c7c3f9ee529075cd20d5c))
+* **test/ceres.test.js:** [TUNING][TEST CASES]: ceres.balanceOf(creator_address) = ONE_MILLION_DEC18 ([1ff0f7f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1ff0f7fa5c7fc612c4123fce65f5ea2e8811a820))
+
 ### [1.11.1](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.11.0...v1.11.1) (2021-07-12)
 
 

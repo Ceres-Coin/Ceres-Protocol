@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.4](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.3...v1.10.4) (2021-07-12)
+
+
+### Others
+
+* **contracts/ceres/pools/cerespool.sol:** [ADD][COMMENTS]: ADD COMMENTS IN "CeresPool.sol" & TODO ([831b45f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/831b45f1297912e5baabbf36420b2ecc8d149f2f))
+* **contracts/ceres/pools/cerespool.sol:** [ADD][COMMENTS]: UPDATE COMMENTS IN CeresPool.sol ([e3a1b93](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e3a1b93668a21adff1ea94a1f7ad49e968bb2766))
+
+
+### Tests
+
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check collateral_token.symbol() = sample' ([97ee105](https://github.com/Ceres-Coin/Ceres-Protocol/commit/97ee105971ac547394a7a05b0a02fc312518468e))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check collateral_token.totalSupply() ([786cc16](https://github.com/Ceres-Coin/Ceres-Protocol/commit/786cc166e5447a1a0b88642a07cf6fdf2d3be71d))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.CERES.name()' ([4775c71](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4775c71af3d199b7781f3fec3c36b2dee33fe0d2))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.CERES.symbol()' ([d3593c0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d3593c09ecd10546d9d15e911beb5646176d0fb2))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.CERES.totalSupply()' ([9bad1c7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9bad1c7a3c9b5bc0ccd0846867c1174f99cbaff0))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'collateral_token.name() = sample' ([af480dd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/af480dd5135641d33e58b5106f6c7cf5a0fe53b0))
+
 ### [1.10.3](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.2...v1.10.3) (2021-07-11)
 
 

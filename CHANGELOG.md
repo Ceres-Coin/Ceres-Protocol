@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.10.5](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.4...v1.10.5) (2021-07-12)
+
+
+### Tests
+
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.CSS.name()' ([fecfd8d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fecfd8d61d15eda53c2478154b06a802f5a51d0c))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.CSS.symbol()' ([a08536b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a08536bad496e8299ef3289c66768b947cf56f44))
+* **test/ceres_pool_usdc.test.js:** [ADD][TEST SCRIPTS]: 'check Pool_USDC.CSS.totalSupply()' ([85bf6df](https://github.com/Ceres-Coin/Ceres-Protocol/commit/85bf6dffea90c93b72f7e34561f01b4ad602638d))
+
+
+### Others
+
+* **contracts/ceres/pools/cerespool.sol:** [ADD][COMMENTS]: REMOVE TODO & ADD "TEST CASE DONE" ([7e8470b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7e8470b2daab42482ea95801d960fb936d8a1528))
+
 ### [1.10.4](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.3...v1.10.4) (2021-07-12)
 
 

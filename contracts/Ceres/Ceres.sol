@@ -39,10 +39,13 @@ contract CEREStable is ERC20Custom, AccessControl {
     mapping(address => bool) public ceres_pools; //test case done
     address[] public ceres_pools_array; //test case done
 
-    // ADD TEST SCRIPTS
+    // TEST CASE DONE
     address public eth_usd_consumer_address; //test case done
     uint8 public eth_usd_pricer_decimals;  //test case done
     ChainlinkETHUSDPriceConsumer public eth_usd_pricer; //test case done
+
+    // CONSTANTS
+    uint256 public constant PRICE_PRECISION = 1e6; 
 
     address public ceres_eth_oracle_address; //TODO: ADD TEST SCRIPTS
     UniswapPairOracle public CeresEthOracle; //TODO: ADD TEST SCRIPTS
@@ -73,6 +76,12 @@ contract CEREStable is ERC20Custom, AccessControl {
     modifier onlyByOwnerOrGovernance() {
         require(msg.sender == owner_address || msg.sender == timelock_address || msg.sender == controller_address, "You are not the owner, controller, or the governance timelock");
         _;
+    }
+    /* ========== PUBLIC FUNCTIONS PART I (FUNC)========== */
+
+    function getCeresEthOracle_consult() public view returns (uint256) {
+        uint256 consult = CeresEthOracle.consult(weth_address, PRICE_PRECISION);
+        return consult;
     }
 
     /* ========== RESTRICTED FUNCTIONS PART I (FUNC)========== */
@@ -132,6 +141,8 @@ contract CEREStable is ERC20Custom, AccessControl {
         CeresEthOracle = UniswapPairOracle(_ceres_oracle_addr); 
         weth_address = _weth_address;
     }
+
+    
 
 
 

@@ -88,4 +88,10 @@ module.exports = async function(deployer,network,accounts) {
 	);
 
 	await deployer.deploy(UniswapPairOracle_CERES_WETH, uniswapFactoryInstance.address, ceresInstance.address, wethInstance.address, OWNER, OWNER);
+
+	await time.increase(86400 + 1);
+	await time.advanceBlock();
+
+	const oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
+	await oracle_instance_CERES_WETH.update({from: OWNER});
 };

@@ -16,8 +16,8 @@ contract CeresPool is AccessControl {
     /* ========== STATE VARIABLES ========== */
  
     ERC20 public collateral_token; //TEST CASE DONE
-    CEREShares public CSS; //TODO: ADD TEST SCRIPTS
-    CEREStable public CERES; //TODO: ADD TEST SCRIPTS
+    CEREShares public CSS; //TEST CASE DONE
+    CEREStable public CERES; //TEST CASE DONE
     address public collateral_address; //TEST CASE DONE
     address public owner_address; //TEST CASE DONE
 

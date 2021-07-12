@@ -5,6 +5,8 @@ const { assert, expect,chai} = require('chai');
 const { expectEvent, send, shouldFail, time, constants, balance} = require('@openzeppelin/test-helpers');
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
+const WETH = artifacts.require("ERC20/WETH");
+
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
@@ -28,10 +30,13 @@ contract('CERES.sol', async (accounts) => {
     const TEST_ACCOUNT = account7;
     let instanceCERES;
     let instanceOracle_chainlink_ETH_USD
+    let wethInstance;
     beforeEach(async() => {
         instanceCERES = await CEREStable.deployed();
         instanceOracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
         instance_CERES_eth_usd_pricer = await ChainlinkETHUSDPriceConsumerTest.at(await instanceCERES.eth_usd_pricer());
+
+        wethInstance = await WETH.deployed();
     });
 
     it('check CERES name = "CERES" ', async () => {
@@ -182,5 +187,11 @@ contract('CERES.sol', async (accounts) => {
     it ('check ceres.PRICE_PRECISION(), its default value is BIG6', async() => {
         const expected_value = BIG6;
         expect(parseFloat(await instanceCERES.PRICE_PRECISION.call())).to.equal(parseFloat(expected_value));
-    })
+    });
+
+    it ('check ceres.weth_address(), its default value is wethInstance.address', async() => {
+        const expected_value = await wethInstance.address;
+        // console.log(chalk.blue(`expected_value: ${expected_value}`));
+        expect(await instanceCERES.weth_address.call()).to.equal(expected_value);
+    });
 });

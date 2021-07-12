@@ -6,6 +6,8 @@ const { expectEvent, send, shouldFail, time, constants, balance} = require('@ope
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
+const BIG6 = new BigNumber("1e6");
+const BIG18 = new BigNumber("1e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 
@@ -176,4 +178,9 @@ contract('CERES.sol', async (accounts) => {
         const expected_value = parseFloat(SIX_HUNDRED_DEC6);
         expect(parseFloat(await instanceCERES.getCeresEthOracle_consult())).to.equal(expected_value);
     });
+
+    it ('check ceres.PRICE_PRECISION(), its default value is BIG6', async() => {
+        const expected_value = BIG6;
+        expect(parseFloat(await instanceCERES.PRICE_PRECISION.call())).to.equal(parseFloat(expected_value));
+    })
 });

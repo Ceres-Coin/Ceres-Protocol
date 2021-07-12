@@ -15,20 +15,21 @@ contract CeresPool is AccessControl {
 
     /* ========== STATE VARIABLES ========== */
  
-    ERC20 public collateral_token; //TEST CASE DONE
+    ERC20 public collateral_token; //TODO: ADD TEST SCRIPTS
+    CEREShares public CSS; //TODO: ADD TEST SCRIPTS
+    CEREStable public CERES; //TODO: ADD TEST SCRIPTS
     address public collateral_address; //TEST CASE DONE
     address public owner_address; //TEST CASE DONE
 
-    address public ceres_contract_address; 
-    address public css_contract_address; 
-    address public timelock_address; 
-    CEREShares public CSS; 
-    CEREStable public CERES; 
+    address public ceres_contract_address; //TEST CASE DONE
+    address public css_contract_address; //TEST CASE DONE
+    address public timelock_address; //TEST CASE DONE
+
 
     // Number of decimals needed to get to 18
-    uint256 public immutable missing_decimals; 
+    uint256 public immutable missing_decimals; //TEST CASE DONE
     // Pool_ceiling is the total units of collateral that a pool contract can hold
-    uint256 public pool_ceiling = 0; 
+    uint256 public pool_ceiling = 0; //TEST CASE DONE
 
 
 
@@ -40,7 +41,7 @@ contract CeresPool is AccessControl {
     }
  
     /* ========== CONSTRUCTOR ========== */
-    
+    //TEST CASE DONE
     constructor(
         address _ceres_contract_address,
         address _css_contract_address,
@@ -61,6 +62,8 @@ contract CeresPool is AccessControl {
         pool_ceiling = _pool_ceiling;        
         missing_decimals = uint(18).sub(collateral_token.decimals());
     }
+
+    // TODO: ADD RESTRICTED FUNC FIRST
 
 
 }

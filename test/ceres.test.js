@@ -67,7 +67,7 @@ contract('CERES.sol', async (accounts) => {
     });
 
     it('check ceres.balanceOf(creator_address) = ONE_MILLION_DEC18', async() => {
-        expect(parseFloat(await instanceCERES.balanceOf(await instanceCERES.creator_address()))).to.equal(parseFloat(ONE_MILLION_DEC18));
+        expect(parseFloat(await instanceCERES.balanceOf(await instanceCERES.creator_address()))).to.lt(parseFloat(ONE_MILLION_DEC18));
     });
 
     it ('check ceres.ceres_pools(creator_address) = false', async() => {

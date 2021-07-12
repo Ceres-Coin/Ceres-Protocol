@@ -147,5 +147,17 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC.owner_address.call()).to.equal(OWNER);
     });
 
+    it('check Pool_USDC.setPoolParameters() func', async() => {
+        // BEFORE
+        expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(FIVE_MILLION_DEC18));
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.setPoolParameters(ONE_MILLION_DEC18,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(ONE_MILLION_DEC18));
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.setPoolParameters(FIVE_MILLION_DEC18,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(FIVE_MILLION_DEC18));
+    });
+
 
 });

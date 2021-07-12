@@ -92,4 +92,10 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC_CERES.name.call()).to.equal(value);
     });
 
+    it('check Pool_USDC.CERES.symbol() = CERES', async() => {
+        const value = "CERES"
+        expect(await instance_Pool_USDC_CERES.symbol.call()).to.equal(value);
+    });
+
+
 });

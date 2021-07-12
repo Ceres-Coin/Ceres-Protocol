@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.6...v1.11.0) (2021-07-12)
+
+
+### Features
+
+* **contracts/ceres/ceres.sol:** [ADD][NEW FUNC]: ADD "setETHUSDOracle" public func in ceres.sol ([a0b4ce1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a0b4ce1ffdad222a3f858d7f1748b84438f3e0ec))
+* **migrations/2_deploy_contracts.js:** [ADDED][DEPLOYMENT]:ADD deploy CODE IN 2_deploy_contracts.js ([09fcc7b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/09fcc7bd492353178eef5253992dcb296520ce06))
+* **oracle/aggregatorv3interface.sol:** [CREATED][NEW FILE]: AggregatorV3Interface.sol ([f8f9f92](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f8f9f92ddba069483b644045322403785d3dbb33))
+* **oracle/chainlinkethusdpriceconsumertest.sol:** [CREATED][CONTRACTS]: ChainlinkETHUSDPrice...Test ([a43fc8c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a43fc8c2378ea4efe017f024c031a19484909692))
+
+
+### Bug Fixes
+
+* **migrations/2_deploy_contracts.js:** [ADD][DEPLOYMENT]: ADD deployment for ceres.setETHUSDOracle() ([d9d28f2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d9d28f2566b3d81db8702aea81a45140b6e5b33d))
+
+
+### Styling
+
+* **contracts/ceres/ceres.sol:** [ADD][TODO TASKS]: ADD TODO TASKS IN Ceres.sol ([36af19f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/36af19f41cd2d96b74052a6c01942d834710407a))
+
 ### [1.10.6](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.5...v1.10.6) (2021-07-12)
 
 

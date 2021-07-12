@@ -38,10 +38,10 @@ contract CEREStable is ERC20Custom, AccessControl {
     mapping(address => bool) public ceres_pools; //test case done
     address[] public ceres_pools_array; //test case done
 
-    // TODO: ADD TEST SCRIPTS
-    address public eth_usd_consumer_address;
-    uint8 public eth_usd_pricer_decimals; 
-    ChainlinkETHUSDPriceConsumer public eth_usd_pricer;
+    // ADD TEST SCRIPTS
+    address public eth_usd_consumer_address; //test case done
+    uint8 public eth_usd_pricer_decimals;  //test case done
+    ChainlinkETHUSDPriceConsumer public eth_usd_pricer; //test case done
 
     constructor(
         string memory _name,

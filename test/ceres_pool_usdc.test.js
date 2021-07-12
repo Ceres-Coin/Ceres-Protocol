@@ -77,4 +77,9 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC_collateral_token.name.call()).to.equal(name_value);
     });
 
+    it('check collateral_token.symbol() = "sample"', async() => {
+        const value = "sample"
+        expect(await instance_Pool_USDC_collateral_token.symbol.call()).to.equal(value);
+    });
+
 });

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.1](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.11.0...v1.11.1) (2021-07-12)
+
+
+### Tests
+
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.eth_usd_consumer_address' ([1360cba](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1360cba72f8b9209eace0999c53ac17d785ea407))
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.eth_usd_pricer_decimals = 8' ([991ac51](https://github.com/Ceres-Coin/Ceres-Protocol/commit/991ac510a02c16b8417343ff44377e6bdd70927e))
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: eth_usd_pricer.getDecimals()/getLatestPrice() ([ec5e41a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ec5e41a2071e574b0c231596fb58c22ff0c76d5e))
+
+
+### Styling
+
+* **contracts/ceres/ceres.sol:** [REMOVE][TODO] & [ADD][COMMENTS] "TEST CASE DONE" ([40c13c6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/40c13c65a5ade56dfa89b1fc947eda6399ced97a))
+* **contracts/ceres/ceres.sol:** [REMOVE][TODO] & [ADD][COMMENTS]: ADD "TEST CASE DONE" COMMENTS ([24c3336](https://github.com/Ceres-Coin/Ceres-Protocol/commit/24c33366d1d7c2e72ddbc3a1c0e99fd67c9ec471))
+
 ## [1.11.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.10.6...v1.11.0) (2021-07-12)
 
 

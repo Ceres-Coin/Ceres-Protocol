@@ -28,6 +28,7 @@ contract('CERES.sol', async (accounts) => {
     beforeEach(async() => {
         instanceCERES = await CEREStable.deployed();
         instanceOracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
+        instance_CERES_eth_usd_pricer = await ChainlinkETHUSDPriceConsumerTest.at(await instanceCERES.eth_usd_pricer());
     });
 
     it('check CERES name = "CERES" ', async () => {
@@ -161,5 +162,10 @@ contract('CERES.sol', async (accounts) => {
 
     it('check ceres.eth_usd_pricer_decimals = 8', async() => {
         expect(parseFloat(await instanceCERES.eth_usd_pricer_decimals.call())).to.equal(8);
+    });
+
+    it('check ceres.eth_usd_pricer.getDecimals() & getLatestPrice()', async() => {
+        console.log(chalk.yellow(`getDecimals(): ${await instance_CERES_eth_usd_pricer.getDecimals()}`));
+        console.log(chalk.yellow(`getLatestPrice(): ${await instance_CERES_eth_usd_pricer.getLatestPrice()}`));
     });
 });

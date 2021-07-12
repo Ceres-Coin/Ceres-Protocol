@@ -75,5 +75,10 @@ contract('CERES.sol', async (accounts) => {
         expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value_owner));
     });
 
+    it ('check weth.totalSupply(), its value is 0', async() => {
+        const expected_value = 0;
+        expect(parseFloat(await wethInstance.totalSupply.call())).to.equal(expected_value);
+    });
+
     
 });

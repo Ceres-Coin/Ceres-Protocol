@@ -5,6 +5,7 @@ const { assert, expect,chai} = require('chai');
 const { expectEvent, send, shouldFail, time, constants, balance} = require('@openzeppelin/test-helpers');
 
 const CEREStable = artifacts.require("Ceres/CEREStable");
+const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 
 contract('CERES.sol', async (accounts) => {
@@ -23,8 +24,10 @@ contract('CERES.sol', async (accounts) => {
 	const ADMIN = account1;
     const TEST_ACCOUNT = account7;
     let instanceCERES;
+    let instanceOracle_chainlink_ETH_USD
     beforeEach(async() => {
         instanceCERES = await CEREStable.deployed();
+        instanceOracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
     });
 
     it('check CERES name = "CERES" ', async () => {
@@ -150,4 +153,9 @@ contract('CERES.sol', async (accounts) => {
         await instanceCERES.setOwner(OWNER,{from: TEST_ACCOUNT});
         expect(await instanceCERES.owner_address.call()).to.equal(OWNER);
     });
+
+    it('check ceres.eth_usd_consumer_address.call()', async() => {
+        // console.log(chalk.blue(`eth_usd_consumer_address: ${await instanceCERES.eth_usd_consumer_address.call()}`))
+        expect(await instanceCERES.eth_usd_consumer_address.call()).to.equal(await instanceOracle_chainlink_ETH_USD.address);
+    })
 });

@@ -31,15 +31,21 @@ contract('CERES.sol', async (accounts) => {
 	const ADMIN = account1;
     const TEST_ACCOUNT = account7;
     let instanceCERES;
-    let instanceOracle_chainlink_ETH_USD
     let wethInstance;
+
     beforeEach(async() => {
         instanceCERES = await CEREStable.deployed();
-        instanceOracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
-        instance_CERES_eth_usd_pricer = await ChainlinkETHUSDPriceConsumerTest.at(await instanceCERES.eth_usd_pricer());
+        wethInstance = await WETH.at(await instanceCERES.weth_address());
+    });
 
-        wethInstance = await WETH.deployed();
-        oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
+    it ('check wethInstance.name(), its value is "Wrapped Ether"', async() => {
+        const expected_value = "Wrapped Ether";
+        expect(await wethInstance.name.call()).to.equal(expected_value);
+    });
+
+    it ('check wethInstance.symbol(), its value is "WETH"', async() => {
+        const expected_value = "WETH";
+        expect(await wethInstance.symbol.call()).to.equal(expected_value);
     });
 
     

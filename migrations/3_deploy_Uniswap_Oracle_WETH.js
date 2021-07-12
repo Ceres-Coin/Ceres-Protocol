@@ -1,4 +1,5 @@
 const ConvertLib = artifacts.require("ConvertLib");
+const { expectEvent, send, shouldFail, time, constants, balance} = require('@openzeppelin/test-helpers');
 const BigNumber = require('bignumber.js');
 const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
@@ -6,7 +7,12 @@ const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
+
+const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const WETH = artifacts.require("ERC20/WETH");
+
+
+const DUMP_ADDRESS = constants.ZERO_ADDRESS;
 
 const chalk = require('chalk');
 
@@ -35,6 +41,8 @@ module.exports = async function(deployer,network,accounts) {
 		await deployer.deploy(WETH, OWNER);
 		wethInstance = await WETH.deployed();
 		console.log(chalk.red.bold(`wethInstance: ${await wethInstance.address}`));
+
+		await deployer.deploy(UniswapV2Factory, DUMP_ADDRESS);
 	}
 	
 

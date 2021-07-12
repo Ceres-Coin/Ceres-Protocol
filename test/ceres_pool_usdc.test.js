@@ -107,5 +107,10 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC_CSS.name.call()).to.equal(value);
     });
 
+    it('check Pool_USDC.CSS.symbol() = CSS', async() => {
+        const value = "CSS"
+        expect(await instance_Pool_USDC_CSS.symbol.call()).to.equal(value);
+    });
+
 
 });

@@ -10,6 +10,7 @@ const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHU
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
+const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
 
 
@@ -37,6 +38,7 @@ module.exports = async function(deployer,network,accounts) {
 	let wethInstance;
 	let uniswapFactoryInstance;
 	let routerInstance;
+	let swapToPriceInstance;
 
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
@@ -51,6 +53,7 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(UniswapV2Router02_Modified, UniswapV2Factory.address, wethInstance.address);
 	routerInstance = await UniswapV2Router02_Modified.deployed(); 
 	
-	
+	await deployer.deploy(SwapToPrice, uniswapFactoryInstance.address, routerInstance.address);
+	swapToPriceInstance = await SwapToPrice.deployed();
 
 };

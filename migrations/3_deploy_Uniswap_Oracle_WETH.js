@@ -9,6 +9,7 @@ const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
+const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
 const WETH = artifacts.require("ERC20/WETH");
 
 
@@ -35,17 +36,21 @@ module.exports = async function(deployer,network,accounts) {
 
 	let wethInstance;
 	let uniswapFactoryInstance;
+	let routerInstance;
 
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
-	if (IS_DEV) {
-		await deployer.deploy(WETH, OWNER);
-		wethInstance = await WETH.deployed();
-		console.log(chalk.red.bold(`wethInstance: ${await wethInstance.address}`));
+	
+	await deployer.deploy(WETH, OWNER);
+	wethInstance = await WETH.deployed();
+	console.log(chalk.red.bold(`wethInstance: ${await wethInstance.address}`));
 
-		await deployer.deploy(UniswapV2Factory, DUMP_ADDRESS);
-		uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
-	}
+	await deployer.deploy(UniswapV2Factory, DUMP_ADDRESS);
+	uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
+
+	await deployer.deploy(UniswapV2Router02_Modified, UniswapV2Factory.address, wethInstance.address);
+	routerInstance = await UniswapV2Router02_Modified.deployed(); 
+	
 	
 
 };

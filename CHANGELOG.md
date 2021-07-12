@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.1](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.0...v1.12.1) (2021-07-12)
+
+
+### Bug Fixes
+
+* **contracts/ceres/ceres.sol:** [ADD][FUNC]: ADD getCeresEthOracle_consult in CERES.sol & added test ([9cccea3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9cccea3014994c4d1635c52c5f84f51e1d508159))
+
+
+### Tests
+
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: ''check ceres.PRICE_PRECISION(), its value is BIG6' ([40d01d9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/40d01d98a16bcd9fcfa9415d4696d9de0dfa393a))
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.ceres_eth_oracle_address()' ([ae401ad](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ae401ad657dcecdb17a6306418f3f24a63d9f6f6))
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.CeresEthOracle() its value is CERES_WETH ([7bc9fe6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7bc9fe68cacc3d16aae6148eeca2cf55acda0600))
+* **test/ceres.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.weth_address()' ([920675d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/920675db0d5f6e709d68ce63d3147d2e38c32e1e))
+
+
+### Styling
+
+* **contracts/ceres/ceres.sol:** [ADD][COMMENTS]: "TEST CASE DONE" & [REMOVE][TODO TASK] ([73e2a77](https://github.com/Ceres-Coin/Ceres-Protocol/commit/73e2a7767ebcbe12f3da6eb493b8f79404a5ced6))
+* **contracts/ceres/ceres.sol:** [ADD][COMMENTS]: ADD "TEST CASE DONE" COMMENTS ([16121b2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/16121b2fcda8a5b76f0249bb34b7fd5e15f2246f))
+
 ## [1.12.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.11.1...v1.12.0) (2021-07-12)
 
 

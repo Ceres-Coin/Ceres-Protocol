@@ -19,6 +19,11 @@ const DUMP_ADDRESS = constants.ZERO_ADDRESS;
 
 const chalk = require('chalk');
 
+// set constants
+const SIX_HUNDRED_DEC18 = new BigNumber("600e18");
+const ONE_DEC18 = new BigNumber("1e18");
+const TWO_MILLION_DEC18 = new BigNumber("2000000e18");
+
 module.exports = async function(deployer,network,accounts) {
   // Set the Network Settings
 	const IS_MAINNET = (network == 'mainnet');
@@ -63,4 +68,21 @@ module.exports = async function(deployer,network,accounts) {
 	await uniswapFactoryInstance.createPair(ceresInstance.address, wethInstance.address, { from: OWNER });
 	const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
 	const pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+
+	await Promise.all([
+		wethInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
+		ceresInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER })		
+	]);	
+
+	await routerInstance.addLiquidity(
+		ceresInstance.address, 
+		wethInstance.address,
+		new BigNumber(SIX_HUNDRED_DEC18), 
+		new BigNumber(ONE_DEC18), 
+		new BigNumber(SIX_HUNDRED_DEC18), 
+		new BigNumber(ONE_DEC18), 
+		OWNER, 
+		new BigNumber(2105300114), 
+		{ from: OWNER }
+	);
 };

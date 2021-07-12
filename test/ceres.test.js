@@ -154,8 +154,12 @@ contract('CERES.sol', async (accounts) => {
         expect(await instanceCERES.owner_address.call()).to.equal(OWNER);
     });
 
-    it('check ceres.eth_usd_consumer_address.call()', async() => {
+    it('check ceres.eth_usd_consumer_address = instanceOracle_chainlink_ETH_USD.address', async() => {
         // console.log(chalk.blue(`eth_usd_consumer_address: ${await instanceCERES.eth_usd_consumer_address.call()}`))
         expect(await instanceCERES.eth_usd_consumer_address.call()).to.equal(await instanceOracle_chainlink_ETH_USD.address);
-    })
+    });
+
+    it('check ceres.eth_usd_pricer_decimals = 8', async() => {
+        expect(parseFloat(await instanceCERES.eth_usd_pricer_decimals.call())).to.equal(8);
+    });
 });

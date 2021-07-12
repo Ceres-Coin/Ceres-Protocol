@@ -5,6 +5,7 @@ const ERC20 = artifacts.require("ERC20");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
+const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 
 const chalk = require('chalk');
 
@@ -46,4 +47,11 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(Pool_USDC, ceresInstance.address, cssInstance.address, sampleERC20.address, OWNER, OWNER, FIVE_MILLION_DEC18);
 	const pool_instance_USDC = await Pool_USDC.deployed();
 	console.log(chalk.red.bold(`pool_instance_USDC: ${await pool_instance_USDC.address}`));
+
+	await deployer.deploy(ChainlinkETHUSDPriceConsumerTest);
+	const oracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
+	console.log(chalk.red.bold(`oracle_chainlink_ETH_USD: ${oracle_chainlink_ETH_USD.address}`));
+	
+	// await ceresInstance.setETHUSDOracle(oracle_chainlink_ETH_USD.address, { from: OWNER });
+
 };

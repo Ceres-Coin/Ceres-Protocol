@@ -51,7 +51,6 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(ChainlinkETHUSDPriceConsumerTest);
 	const oracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
 	console.log(chalk.red.bold(`oracle_chainlink_ETH_USD: ${oracle_chainlink_ETH_USD.address}`));
-	
-	// await ceresInstance.setETHUSDOracle(oracle_chainlink_ETH_USD.address, { from: OWNER });
+	await ceresInstance.setETHUSDOracle(oracle_chainlink_ETH_USD.address, { from: OWNER });
 
 };

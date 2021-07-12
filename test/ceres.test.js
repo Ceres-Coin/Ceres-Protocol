@@ -202,4 +202,9 @@ contract('CERES.sol', async (accounts) => {
         const expected_value = await oracle_instance_CERES_WETH.address;
         expect(await instanceCERES.CeresEthOracle.call()).to.equal(expected_value);
     });
+
+    it ('check ceres.ceres_eth_oracle_address(), its default value is oracle_instance_CERES_WETH.address', async() => {
+        const expected_value = await oracle_instance_CERES_WETH.address;
+        expect(await instanceCERES.ceres_eth_oracle_address.call()).to.equal(expected_value);
+    });
 });

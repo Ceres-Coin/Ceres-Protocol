@@ -66,12 +66,12 @@ contract CeresPool is AccessControl {
     // ADD RESTRICTED FUNC FIRST
     /* ========== RESTRICTED FUNCTIONS ========== */
     
-    function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
-        timelock_address = new_timelock;
-    }
-
     function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
         owner_address = _owner_address;
+    }
+    
+    function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
+        timelock_address = new_timelock;
     }
 
     function setPoolParameters(uint256 new_ceiling) external onlyByOwnerOrGovernance {

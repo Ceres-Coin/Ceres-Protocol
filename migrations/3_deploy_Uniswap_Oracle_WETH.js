@@ -11,6 +11,7 @@ const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHU
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
 const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
+const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CERES_WETH");
 const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
 
@@ -85,4 +86,6 @@ module.exports = async function(deployer,network,accounts) {
 		new BigNumber(2105300114), 
 		{ from: OWNER }
 	);
+
+	await deployer.deploy(UniswapPairOracle_CERES_WETH, uniswapFactoryInstance.address, ceresInstance.address, wethInstance.address, OWNER, OWNER);
 };

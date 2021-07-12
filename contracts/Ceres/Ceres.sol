@@ -115,6 +115,7 @@ contract CEREStable is ERC20Custom, AccessControl {
     function setController(address _controller_address) external onlyByOwnerOrGovernance {
         controller_address = _controller_address;
     }
+    // TODO: ADD TEST SCRIPTS
     function setETHUSDOracle(address _eth_usd_consumer_address) public onlyByOwnerOrGovernance {
         eth_usd_consumer_address = _eth_usd_consumer_address;
         eth_usd_pricer = ChainlinkETHUSDPriceConsumer(eth_usd_consumer_address);

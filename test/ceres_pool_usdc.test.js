@@ -112,5 +112,10 @@ contract('CeresPool', async (accounts) => {
         expect(await instance_Pool_USDC_CSS.symbol.call()).to.equal(value);
     });
 
+    it('check Pool_USDC.CSS.totalSupply() = ONE_HUNDRED_MILLION_DEC18', async() => {
+        const value = parseFloat(ONE_HUNDRED_MILLION_DEC18);
+        expect(parseFloat(await instance_Pool_USDC_CSS.totalSupply.call())).to.equal(value);
+    });
+
 
 });

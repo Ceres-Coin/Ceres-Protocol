@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.4](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.3...v1.12.4) (2021-07-13)
+
+
+### Tests
+
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'CHECK blocktimestamplast' ([12cf9b4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/12cf9b4ea958975e6688735133b27f9a90dc8b33))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'setAllowStaleConsults()' ([47b4fee](https://github.com/Ceres-Coin/Ceres-Protocol/commit/47b4fee227fca21e50f35686cf2f5bdd418ad02a))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'setConsultLeniency' func ([9133a3f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9133a3f2aadb6009a5879ee5c5201dbc68053582))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'setOwner()' func test ([b7ecf5b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b7ecf5be92c94c746f15509a8e8eb6346214df58))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'setTimelock' func test ([a93ceda](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a93cedaa85bd0917aa94efb261e618e607b71488))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD "canUpdate()" FUNC TEST ([367dc22](https://github.com/Ceres-Coin/Ceres-Protocol/commit/367dc22cfb1815a19d6ef008d077b1dfb9dd101f))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD "setPeriod()" func test ([072e7c7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/072e7c7af97fa66c1d766bcc6021f137e321bf25))
+
+
+### Styling
+
+* **contracts/oracle/uniswappairoracle.sol:** [ADD][COMMENTS]: ADD "TEST CASE DONE" COMMENTS ([1d5e121](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1d5e1211a84d7271a127fb2d81636c664c40d1cf))
+* **contracts/oracle/uniswappairoracle.sol:** [ADD][COMMENTS]: ADD "TEST CASE DONE" COMMENTS ([b7b02ce](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b7b02ceac3059c000201b100952230cf3ea425a3))
+* **contracts/oracle/uniswappairoracle.sol:** [ADD][COMMENTS]: ADD "TEST CASE DONE" COMMENTS ([21349d9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/21349d9003e49f2db2602711ccea12d772e9761f))
+
 ### [1.12.3](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.2...v1.12.3) (2021-07-13)
 
 

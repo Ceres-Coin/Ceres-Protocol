@@ -8,6 +8,8 @@ const CEREStable = artifacts.require("Ceres/CEREStable");
 const WETH = artifacts.require("ERC20/WETH");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CERES_WETH");
+const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
+const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
@@ -35,6 +37,10 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
     let wethInstance;
     beforeEach(async() => { 
         oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
+        uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
+
+        wethInstance = await WETH.deployed();
+        instanceCERES = await CEREStable.deployed();
     });
 
     it('check oracle_instance_CERES_WETH.address ', async () => {
@@ -64,5 +70,16 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         const expected_value = true;
         expect(await oracle_instance_CERES_WETH.ALLOW_STALE_CONSULTS.call()).to.equal(expected_value);
     });
+
+    it('check oracle_instance_CERES_WETH.pair equal to pair_instance_CERES_WETH', async() => {
+        // console.log(chalk.yellow(`pair: ${await oracle_instance_CERES_WETH.pair.call()}`));
+
+        const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(instanceCERES.address, wethInstance.address, { from: OWNER });
+        const pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+        // console.log(chalk.blue(`pair_instance_CERES_WETH: ${pair_instance_CERES_WETH.address}`));
+        expect(await oracle_instance_CERES_WETH.pair.call()).to.equal(pair_instance_CERES_WETH.address);
+    });
+
+
 
 });

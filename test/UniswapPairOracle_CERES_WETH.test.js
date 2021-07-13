@@ -189,6 +189,20 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(parseFloat(await oracle_instance_CERES_WETH.CONSULT_LENIENCY.call())).to.equal(DEFAUT_VALUE);
     });
 
+    it('check oracle_instance_CERES_WETH.setAllowStaleConsults() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = true;
+        const NEW_VALUE = false;
+        expect(await oracle_instance_CERES_WETH.ALLOW_STALE_CONSULTS.call()).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await oracle_instance_CERES_WETH.setAllowStaleConsults(NEW_VALUE,{from: OWNER});
+        expect(await oracle_instance_CERES_WETH.ALLOW_STALE_CONSULTS.call()).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await oracle_instance_CERES_WETH.setAllowStaleConsults(DEFAUT_VALUE,{from: OWNER});
+        expect(await oracle_instance_CERES_WETH.ALLOW_STALE_CONSULTS.call()).to.equal(DEFAUT_VALUE);
+    });
+
 
 
 

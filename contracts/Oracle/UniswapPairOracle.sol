@@ -41,7 +41,7 @@ contract UniswapPairOracle {
         require(msg.sender == owner_address || msg.sender == timelock_address, "You are not an owner or the governance timelock");
         _;
     }
-    
+
     //TEST CASE DONE
     constructor(address factory, address tokenA, address tokenB, address _owner_address, address _timelock_address) public {
         IUniswapV2Pair _pair = IUniswapV2Pair(UniswapV2Library.pairFor(factory, tokenA, tokenB));
@@ -57,23 +57,23 @@ contract UniswapPairOracle {
         owner_address = _owner_address;
         timelock_address = _timelock_address;
     }
-
+    //TEST CASE DONE
     function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
         owner_address = _owner_address;
     }
-
+    //TEST CASE DONE
     function setTimelock(address _timelock_address) external onlyByOwnerOrGovernance {
         timelock_address = _timelock_address;
     }
-
+    //TEST CASE DONE
     function setPeriod(uint _period) external onlyByOwnerOrGovernance {
         PERIOD = _period;
     }
-
+    //TEST CASE DONE
     function setConsultLeniency(uint _consult_leniency) external onlyByOwnerOrGovernance {
         CONSULT_LENIENCY = _consult_leniency;
     }
-
+    //TEST CASE DONE
     function setAllowStaleConsults(bool _allow_stale_consults) external onlyByOwnerOrGovernance {
         ALLOW_STALE_CONSULTS = _allow_stale_consults;
     }

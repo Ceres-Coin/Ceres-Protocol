@@ -11,10 +11,12 @@ const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapP
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 
+// set constants
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
-const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
+const SIX_HUNDRED_DEC18 = new BigNumber("600e18");
+const ONE_DEC18 = new BigNumber("1e18");
 
 
 contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (accounts) => {
@@ -115,6 +117,20 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
 
         expect(price0Average).to.gt(0);
         expect(price1Average).to.gt(0);
+    });
+
+    it ('check oracle_instance_CERES_WETH.reserve0 & reserve1, its value is gt 0', async() => {
+        const reserve0 = parseFloat(await oracle_instance_CERES_WETH.reserve0.call());
+        const reserve1 = parseFloat(await oracle_instance_CERES_WETH.reserve1.call());
+        
+        const first_CERES_WETH = (await oracle_instance_CERES_WETH.token0.call()) == ceresInstance.address;
+        if (first_CERES_WETH) {
+            expect(reserve0).to.equal(parseFloat(SIX_HUNDRED_DEC18));
+            expect(reserve1).to.equal(parseFloat(ONE_DEC18));
+        } else {
+            expect(reserve0).to.equal(parseFloat(ONE_DEC18));
+            expect(reserve1).to.equal(parseFloat(SIX_HUNDRED_DEC18));
+        };
     });
 
 

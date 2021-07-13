@@ -12,7 +12,6 @@ const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapP
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
-const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 
 
 contract('CERES.sol', async (accounts) => {

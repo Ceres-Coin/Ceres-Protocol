@@ -32,17 +32,16 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
     const OWNER = account0;
 	const ADMIN = account1;
     const TEST_ACCOUNT = account7;
-    let instanceCERES;
+    let ceresInstance;
     let instanceOracle_chainlink_ETH_USD
     let wethInstance;
     let pair_instance_CERES_WETH;
     beforeEach(async() => { 
         oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
         uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
-
         wethInstance = await WETH.deployed();
-        instanceCERES = await CEREStable.deployed();
-        const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(instanceCERES.address, wethInstance.address, { from: OWNER });
+        ceresInstance = await CEREStable.deployed();
+        const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
         pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
     });
 
@@ -80,6 +79,20 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
 
     it('check oracle_instance_CERES_WETH.pair_address() equal to pair_instance_CERES_WETH', async() => {
         expect(await oracle_instance_CERES_WETH.pair_address.call()).to.equal(pair_instance_CERES_WETH.address);
+    });
+
+    it('check oracle_instance_CERES_WETH.token0 & token1 equal to ceres & weth', async() => {
+        const token0 = await oracle_instance_CERES_WETH.token0.call();
+        const token1 = await oracle_instance_CERES_WETH.token1.call();
+        const first_CERES_WETH = token0 == ceresInstance.address;
+        if (first_CERES_WETH) {
+            expect(token0).to.equal(ceresInstance.address);
+            expect(token1).to.equal(wethInstance.address);
+        } else
+        {
+            expect(token0).to.equal(wethInstance.address);
+            expect(token1).to.equal(ceresInstance.address);
+        }
     });
 
 

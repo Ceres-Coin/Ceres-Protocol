@@ -57,4 +57,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await pair_instance_CERES_WETH.name.call()).to.equal(expected_value);
     });
 
+    it('check pair_instance_CERES_WETH.symbol.call(), its value is "UNI-V2"', async() => {
+        const expected_value = "UNI-V2";
+        expect(await pair_instance_CERES_WETH.symbol.call()).to.equal(expected_value);
+    });
+
 });

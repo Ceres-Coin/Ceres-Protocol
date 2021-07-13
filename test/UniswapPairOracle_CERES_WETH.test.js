@@ -161,6 +161,20 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await oracle_instance_CERES_WETH.timelock_address.call()).to.equal(OWNER);
     });
 
+    it('check oracle_instance_CERES_WETH.setPeriod() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 5;
+        const NEW_VALUE = 50;
+        expect(parseFloat(await oracle_instance_CERES_WETH.PERIOD.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await oracle_instance_CERES_WETH.setPeriod(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await oracle_instance_CERES_WETH.PERIOD.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await oracle_instance_CERES_WETH.setPeriod(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await oracle_instance_CERES_WETH.PERIOD.call())).to.equal(DEFAUT_VALUE);
+    });
+
 
 
 

@@ -133,6 +133,12 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         };
     });
 
+    it('check oracle_instance_CERES_WETH.blockTimestampLast() is gt 0', async() => {
+        expect(parseFloat(await oracle_instance_CERES_WETH.blockTimestampLast.call())).to.gt(0);
+    });
+
+
+
 
 
 });

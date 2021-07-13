@@ -127,4 +127,8 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(price1CumulativeLast_after).to.gt(0);
     });
 
+    it('check pair_instance_CERES_WETH.kLast.call(), its value is 0', async() => {
+        expect(parseFloat(await pair_instance_CERES_WETH.kLast.call())).to.equal(0);
+    });
+
 });

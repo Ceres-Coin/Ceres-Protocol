@@ -83,12 +83,13 @@ contract UniswapPairOracle {
     }
 
     // Check if update() can be called instead of wasting gas calling it
+    // TEST CASE DONE
     function canUpdate() public view returns (bool) {
         uint32 blockTimestamp = UniswapV2OracleLibrary.currentBlockTimestamp();
         uint32 timeElapsed = blockTimestamp - blockTimestampLast; // Overflow is desired
         return (timeElapsed >= PERIOD);
     }
-
+    // TEST CASE DONE
     function update() external {
         (uint price0Cumulative, uint price1Cumulative, uint32 blockTimestamp) =
             UniswapV2OracleLibrary.currentCumulativePrices(address(pair));
@@ -106,7 +107,7 @@ contract UniswapPairOracle {
         price1CumulativeLast = price1Cumulative;
         blockTimestampLast = blockTimestamp;
     }
-
+    // TEST CASE DONE
     // Note this will always return 0 before update has been called successfully for the first time.
     function consult(address token, uint amountIn) external view returns (uint amountOut) {
         uint32 blockTimestamp = UniswapV2OracleLibrary.currentBlockTimestamp();

@@ -84,4 +84,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(parseFloat(await pair_instance_CERES_WETH.MINIMUM_LIQUIDITY.call())).to.equal(expected_value);
     });
 
+    it('check pair_instance_CERES_WETH.factory.call(), its value is uniswapFactoryInstance.address', async() => {
+        const expected_value = uniswapFactoryInstance.address;
+        expect(await pair_instance_CERES_WETH.factory.call()).to.equal(expected_value);
+    });
+
 });

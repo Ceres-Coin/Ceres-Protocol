@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.5](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.4...v1.12.5) (2021-07-13)
+
+
+### Tests
+
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.decimals.call(), its value is 18' ([cc3fb8f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cc3fb8f854cfc31d38b63babf668e3416b199184))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.factory.call(), its value is uniswapFactoryInstance.address' ([178ca71](https://github.com/Ceres-Coin/Ceres-Protocol/commit/178ca71d156e22472c4eab997f70bc8888453df6))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.getReserves.call() FUNC' ([61dcfae](https://github.com/Ceres-Coin/Ceres-Protocol/commit/61dcfae2df00aef1dcd58bd6387a9eaed5fb9214))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.kLast.call(), its value is 0' ([e115a93](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e115a93b694a001f285e9f5d615af4183aa3c0de))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.MINIMUM_LIQUIDITY.call(), its value is 10**3' ([53f54ea](https://github.com/Ceres-Coin/Ceres-Protocol/commit/53f54ea910b57c93bff479e501b23ef0e876581c))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.price0CumulativeLast & price1CumulativeLast, ITS DEFAULT VALUE IS 0' ([46f3295](https://github.com/Ceres-Coin/Ceres-Protocol/commit/46f329576eb0a2f8944cb90b867bef7728bab13d))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.SYNC() FUNC' ([1ddbd88](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1ddbd88597c126cf6edb868e8758185efc2d7641))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check pair_instance_CERES_WETH.token0 & token1 equal to ceres & weth' ([0edcbb7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0edcbb74fe06fba2ce1134fd82d8ad7def1a6540))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'check pair_instance_CERES_WETH.balanceOf.call(OWNER), its value is equal to totalSupply' ([5996e3a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5996e3ac0137469a53b400fca750e794663b44d7))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'check pair_instance_CERES_WETH.name.call(), its value is "Uniswap V2"' ([8be488a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8be488a91cf919c253ace28dbbf2b8a31de58263))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'check pair_instance_CERES_WETH.symbol.call(), its value is "UNI-V2"' ([3bf6f45](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3bf6f45251bc2940b9573638e50dbd358030515e))
+* **test/uniswapv2pair_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ADD 'check pair_instance_CERES_WETH.totalSupply.call(), its value is gt 0' ([c521ed8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c521ed83ee06eab0b399cfd2f704537f1f91402a))
+* **test/uniswapv2pair_ceres_weth.test.js:** [CREATED][NEW TEST SCRIPTS FILE]: 'uniswapv2pair' ([c876a18](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c876a182f316b4f573c3725e9992c8f33eeb99a7))
+
+
+### Styling
+
+* **contracts/uniswap/uniswapv2pair.sol:** [ADD][COMMENTS]: ADD "TEST CASE DONE" COMMENTS IN contracts/Uniswap/UniswapV2Pair.sol ([c9db6f6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c9db6f64e21c1870d365349a577584e8fe96a07c))
+
 ### [1.12.4](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.3...v1.12.4) (2021-07-13)
 
 

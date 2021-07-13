@@ -95,6 +95,17 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         }
     });
 
+    it ('check oracle_instance_CERES_WETH.price0CumulativeLast & price1CumulativeLast, its value is gt 0', async() => {
+        const price0CumulativeLast = parseFloat(await oracle_instance_CERES_WETH.price0CumulativeLast.call());
+        const price1CumulativeLast = parseFloat(await oracle_instance_CERES_WETH.price1CumulativeLast.call());
+
+        // console.log(chalk.yellow(`price0CumulativeLast: ${price0CumulativeLast}`));
+        // console.log(chalk.yellow(`price1CumulativeLast: ${price1CumulativeLast}`));
+
+        expect(price0CumulativeLast).to.gt(0);
+        expect(price1CumulativeLast).to.gt(0);
+    })
+
 
 
 });

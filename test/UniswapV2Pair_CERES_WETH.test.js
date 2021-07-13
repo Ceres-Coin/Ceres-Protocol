@@ -48,7 +48,7 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
     });
 
     it('check pair_instance_CERES_WETH.address ', async () => {
-        console.log(chalk.blue(`pair_instance_CERES_WETH: ${pair_instance_CERES_WETH.address}`));
+        // console.log(chalk.blue(`pair_instance_CERES_WETH: ${pair_instance_CERES_WETH.address}`));
         expect(pair_instance_CERES_WETH.address).not.to.be.empty;
     });
 
@@ -60,6 +60,11 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
     it('check pair_instance_CERES_WETH.symbol.call(), its value is "UNI-V2"', async() => {
         const expected_value = "UNI-V2";
         expect(await pair_instance_CERES_WETH.symbol.call()).to.equal(expected_value);
+    });
+
+    it('check pair_instance_CERES_WETH.decimals.call(), its value is 18', async() => {
+        const expected_value = 18;
+        expect(parseFloat(await pair_instance_CERES_WETH.decimals.call())).to.equal(expected_value);
     });
 
 });

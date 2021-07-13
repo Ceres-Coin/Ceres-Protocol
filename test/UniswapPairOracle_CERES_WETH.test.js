@@ -104,7 +104,18 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
 
         expect(price0CumulativeLast).to.gt(0);
         expect(price1CumulativeLast).to.gt(0);
-    })
+    });
+
+    it ('check oracle_instance_CERES_WETH.price0Average & price1Average, its value is gt 0', async() => {
+        const price0Average = parseFloat(await oracle_instance_CERES_WETH.price0Average.call());
+        const price1Average = parseFloat(await oracle_instance_CERES_WETH.price1Average.call());
+
+        // console.log(chalk.yellow(`price0Average: ${price0Average}`));
+        // console.log(chalk.yellow(`price1Average: ${price1Average}`));
+
+        expect(price0Average).to.gt(0);
+        expect(price1Average).to.gt(0);
+    });
 
 
 

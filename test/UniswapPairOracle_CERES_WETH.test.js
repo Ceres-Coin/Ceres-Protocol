@@ -55,4 +55,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(parseFloat(await oracle_instance_CERES_WETH.PERIOD.call())).to.equal(expected_value);
     });
 
+    it('check oracle_instance_CERES_WETH.CONSULT_LENIENCY is 120', async() => {
+        const expected_value = 120;
+        expect(parseFloat(await oracle_instance_CERES_WETH.CONSULT_LENIENCY.call())).to.equal(expected_value);
+    });
+
 });

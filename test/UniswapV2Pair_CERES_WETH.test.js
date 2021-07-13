@@ -89,4 +89,18 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await pair_instance_CERES_WETH.factory.call()).to.equal(expected_value);
     });
 
+    it('check pair_instance_CERES_WETH.token0 & token1 equal to ceres & weth', async() => {
+        const token0 = await pair_instance_CERES_WETH.token0.call();
+        const token1 = await pair_instance_CERES_WETH.token1.call();
+        const first_CERES_WETH = token0 == ceresInstance.address;
+        if (first_CERES_WETH) {
+            expect(token0).to.equal(ceresInstance.address);
+            expect(token1).to.equal(wethInstance.address);
+        } else
+        {
+            expect(token0).to.equal(wethInstance.address);
+            expect(token1).to.equal(ceresInstance.address);
+        }
+    });
+
 });

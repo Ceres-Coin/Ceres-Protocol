@@ -149,6 +149,18 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await oracle_instance_CERES_WETH.owner_address.call()).to.equal(OWNER);
     });
 
+    it('check oracle_instance_CERES_WETH.setTimelock()', async() => {
+        // BEFORE
+        expect(await oracle_instance_CERES_WETH.timelock_address.call()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await oracle_instance_CERES_WETH.setTimelock(TEST_ACCOUNT,{from: OWNER});
+        expect(await oracle_instance_CERES_WETH.timelock_address.call()).to.equal(TEST_ACCOUNT);
+
+        // ROLLBACK CODE
+        await oracle_instance_CERES_WETH.setTimelock(OWNER,{from: OWNER});
+        expect(await oracle_instance_CERES_WETH.timelock_address.call()).to.equal(OWNER);
+    });
+
 
 
 

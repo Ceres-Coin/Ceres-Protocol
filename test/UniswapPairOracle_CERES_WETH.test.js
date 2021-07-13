@@ -203,6 +203,11 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await oracle_instance_CERES_WETH.ALLOW_STALE_CONSULTS.call()).to.equal(DEFAUT_VALUE);
     });
 
+    it('check oracle_instance_CERES_WETH.canUpdate() is true', async() => {
+        const expected_value = true;
+        expect(await oracle_instance_CERES_WETH.canUpdate.call()).to.equal(expected_value);
+    });
+
 
 
 

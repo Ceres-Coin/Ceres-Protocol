@@ -38,7 +38,12 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
     });
 
     it('check oracle_instance_CERES_WETH.address ', async () => {
-        console.log(chalk.blue(`oracle_instance_CERES_WETH: ${oracle_instance_CERES_WETH}`));
+        // console.log(chalk.blue(`oracle_instance_CERES_WETH: ${oracle_instance_CERES_WETH}`));
+        expect(oracle_instance_CERES_WETH).not.to.be.empty;
+    });
+
+    it('check oracle_instance_CERES_WETH.owner_address is OWNER', async() => {
+        expect(await oracle_instance_CERES_WETH.owner_address.call()).to.equal(OWNER);
     });
 
 });

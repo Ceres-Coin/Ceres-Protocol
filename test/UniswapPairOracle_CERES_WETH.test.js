@@ -50,4 +50,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await oracle_instance_CERES_WETH.timelock_address.call()).to.equal(OWNER);
     });
 
+    it('check oracle_instance_CERES_WETH.PERIOD is 5', async() => {
+        const expected_value = 5;
+        expect(parseFloat(await oracle_instance_CERES_WETH.PERIOD.call())).to.equal(expected_value);
+    });
+
 });

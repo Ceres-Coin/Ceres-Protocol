@@ -79,4 +79,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(parseFloat(await pair_instance_CERES_WETH.balanceOf.call(OWNER))).to.equal(expected_value);
     });
 
+    it('check pair_instance_CERES_WETH.MINIMUM_LIQUIDITY.call(), its value is 10**3', async() => {
+        const expected_value = 10**3;
+        expect(parseFloat(await pair_instance_CERES_WETH.MINIMUM_LIQUIDITY.call())).to.equal(expected_value);
+    });
+
 });

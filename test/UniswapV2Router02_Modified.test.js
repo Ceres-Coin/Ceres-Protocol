@@ -54,4 +54,16 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(routerInstance.address).not.to.be.empty;
     });
 
+    it('check routerInstance.factory.call() is equal to uniswapFactoryInstance.address', async () => {
+        expect(await routerInstance.factory.call()).to.equal(uniswapFactoryInstance.address);
+    });
+
+    it('check routerInstance.WETH.call() is equal to wethInstance.address', async () => {
+        expect(await routerInstance.WETH.call()).to.equal(wethInstance.address);
+    });
+
+
+
+    
+
 });

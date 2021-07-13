@@ -131,4 +131,25 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(parseFloat(await pair_instance_CERES_WETH.kLast.call())).to.equal(0);
     });
 
+    it('check pair_instance_CERES_WETH.getReserves.call() FUNC', async() => {
+        const reserve0 = (await pair_instance_CERES_WETH.getReserves.call())[0];
+        const reserve1 = (await pair_instance_CERES_WETH.getReserves.call())[1];
+        const blockTimestampLast = (await pair_instance_CERES_WETH.getReserves.call())[2];
+        // assertion for blockTimestampLast
+        expect(parseFloat(blockTimestampLast)).to.gt(0);
+        // assertion for reserve0 & reserve1
+        const token0 = await pair_instance_CERES_WETH.token0.call();
+        const first_CERES_WETH = token0 == ceresInstance.address;
+        if (first_CERES_WETH) {
+            expect(parseFloat(reserve0)).to.equal(parseFloat(SIX_HUNDRED_DEC18));
+            expect(parseFloat(reserve1)).to.equal(parseFloat(ONE_DEC18));
+        } else {
+            expect(parseFloat(reserve0)).to.equal(parseFloat(ONE_DEC18));
+            expect(parseFloat(reserve1)).to.equal(parseFloat(SIX_HUNDRED_DEC18));
+        }
+        // console.log(chalk.blue(`reserve0: ${reserve0}`));
+        // console.log(chalk.blue(`reserve1: ${reserve1}`));
+        // console.log(chalk.blue(`blockTimestampLast: ${blockTimestampLast}`));
+    });
+
 });

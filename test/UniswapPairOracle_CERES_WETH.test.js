@@ -15,7 +15,7 @@ const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 
 
-contract('CERES.sol', async (accounts) => {
+contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (accounts) => {
 
     // set the deploy address
 	const account0 = accounts[0];

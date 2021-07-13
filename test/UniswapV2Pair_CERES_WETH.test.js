@@ -67,4 +67,10 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(parseFloat(await pair_instance_CERES_WETH.decimals.call())).to.equal(expected_value);
     });
 
+    it('check pair_instance_CERES_WETH.totalSupply.call(), its value is gt 0', async() => {
+        // console.log(parseFloat(await pair_instance_CERES_WETH.totalSupply.call()));
+        const expected_value = 0;
+        expect(parseFloat(await pair_instance_CERES_WETH.totalSupply.call())).to.gt(expected_value);
+    });
+
 });

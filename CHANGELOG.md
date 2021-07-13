@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.3](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.2...v1.12.3) (2021-07-13)
+
+
+### Styling
+
+* **contracts/oracle/uniswappairoracle.sol:** [ADD][COMMENTS]: "TEST CASE DONE" ([8aa0c9c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8aa0c9c1e4da3768a62367b9a4ee04f143aa75af))
+* **contracts/oracle/uniswappairoracle.sol:** [REMOVED][COMMENTS] & [ADD][NEW COMMENTS] ([05d33f9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/05d33f9a8fec7c4d0d2d70f58ac5fea0c99eec19))
+
+
+### Tests
+
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check owner_address is OWNER' ([e1ad670](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e1ad6702a5434547f50337aa28e33f95d6ef655c))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'CHECK pair_address()' ([c88fbc2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c88fbc25a4768081b0c443b92c809e26be46d7eb))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'CHECK price0Average > 0' ([33065b0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/33065b01c40e537b6be627664cb4b653ba9b64c3))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'CHECK reserve0 & reserve1' ([f2b5def](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f2b5def963afe4a372802f0f54c863200f330aef))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check timelock_address' ([23f0c25](https://github.com/Ceres-Coin/Ceres-Protocol/commit/23f0c2566f3e14223cbf52333d06b9a3aeecbaff))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'CHECK TOKEN0/1 = CERES/WETH' ([1dde3eb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1dde3eb7c4597cfd889ea8482e08515b011974d5))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: ALLOW_STALE_CONSULTS is true ([0808a3d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0808a3d2fd29df3b9430ee783ec4163b68dfa58e))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: CHECK oracle_CERES_WETH.pair ([12b0663](https://github.com/Ceres-Coin/Ceres-Protocol/commit/12b06633de390308f249a844505762d9e4c62f8b))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: check PERIOD is 5 ([bdf6dfb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bdf6dfbc8195f7fe8065c8cbfbebfa4210266e76))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]: CHECK price0CumulativeLast ([288739c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/288739cd07c6ffa88e69cba82d58711cd0737c86))
+* **test/uniswappairoracle_ceres_weth.test.js:** [ADD][TEST SCRIPTS]:'CHECK CONSULT_LENIENCY is 120' ([e4dbffc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e4dbffc1dae583d13856ff2f8ec18997c7f34cd8))
+* **test/uniswappairoracle_ceres_weth.test.js:** [MODIFIED][TEST SCRIPTS]: 'CHECK PAIR IS EQUAL TO ' ([0d80cbe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0d80cbedf9a5c90980226b53e181b6ece586275f))
+
 ### [1.12.2](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.1...v1.12.2) (2021-07-13)
 
 

@@ -14,14 +14,14 @@ contract UniswapV2Pair is IUniswapV2Pair {
     using SafeMath  for uint;
     using UQ112x112 for uint224;
 
-    string public override constant name = 'Uniswap V2';
-    string public override constant symbol = 'UNI-V2';
-    uint8 public override constant decimals = 18;
-    uint  public override totalSupply;
-    mapping(address => uint) public override balanceOf;
+    string public override constant name = 'Uniswap V2'; // TEST CASE DONE
+    string public override constant symbol = 'UNI-V2'; // TEST CASE DONE
+    uint8 public override constant decimals = 18; // TEST CASE DONE
+    uint  public override totalSupply; // TEST CASE DONE
+    mapping(address => uint) public override balanceOf; // TEST CASE DONE
     mapping(address => mapping(address => uint)) public override allowance;
 
-    uint public override constant MINIMUM_LIQUIDITY = 10**3;
+    uint public override constant MINIMUM_LIQUIDITY = 10**3; // TEST CASE DONE
     bytes4 private constant SELECTOR = bytes4(keccak256(bytes('transfer(address,uint256)')));
     bytes32 public override DOMAIN_SEPARATOR;
     // keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
@@ -31,16 +31,17 @@ contract UniswapV2Pair is IUniswapV2Pair {
 
     
 
-    address public override factory;
-    address public override token0;
-    address public override token1;
+    address public override factory; // TEST CASE DONE
+    address public override token0; // TEST CASE DONE
+    address public override token1; // TEST CASE DONE
 
     uint112 private reserve0;           // uses single storage slot, accessible via getReserves
     uint112 private reserve1;           // uses single storage slot, accessible via getReserves
     uint32  private blockTimestampLast; // uses single storage slot, accessible via getReserves
 
-    uint public override price0CumulativeLast;
-    uint public override price1CumulativeLast;
+    uint public override price0CumulativeLast; // TEST CASE DONE
+    uint public override price1CumulativeLast; // TEST CASE DONE
+    // TEST CASE DONE
     uint public override kLast; // reserve0 * reserve1, as of immediately after the most recent liquidity event
 
     uint private unlocked = 1;
@@ -50,7 +51,7 @@ contract UniswapV2Pair is IUniswapV2Pair {
         _;
         unlocked = 1;
     }
-
+    // TEST CASE DONE
     function getReserves() public override view returns (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast) {
         _reserve0 = reserve0;
         _reserve1 = reserve1;

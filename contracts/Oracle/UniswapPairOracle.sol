@@ -24,17 +24,17 @@ contract UniswapPairOracle {
     bool public ALLOW_STALE_CONSULTS = true; // If false, consult() will fail if the TWAP is stale
 
     IUniswapV2Pair public immutable pair; //TEST CASE DONE
-    address public immutable token0; 
-    address public immutable token1; 
+    address public immutable token0; //TEST CASE DONE
+    address public immutable token1; //TEST CASE DONE
 
-    uint    public price0CumulativeLast; 
-    uint    public price1CumulativeLast; 
+    uint    public price0CumulativeLast; //TEST CASE DONE
+    uint    public price1CumulativeLast; //TEST CASE DONE
     
-    FixedPoint.uq112x112 public price0Average; 
-    FixedPoint.uq112x112 public price1Average; 
+    FixedPoint.uq112x112 public price0Average; //TEST CASE DONE
+    FixedPoint.uq112x112 public price1Average; //TEST CASE DONE
     
-    uint112 public reserve0; 
-    uint112 public reserve1; 
+    uint112 public reserve0; //TEST CASE DONE
+    uint112 public reserve1; //TEST CASE DONE
     uint32  public blockTimestampLast; 
 
     modifier onlyByOwnerOrGovernance() {

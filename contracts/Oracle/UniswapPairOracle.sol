@@ -76,7 +76,7 @@ contract UniswapPairOracle {
     function setAllowStaleConsults(bool _allow_stale_consults) external onlyByOwnerOrGovernance {
         ALLOW_STALE_CONSULTS = _allow_stale_consults;
     }
-
+    // TEST CASE DONE
     function pair_address() public view returns(address) {
         return address(pair);
     }

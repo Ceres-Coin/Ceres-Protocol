@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.2](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.1...v1.12.2) (2021-07-13)
+
+
+### Tests
+
+* **test/ceres_weth.test.js:** [ADD][TEST SCRIPTS]: 'check wethInstance.name() & symbol()' ([8c93ea2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8c93ea27435dc7fa7baef1874cf1e8c1ac7ac615))
+* **test/ceres_weth.test.js:** [CREATED][NEW TEST FILE]: test/ceres_weth.test.js ([aea4574](https://github.com/Ceres-Coin/Ceres-Protocol/commit/aea457453bbe0ebe3562db85342a305e50cdf868))
+* **test/uniswappairoracle_ceres_weth.test.js:** [CREATED][NEW FILE]: Oracle_CERES_WETH.test.js ([9734b07](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9734b07ac4dae572e880f1a94f40192414661e5f))
+* **test/weth.test.js:** [ADD][TEST SCRIPTS]: 'check weth.totalSupply(), its value is 0' ([5bdc3ee](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5bdc3eed95140aaf1593d182db2025ea331027db))
+* **test/weth.test.js:** [ADD][TEST SCRIPTS]: 'check weth.transfer(test_account, 1dec18)' ([fb80940](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fb80940c5a527dcac5c790f993fec3a6504b2563))
+* **test/weth.test.js:** [ADD][TEST SCRIPTS]: 'check wethInstance.balanceOf(OWNER)' ([74a3d42](https://github.com/Ceres-Coin/Ceres-Protocol/commit/74a3d42d0193309ef12c3ffa8eaa8fc29bd7122e))
+* **test/weth.test.js:** [RENAME][FILE]: ceres_weth.test.js -> weth.test.js & add 'check decimals' ([94e13b8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/94e13b8e8d2f3063909af7d46e069865f5d73df0))
+
+
+### Build System
+
+* **package.json:** [UPDATE][NPM SCRIPTS]: Update NPM Scripts "testSingleFile" ([60f76ee](https://github.com/Ceres-Coin/Ceres-Protocol/commit/60f76eeea09e6795e86656b78311a0bc87d340f1))
+
 ### [1.12.1](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.0...v1.12.1) (2021-07-12)
 
 

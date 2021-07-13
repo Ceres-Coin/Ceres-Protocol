@@ -46,4 +46,8 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(await oracle_instance_CERES_WETH.owner_address.call()).to.equal(OWNER);
     });
 
+    it('check oracle_instance_CERES_WETH.timelock_address is OWNER', async() => {
+        expect(await oracle_instance_CERES_WETH.timelock_address.call()).to.equal(OWNER);
+    });
+
 });

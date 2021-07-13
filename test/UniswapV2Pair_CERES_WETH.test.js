@@ -52,4 +52,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         expect(pair_instance_CERES_WETH.address).not.to.be.empty;
     });
 
+    it('check pair_instance_CERES_WETH.name.call(), its value is "Uniswap V2"', async() => {
+        const expected_value = "Uniswap V2";
+        expect(await pair_instance_CERES_WETH.name.call()).to.equal(expected_value);
+    });
+
 });

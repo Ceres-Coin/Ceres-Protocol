@@ -136,6 +136,18 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
     it('check oracle_instance_CERES_WETH.blockTimestampLast() is gt 0', async() => {
         expect(parseFloat(await oracle_instance_CERES_WETH.blockTimestampLast.call())).to.gt(0);
     });
+    // FUNC TEST SCRIPTS
+    it('check oracle_instance_CERES_WETH.setOwner()', async() => {
+        // BEFORE
+        expect(await oracle_instance_CERES_WETH.owner_address.call()).to.equal(OWNER);
+        // ACTION & ASSERTION
+        await oracle_instance_CERES_WETH.setOwner(TEST_ACCOUNT,{from: OWNER});
+        expect(await oracle_instance_CERES_WETH.owner_address.call()).to.equal(TEST_ACCOUNT);
+
+        // ROLLBACK CODE
+        await oracle_instance_CERES_WETH.setOwner(OWNER,{from: TEST_ACCOUNT});
+        expect(await oracle_instance_CERES_WETH.owner_address.call()).to.equal(OWNER);
+    });
 
 
 

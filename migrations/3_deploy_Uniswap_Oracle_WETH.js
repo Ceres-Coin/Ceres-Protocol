@@ -22,6 +22,7 @@ const chalk = require('chalk');
 
 // set constants
 const SIX_HUNDRED_DEC18 = new BigNumber("600e18");
+const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
 const ONE_DEC18 = new BigNumber("1e18");
 const TWO_MILLION_DEC18 = new BigNumber("2000000e18");
 
@@ -67,17 +68,22 @@ module.exports = async function(deployer,network,accounts) {
 	swapToPriceInstance = await SwapToPrice.deployed();
 
 	await uniswapFactoryInstance.createPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+	await uniswapFactoryInstance.createPair(cssInstance.address, wethInstance.address, { from: OWNER });
 	const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+	const pair_addr_CSS_WETH = await uniswapFactoryInstance.getPair(cssInstance.address, wethInstance.address, { from: OWNER });
 	const pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+	const pair_instance_CSS_WETH = await UniswapV2Pair.at(pair_addr_CSS_WETH);
 
 	await Promise.all([
 		wethInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
-		ceresInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER })		
+		ceresInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
+		cssInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
 	]);	
 
 	await Promise.all([
 		wethInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
-		ceresInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER })		
+		ceresInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
+		cssInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
 	]);	
 
 	await routerInstance.addLiquidity(
@@ -91,6 +97,20 @@ module.exports = async function(deployer,network,accounts) {
 		new BigNumber(2105300114), 
 		{ from: OWNER }
 	);
+
+	await routerInstance.addLiquidity(
+		cssInstance.address, 
+		wethInstance.address,
+		new BigNumber(EIGHT_HUNDRED_DEC18), 
+		new BigNumber(ONE_DEC18), 
+		new BigNumber(EIGHT_HUNDRED_DEC18), 
+		new BigNumber(ONE_DEC18), 
+		OWNER, 
+		new BigNumber(2105300114), 
+		{ from: OWNER }
+	);
+
+	
 
 	await deployer.deploy(UniswapPairOracle_CERES_WETH, uniswapFactoryInstance.address, ceresInstance.address, wethInstance.address, OWNER, OWNER);
 

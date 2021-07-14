@@ -257,4 +257,9 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         const expected_value = parseFloat(await instanceCERES.totalSupply.call());
         expect(parseFloat((await instanceCERES.ceres_info.call())[2])).to.equal(expected_value);
     });
+
+    it ('check instanceCERES.ceres_info.call()[3], it default value is equal to global_collateral_ratio()', async() => {
+        const expected_value = parseFloat(await instanceCERES.global_collateral_ratio.call());
+        expect(parseFloat((await instanceCERES.ceres_info.call())[3])).to.equal(expected_value);
+    });
 });

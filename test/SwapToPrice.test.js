@@ -45,6 +45,9 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
         wethInstance = await WETH.deployed();
         ceresInstance = await CEREStable.deployed();
+        const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+        pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+        routerInstance = await UniswapV2Router02_Modified.deployed(); 
         
         swapToPriceInstance = await SwapToPrice.deployed();
     });
@@ -53,4 +56,8 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
         // console.log(chalk.blue(`swapToPriceInstance: ${swapToPriceInstance.address}`));
         expect(swapToPriceInstance.address).not.to.be.empty;
     });
+
+    it('check swapToPriceInstance.router.call() is equal to routerInstance.address', async() => {
+        expect(await swapToPriceInstance.router.call()).to.equal(routerInstance.address);
+    })
 });

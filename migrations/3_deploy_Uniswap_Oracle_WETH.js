@@ -12,6 +12,7 @@ const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
 const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CERES_WETH");
+const UniswapPairOracle_CSS_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CSS_WETH");
 const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
 
@@ -113,12 +114,17 @@ module.exports = async function(deployer,network,accounts) {
 	
 
 	await deployer.deploy(UniswapPairOracle_CERES_WETH, uniswapFactoryInstance.address, ceresInstance.address, wethInstance.address, OWNER, OWNER);
+	await deployer.deploy(UniswapPairOracle_CSS_WETH, uniswapFactoryInstance.address, cssInstance.address, wethInstance.address, OWNER, OWNER);
 
 	await time.increase(86400 + 1);
 	await time.advanceBlock();
 
 	const oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
+	const oracle_instance_CSS_WETH = await UniswapPairOracle_CSS_WETH.deployed();
 	await oracle_instance_CERES_WETH.update({from: OWNER});
+	await oracle_instance_CSS_WETH.update({from: OWNER});
+	
 
 	ceresInstance.setCeresEthOracle(oracle_instance_CERES_WETH.address, wethInstance.address, { from: OWNER });
+	ceresInstance.setCSSEthOracle(oracle_instance_CSS_WETH.address, wethInstance.address, { from: OWNER });
 };

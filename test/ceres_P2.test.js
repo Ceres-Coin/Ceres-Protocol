@@ -242,4 +242,14 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(DEFAULT_LAST_CALL_TIME);
         console.log(chalk.blue(`LAST_CALL_TIME: ${parseFloat(await instanceCERES.last_call_time.call())}`));
     });
+
+    it ('check instanceCERES.ceres_info.call()[0], it default value is equal to ceres_price()', async() => {
+        const expected_value = parseFloat(await instanceCERES.ceres_price.call());
+        expect(parseFloat((await instanceCERES.ceres_info.call())[0])).to.equal(expected_value);
+    });
+
+    it ('check instanceCERES.ceres_info.call()[1], it default value is equal to css_price()', async() => {
+        const expected_value = parseFloat(await instanceCERES.css_price.call());
+        expect(parseFloat((await instanceCERES.ceres_info.call())[1])).to.equal(expected_value);
+    });
 });

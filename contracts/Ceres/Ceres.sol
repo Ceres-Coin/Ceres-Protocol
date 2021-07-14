@@ -87,6 +87,11 @@ contract CEREStable is ERC20Custom, AccessControl {
         uint256 consult = CeresEthOracle.consult(weth_address, PRICE_PRECISION);
         return consult;
     }
+    // TODO: ADD TEST SCRIPTS
+    function getCSSEthOracle_consult() public view returns (uint256) {
+        uint256 consult = CSSEthOracle.consult(weth_address, PRICE_PRECISION);
+        return consult;
+    }
 
     /* ========== RESTRICTED FUNCTIONS PART I (FUNC)========== */
     // TEST CASE DONE

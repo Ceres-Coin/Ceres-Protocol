@@ -203,9 +203,24 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(DEFAUT_VALUE);
     });
 
+    it('check instanceCERES.set_last_call_time() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 0;
+        const NEW_VALUE = 10000000;
+        expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instanceCERES.set_last_call_time(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instanceCERES.set_last_call_time(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(DEFAUT_VALUE);
+    });
+
     it('check instanceCERES.refreshCollateralRatio() FUNC', async() => {
         // BEFORE
         const DEFAUT_VALUE = 1000000;
+        const DEFAULT_LAST_CALL_TIME = 0;
         const BEFORE_VALUE = parseFloat(await instanceCERES.global_collateral_ratio.call());
         expect(BEFORE_VALUE).to.lte(DEFAUT_VALUE);
         // ACTION 
@@ -218,10 +233,13 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
 
         console.log(chalk.blue(`BEFORE_VALUE: ${BEFORE_VALUE}`));
         console.log(chalk.blue(`AFTER_VALUE: ${AFTER_VALUE}`));
-        console.log(chalk.blue(`LAST_CALL_TIME: ${parseFloat(await instanceCERES.last_call_time.call())}`));
-
+        
         // ROLLBACK CODE
         await instanceCERES.set_global_collateral_ratio(DEFAUT_VALUE,{from: OWNER});
         expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
+
+        await instanceCERES.set_last_call_time(DEFAULT_LAST_CALL_TIME,{from: OWNER});
+        expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(DEFAULT_LAST_CALL_TIME);
+        console.log(chalk.blue(`LAST_CALL_TIME: ${parseFloat(await instanceCERES.last_call_time.call())}`));
     });
 });

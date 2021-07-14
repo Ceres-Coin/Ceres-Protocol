@@ -8,6 +8,7 @@ const CEREStable = artifacts.require("Ceres/CEREStable");
 const WETH = artifacts.require("ERC20/WETH");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CERES_WETH");
+const UniswapPairOracle_CSS_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CSS_WETH");
 
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
@@ -41,6 +42,7 @@ contract('CERES.sol', async (accounts) => {
 
         wethInstance = await WETH.deployed();
         oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
+        oracle_instance_CSS_WETH = await UniswapPairOracle_CSS_WETH.deployed();
     });
 
     it ('check ceres.getCeresEthOracle_consult(), its default value is SIX_HUNDRED_DEC6', async() => {
@@ -51,5 +53,10 @@ contract('CERES.sol', async (accounts) => {
     it ('check ceres.getCSSEthOracle_consult(), its default value is EIGHT_HUNDRED_DEC6', async() => {
         const expected_value = parseFloat(EIGHT_HUNDRED_DEC6);
         expect(parseFloat(await instanceCERES.getCSSEthOracle_consult())).to.equal(expected_value);
+    });
+
+    it ('check ceres.css_eth_oracle_address(), its default value is oracle_instance_CSS_WETH.address', async() => {
+        const expected_value = await oracle_instance_CSS_WETH.address;
+        expect(await instanceCERES.css_eth_oracle_address.call()).to.equal(expected_value);
     });
 });

@@ -136,4 +136,18 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         await instanceCERES.setRefreshCooldown(DEFAUT_VALUE,{from: OWNER});
         expect(parseFloat(await instanceCERES.refresh_cooldown.call())).to.equal(DEFAUT_VALUE);
     });
+
+    it('check instanceCERES.setPriceTarget() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 1000000;
+        const NEW_VALUE = 2000000;
+        expect(parseFloat(await instanceCERES.price_target.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instanceCERES.setPriceTarget(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.price_target.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instanceCERES.setPriceTarget(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.price_target.call())).to.equal(DEFAUT_VALUE);
+    });
 });

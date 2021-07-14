@@ -70,4 +70,10 @@ contract('test/ceres_P2.test.js', async (accounts) => {
         const expected_value = 0;
         expect(parseFloat(await instanceCERES.ceres_price.call())).to.gt(expected_value);
     });
+
+    it ('check ceres.css_price(), its default value is gt(0)', async() => {
+        // console.log(chalk.blue(parseFloat(await instanceCERES.css_price.call())));
+        const expected_value = 0;
+        expect(parseFloat(await instanceCERES.css_price.call())).to.gt(expected_value);
+    });
 });

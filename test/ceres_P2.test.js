@@ -178,4 +178,9 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         await instanceCERES.set_global_collateral_ratio(DEFAUT_VALUE,{from: OWNER});
         expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
     });
+
+    it ('check instanceCERES.collateral_ratio_paused.call(), its default value is equal to FALSE', async() => {
+        const expected_value = false;
+        expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(expected_value);
+    });
 });

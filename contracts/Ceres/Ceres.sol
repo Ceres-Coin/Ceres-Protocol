@@ -192,7 +192,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         last_call_time = block.timestamp; // Set the time of the last expansion
     }
     // TODO: ADD TEST CASES
-    function toggleCollateralRatio() public onlyCollateralRatioPauser {
+    function toggleCollateralRatio() public onlyByOwnerOrGovernance {
         collateral_ratio_paused = !collateral_ratio_paused;
     }
 

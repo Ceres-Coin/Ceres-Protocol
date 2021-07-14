@@ -59,4 +59,9 @@ contract('CERES.sol', async (accounts) => {
         const expected_value = await oracle_instance_CSS_WETH.address;
         expect(await instanceCERES.css_eth_oracle_address.call()).to.equal(expected_value);
     });
+
+    it ('check ceres.CSSEthOracle(), its default value is oracle_instance_CSS_WETH.address', async() => {
+        const expected_value = await oracle_instance_CSS_WETH.address;
+        expect(await instanceCERES.CSSEthOracle.call()).to.equal(expected_value);
+    });
 });

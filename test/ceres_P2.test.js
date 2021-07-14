@@ -202,4 +202,26 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         await instanceCERES.toggleCollateralRatio({from: OWNER});
         expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(DEFAUT_VALUE);
     });
+
+    it('check instanceCERES.refreshCollateralRatio() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 1000000;
+        const BEFORE_VALUE = parseFloat(await instanceCERES.global_collateral_ratio.call());
+        expect(BEFORE_VALUE).to.lte(DEFAUT_VALUE);
+        // ACTION 
+        await instanceCERES.refreshCollateralRatio({from: OWNER});
+        const AFTER_VALUE = parseFloat(await instanceCERES.global_collateral_ratio.call());
+        // ASSERTION
+        expect(AFTER_VALUE+parseFloat(await instanceCERES.ceres_step.call())).to.equal(BEFORE_VALUE);
+        expect(parseFloat(await instanceCERES.last_call_time.call())).to.gt(0);
+
+
+        console.log(chalk.blue(`BEFORE_VALUE: ${BEFORE_VALUE}`));
+        console.log(chalk.blue(`AFTER_VALUE: ${AFTER_VALUE}`));
+        console.log(chalk.blue(`LAST_CALL_TIME: ${parseFloat(await instanceCERES.last_call_time.call())}`));
+
+        // ROLLBACK CODE
+        await instanceCERES.set_global_collateral_ratio(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
+    });
 });

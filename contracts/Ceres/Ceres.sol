@@ -63,8 +63,8 @@ contract CEREStable is ERC20Custom, AccessControl {
     uint256 public price_target;  //TEST CASE DONE
     uint256 public price_band;  //TEST CASE DONE
     uint256 public global_collateral_ratio; //TEST CASE DONE
-    bool public collateral_ratio_paused = false; //TODO: ADD TEST CASES
-    uint256 public last_call_time; //TODO: ADD TEST CASES
+    bool public collateral_ratio_paused = false; //TEST CASE DONE
+    uint256 public last_call_time; //TEST CASE DONE
 
     constructor(
         string memory _name,
@@ -167,7 +167,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         global_collateral_ratio = _global_collateral_ratio;
     }
 
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function refreshCollateralRatio() public {
         require(collateral_ratio_paused == false, "Collateral Ratio has been paused");
         uint256 ceres_price_cur = ceres_price();
@@ -191,7 +191,7 @@ contract CEREStable is ERC20Custom, AccessControl {
 
         last_call_time = block.timestamp; // Set the time of the last expansion
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function toggleCollateralRatio() public onlyByOwnerOrGovernance {
         collateral_ratio_paused = !collateral_ratio_paused;
     }

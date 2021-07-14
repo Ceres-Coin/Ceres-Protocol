@@ -57,6 +57,13 @@ contract CEREStable is ERC20Custom, AccessControl {
     UniswapPairOracle public CeresEthOracle; //TEST CASE DONE
     address public weth_address; //TEST CASE DONE
 
+    // CERES PARAMETERS
+    uint256 public ceres_step;  //TODO: ADD TEST SCRIPTS
+    uint256 public refresh_cooldown;  //TODO: ADD TEST SCRIPTS
+    uint256 public price_target;  //TODO: ADD TEST SCRIPTS
+    uint256 public price_band;  //TODO: ADD TEST SCRIPTS
+    uint256 public global_collateral_ratio; //TODO: ADD TEST SCRIPTS
+
     constructor(
         string memory _name,
         string memory _symbol,
@@ -70,6 +77,12 @@ contract CEREStable is ERC20Custom, AccessControl {
         DEFAULT_ADMIN_ADDRESS = _msgSender();
         owner_address = _creator_address;
         _mint(creator_address, genesis_supply);
+
+        ceres_step = 2500; 
+        global_collateral_ratio = 1000000; 
+        refresh_cooldown = 60; 
+        price_target = 1000000; 
+        price_band = 5000; 
     }
 
     /* ========== MODIFIERS ========== */

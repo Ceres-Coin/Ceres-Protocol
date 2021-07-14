@@ -150,4 +150,32 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         await instanceCERES.setPriceTarget(DEFAUT_VALUE,{from: OWNER});
         expect(parseFloat(await instanceCERES.price_target.call())).to.equal(DEFAUT_VALUE);
     });
+
+    it('check instanceCERES.setPriceBand() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 5000;
+        const NEW_VALUE = 6000;
+        expect(parseFloat(await instanceCERES.price_band.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instanceCERES.setPriceBand(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.price_band.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instanceCERES.setPriceBand(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.price_band.call())).to.equal(DEFAUT_VALUE);
+    });
+
+    it('check instanceCERES.set_global_collateral_ratio() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 1000000;
+        const NEW_VALUE = 900000;
+        expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instanceCERES.set_global_collateral_ratio(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instanceCERES.set_global_collateral_ratio(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
+    });
 });

@@ -102,4 +102,9 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         const expected_value = 5000;
         expect(parseFloat(await instanceCERES.price_band.call())).to.equal(expected_value);
     });
+
+    it ('check ceres.global_collateral_ratio.call(), its default value is equal to 1000000', async() => {
+        const expected_value = 1000000;
+        expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(expected_value);
+    });
 });

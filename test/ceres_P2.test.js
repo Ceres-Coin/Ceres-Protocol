@@ -107,4 +107,19 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         const expected_value = 1000000;
         expect(parseFloat(await instanceCERES.global_collateral_ratio.call())).to.equal(expected_value);
     });
+
+    // TEST SCRIPTS OF RESTRICTED FUNC()
+    it('check instanceCERES.setCeresStep() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 2500;
+        const NEW_VALUE = 5000;
+        expect(parseFloat(await instanceCERES.ceres_step.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instanceCERES.setCeresStep(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.ceres_step.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instanceCERES.setCeresStep(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceCERES.ceres_step.call())).to.equal(DEFAUT_VALUE);
+    });
 });

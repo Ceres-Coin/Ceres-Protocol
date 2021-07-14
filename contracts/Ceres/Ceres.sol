@@ -58,11 +58,11 @@ contract CEREStable is ERC20Custom, AccessControl {
     address public weth_address; //TEST CASE DONE
 
     // CERES PARAMETERS
-    uint256 public ceres_step;  //TODO: ADD TEST SCRIPTS
-    uint256 public refresh_cooldown;  //TODO: ADD TEST SCRIPTS
-    uint256 public price_target;  //TODO: ADD TEST SCRIPTS
-    uint256 public price_band;  //TODO: ADD TEST SCRIPTS
-    uint256 public global_collateral_ratio; //TODO: ADD TEST SCRIPTS
+    uint256 public ceres_step;  //TEST CASE DONE
+    uint256 public refresh_cooldown;  //TEST CASE DONE
+    uint256 public price_target;  //TEST CASE DONE
+    uint256 public price_band;  //TEST CASE DONE
+    uint256 public global_collateral_ratio; //TEST CASE DONE
 
     constructor(
         string memory _name,

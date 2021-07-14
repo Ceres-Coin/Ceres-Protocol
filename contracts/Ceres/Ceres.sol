@@ -63,6 +63,8 @@ contract CEREStable is ERC20Custom, AccessControl {
     uint256 public price_target;  //TEST CASE DONE
     uint256 public price_band;  //TEST CASE DONE
     uint256 public global_collateral_ratio; //TEST CASE DONE
+    bool public collateral_ratio_paused = false; //TODO: ADD TEST CASES
+    uint256 public last_call_time; //TODO: ADD TEST CASES
 
     constructor(
         string memory _name,
@@ -163,6 +165,35 @@ contract CEREStable is ERC20Custom, AccessControl {
     // TEST CASE DONE
     function set_global_collateral_ratio(uint256 _global_collateral_ratio) external onlyByOwnerOrGovernance {
         global_collateral_ratio = _global_collateral_ratio;
+    }
+
+    // TODO: ADD TEST CASES
+    function refreshCollateralRatio() public {
+        require(collateral_ratio_paused == false, "Collateral Ratio has been paused");
+        uint256 ceres_price_cur = ceres_price();
+        require(block.timestamp - last_call_time >= refresh_cooldown, "Must wait for the refresh cooldown since last refresh");
+
+    
+        
+        if (ceres_price_cur > price_target.add(price_band)) { //decrease collateral ratio
+            if(global_collateral_ratio <= ceres_step){ //if within a step of 0, go to 0
+                global_collateral_ratio = 0;
+            } else {
+                global_collateral_ratio = global_collateral_ratio.sub(ceres_step);
+            }
+        } else if (ceres_price_cur < price_target.sub(price_band)) { //increase collateral ratio
+            if(global_collateral_ratio.add(ceres_step) >= 1000000){
+                global_collateral_ratio = 1000000; // cap collateral ratio at 1.000000
+            } else {
+                global_collateral_ratio = global_collateral_ratio.add(ceres_step);
+            }
+        }
+
+        last_call_time = block.timestamp; // Set the time of the last expansion
+    }
+    // TODO: ADD TEST CASES
+    function toggleCollateralRatio() public onlyCollateralRatioPauser {
+        collateral_ratio_paused = !collateral_ratio_paused;
     }
 
 

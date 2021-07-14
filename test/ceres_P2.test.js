@@ -188,4 +188,18 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         const expected_value = 0;
         expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(expected_value);
     });
+
+    it('check instanceCERES.toggleCollateralRatio() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = false;
+        const NEW_VALUE = true;
+        expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instanceCERES.toggleCollateralRatio({from: OWNER});
+        expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instanceCERES.toggleCollateralRatio({from: OWNER});
+        expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(DEFAUT_VALUE);
+    });
 });

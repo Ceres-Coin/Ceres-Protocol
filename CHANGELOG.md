@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.6](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.5...v1.12.6) (2021-07-14)
+
+
+### Tests
+
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADD][TEST SCRIPTS]: 'check swapToPriceInstance.swapToPrice()' ([54fc4c8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/54fc4c8bad1f44803ca045d5e47a5cfeb8037887))
+* **test/swaptoprice.test.js:** [ADD][TEST SCRIPTS]: 'check swapToPriceInstance.factory.call() is equal to uniswapFactoryInstance.address' ([273544f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/273544fe260963c8ba028bd14e34f69d0bae8f64))
+* **test/swaptoprice.test.js:** [ADD][TEST SCRIPTS]: 'check swapToPriceInstance.router.call() is equal to routerInstance.address' ([ff1cc48](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ff1cc486de5a1544a31d2336ba844a596d206f72))
+* **test/swaptoprice.test.js:** [CREATED][NEW TEST SCRIPTS FILE]: "test/SwapToPrice.test.js" & UPDATE NPM SCRIPTS IN package.json ([2d040fc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2d040fc0a803688acc82a1af5693af641404a671))
+* **test/uniswapv2router02_modified.test.js:** [CREATED][NEW TEST SCRIPTS FILE]: 'test/UniswapV2Router02_Modified.test.js' ([b9f6820](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b9f682078fba95b1ac9e955f95e6b89568ee1a9e))
+* **test/uniswapv2router02_modified.test.js:** 1. 'check routerInstance.factory.call() is equal to uniswapFactoryInstance.address'; 2.'check routerInstance.WETH.call() is equal to wethInstance.address' ([648b949](https://github.com/Ceres-Coin/Ceres-Protocol/commit/648b9493e1c2af514a3c70a88d2e142b3c01d042))
+
 ### [1.12.5](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.4...v1.12.5) (2021-07-13)
 
 

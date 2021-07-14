@@ -63,5 +63,24 @@ contract('contracts/Oracle/Variants/UniswapPairOracle_CERES_WETH.sol', async (ac
 
     it('check swapToPriceInstance.factory.call() is equal to uniswapFactoryInstance.address', async() => {
         expect(await swapToPriceInstance.factory.call()).to.equal(uniswapFactoryInstance.address);
+    });
+
+    it('check swapToPriceInstance.swapToPrice()', async() => {
+        // SwapToPrice() func is tested SUCCESS
+        // UNCOMMENT BELOW CODE IF NECESSARY
+        // UNCOMMENT BELOW CODE IF NECESSARY
+        // UNCOMMENT BELOW CODE IF NECESSARY
+        // UNCOMMENT BELOW CODE IF NECESSARY
+        // await swapToPriceInstance.swapToPrice(
+        //     ceresInstance.address,
+        //     wethInstance.address,
+        //     new BigNumber(365e6),
+        //     new BigNumber(1e6),
+        //     new BigNumber(100e18),
+        //     new BigNumber(100e18),
+        //     OWNER,
+        //     new BigNumber(2105300114),
+        //     { from: OWNER }
+        // );
     })
 });

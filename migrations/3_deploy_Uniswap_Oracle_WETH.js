@@ -75,6 +75,11 @@ module.exports = async function(deployer,network,accounts) {
 		ceresInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER })		
 	]);	
 
+	await Promise.all([
+		wethInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
+		ceresInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER })		
+	]);	
+
 	await routerInstance.addLiquidity(
 		ceresInstance.address, 
 		wethInstance.address,

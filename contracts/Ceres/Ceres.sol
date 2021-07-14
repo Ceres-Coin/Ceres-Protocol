@@ -167,6 +167,11 @@ contract CEREStable is ERC20Custom, AccessControl {
         global_collateral_ratio = _global_collateral_ratio;
     }
 
+    // TODO: ADD TEST CASES
+    function set_last_call_time(uint256 _last_call_time) external onlyByOwnerOrGovernance {
+        last_call_time = _last_call_time;
+    }
+
     //TEST CASE DONE
     function refreshCollateralRatio() public {
         require(collateral_ratio_paused == false, "Collateral Ratio has been paused");

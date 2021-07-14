@@ -16,6 +16,8 @@ import "../Oracle/UniswapPairOracle.sol";
 
 contract CEREStable is ERC20Custom, AccessControl {
     using SafeMath for uint256;
+    enum PriceChoice { CERES, CSS }
+
     //TEST CASE DONE
     string public name; 
     //TEST CASE DONE
@@ -156,6 +158,33 @@ contract CEREStable is ERC20Custom, AccessControl {
         css_eth_oracle_address = _css_oracle_addr;
         CSSEthOracle = UniswapPairOracle(_css_oracle_addr);
         weth_address = _weth_address;
+    }
+
+    function oracle_price(PriceChoice choice) internal view returns (uint256) {
+        // Get the ETH / USD price first, and cut it down to 1e6 precision
+        uint256 eth_usd_price = uint256(eth_usd_pricer.getLatestPrice()).mul(PRICE_PRECISION).div(uint256(10) ** eth_usd_pricer_decimals);
+        uint256 price_vs_eth;
+
+        if (choice == PriceChoice.CERES) {
+            price_vs_eth = uint256(CeresEthOracle.consult(weth_address, PRICE_PRECISION)); 
+        }
+        else if (choice == PriceChoice.CSS) {
+            price_vs_eth = uint256(CSSEthOracle.consult(weth_address, PRICE_PRECISION)); 
+        }
+        else revert("INVALID PRICE CHOICE. ");
+
+        // Will be in 1e6 format
+        return eth_usd_price.mul(PRICE_PRECISION).div(price_vs_eth);
+    }
+
+    // TODO: ADD TEST SCRIPTS
+    function ceres_price() public view returns (uint256) {
+        return oracle_price(PriceChoice.CERES);
+    }
+
+    // TODO: ADD TEST SCRIPTS
+    function css_price()  public view returns (uint256) {
+        return oracle_price(PriceChoice.CSS);
     }
 
     /* ========== EVENTS ========== */

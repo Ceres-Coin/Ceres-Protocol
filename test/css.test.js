@@ -55,7 +55,7 @@ contract('CSS.sol', async (accounts) => {
     it('check CSS timelock_address, its default value is OWNER ', async () => {
         expect(await instanceCSS.timelock_address()).to.equal(OWNER);
     });
-
+    // Because we transferred 800 CSS to addLiquidity
     it('check CSS.balanceOf(OWNER) = ONE_HUNDRED_MILLION_DEC18 - 800 ', async () => {
         const expected_value_owner = parseFloat(new BigNumber("99999200e18"));
         expect(parseFloat(await instanceCSS.balanceOf(OWNER))).to.equal(expected_value_owner);

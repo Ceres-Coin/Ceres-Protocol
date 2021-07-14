@@ -140,27 +140,27 @@ contract CEREStable is ERC20Custom, AccessControl {
         }
     }
 
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function setCeresStep(uint256 _new_step) public onlyByOwnerOrGovernance {
         ceres_step = _new_step;
     }  
 
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function setRefreshCooldown(uint256 _new_cooldown) public onlyByOwnerOrGovernance {
     	refresh_cooldown = _new_cooldown;
     }
 
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function setPriceTarget (uint256 _new_price_target) public onlyByOwnerOrGovernance {
         price_target = _new_price_target;
     }
 
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function setPriceBand(uint256 _price_band) external onlyByOwnerOrGovernance {
         price_band = _price_band;
     }
 
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function set_global_collateral_ratio(uint256 _global_collateral_ratio) external onlyByOwnerOrGovernance {
         global_collateral_ratio = _global_collateral_ratio;
     }

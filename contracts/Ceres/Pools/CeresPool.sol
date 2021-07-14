@@ -7,6 +7,7 @@ import "../../Math/SafeMath.sol";
 import "../../CSS/CSS.sol";
 import "../../Ceres/Ceres.sol";
 import "../../ERC20/ERC20.sol";
+import "../../Oracle/UniswapPairOracle.sol";
 import "../../Governance/AccessControl.sol";
 import "./CeresPoolLibrary.sol";
 

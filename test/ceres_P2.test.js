@@ -13,6 +13,7 @@ const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
+const EIGHT_HUNDRED_DEC6 = new BigNumber("800e6");
 
 
 contract('CERES.sol', async (accounts) => {
@@ -45,5 +46,10 @@ contract('CERES.sol', async (accounts) => {
     it ('check ceres.getCeresEthOracle_consult(), its default value is SIX_HUNDRED_DEC6', async() => {
         const expected_value = parseFloat(SIX_HUNDRED_DEC6);
         expect(parseFloat(await instanceCERES.getCeresEthOracle_consult())).to.equal(expected_value);
+    });
+
+    it ('check ceres.getCSSEthOracle_consult(), its default value is EIGHT_HUNDRED_DEC6', async() => {
+        const expected_value = parseFloat(EIGHT_HUNDRED_DEC6);
+        expect(parseFloat(await instanceCERES.getCSSEthOracle_consult())).to.equal(expected_value);
     });
 });

@@ -177,6 +177,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         return eth_usd_price.mul(PRICE_PRECISION).div(price_vs_eth);
     }
 
+    /* ========== PUBLIC FUNCTIONS PART 2 (FUNC)========== */
     // TEST CASE DONE
     function ceres_price() public view returns (uint256) {
         return oracle_price(PriceChoice.CERES);
@@ -185,6 +186,11 @@ contract CEREStable is ERC20Custom, AccessControl {
     // TEST CASE DONE
     function css_price()  public view returns (uint256) {
         return oracle_price(PriceChoice.CSS);
+    }
+
+    // TODO: ADD TEST SCRIPTS
+    function eth_usd_price() public view returns (uint256) {
+        return uint256(eth_usd_pricer.getLatestPrice()).mul(PRICE_PRECISION).div(uint256(10) ** eth_usd_pricer_decimals);
     }
 
     /* ========== EVENTS ========== */

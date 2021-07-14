@@ -2,6 +2,69 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.6...v1.13.0) (2021-07-14)
+
+
+### Features
+
+* **contracts/ceres/ceres.sol:** [ADDED][CONTRACTS][FUNC]: 'set_last_call_time()' ([09d7c3c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/09d7c3c0e3a362adab246f78e67ea4ca92122b90))
+* **contracts/ceres/ceres.sol:** [ADDED][CONTRACTS][FUNC]: 'toggleCollateralRatio()' & 'refreshCollateralRatio()' & [ADDED][CONTRACTS][PARAMETERS]: 'collateral_ratio_paused' & 'last_call_time' ([b4e5baa](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b4e5baa7aad4061c7b2d22b5a714061060b48733))
+* **contracts/ceres/ceres.sol:** [ADDED][CONTRACTS][FUNC]: ADDED "eth_usd_price" FUNC IN contracts/Ceres/Ceres.sol ([3c2539d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3c2539d6530468ba167ad8a505e51eae0d0b2c83))
+* **contracts/ceres/ceres.sol:** [ADDED][CONTRACTS][FUNC]: ADDED RESTRICTED FUNCTIONS setCeresStep()/setRefreshCooldown/setPriceTarget/setPriceBand/set_global_collateral_ratio ([8d5a230](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8d5a2307d971819a1125ebee71b15585c7e36007))
+* **contracts/ceres/pools:** [ADD][CONTRACTS][PARAMETERS]: ADD PARAMETERS ceres_step/refresh_cooldown/price_target/price_band/global_collateral_ratio ([9392f19](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9392f198e86f7035c283d7464d2eeead9913a1ff))
+
+
+### Bug Fixes
+
+* **contracts/ceres/ceres.sol:** [ADD COMMENTS]: "TEST CASE DONE" & [REMOVE][TODO TASKS] ([96f903a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/96f903af76c2213b3ec2b070e5f5f8461d3a3e84))
+* **contracts/ceres/ceres.sol:** [ADD][CONTRACT CODE]: ADD PUBLIC FUNC "setCSSEthOracle" & PARAMETERS [css_eth_oracle_address]/[CSSEthOracle] ([7833af4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7833af4129aa799e7dfd09b5ada6a582418281dd))
+* **contracts/ceres/ceres.sol:** [ADD][CONTRACTS FUNC]: contracts/Ceres/Ceres.sol ADD ceres_price() & css_price() public func ([42bcf72](https://github.com/Ceres-Coin/Ceres-Protocol/commit/42bcf72ab14192ec524cc13ac65e3256cdb7f28e))
+* **contracts/ceres/ceres.sol:** [ADDED][FUNC][CONTRACTS]: contracts/Ceres/Ceres.sol ADDED PUBLIC func 'getCSSEthOracle_consult()' ([fcc8fd8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fcc8fd8e0b5b32f619bc85489b8ed79775fd4655))
+* **contracts/ceres/ceres.sol:** [REMOVE][TODO TASK] & [ADD][COMMENTS]: "TEST CASE DONE" ([c762c62](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c762c625f8c852c33608660512ddca58ba223651))
+* **contracts/oracle/variants/uniswappairoracle_css_weth.sol:** [CREATED][NEW CONTRACT FILE]: 'contracts/Oracle/Variants/UniswapPairOracle_CSS_WETH.sol' ([5765920](https://github.com/Ceres-Coin/Ceres-Protocol/commit/576592064b260c999703ae4ca85ae99e6fe51887))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: 'migrations/3_deploy_Uniswap_Oracle_WETH.js' 1. ADDED 'deployer.deploy(UniswapPairOracle_CSS_WETH)'; 2. CERES.setCSSEthOracle(); ([84d7dc0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/84d7dc08dec7d1a34ffab8d5aa1964737c4cccea))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: 1. 'createPair(CSS,WETH)'; 2. 'routerInstance.addLiquidity(css,weth); 3. cssInstance.approve(routerInstance & swapToPriceInstance) 4. get UniswapV2Pair.at(pair_addr_CSS_WETH); ([f57bcdc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f57bcdc1a935f2cfee84f841f2a852bb781bb688))
+
+
+### Styling
+
+* **contracts/ceres/ceres.sol:** [ADD][COMMENTS]: "TEST CASE DONE" & [REMOVED][TODO TASKS] ([b87c9be](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b87c9becdb32ff19a7db47aef8ea5653305f1548))
+* **contracts/ceres/ceres.sol:** [ADDED][COMMENTS]: "TEST CASE DONE" COMMENTS & [REMOVED][TODO TASKS] ([03ccd3b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/03ccd3b3d9d279ed24d5c995f4135800409af895))
+
+
+### Tests
+
+* **contracts/ceres/ceres.sol:** [ADD][TEST SCRIPTS]: 'check ceres.ceres_step.call(), its default value is equal to 2500' ([6733fb1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6733fb1b6461c30129c77694d025f59ec035a849))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.css_eth_oracle_address(), its default value is oracle_instance_CSS_WETH.address' ([07062fe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/07062fe44e856189becad66ff96d79e8d00077b8))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.css_price(), its default value is gt(0)' ([08485de](https://github.com/Ceres-Coin/Ceres-Protocol/commit/08485de903dc38018a218dd50eee99c501fa8cab))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.getCeresEthOracle_consult(), its default value is SIX_HUNDRED_DEC6' ([e949348](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e949348872107960e45e9f27900c7b7b2d48a29a))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.getCSSEthOracle_consult(), its default value is EIGHT_HUNDRED_DEC6' ([4e3014c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4e3014caa2b7d7f24d7c61004ce3832f7d841961))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.global_collateral_ratio.call(), its default value is equal to 1000000' ([ac1e7d7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ac1e7d785523d5cd7964ea28c86e29e62ca6d143))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.price_band.call(), its default value is equal to 5000' ([675b242](https://github.com/Ceres-Coin/Ceres-Protocol/commit/675b24234784bad735c8e884233c186fdddf7f35))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.price_target.call(), its default value is equal to 1000000' ([ab47ec3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ab47ec3fc865d45ae86795134aa914cb4cdbfa37))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check ceres.refresh_cooldown.call(), its default value is equal to 60' ([f41f010](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f41f01093dde013404cc676971afe3e89e2d04b0))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check instanceCERES.set_global_collateral_ratio() FUNC' ([8657289](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8657289a17a19e4ea54256811de0b2025459de1e))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check instanceCERES.setCeresStep() FUNC' ([b04db1b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b04db1b9a3ac11a73af51c1cfbb9f916bef92a56))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check instanceCERES.setPriceTarget() FUNC' ([2b6e998](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2b6e998a9acd7c8cbe4aa23a410beb22b2af36ab))
+* **test/ceres_p2.test.js:** [ADD][TEST SCRIPTS]: 'check instanceCERES.setRefreshCooldown() FUNC' ([4e30a7c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4e30a7c9e23e896b0b37705b8188f47350e909da))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check ceres.ceres_price(), its default value is gt(0)' & TUNING FAILED TEST SCRIPTS ([2e1ea85](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2e1ea85251f642aaa6abbe6a4dedb67460660c2c))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check ceres.eth_usd_price(), its default value is gt(0)' ([22ee221](https://github.com/Ceres-Coin/Ceres-Protocol/commit/22ee221360bfa874ea8eef2344ae575842bc8941))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.collateral_ratio_paused.call(), its default value is equal to FALSE' ([3e679ee](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3e679eec9a38627736b62ae4fbb31b59740526a5))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.last_call_time.call(), its default value is equal to 0' ([33d8dcb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/33d8dcb95b723aa25c1047a8805ead9837661e1c))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.refreshCollateralRatio() FUNC' ([e1b0065](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e1b006594f0041bd8c1cd998336ad11ff0a569b9))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.refreshCollateralRatio() FUNC' ([789793d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/789793d260b13769316268655c90075d8545fb53))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.toggleCollateralRatio() FUNC' ([35265dd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/35265ddd711ac34f604247e6ee52489b71bbb460))
+
+
+### Docs
+
+* **contracts/ceres/ceres.sol:** [ADDED][COMMENTS]: "TEST CASE DONE" & [REMOVED][TODO TASKS] ([78f8ed7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/78f8ed7d8c8fe79d8dee69c65ee1a0bd1632953e))
+* **contracts/ceres/ceres.sol:** [ADDED][COMMENTS]: "TEST CASE DONE" & [REMOVED][TODO TASKS] ([5b80210](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5b80210cadc9e74d52fa42636af9318bc22eb353))
+* **contracts/ceres/ceres.sol:** [ADDED][COMMENTS]: "TEST CASE DONE" & [REMOVED][TODO TASKS] ([06c5e7e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/06c5e7e2e47e978febf31388fb5adf92bfb070a8))
+* **contracts/ceres/ceres.sol:** [ADDED][COMMENTS]: "TEST CASE DONE" & [REMOVED][TODO TASKS] ([8f55b48](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8f55b48ae3270c046fc912d0cf33870ee9f247f5))
+* **test/css.test.js:** [ADDED][COMMENTS]: // Because we transferred 800 CSS to addLiquidity ([2cee7fb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2cee7fbc186cae63f8a4f06ed1891a611580639d))
+* **test/weth.test.js:** [ADDED][COMMENTS] ([75d3124](https://github.com/Ceres-Coin/Ceres-Protocol/commit/75d3124d3be1cac3c90a6c5f3dd491c4b1bef7e0))
+
 ### [1.12.6](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.5...v1.12.6) (2021-07-14)
 
 

@@ -79,10 +79,10 @@ contract CEREStable is ERC20Custom, AccessControl {
         _mint(creator_address, genesis_supply);
 
         ceres_step = 2500; 
-        global_collateral_ratio = 1000000; 
         refresh_cooldown = 60; 
         price_target = 1000000; 
         price_band = 5000; 
+        global_collateral_ratio = 1000000; 
     }
 
     /* ========== MODIFIERS ========== */

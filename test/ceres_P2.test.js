@@ -17,7 +17,7 @@ const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 const EIGHT_HUNDRED_DEC6 = new BigNumber("800e6");
 
 
-contract('test/ceres_P2.test.js', async (accounts) => {
+contract('contracts/Ceres/Ceres.sol', async (accounts) => {
 
     // set the deploy address
 	const account0 = accounts[0];
@@ -81,5 +81,10 @@ contract('test/ceres_P2.test.js', async (accounts) => {
         // console.log(chalk.blue(parseFloat(await instanceCERES.eth_usd_price.call())));
         const expected_value = 0;
         expect(parseFloat(await instanceCERES.eth_usd_price.call())).to.gt(expected_value);
+    });
+
+    it ('check ceres.ceres_step.call(), its default value is equal to 2500', async() => {
+        const expected_value = 2500;
+        expect(parseFloat(await instanceCERES.ceres_step.call())).to.equal(expected_value);
     });
 });

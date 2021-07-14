@@ -183,4 +183,9 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         const expected_value = false;
         expect(await instanceCERES.collateral_ratio_paused.call()).to.equal(expected_value);
     });
+
+    it ('check instanceCERES.last_call_time.call(), its default value is equal to 0', async() => {
+        const expected_value = 0;
+        expect(parseFloat(await instanceCERES.last_call_time.call())).to.equal(expected_value);
+    });
 });

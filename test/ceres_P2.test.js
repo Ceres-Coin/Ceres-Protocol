@@ -17,7 +17,7 @@ const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 const EIGHT_HUNDRED_DEC6 = new BigNumber("800e6");
 
 
-contract('CERES.sol', async (accounts) => {
+contract('test/ceres_P2.test.js', async (accounts) => {
 
     // set the deploy address
 	const account0 = accounts[0];
@@ -63,5 +63,11 @@ contract('CERES.sol', async (accounts) => {
     it ('check ceres.CSSEthOracle(), its default value is oracle_instance_CSS_WETH.address', async() => {
         const expected_value = await oracle_instance_CSS_WETH.address;
         expect(await instanceCERES.CSSEthOracle.call()).to.equal(expected_value);
+    });
+
+    it ('check ceres.ceres_price(), its default value is gt(0)', async() => {
+        // console.log(chalk.blue(parseFloat(await instanceCERES.ceres_price.call())));
+        const expected_value = 0;
+        expect(parseFloat(await instanceCERES.ceres_price.call())).to.gt(expected_value);
     });
 });

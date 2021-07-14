@@ -53,14 +53,14 @@ contract('CERES.sol', async (accounts) => {
         expect(parseFloat(await wethInstance.decimals.call())).to.equal(expected_value);
     });
 
-    it ('check wethInstance.balanceOf(OWNER).call(), its default value is 999999E18', async() => {
-        const expected_value_owner = new BigNumber("999999e18");
+    it ('check wethInstance.balanceOf(OWNER).call(), its default value is 999998E18', async() => {
+        const expected_value_owner = new BigNumber("999998e18");
         expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value_owner));
     });
 
     it ('check weth.transfer(test_account, 1dec18)',async() => {
         // before
-        const expected_value_owner = new BigNumber("999999e18");
+        const expected_value_owner = new BigNumber("999998e18");
         expect(parseFloat(await wethInstance.balanceOf(OWNER))).to.equal(parseFloat(expected_value_owner));
         const expected_value_test_account = 0;
         expect(parseFloat(await wethInstance.balanceOf(TEST_ACCOUNT))).to.equal(parseFloat(expected_value_test_account));

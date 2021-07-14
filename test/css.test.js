@@ -56,9 +56,9 @@ contract('CSS.sol', async (accounts) => {
         expect(await instanceCSS.timelock_address()).to.equal(OWNER);
     });
 
-    it('check CSS.balanceOf(OWNER) = ONE_HUNDRED_MILLION_DEC18 ', async () => {
-        const balanceOf_VALUE = parseFloat(ONE_HUNDRED_MILLION_DEC18);
-        expect(parseFloat(await instanceCSS.balanceOf(OWNER))).to.equal(balanceOf_VALUE);
+    it('check CSS.balanceOf(OWNER) = ONE_HUNDRED_MILLION_DEC18 - 800 ', async () => {
+        const expected_value_owner = parseFloat(new BigNumber("99999200e18"));
+        expect(parseFloat(await instanceCSS.balanceOf(OWNER))).to.equal(expected_value_owner);
     });
 
     it('check CSS.balanceOf(ACCOUNT1/2/3) = 0 ', async () => {

@@ -87,4 +87,9 @@ contract('contracts/Ceres/Ceres.sol', async (accounts) => {
         const expected_value = 2500;
         expect(parseFloat(await instanceCERES.ceres_step.call())).to.equal(expected_value);
     });
+
+    it ('check ceres.refresh_cooldown.call(), its default value is equal to 60', async() => {
+        const expected_value = 60;
+        expect(parseFloat(await instanceCERES.refresh_cooldown.call())).to.equal(expected_value);
+    });
 });

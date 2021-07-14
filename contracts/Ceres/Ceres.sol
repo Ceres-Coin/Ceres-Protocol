@@ -45,8 +45,8 @@ contract CEREStable is ERC20Custom, AccessControl {
     ChainlinkETHUSDPriceConsumer public eth_usd_pricer; //test case done
 
     
-    address public css_eth_oracle_address; // TODO: ADD TEST SCRIPTS
-    UniswapPairOracle public CSSEthOracle;  // TODO: ADD TEST SCRIPTS
+    address public css_eth_oracle_address; //TEST CASE DONE
+    UniswapPairOracle public CSSEthOracle;  //TEST CASE DONE
 
     // CONSTANTS
     uint256 public constant PRICE_PRECISION = 1e6; //TEST CASE DONE
@@ -151,7 +151,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         weth_address = _weth_address;
     }
 
-    // TODO: ADD TEST SCRIPTS
+    // TEST CASE DONE
     function setCSSEthOracle(address _css_oracle_addr, address _weth_address) public onlyByOwnerOrGovernance {
         css_eth_oracle_address = _css_oracle_addr;
         CSSEthOracle = UniswapPairOracle(_css_oracle_addr);

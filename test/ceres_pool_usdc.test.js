@@ -164,32 +164,32 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.PRICE_PRECISION.call())).to.equal(parseFloat(value));
     });
 
-    it('check instance_Pool_USDC_CERES.COLLATERAL_RATIO_PRECISION.call() = 1e6', async() => {
+    it('check instance_Pool_USDC.COLLATERAL_RATIO_PRECISION.call() = 1e6', async() => {
         const expected_value = new BigNumber("1e6");
         expect(parseFloat(await instance_Pool_USDC.COLLATERAL_RATIO_PRECISION.call())).to.equal(parseFloat(expected_value));
     });
 
-    it('check instance_Pool_USDC_CERES.COLLATERAL_RATIO_MAX.call() = 1e6', async() => {
+    it('check instance_Pool_USDC.COLLATERAL_RATIO_MAX.call() = 1e6', async() => {
         const expected_value = new BigNumber("1e6");
         expect(parseFloat(await instance_Pool_USDC.COLLATERAL_RATIO_MAX.call())).to.equal(parseFloat(expected_value));
     });
 
-    it('check instance_Pool_USDC_CERES.pausedPrice.call() = 0', async() => {
+    it('check instance_Pool_USDC.pausedPrice.call() = 0', async() => {
         const expected_value = new BigNumber("0");
         expect(parseFloat(await instance_Pool_USDC.pausedPrice.call())).to.equal(parseFloat(expected_value));
     });
 
-    it('check instance_Pool_USDC_CERES.unclaimedPoolCollateral.call() = 0', async() => {
+    it('check instance_Pool_USDC.unclaimedPoolCollateral.call() = 0', async() => {
         const expected_value = new BigNumber("0");
         expect(parseFloat(await instance_Pool_USDC.unclaimedPoolCollateral.call())).to.equal(parseFloat(expected_value));
     });
 
-    it('check instance_Pool_USDC_CERES.collateralPricePaused.call() = FALSE', async() => {
+    it('check instance_Pool_USDC.collateralPricePaused.call() = FALSE', async() => {
         const expected_value = false
         expect(await instance_Pool_USDC.collateralPricePaused.call()).to.equal(expected_value);
     });
 
-    it('check instance_Pool_USDC_CERES.mintPaused.call() = FALSE', async() => {
+    it('check instance_Pool_USDC.mintPaused.call() = FALSE', async() => {
         const expected_value = false
         expect(await instance_Pool_USDC.mintPaused.call()).to.equal(expected_value);
     });

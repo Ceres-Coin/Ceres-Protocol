@@ -224,6 +224,20 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.collateralPricePaused.call()).to.equal(DEFAUT_VALUE);
     });
 
+    it('check instance_Pool_USDC.setMinting_fee() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = 300;
+        const NEW_VALUE = 600;
+        expect(parseFloat(await instance_Pool_USDC.minting_fee.call())).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.setMinting_fee(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.minting_fee.call())).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.setMinting_fee(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.minting_fee.call())).to.equal(DEFAUT_VALUE);
+    });
+
     it('check instance_Pool_USDC.collat_eth_oracle_address.call(), its value is oracle_instance_USDC_WETH.address', async() => {
         const oracle_instance_USDC_WETH = await UniswapPairOracle_USDC_WETH.deployed();
         const expected_value = oracle_instance_USDC_WETH.address;

@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.13.0...v1.14.0) (2021-07-15)
+
+
+### Features
+
+* **contracts/ceres/ceres.sol:** [ADDED][CONTRACTS][FUNC]: 'ceres_info' ([f901c55](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f901c556618f11738b9ec225cb98ead623abc5a9))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CONTRACTS][FUNC]: 'setMinting_fee()' FUNC ([f75c67c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f75c67c9f01dfbbb9d9789f33367b9d000d3857a))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CONTRACTS][FUNC]: ADDED 'toggleMinting()' & 'toggleCollateralPricePaused()' ([ce55504](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ce55504674c32fd9df81371f5f89eb1334cfc500))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CONTRACTS][FUNC]: ADDED "import "../../Oracle/UniswapPairOracle.sol";" ([e243d14](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e243d14a244f49f8993995e6dd8f9de0bf11f03c))
+* **contracts/fakecollateral/fakecollateral.sol; contracts/fakecollateral/fakecollateral_6dec.sol; contracts/fakecollateral/fakecollateral_usdc.sol:** [CREATED][NEW][CONTRACTS]: 'contracts/FakeCollateral/FakeCollateral.sol' & 'FakeCollateral_6DEC.sol' & 'FakeCollateral_USDC.sol' ([5fa2ada](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5fa2ada184acbec2fd35c805029d95cc348579d5))
+* **contracts/oracle/variants/uniswappairoracle_usdc_weth.sol:** [CREATED][NEW][CONTRACTS]: CREATED "contracts/Oracle/Variants/UniswapPairOracle_USDC_WETH.sol" ([1af2397](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1af2397b1b36f343f75c16f4ff4b535c9636a2a4))
+* **migrations/2_deploy_contracts.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT OF 'FakeCollateral_USDC' ([ba2c588](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ba2c5884e9213ea5dc47ce6f6366f2b160f830bc))
+* **migrations/2_deploy_contracts.js:** [IMPORTANT][CHANGE]: ADDED CORE FUNC() "mint1t1CERES" IN "contracts/Ceres/Pools/CeresPool.sol" & Other PARAMETERS & OTHER FUNC() ([84751fe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/84751fecd50be34859600b0f5e53c21ffcc90162))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: 'pool_instance_USDC.setCollatETHOracle' & 'await ceresInstance.addPool(pool_instance_USDC.address)' ([13da866](https://github.com/Ceres-Coin/Ceres-Protocol/commit/13da866d5239776d4a16da052da56420b5a42755))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: 'pool_instance_USDC.setCollatETHOracle(oracle_instance_USDC_WETH.address)' ([59497c6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/59497c6f748ee6ab2f2416c0343309a2b602d9ed))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: await uniswapFactoryInstance.createPair(col_instance_USDC.address, wethInstance.address, { from: OWNER }) ([0203e59](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0203e5993d961a47e83ca9d403fa7cff9ee310bb))
+
+
+### Docs
+
+* **contracts/ceres/ceres.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([a29da1d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a29da1d06e273ae6c184126ce6843b61c3212d94))
+
+
+### Tests
+
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.ceres_info.call()[0] & [1]' ([756f2f2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/756f2f297a74348799f5f7648a896d82d8db8420))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.ceres_info.call()[2], it default value is equal to totalSupply()' ([ccd4a9e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ccd4a9e339794dc4234b02c243515ce41bc9466e))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.ceres_info.call()[3], it default value is equal to global_collateral_ratio()' ([d212ef1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d212ef19a848b2c395324fdf8fd4e77ef3f92c90))
+* **test/ceres_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.ceres_info.call()[4], it default value is equal to eth_usd_price()' ([2c8210a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2c8210a7708a5296d18667b100d51b0893d0ed40))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.COLLATERAL_RATIO_MAX.call() = 1e6' ([c2de02b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c2de02b03c7a6ceb8e0889d17ab85e8d06b98320))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.COLLATERAL_RATIO_PRECISION.call() = 1e6' ([b94a792](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b94a79276b5d160a18ae083c1d384d635ff35f40))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.collateralPricePaused.call() = FALSE' ([7ff0462](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7ff046255e3a42b77fc06c90be61b99c53bc5e8d))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.mintPaused.call() = FALSE' ([0214787](https://github.com/Ceres-Coin/Ceres-Protocol/commit/02147876a0a6d859c65b70a8216cb153bc6c8ec8))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.pausedPrice.call() = 0' ([f9ae99b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f9ae99b6d8e8f4cc9348b018917c6d443c1ff344))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.PRICE_PRECISION.call() = 1e6' ([49e857a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/49e857a86dffafae58c5b7436d0835c3541d3c73))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC_CERES.unclaimedPoolCollateral.call() = 0' ([afa6740](https://github.com/Ceres-Coin/Ceres-Protocol/commit/afa6740a64739700cb15da9b0f629bd421db18cb))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.collat_eth_oracle_address.call()' ([5c3fb6d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5c3fb6d3a9baaee1aa33f92718d8e8e1673e48dc))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.getCollateralPrice.call(), its default is gt(0)' ([65c9115](https://github.com/Ceres-Coin/Ceres-Protocol/commit/65c91159dc44112ad4560fd8e08d71d280997bf3))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.minting_fee.call() = 300' ([8841d49](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8841d493e81e36a55db03b49560dd71e2e8dd137))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.setMinting_fee() FUNC' ([7e572cd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7e572cd4e3c946334b077bd91e20ab1d546047bd))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.toggleCollateralPricePaused() FUNC' ([1341052](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1341052ae98761a1a3fbf53e9a5ff2f9914f3123))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.toggleMinting() FUNC' ([5710e89](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5710e894fa2c749a6f6989e27bbe2fce50c29828))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.weth_address.call(), its value is wethInstance.address' & 'check instance_Pool_USDC.collatEthOracle.call(), its value is oracle_instance_USDC_WETH.address' ([f4b8e16](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f4b8e1699fe1a31e7accbacc8d61f5662f93d601))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.balanceOf.call(OWNER), its default value is ONE_HUNDRED_MILLION_DEC18' ([8be1a1e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8be1a1e580e5d66ab07bfd00aa531cdab608ec59))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.creator_address.call(), its default value is OWNER' ([649ea1a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/649ea1a02fba8faf71de3ad6f5672f1d9769044c))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.decimals.call(), its default value is 18' ([eefe34f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/eefe34f9688799d1bb790806a103f7f6a79d06a2))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.faucet()' & 'check col_instance_USDC.transfer(TEST_ACCOUNT,ONE_MILLION_DEC18)' ([3fcac6d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3fcac6d190be6b04096d4a55f885e2c3bd540e22))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.genesis_supply.call(), its default value is ONE_HUNDRED_MILLION_DEC18' ([f4b974c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f4b974cc473aa49519b9f9b799d3711b4b3523fd))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.symbol.call(), its default value is USDC' & [ADDED][TODO TASKS] ([c0fe4a7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c0fe4a7571fde534f5afad68fafe26551ff5534c))
+* **test/fakecollateral_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check col_instance_USDC.totalSupply.call(), its default value is ONE_HUNDRED_MILLION_DEC18' ([0e7cba8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0e7cba8f5a6eab05f8699790a2a0c9f79f93d307))
+* **test/fakecollateral_usdc.test.js:** [CREATED][NEW][TEST SCRIPTS FILE]: 'test/FakeCollateral_USDC.test.js' ([0dd2120](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0dd2120b826009db4833d8dc111e5bb7429e313d))
+* **test/fakecollateral_usdc.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING TEST CASES FOR PASS ([3ef72b1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3ef72b185af0a3c1237a1853c4097e2e621ca754))
+* **test/fakecollateral_usdc.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING test scripts to PASS ([ff02ecc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ff02ecc19e46b3e398f70929cfc117c0b80e7c2f))
+* **test/weth.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING TEST CASES TO PASS ([47979ca](https://github.com/Ceres-Coin/Ceres-Protocol/commit/47979ca9358897ca8a93244add969fdd7af4414a))
+
+
+### Styling
+
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([3df242a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3df242ac0eaa7ccb11649909f2379c9a9c994ce6))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([e9a95e3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e9a95e315dd5103038a8e9a6dc31f289d14972a8))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([b5e984c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b5e984c0b13878cc49783cddf960bd2cca8b434a))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([1456b8d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1456b8d6abe05179e6e7af86b375b9ef2acb5520))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([da4d8f4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/da4d8f45f75129b36a49f979595bb59a6fdeb158))
+* **contracts/ceres/pools/cerespool.sol:** [REFORMATTING][MOVE CODE LOCATION] ([3ab152e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3ab152ef1715c27cba0c3ae9fc4ff70981c41aa5))
+* **migrations/2_deploy_contracts.js:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([cd7b113](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cd7b113835f9168878e26783caa7074f0ce79206))
+* **test/ceres_pool_usdc.test.js:** [MODIFIED][COMMENTS] ([ba83fca](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ba83fca57d55b5e2deab8c00cd9d0f82f64bda29))
+
 ## [1.13.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.12.6...v1.13.0) (2021-07-14)
 
 

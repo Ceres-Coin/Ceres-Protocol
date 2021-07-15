@@ -91,24 +91,24 @@ contract CeresPool is AccessControl {
 
     // ADD RESTRICTED FUNC FIRST
     /* ========== RESTRICTED FUNCTIONS ========== */
-    
+    //TEST CASE DONE
     function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
         owner_address = _owner_address;
     }
-    
+    //TEST CASE DONE
     function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
         timelock_address = new_timelock;
     }
-
+    //TEST CASE DONE
     function setPoolParameters(uint256 new_ceiling) external onlyByOwnerOrGovernance {
         pool_ceiling = new_ceiling;
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function toggleMinting() external onlyByOwnerOrGovernance {
         mintPaused = !mintPaused;
     }
     
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function toggleCollateralPricePaused() external onlyByOwnerOrGovernance {
         collateralPricePaused = !collateralPricePaused;
     }

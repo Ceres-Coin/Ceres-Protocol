@@ -17,15 +17,14 @@ contract CeresPool is AccessControl {
     /* ========== STATE VARIABLES ========== */
  
     ERC20 public collateral_token; //TEST CASE DONE
-    CEREShares public CSS; //TEST CASE DONE
-    CEREStable public CERES; //TEST CASE DONE
     address public collateral_address; //TEST CASE DONE
     address public owner_address; //TEST CASE DONE
 
     address public ceres_contract_address; //TEST CASE DONE
     address public css_contract_address; //TEST CASE DONE
     address public timelock_address; //TEST CASE DONE
-
+    CEREShares public CSS; //TEST CASE DONE
+    CEREStable public CERES; //TEST CASE DONE
 
     // Number of decimals needed to get to 18
     uint256 public immutable missing_decimals; //TEST CASE DONE

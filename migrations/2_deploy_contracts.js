@@ -59,8 +59,9 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`oracle_chainlink_ETH_USD: ${oracle_chainlink_ETH_USD.address}`));
 	await ceresInstance.setETHUSDOracle(oracle_chainlink_ETH_USD.address, { from: OWNER });
 
+	// TEST CASE DONE
 	await deployer.deploy(FakeCollateral_USDC, OWNER, ONE_HUNDRED_MILLION_DEC18, "USDC", 18);
 	const col_instance_USDC = await FakeCollateral_USDC.deployed(); 
 	console.log(chalk.red.bold(`col_instance_USDC: ${col_instance_USDC.address}`));
-	// TODO: [HIGH][PRIORITY]: ADD TEST CASE FOR FakeCollateral_USDC contracts
+	
 };

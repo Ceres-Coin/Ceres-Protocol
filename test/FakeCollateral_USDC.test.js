@@ -69,5 +69,10 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
         expect(await col_instance_USDC.creator_address.call()).to.equal(expected_value);
     });
 
+    it ('check col_instance_USDC.genesis_supply.call(), its default value is ONE_HUNDRED_MILLION_DEC18', async() => {
+        const expected_value = ONE_HUNDRED_MILLION_DEC18;
+        expect(parseFloat(await col_instance_USDC.genesis_supply.call())).to.equal(parseFloat(expected_value));
+    });
+
     
 });

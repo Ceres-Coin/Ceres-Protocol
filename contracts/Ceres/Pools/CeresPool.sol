@@ -42,8 +42,8 @@ contract CeresPool is AccessControl {
     uint256 public unclaimedPoolCollateral; //TEST CASE DONE
     
     // AccessControl state variables
-    bool public collateralPricePaused = false; //TODO: ADD TEST CASES
-    bool public mintPaused = false; //TODO: ADD TEST CASES
+    bool public collateralPricePaused = false; //TEST CASE DONE
+    bool public mintPaused = false; //TEST CASE DONE
     
     // [PARAMETER][collat_eth_oracle_address]
     UniswapPairOracle public collatEthOracle; //TODO: ADD TEST CASES
@@ -124,7 +124,7 @@ contract CeresPool is AccessControl {
         }
     }
 
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function setCollatETHOracle(address _collateral_weth_oracle_address, address _weth_address) external onlyByOwnerOrGovernance {
         collat_eth_oracle_address = _collateral_weth_oracle_address;
         collatEthOracle = UniswapPairOracle(_collateral_weth_oracle_address);

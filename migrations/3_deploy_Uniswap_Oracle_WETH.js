@@ -15,6 +15,7 @@ const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapP
 const UniswapPairOracle_CSS_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CSS_WETH");
 const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
+const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 
 
 const DUMP_ADDRESS = constants.ZERO_ADDRESS;
@@ -51,6 +52,7 @@ module.exports = async function(deployer,network,accounts) {
 	let swapToPriceInstance;
 	const ceresInstance = await CEREStable.deployed();
 	const cssInstance = await CEREShares.deployed();
+	const col_instance_USDC = await FakeCollateral_USDC.deployed(); 
 
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
@@ -70,6 +72,7 @@ module.exports = async function(deployer,network,accounts) {
 
 	await uniswapFactoryInstance.createPair(ceresInstance.address, wethInstance.address, { from: OWNER });
 	await uniswapFactoryInstance.createPair(cssInstance.address, wethInstance.address, { from: OWNER });
+	await uniswapFactoryInstance.createPair(col_instance_USDC.address, wethInstance.address, { from: OWNER })
 	const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
 	const pair_addr_CSS_WETH = await uniswapFactoryInstance.getPair(cssInstance.address, wethInstance.address, { from: OWNER });
 	const pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
@@ -79,12 +82,14 @@ module.exports = async function(deployer,network,accounts) {
 		wethInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
 		ceresInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
 		cssInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
+		col_instance_USDC.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
 	]);	
 
 	await Promise.all([
 		wethInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
 		ceresInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
-		cssInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
+		cssInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
+		col_instance_USDC.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
 	]);	
 
 	await routerInstance.addLiquidity(

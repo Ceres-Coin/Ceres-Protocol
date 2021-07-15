@@ -29,6 +29,7 @@ const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
 const ONE_DEC18 = new BigNumber("1e18");
 const TWO_MILLION_DEC18 = new BigNumber("2000000e18");
 const TWO_THOUSAND_DEC18 = new BigNumber("2000e18");
+const COLLATERAL_SEED_DEC18 = new BigNumber("500000e18");
 
 module.exports = async function(deployer,network,accounts) {
   // Set the Network Settings
@@ -151,5 +152,12 @@ module.exports = async function(deployer,network,accounts) {
 
 	ceresInstance.setCeresEthOracle(oracle_instance_CERES_WETH.address, wethInstance.address, { from: OWNER });
 	ceresInstance.setCSSEthOracle(oracle_instance_CSS_WETH.address, wethInstance.address, { from: OWNER });
-	pool_instance_USDC.setCollatETHOracle(oracle_instance_USDC_WETH.address, wethInstance.address, { from: OWNER })
+	pool_instance_USDC.setCollatETHOracle(oracle_instance_USDC_WETH.address, wethInstance.address, { from: OWNER });
+
+	await col_instance_USDC.transfer(pool_instance_USDC.address, COLLATERAL_SEED_DEC18, { from:  OWNER});
+	// Link the FAKE collateral pool to the CERES contract
+	if (!await ceresInstance.ceres_pools.call(pool_instance_USDC.address)) {
+		await ceresInstance.addPool(pool_instance_USDC.address, { from: OWNER });
+	}
+
 };

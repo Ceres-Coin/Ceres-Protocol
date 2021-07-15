@@ -194,5 +194,18 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.mintPaused.call()).to.equal(expected_value);
     });
 
+    it('check instance_Pool_USDC.toggleMinting() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = false;
+        const NEW_VALUE = true;
+        expect(await instance_Pool_USDC.mintPaused.call()).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.toggleMinting({from: OWNER});
+        expect(await instance_Pool_USDC.mintPaused.call()).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.toggleMinting({from: OWNER});
+        expect(await instance_Pool_USDC.mintPaused.call()).to.equal(DEFAUT_VALUE);
+    });
 
 });

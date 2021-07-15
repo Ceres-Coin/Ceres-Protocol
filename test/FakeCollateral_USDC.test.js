@@ -64,5 +64,10 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
         expect(parseFloat(await col_instance_USDC.decimals.call())).to.equal(expected_value);
     });
 
+    it ('check col_instance_USDC.creator_address.call(), its default value is OWNER', async() => {
+        const expected_value = OWNER;
+        expect(await col_instance_USDC.creator_address.call()).to.equal(expected_value);
+    });
+
     
 });

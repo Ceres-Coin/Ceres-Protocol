@@ -16,6 +16,7 @@ const BIG18 = new BigNumber("1e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 const EIGHT_HUNDRED_DEC6 = new BigNumber("800e6");
+const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 
 
 contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) => {
@@ -51,6 +52,11 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
     it ('check col_instance_USDC.address(), its default value is not empty', async() => {
         console.log(chalk.blue(`col_instance_USDC: ${col_instance_USDC.address}`));
         expect(col_instance_USDC.address).to.not.be.empty;
+    });
+
+    it ('check col_instance_USDC.symbol.call(), its default value is USDC', async() => {
+        const expected_value = "USDC";
+        expect(await col_instance_USDC.symbol.call()).to.equal(expected_value);
     });
 
     

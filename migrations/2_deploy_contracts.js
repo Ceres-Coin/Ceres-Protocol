@@ -62,4 +62,5 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(FakeCollateral_USDC, OWNER, ONE_HUNDRED_MILLION_DEC18, "USDC", 18);
 	const col_instance_USDC = await FakeCollateral_USDC.deployed(); 
 	console.log(chalk.red.bold(`col_instance_USDC: ${col_instance_USDC.address}`));
+	// TODO: [HIGH][PRIORITY]: ADD TEST CASE FOR FakeCollateral_USDC contracts
 };

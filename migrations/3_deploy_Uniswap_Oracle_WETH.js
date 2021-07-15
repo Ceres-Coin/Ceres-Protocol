@@ -13,6 +13,7 @@ const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_
 const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CERES_WETH");
 const UniswapPairOracle_CSS_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CSS_WETH");
+const UniswapPairOracle_USDC_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_USDC_WETH");
 const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
@@ -27,6 +28,7 @@ const SIX_HUNDRED_DEC18 = new BigNumber("600e18");
 const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
 const ONE_DEC18 = new BigNumber("1e18");
 const TWO_MILLION_DEC18 = new BigNumber("2000000e18");
+const TWO_THOUSAND_DEC18 = new BigNumber("2000e18");
 
 module.exports = async function(deployer,network,accounts) {
   // Set the Network Settings
@@ -56,7 +58,7 @@ module.exports = async function(deployer,network,accounts) {
 
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
-	
+
 	await deployer.deploy(WETH, OWNER);
 	wethInstance = await WETH.deployed();
 	console.log(chalk.red.bold(`wethInstance: ${await wethInstance.address}`));
@@ -69,6 +71,8 @@ module.exports = async function(deployer,network,accounts) {
 	
 	await deployer.deploy(SwapToPrice, uniswapFactoryInstance.address, routerInstance.address);
 	swapToPriceInstance = await SwapToPrice.deployed();
+
+	const pool_instance_USDC = await Pool_USDC.deployed();
 
 	await uniswapFactoryInstance.createPair(ceresInstance.address, wethInstance.address, { from: OWNER });
 	await uniswapFactoryInstance.createPair(cssInstance.address, wethInstance.address, { from: OWNER });
@@ -116,20 +120,36 @@ module.exports = async function(deployer,network,accounts) {
 		{ from: OWNER }
 	);
 
+	await routerInstance.addLiquidity(
+		col_instance_USDC.address, 
+		wethInstance.address,
+		new BigNumber(TWO_THOUSAND_DEC18), 
+		new BigNumber(ONE_DEC18), 
+		new BigNumber(TWO_THOUSAND_DEC18), 
+		new BigNumber(ONE_DEC18), 
+		OWNER, 
+		new BigNumber(2105300114), 
+		{ from: OWNER }
+	);
+
 	
 
 	await deployer.deploy(UniswapPairOracle_CERES_WETH, uniswapFactoryInstance.address, ceresInstance.address, wethInstance.address, OWNER, OWNER);
 	await deployer.deploy(UniswapPairOracle_CSS_WETH, uniswapFactoryInstance.address, cssInstance.address, wethInstance.address, OWNER, OWNER);
+	await deployer.deploy(UniswapPairOracle_USDC_WETH, uniswapFactoryInstance.address, col_instance_USDC.address, wethInstance.address, OWNER, OWNER);
 
 	await time.increase(86400 + 1);
 	await time.advanceBlock();
 
 	const oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
 	const oracle_instance_CSS_WETH = await UniswapPairOracle_CSS_WETH.deployed();
+	const oracle_instance_USDC_WETH = await UniswapPairOracle_USDC_WETH.deployed();
 	await oracle_instance_CERES_WETH.update({from: OWNER});
 	await oracle_instance_CSS_WETH.update({from: OWNER});
+	await oracle_instance_USDC_WETH.update({from: OWNER});
 	
 
 	ceresInstance.setCeresEthOracle(oracle_instance_CERES_WETH.address, wethInstance.address, { from: OWNER });
 	ceresInstance.setCSSEthOracle(oracle_instance_CSS_WETH.address, wethInstance.address, { from: OWNER });
+	pool_instance_USDC.setCollatETHOracle(oracle_instance_USDC_WETH.address, wethInstance.address, { from: OWNER })
 };

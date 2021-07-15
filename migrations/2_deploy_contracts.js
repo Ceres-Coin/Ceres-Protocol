@@ -4,6 +4,7 @@ const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
+const CeresPoolLibrary = artifacts.require("Ceres/Pools/CERESPoolLibrary");
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 
@@ -43,6 +44,9 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(CEREShares, "CERES Share", "CSS", OWNER, OWNER,OWNER,{from: OWNER});
 	const cssInstance = await CEREShares.deployed();
 	console.log(chalk.red.bold(`cssInstance: ${await cssInstance.address}`));
+
+	await deployer.deploy(CeresPoolLibrary);
+    await deployer.link(CeresPoolLibrary, [Pool_USDC]);
 
 	await deployer.deploy(Pool_USDC, ceresInstance.address, cssInstance.address, sampleERC20.address, OWNER, OWNER, FIVE_MILLION_DEC18);
 	const pool_instance_USDC = await Pool_USDC.deployed();

@@ -159,9 +159,14 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(FIVE_MILLION_DEC18));
     });
 
-    it('check instance_Pool_USDC_CERES.PRICE_PRECISION.call() = 1e6', async() => {
+    it('check instance_Pool_USDC.PRICE_PRECISION.call() = 1e6', async() => {
         const value = 1000000;
-        expect(parseFloat(await instance_Pool_USDC_CERES.PRICE_PRECISION.call())).to.equal(parseFloat(value));
+        expect(parseFloat(await instance_Pool_USDC.PRICE_PRECISION.call())).to.equal(parseFloat(value));
+    });
+
+    it('check instance_Pool_USDC_CERES.COLLATERAL_RATIO_PRECISION.call() = 1e6', async() => {
+        const expected_value = new BigNumber("1e6");
+        expect(parseFloat(await instance_Pool_USDC.COLLATERAL_RATIO_PRECISION.call())).to.equal(parseFloat(expected_value));
     });
 
 

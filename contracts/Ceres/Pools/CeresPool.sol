@@ -103,6 +103,10 @@ contract CeresPool is AccessControl {
     function setPoolParameters(uint256 new_ceiling) external onlyByOwnerOrGovernance {
         pool_ceiling = new_ceiling;
     }
+    // TODO: ADD TEST CASES
+    function setMinting_fee(uint256 _minting_fee) external onlyByOwnerOrGovernance {
+        minting_fee = _minting_fee;
+    }
     //TEST CASE DONE
     function toggleMinting() external onlyByOwnerOrGovernance {
         mintPaused = !mintPaused;

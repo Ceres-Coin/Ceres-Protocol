@@ -242,4 +242,9 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.weth_address.call()).to.equal(expected_value);
     });
 
+    it('check instance_Pool_USDC.minting_fee.call() = 300', async() => {
+        const expected_value = new BigNumber("300");
+        expect(parseFloat(await instance_Pool_USDC.minting_fee.call())).to.equal(parseFloat(expected_value));
+    });
+
 });

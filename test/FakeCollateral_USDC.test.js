@@ -19,6 +19,7 @@ const EIGHT_HUNDRED_DEC6 = new BigNumber("800e6");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const ONE_THOUSAND_DEC18 = new BigNumber("1000e18");
 const TWO_THOUSAND_DEC18 = new BigNumber("2000e18");
+const COLLATERAL_SEED_DEC18 = new BigNumber("500000e18");
 
 
 contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) => {
@@ -85,14 +86,14 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
     // TRANSFERRED TWO_THOUSAND_DEC18 USDC TO USDC-WETH ORACLE.
     it ('check col_instance_USDC.balanceOf.call(OWNER), its default value is ONE_HUNDRED_MILLION_DEC18', async() => {
         const expected_value = ONE_HUNDRED_MILLION_DEC18;
-        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))+parseFloat(TWO_THOUSAND_DEC18)).to.equal(parseFloat(expected_value));
+        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))+parseFloat(TWO_THOUSAND_DEC18)+parseFloat(COLLATERAL_SEED_DEC18)).to.equal(parseFloat(expected_value));
         expect(parseFloat(await col_instance_USDC.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(0));
     });
     // TRANSFERRED TWO_THOUSAND_DEC18 USDC TO USDC-WETH ORACLE.
     it ('check col_instance_USDC.transfer(TEST_ACCOUNT,ONE_MILLION_DEC18)', async() => {
         // BEFORE
         const expected_value = ONE_HUNDRED_MILLION_DEC18;
-        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))+parseFloat(TWO_THOUSAND_DEC18)).to.equal(parseFloat(expected_value));
+        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))+parseFloat(TWO_THOUSAND_DEC18)+parseFloat(COLLATERAL_SEED_DEC18)).to.equal(parseFloat(expected_value));
         expect(parseFloat(await col_instance_USDC.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(0));
         // ACTION & ASSERTION
         const TRANSFER_AMOUNT = ONE_MILLION_DEC18;
@@ -101,7 +102,7 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
 
         // ROLLBACK CODE
         await col_instance_USDC.transfer(OWNER,TRANSFER_AMOUNT,{from: TEST_ACCOUNT});
-        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))+parseFloat(TWO_THOUSAND_DEC18)).to.equal(parseFloat(expected_value));
+        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))+parseFloat(TWO_THOUSAND_DEC18)+parseFloat(COLLATERAL_SEED_DEC18)).to.equal(parseFloat(expected_value));
     });
 
     it ('check col_instance_USDC.faucet()', async() => {

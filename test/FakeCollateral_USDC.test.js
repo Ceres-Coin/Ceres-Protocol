@@ -50,13 +50,18 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
     });
 
     it ('check col_instance_USDC.address(), its default value is not empty', async() => {
-        console.log(chalk.blue(`col_instance_USDC: ${col_instance_USDC.address}`));
+        // console.log(chalk.blue(`col_instance_USDC: ${col_instance_USDC.address}`));
         expect(col_instance_USDC.address).to.not.be.empty;
     });
 
     it ('check col_instance_USDC.symbol.call(), its default value is USDC', async() => {
         const expected_value = "USDC";
         expect(await col_instance_USDC.symbol.call()).to.equal(expected_value);
+    });
+
+    it ('check col_instance_USDC.decimals.call(), its default value is 18', async() => {
+        const expected_value = 18;
+        expect(parseFloat(await col_instance_USDC.decimals.call())).to.equal(expected_value);
     });
 
     

@@ -184,5 +184,10 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.unclaimedPoolCollateral.call())).to.equal(parseFloat(expected_value));
     });
 
+    it('check instance_Pool_USDC_CERES.collateralPricePaused.call() = FALSE', async() => {
+        const expected_value = false
+        expect(await instance_Pool_USDC.collateralPricePaused.call()).to.equal(expected_value);
+    });
+
 
 });

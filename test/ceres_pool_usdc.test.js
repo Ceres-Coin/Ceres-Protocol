@@ -12,7 +12,7 @@ const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 
-contract('CeresPool', async (accounts) => {
+contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -157,6 +157,11 @@ contract('CeresPool', async (accounts) => {
         // ROLLBACK CODE
         await instance_Pool_USDC.setPoolParameters(FIVE_MILLION_DEC18,{from: OWNER});
         expect(parseFloat(await instance_Pool_USDC.pool_ceiling())).to.equal(parseFloat(FIVE_MILLION_DEC18));
+    });
+
+    it('check instance_Pool_USDC_CERES.PRICE_PRECISION.call() = 1e6', async() => {
+        const value = 1000000;
+        expect(parseFloat(await instance_Pool_USDC_CERES.PRICE_PRECISION.call())).to.equal(parseFloat(value));
     });
 
 

@@ -33,13 +33,13 @@ contract CeresPool is AccessControl {
 
     // Constants for various precisions
     // TEST CASE DONE
-    uint256 public constant PRICE_PRECISION = 1e6; //TODO: ADD TEST CASES
-    uint256 public constant COLLATERAL_RATIO_PRECISION = 1e6; //TODO: ADD TEST CASES
-    uint256 public constant COLLATERAL_RATIO_MAX = 1e6; //TODO: ADD TEST CASES
+    uint256 public constant PRICE_PRECISION = 1e6; //TEST CASE DONE
+    uint256 public constant COLLATERAL_RATIO_PRECISION = 1e6; //TEST CASE DONE
+    uint256 public constant COLLATERAL_RATIO_MAX = 1e6; //TEST CASE DONE
 
     // Stores price of the collateral, if price is paused
-    uint256 public pausedPrice = 0; //TODO: ADD TEST CASES
-    uint256 public unclaimedPoolCollateral; //TODO: ADD TEST CASES
+    uint256 public pausedPrice = 0; //TEST CASE DONE
+    uint256 public unclaimedPoolCollateral; //TEST CASE DONE
     
     // AccessControl state variables
     bool public collateralPricePaused = false; //TODO: ADD TEST CASES

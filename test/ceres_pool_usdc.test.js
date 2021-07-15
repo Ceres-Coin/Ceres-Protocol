@@ -8,6 +8,7 @@ const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const UniswapPairOracle_USDC_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_USDC_WETH");
+const WETH = artifacts.require("ERC20/WETH");
 const ERC20 = artifacts.require("ERC20");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
@@ -223,10 +224,22 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.collateralPricePaused.call()).to.equal(DEFAUT_VALUE);
     });
 
-    it('check instance_Pool_USDC.collat_eth_oracle_address.call()', async() => {
+    it('check instance_Pool_USDC.collat_eth_oracle_address.call(), its value is oracle_instance_USDC_WETH.address', async() => {
         const oracle_instance_USDC_WETH = await UniswapPairOracle_USDC_WETH.deployed();
         const expected_value = oracle_instance_USDC_WETH.address;
         expect(await instance_Pool_USDC.collat_eth_oracle_address.call()).to.equal(expected_value);
+    });
+
+    it('check instance_Pool_USDC.collatEthOracle.call(), its value is oracle_instance_USDC_WETH.address', async() => {
+        const oracle_instance_USDC_WETH = await UniswapPairOracle_USDC_WETH.deployed();
+        const expected_value = oracle_instance_USDC_WETH.address;
+        expect(await instance_Pool_USDC.collatEthOracle.call()).to.equal(expected_value);
+    });
+
+    it('check instance_Pool_USDC.weth_address.call(), its value is wethInstance.address', async() => {
+        const wethInstance = await WETH.deployed();
+        const expected_value = wethInstance.address
+        expect(await instance_Pool_USDC.weth_address.call()).to.equal(expected_value);
     });
 
 });

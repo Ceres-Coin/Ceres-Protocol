@@ -80,5 +80,11 @@ contract('contracts/FakeCollateral/FakeCollateral_USDC.sol', async (accounts) =>
         expect(parseFloat(await col_instance_USDC.totalSupply.call())).to.equal(parseFloat(expected_value));
     });
 
+    it ('check col_instance_USDC.balanceOf.call(OWNER), its default value is ONE_HUNDRED_MILLION_DEC18', async() => {
+        const expected_value = ONE_HUNDRED_MILLION_DEC18;
+        expect(parseFloat(await col_instance_USDC.balanceOf.call(OWNER))).to.equal(parseFloat(expected_value));
+        expect(parseFloat(await col_instance_USDC.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(0));
+    });
+
     
 });

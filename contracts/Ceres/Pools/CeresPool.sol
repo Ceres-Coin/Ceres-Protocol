@@ -46,11 +46,11 @@ contract CeresPool is AccessControl {
     bool public mintPaused = false; //TEST CASE DONE
     
     // [PARAMETER][collat_eth_oracle_address]
-    UniswapPairOracle public collatEthOracle; //TODO: ADD TEST CASES
-    address public collat_eth_oracle_address; //TODO: ADD TEST CASES
-    address public weth_address; //TODO: ADD TEST CASES
+    UniswapPairOracle public collatEthOracle; //TEST CASE DONE
+    address public collat_eth_oracle_address; //TEST CASE DONE
+    address public weth_address; //TEST CASE DONE
 
-    uint256 public minting_fee = 300; //TODO: ADD TEST CASES
+    uint256 public minting_fee = 300; //TEST CASE DONE
 
 
 
@@ -103,7 +103,7 @@ contract CeresPool is AccessControl {
     function setPoolParameters(uint256 new_ceiling) external onlyByOwnerOrGovernance {
         pool_ceiling = new_ceiling;
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function setMinting_fee(uint256 _minting_fee) external onlyByOwnerOrGovernance {
         minting_fee = _minting_fee;
     }

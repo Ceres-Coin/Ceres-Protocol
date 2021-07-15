@@ -118,7 +118,7 @@ contract CeresPool is AccessControl {
     }
 
     /* ========== PUBLIC FUNCTIONS ========== */
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function getCollateralPrice() public view returns (uint256) {
         if(collateralPricePaused == true){
             return pausedPrice;

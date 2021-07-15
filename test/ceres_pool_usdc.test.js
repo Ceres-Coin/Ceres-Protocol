@@ -261,4 +261,10 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.minting_fee.call())).to.equal(parseFloat(expected_value));
     });
 
+    it('check instance_Pool_USDC.getCollateralPrice.call(), its default is gt(0)', async() => {
+        const getCollateralPrice = parseFloat(await instance_Pool_USDC.getCollateralPrice.call());
+        expect(getCollateralPrice).to.gt(0);
+        // console.log(chalk.blue(`getCollateralPrice: ${getCollateralPrice}`));
+    });
+
 });

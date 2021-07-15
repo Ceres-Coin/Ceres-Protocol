@@ -17,7 +17,7 @@ const SIX_HUNDRED_DEC6 = new BigNumber("600e6");
 const EIGHT_HUNDRED_DEC6 = new BigNumber("800e6");
 
 
-contract('contracts/Ceres/Ceres.sol', async (accounts) => {
+contract('contracts/Ceres/Ceres.sol Part 2', async (accounts) => {
 
     // set the deploy address
 	const account0 = accounts[0];

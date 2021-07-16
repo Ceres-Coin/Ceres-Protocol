@@ -370,4 +370,18 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.redemption_fee.call())).to.equal(parseFloat(DEFAUT_VALUE));
     });
 
+    it('check instance_Pool_USDC.setBuyback_fee() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = new BigNumber(100);
+        const NEW_VALUE = new BigNumber(200);
+        expect(parseFloat(await instance_Pool_USDC.buyback_fee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.setBuyback_fee(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.buyback_fee.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.setBuyback_fee(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.buyback_fee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+    });
+
 });

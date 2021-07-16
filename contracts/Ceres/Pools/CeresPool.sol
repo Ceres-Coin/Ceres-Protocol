@@ -44,7 +44,7 @@ contract CeresPool is AccessControl {
     // AccessControl state variables
     bool public collateralPricePaused = false; //TEST CASE DONE
     bool public mintPaused = false; //TEST CASE DONE
-    bool public redeemPaused = false; //TODO: ADD TEST CASE
+    bool public redeemPaused = false; //TEST CASE DONE
     
     // [PARAMETER][collat_eth_oracle_address]
     UniswapPairOracle public collatEthOracle; //TEST CASE DONE
@@ -117,7 +117,7 @@ contract CeresPool is AccessControl {
     function toggleMinting() external onlyByOwnerOrGovernance {
         mintPaused = !mintPaused;
     }
-    // TODO: ADD TEST CASE
+    //TEST CASE DONE
     function toggleRedeeming() external onlyByOwnerOrGovernance {
         redeemPaused = !redeemPaused;
     }

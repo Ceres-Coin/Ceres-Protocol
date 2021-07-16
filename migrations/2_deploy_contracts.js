@@ -50,9 +50,7 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(CeresPoolLibrary);
     await deployer.link(CeresPoolLibrary, [Pool_USDC]);
 
-	await deployer.deploy(Pool_USDC, ceresInstance.address, cssInstance.address, sampleERC20.address, OWNER, OWNER, FIVE_MILLION_DEC18);
-	const pool_instance_USDC = await Pool_USDC.deployed();
-	console.log(chalk.red.bold(`pool_instance_USDC: ${await pool_instance_USDC.address}`));
+
 
 	await deployer.deploy(ChainlinkETHUSDPriceConsumerTest);
 	const oracle_chainlink_ETH_USD = await ChainlinkETHUSDPriceConsumerTest.deployed();
@@ -63,5 +61,9 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(FakeCollateral_USDC, OWNER, ONE_HUNDRED_MILLION_DEC18, "USDC", 18);
 	const col_instance_USDC = await FakeCollateral_USDC.deployed(); 
 	console.log(chalk.red.bold(`col_instance_USDC: ${col_instance_USDC.address}`));
+
+	await deployer.deploy(Pool_USDC, ceresInstance.address, cssInstance.address, col_instance_USDC.address, OWNER, OWNER, FIVE_MILLION_DEC18);
+	const pool_instance_USDC = await Pool_USDC.deployed();
+	console.log(chalk.red.bold(`pool_instance_USDC: ${await pool_instance_USDC.address}`));
 	
 };

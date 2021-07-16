@@ -2,6 +2,70 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.15.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.14.0...v1.15.0) (2021-07-16)
+
+
+### Features
+
+* **contracts/ceres/pools/cerespool.sol && contracts/ceres/ceres.sol:** [ADDED][FUNC]: 'collatDollarBalance()' IN 'CeresPool.sol' && 'globalCollateralValue()' in 'Ceres.sol' ([7138401](https://github.com/Ceres-Coin/Ceres-Protocol/commit/71384018f094d487e7282b7dca1b0c4df89b9446))
+* **contracts/ceres/pools/cerespool.sol && contracts/ceres/ceres.sol:** [ADDED][FUNC]: 'pool_burn_from' IN 'ceres.sol' && [ADDED][PARAMETERS]: 'lastRedeemed" & 'redeemCollateralBalances' & 'redemption_fee' IN 'CeresPool.sol' && [ADDED][CORE][FUNC]: 'redeem1t1CERES' IN 'CeresPool.sol' ([d990de9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d990de913dc91859809351ccb11ddf9177760352))
+* **contracts/ceres/pools/cerespool.sol && contracts/css/css.sol:** [ADDED][CORE][FUNC]: 'redeemFractionalCERES' IN 'CeresPool.sol' && [ADDED][CORE][FUNC]: 'pool_mint()' IN 'CSS.sol' ([8067b8b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8067b8beb8d3400e8c661324e293e94894a56499))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CONTRACTS][FUNC]: 'mintAlgorithmicCERES' ([b9edd2e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b9edd2eb3bc28a3a3b44ce359a1ff66909b303cf))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CONTRACTS][FUNC]: ADDED PARAMETER 'redeemPaused'; ADDED MODIFIERS 'notRedeemPaused'; ADDED FUNC 'toggleRedeeming()' ([6c0ea7a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6c0ea7a548b315db630eceab1bd4fcf7c140a859))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CORE][FUNC]: 'collectRedemption()' & PARAMETERS 'redemption_delay ([200565a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/200565aed7a01ff9b5da244e92034d36afc10903))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CORE][FUNC]: 'recollateralizeCERES()' ([ce80c96](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ce80c9601bdaf63675e737fe040315edbd4b123d))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CORE][FUNC]: 'redeemAlgorithmicCERES' ([a6d1455](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a6d14555a865d09c9a724e1b60ccc2bf9486a890))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][FUNC]: setRedemption_fee/setBuyback_fee/setRecollat_fee/setBonus_rate ([1dbbc23](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1dbbc23fc7617f217060665408f1411507275701))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][PARAMETERS]: 'recollateralizePaused' & 'buyback_fee' & 'recollat_fee' & 'bonus_rate' & FUNC 'toggleRecollateralize()' ([adee51a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/adee51ac7603bd01f453ed7109c5ba7f390db138))
+* **contracts/ceres/pools/cerespool.sol:** [IMPORTANT][ADDED][CORE][FUNC]: 'mintFractionalCERES()' ([a6f5f83](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a6f5f83cde7592466017ab8c9d943e0a32f4b7ef))
+* **contracts/ceres/pools/cerespool.sol:** [MODIFIED][CONTRACTS][FUNC]: 'redeemFractionalCERES()' TO PASS TEST CASES && [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redeemFractionalCERES()' ([3f00358](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3f003581351cb18b152cfdaa425e13b8cb743329))
+* **contracts/css/css.sol:** [ADDED][CONTRACTS][FUNC]: 'pool_burn_from()' ([833eef2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/833eef292588ad8ed308103264db20b90d8b6b36))
+* **contracts/css/css.sol:** [ADDED][MODIFIERS]: 'pool_burn_from()' FUNC, ADDED 'onlyPools' ([4fae107](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4fae10770235b3281916d5c293aec7d71a32f4de))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENTS SCRIPTS]: 'await cssInstance.setCERESAddress(ceresInstance.address, { from: OWNER });' ([4738adf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4738adf0e54b265b38ba820dcae50d4fb49616a5))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [MODIFIED][DEPLOYMENT SCRIPTS]: ADDED usdc/css/ceres.approve() func ([413914d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/413914d30335a99a095e32b2a1dd0e8661f4a480))
+* **test/ceres_pool_usdc_p2.test.js:** [IMPORTANT]: FINISH THE mint1t1ceres() func test scripts, its the CORE FUNC() ([a559d9b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a559d9b694581113b53292a216923bf7110d0f9c))
+
+
+### Styling
+
+* **contracts/ceres/pools/cerespool.sol & contracts/css/css.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([3b493c2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3b493c2925895bd2e4910f9f7a44156243b6eef2))
+* **contracts/ceres/pools/cerespool.sol && contracts/css/css.sol:** [ADDED][TEST CASES DONE] & [REMOVED][TODO TASKS] ([608432f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/608432ff7e2ea0a3bef5eb93fbd45bbb1cc41738))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][COMMENTS][TEST CASE DONE] & [REMOVED][TODO TASKS] ([0995426](https://github.com/Ceres-Coin/Ceres-Protocol/commit/099542685074f6dec598f4cefa8cc261b5f9db5a))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASE DONE] & [REMOVED][TODO TASKS] ([fa65bdd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fa65bdd4848126c601e2f7add25aee21d69cd477))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASE DONE] && [REMOVED][TODO TASKS] ([12f3921](https://github.com/Ceres-Coin/Ceres-Protocol/commit/12f3921a7f58c5f9dbe25957e483a6d8b91f5f38))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASE DONE] && [REMOVED][TODO TASKS] ([d39ddfe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d39ddfecf86ced724f1476d1483e41fa885b6319))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([3123a01](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3123a01b191c9b06e224267981f4892663ce9bf4))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([40c331b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/40c331b0091fbb89eca41fbdcf3ea0e82f7e412d))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([3e2f7c7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3e2f7c7c1ccbd945c9831d19d342b39e9ebfd6a6))
+* **contracts/ceres/pools/cerespool.sol:** [REMOVED][TODO TASKS] && [ADDED][TEST CASE DONE] ([2bbf751](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2bbf7515cb43f24382bf3699c88f1e4c185d5cb5))
+
+
+### Tests
+
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][CORE][TEST SCRIPTS]: 'check instance_Pool_USDC.redeem1t1CERES()' ([85e2c97](https://github.com/Ceres-Coin/Ceres-Protocol/commit/85e2c9708df28a2181f29ab244f2827a2cd3f0c5))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.collectRedemption()' ([897ad00](https://github.com/Ceres-Coin/Ceres-Protocol/commit/897ad000e677d01ed5214c0937414aa475498056))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.mint1t1CERES() PART 2' ([63ba676](https://github.com/Ceres-Coin/Ceres-Protocol/commit/63ba6762ba46da7b0b5cf63c7cd785ed9b8532a0))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.mintAlgorithmicCERES()' ([35af421](https://github.com/Ceres-Coin/Ceres-Protocol/commit/35af42199eb42def698eed80057479c12d45215b))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.mintFractionalCERES()' ([dfdc748](https://github.com/Ceres-Coin/Ceres-Protocol/commit/dfdc748369326b385c8e24092fbc83d0148a14a7))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redeemAlgorithmicCERES()' ([f9d7755](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f9d77550de91cf1c90deda5618a3da6575eabc37))
+* **test/ceres_pool_usdc_p2.test.js:** [MODIFIED][TEST SCRIPTS]: 'check instance_Pool_USDC.mint1t1CERES() PART 2', (ADDED BEFORE_ACTION CODE) ([6128eba](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6128ebaba8f979903aa7531baeec1e5396ba7879))
+* **test/ceres_pool_usdc_p2.test.js:** [MODIFIED][TEST SCRIPTS]: 'check instance_Pool_USDC.mint1t1CERES() PART 2', ADDED ASSERTION CODE & AFTER_ACTION CODE ([d3ecdcd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d3ecdcd7b8c51a88a727139ade770c870b8b8151))
+* **test/ceres_pool_usdc_p2.test.js:** [MODIFIED][TEST SCRIPTS]: 'check instance_Pool_USDC.mintAlgorithmicCERES()', ADDED "BEFORE_ACTION" & "AFTER_ACTION" CODE ([852f4cc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/852f4cc4d9cddbb0c51717e52e181084c7d2e3f9))
+* **test/ceres_pool_usdc_p2.test.js:** [MODIFIED][TEST SCRIPTS]: 'check instance_Pool_USDC.mintFractionalCERES()' ADDED PRINT AFTER_ACTION CODE ([d3a2425](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d3a24255ed8064d3c98015cd5c7e3001b594b420))
+* **test/ceres_pool_usdc_p2.test.js:** [MODIFIED][TEST SCRIPTS]: 'check instance_Pool_USDC.redeem1t1CERES()', [ADDED]: 'BEFORE_ACTION' & 'AFTER_ACTION' ([f320e8c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f320e8c91f02b9886bf99a6e0518cf9ca55b8794))
+* **test/ceres_pool_usdc_p2.test.js:** [MODIFIED][TEST SCRIPTS]: ADDED BEFORE_ACTION CODE IN 'check instance_Pool_USDC.mintFractionalCERES()' ([675e5ea](https://github.com/Ceres-Coin/Ceres-Protocol/commit/675e5ead24b82bd569f88271118a1d51c3deb678))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.lastRedeemed.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO' ([5161e6f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5161e6f13f29c1d2e250706c94c6b81e0734bf4e))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redeemCollateralBalances.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO' ([670ea79](https://github.com/Ceres-Coin/Ceres-Protocol/commit/670ea7959a93b14b1bbc355534ac5fe0132b6ad2))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redeemCSSBalances.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO' ([57cfed9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/57cfed9f81933f8d4b4d20467e9ec3bbfbdd6643))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redeemPaused.call() = FALSE' ([5790f4f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5790f4f2ef61bc708c1d723faee90e0b64ed3182))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redemption_delay.call() = 0' ([b2eef53](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b2eef5396c36e45bda970d6ea3be85cb25e72d22))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.redemption_fee.call() = 400' ([279ebb0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/279ebb001fa988f9a63c564f9d9567f98b1a1147))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.toggleRedeeming() FUNC' ([d9b6e58](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d9b6e58b85f6f94f288d86c43f025b9cbc489f60))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.unclaimedPoolCSS.call() = 0' ([44bc5e5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/44bc5e526825a138757fb023e1666fbcb7f3b065))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: buyback_fee/recollat_fee/bonus_rate/recollateralizePaused ([b80875b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b80875b6f80fc245d0c79dee59e0bfb55276f60a))
+* **test/ceres_pool_usdc.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([879e884](https://github.com/Ceres-Coin/Ceres-Protocol/commit/879e8846538f7ca64694903406ab380de45485c8))
+* **test/css.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([5821d7a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5821d7a80a9af9cdfd3f18dd7dcbc1319333338d))
+
 ## [1.14.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.13.0...v1.14.0) (2021-07-15)
 
 

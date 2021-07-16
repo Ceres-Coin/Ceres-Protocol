@@ -104,14 +104,14 @@ contract('CSS.sol', async (accounts) => {
         expect(await instanceCSS.owner_address()).to.equal(OWNER);
     });
 
-    it('check CSS.CERES address, its default value is ZERO_ADDRESS ', async () => {
+    it('check CSS.CERES address, its default value is NOT EMPTY ', async () => {
         const instanceCSS_ceres_default = await instanceCSS.CERES();
-        expect(instanceCSS_ceres_default).to.equal(constants.ZERO_ADDRESS);
+        expect(instanceCSS_ceres_default).to.not.equal(constants.ZERO_ADDRESS);
     });
 
     it('check CSS.setCERESAddress, its value will be as instanceCERES.address', async() => {
         // BEFORE
-        expect(await instanceCSS.CERES()).to.equal(constants.ZERO_ADDRESS);
+        expect(await instanceCSS.CERES()).to.not.equal(constants.ZERO_ADDRESS);
         // ACTION & ASSERTION
         await instanceCSS.setCERESAddress(instanceCERES.address,{from: OWNER});
         expect(await instanceCSS.CERES()).to.equal(instanceCERES.address);

@@ -54,6 +54,7 @@ contract CeresPool is AccessControl {
     bool public collateralPricePaused = false; //TEST CASE DONE
     bool public mintPaused = false; //TEST CASE DONE
     bool public redeemPaused = false; //TEST CASE DONE
+    bool public recollateralizePaused = false; //TODO: ADD TEST CASE
     
     // [PARAMETER][collat_eth_oracle_address]
     UniswapPairOracle public collatEthOracle; //TEST CASE DONE
@@ -61,6 +62,9 @@ contract CeresPool is AccessControl {
     address public weth_address; //TEST CASE DONE
 
     uint256 public minting_fee = 300; //TEST CASE DONE
+    uint256 public buyback_fee = 100; //TODO: ADD TEST CASES
+    uint256 public recollat_fee = 100; //TODO: ADD TEST CASES
+    uint256 public bonus_rate = 7500; //TODO: ADD TEST CASES
     
 
 
@@ -130,6 +134,10 @@ contract CeresPool is AccessControl {
     //TEST CASE DONE
     function toggleRedeeming() external onlyByOwnerOrGovernance {
         redeemPaused = !redeemPaused;
+    }
+    // TODO: ADD TEST CASES
+    function toggleRecollateralize() external onlyByOwnerOrGovernance {
+        recollateralizePaused = !recollateralizePaused;
     }
     
     //TEST CASE DONE
@@ -332,4 +340,31 @@ contract CeresPool is AccessControl {
             collateral_token.transfer(msg.sender, CollateralAmount);
         }
     }
+
+    // TODO: ADD TEST CASES
+    // function recollateralizeCERES(uint256 collateral_amount, uint256 CSS_out_min) external {
+    //     require(recollateralizePaused == false, "Recollateralize is paused");
+    //     uint256 collateral_amount_d18 = collateral_amount * (10 ** missing_decimals);
+    //     uint256 css_price = CERES.css_price();
+    //     uint256 ceres_total_supply = CERES.totalSupply();
+    //     uint256 global_collateral_ratio = CERES.global_collateral_ratio();
+    //     uint256 global_collat_value = CERES.globalCollateralValue();
+
+    //     (uint256 collateral_units, uint256 amount_to_recollat) = CERESPoolLibrary.calcRecollateralizeCERESInner(
+    //         collateral_amount_d18,
+    //         getCollateralPrice(),
+    //         global_collat_value,
+    //         ceres_total_supply,
+    //         global_collateral_ratio
+    //     ); 
+
+    //     uint256 collateral_units_precision = collateral_units.div(10 ** missing_decimals);
+
+    //     uint256 css_paid_back = amount_to_recollat.mul(uint(1e6).add(bonus_rate).sub(recollat_fee)).div(css_price);
+
+    //     require(CSS_out_min <= css_paid_back, "Slippage limit reached");
+    //     collateral_token.transferFrom(msg.sender, address(this), collateral_units_precision);
+    //     CSS.pool_mint(msg.sender, css_paid_back);
+        
+    // }
 }

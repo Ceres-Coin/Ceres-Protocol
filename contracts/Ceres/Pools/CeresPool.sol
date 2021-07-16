@@ -276,4 +276,26 @@ contract CeresPool is AccessControl {
         collateral_token.transfer(msg.sender, collateral_amount);
         CSS.pool_mint(address(this), css_amount);
     }
+    // TODO: ADD TEST CASES
+    function redeemAlgorithmicCERES(uint256 CERES_amount, uint256 CSS_out_min) external notRedeemPaused {
+        uint256 css_price = CERES.css_price();
+        uint256 global_collateral_ratio = CERES.global_collateral_ratio();
+
+        require(global_collateral_ratio == 0, "Collateral ratio must be 0"); 
+        uint256 css_dollar_value_d18 = CERES_amount;
+
+        css_dollar_value_d18 = (css_dollar_value_d18.mul(uint(1e6).sub(redemption_fee))).div(PRICE_PRECISION); //apply fees
+
+        uint256 css_amount = css_dollar_value_d18.mul(PRICE_PRECISION).div(css_price);
+        
+        redeemCSSBalances[msg.sender] = redeemCSSBalances[msg.sender].add(css_amount);
+        unclaimedPoolCSS = unclaimedPoolCSS.add(css_amount);
+        
+        lastRedeemed[msg.sender] = block.number;
+        
+        require(CSS_out_min <= css_amount, "Slippage limit reached");
+        // Move all external functions to the end
+        CERES.pool_burn_from(msg.sender, CERES_amount);
+        CSS.pool_mint(address(this), css_amount);
+    }
 }

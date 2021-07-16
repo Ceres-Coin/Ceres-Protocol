@@ -276,7 +276,7 @@ contract CeresPool is AccessControl {
         collateral_token.transfer(msg.sender, collateral_amount);
         CSS.pool_mint(address(this), css_amount);
     }
-    // TODO: ADD TEST CASES
+    // TEST CASE DONE
     function redeemAlgorithmicCERES(uint256 CERES_amount, uint256 CSS_out_min) external notRedeemPaused {
         uint256 css_price = CERES.css_price();
         uint256 global_collateral_ratio = CERES.global_collateral_ratio();

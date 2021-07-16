@@ -54,7 +54,7 @@ contract CeresPool is AccessControl {
     bool public collateralPricePaused = false; //TEST CASE DONE
     bool public mintPaused = false; //TEST CASE DONE
     bool public redeemPaused = false; //TEST CASE DONE
-    bool public recollateralizePaused = false; //TODO: ADD TEST CASE
+    bool public recollateralizePaused = false; //TEST CASE DONE
     
     // [PARAMETER][collat_eth_oracle_address]
     UniswapPairOracle public collatEthOracle; //TEST CASE DONE
@@ -62,9 +62,9 @@ contract CeresPool is AccessControl {
     address public weth_address; //TEST CASE DONE
 
     uint256 public minting_fee = 300; //TEST CASE DONE
-    uint256 public buyback_fee = 100; //TODO: ADD TEST CASES
-    uint256 public recollat_fee = 100; //TODO: ADD TEST CASES
-    uint256 public bonus_rate = 7500; //TODO: ADD TEST CASES
+    uint256 public buyback_fee = 100; //TEST CASE DONE
+    uint256 public recollat_fee = 100; //TEST CASE DONE
+    uint256 public bonus_rate = 7500; //TEST CASE DONE
     
 
 

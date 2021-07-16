@@ -336,4 +336,24 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.redemption_delay.call())).to.equal(parseFloat(expected_value));
     });
 
+    it('check instance_Pool_USDC.buyback_fee.call() = 100', async() => {
+        const expected_value = new BigNumber("100");
+        expect(parseFloat(await instance_Pool_USDC.buyback_fee.call())).to.equal(parseFloat(expected_value));
+    });
+
+    it('check instance_Pool_USDC.recollat_fee.call() = 100', async() => {
+        const expected_value = new BigNumber("100");
+        expect(parseFloat(await instance_Pool_USDC.recollat_fee.call())).to.equal(parseFloat(expected_value));
+    });
+
+    it('check instance_Pool_USDC.bonus_rate.call() = 7500', async() => {
+        const expected_value = new BigNumber("7500");
+        expect(parseFloat(await instance_Pool_USDC.bonus_rate.call())).to.equal(parseFloat(expected_value));
+    });
+
+    it('check instance_Pool_USDC.recollateralizePaused.call() = FALSE', async() => {
+        const expected_value = false
+        expect(await instance_Pool_USDC.recollateralizePaused.call()).to.equal(expected_value);
+    });
+
 });

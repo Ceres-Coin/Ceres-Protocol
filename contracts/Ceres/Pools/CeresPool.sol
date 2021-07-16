@@ -135,7 +135,7 @@ contract CeresPool is AccessControl {
         weth_address = _weth_address;
     }
 
-    // TODO: ADD TEST CASES
+    // TEST CASE DONE
     function mint1t1CERES(uint256 collateral_amount, uint256 CERES_out_min) external notMintPaused {
         uint256 collateral_amount_d18 = collateral_amount * (10 ** missing_decimals);
 

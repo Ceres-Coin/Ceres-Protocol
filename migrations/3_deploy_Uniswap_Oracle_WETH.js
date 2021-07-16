@@ -166,5 +166,6 @@ module.exports = async function(deployer,network,accounts) {
 	if (!await ceresInstance.ceres_pools.call(pool_instance_USDC.address)) {
 		await ceresInstance.addPool(pool_instance_USDC.address, { from: OWNER });
 	}
+	await cssInstance.setCERESAddress(ceresInstance.address, { from: OWNER });
 
 };

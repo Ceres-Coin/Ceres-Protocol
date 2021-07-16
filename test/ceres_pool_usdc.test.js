@@ -10,6 +10,7 @@ const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const UniswapPairOracle_USDC_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_USDC_WETH");
 const WETH = artifacts.require("ERC20/WETH");
 const ERC20 = artifacts.require("ERC20");
+const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
@@ -42,11 +43,12 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         instance_Pool_USDC_collateral_token = await ERC20.at(await instance_Pool_USDC.collateral_token());
         instance_Pool_USDC_CERES = await CEREStable.at(await instance_Pool_USDC.CERES());
         instance_Pool_USDC_CSS = await CEREShares.at(await instance_Pool_USDC.CSS());
+        col_instance_USDC = await FakeCollateral_USDC.deployed(); 
     });
 
-    it('check instance_Pool_USDC.USDC_address is instanceSampleERC20.address" ', async () => {
+    it('check instance_Pool_USDC.USDC_address is col_instance_USDC.address" ', async () => {
         // console.log(chalk.yellow(`USDC_address: ${await instance_Pool_USDC.USDC_address.call()}`));
-        expect(await instance_Pool_USDC.USDC_address.call()).to.equal(instanceSampleERC20.address);
+        expect(await instance_Pool_USDC.USDC_address.call()).to.equal(col_instance_USDC.address);
     });
 
     it('check instance_Pool_USDC.ceres_contract_address is instanceCERES.address" ', async () => {
@@ -57,8 +59,8 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.css_contract_address.call()).to.equal(instanceCSS.address);
     });
 
-    it('check instance_Pool_USDC.collateral_address is instanceSampleERC20.address" ', async () => {
-        expect(await instance_Pool_USDC.collateral_address.call()).to.equal(instanceSampleERC20.address);
+    it('check instance_Pool_USDC.collateral_address is col_instance_USDC.address" ', async () => {
+        expect(await instance_Pool_USDC.collateral_address.call()).to.equal(col_instance_USDC.address);
     });
 
     it('check instance_Pool_USDC.owner_address is OWNER" ', async () => {
@@ -77,16 +79,16 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.missing_decimals())).to.equal(0);
     });
 
-    it('check collateral_token.name() = sample', async() => {
+    it('check collateral_token.symbol() = USDC', async() => {
         // console.log(chalk.blue(`instance_Pool_USDC_collateral_token: ${instance_Pool_USDC_collateral_token.address}`));
         // console.log(chalk.blue(`instance_Pool_USDC_CERES: ${instance_Pool_USDC_CERES.address}`));
         // console.log(chalk.blue(`instance_Pool_USDC_CSS: ${instance_Pool_USDC_CSS.address}`));
-        const name_value = "sample"
-        expect(await instance_Pool_USDC_collateral_token.name.call()).to.equal(name_value);
+        const name_value = "USDC"
+        expect(await instance_Pool_USDC_collateral_token.symbol.call()).to.equal(name_value);
     });
 
-    it('check collateral_token.symbol() = "sample"', async() => {
-        const value = "sample"
+    it('check collateral_token.symbol() = "USDC"', async() => {
+        const value = "USDC"
         expect(await instance_Pool_USDC_collateral_token.symbol.call()).to.equal(value);
     });
 

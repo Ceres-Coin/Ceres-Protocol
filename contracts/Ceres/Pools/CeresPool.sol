@@ -181,4 +181,20 @@ contract CeresPool is AccessControl {
         collateral_token.transferFrom(msg.sender, address(this), collateral_amount);
         CERES.pool_mint(msg.sender, mint_amount);
     }
+    // TODO: ADD TEST CASES
+    function mintAlgorithmicCERES(uint256 css_amount_d18, uint256 CERES_out_min) external notMintPaused {
+        uint256 css_price = CERES.css_price();
+        require(CERES.global_collateral_ratio() == 0, "Collateral ratio must be 0");
+        
+        (uint256 ceres_amount_d18) = CERESPoolLibrary.calcMintAlgorithmicCERES(
+            css_price, // X CSS / 1 USD
+            css_amount_d18
+        );
+
+        ceres_amount_d18 = (ceres_amount_d18.mul(uint(1e6).sub(minting_fee))).div(1e6);
+        require(CERES_out_min <= ceres_amount_d18, "Slippage limit reached");
+
+        CSS.pool_burn_from(msg.sender, css_amount_d18);
+        CERES.pool_mint(msg.sender, ceres_amount_d18);
+    }
 }

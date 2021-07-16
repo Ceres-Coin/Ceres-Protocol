@@ -48,7 +48,7 @@ contract CeresPool is AccessControl {
     mapping (address => uint256) public redeemCSSBalances; //TEST CASE DONE
     uint256 public redemption_fee = 400; //TEST CASE DONE
 
-    uint256 public redemption_delay = 0; //TODO: ADD TEST CASES
+    uint256 public redemption_delay = 0; //TEST CASE DONE
     
     // AccessControl state variables
     bool public collateralPricePaused = false; //TEST CASE DONE
@@ -300,7 +300,7 @@ contract CeresPool is AccessControl {
         CERES.pool_burn_from(msg.sender, CERES_amount);
         CSS.pool_mint(address(this), css_amount);
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function collectRedemption() external {
         require((lastRedeemed[msg.sender].add(redemption_delay)) <= block.number, "Must wait for redemption_delay blocks before collecting redemption");
         bool sendCSS = false;

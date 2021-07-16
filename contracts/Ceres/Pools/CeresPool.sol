@@ -354,29 +354,29 @@ contract CeresPool is AccessControl {
     }
 
     // TODO: ADD TEST CASES
-    // function recollateralizeCERES(uint256 collateral_amount, uint256 CSS_out_min) external {
-    //     require(recollateralizePaused == false, "Recollateralize is paused");
-    //     uint256 collateral_amount_d18 = collateral_amount * (10 ** missing_decimals);
-    //     uint256 css_price = CERES.css_price();
-    //     uint256 ceres_total_supply = CERES.totalSupply();
-    //     uint256 global_collateral_ratio = CERES.global_collateral_ratio();
-    //     uint256 global_collat_value = CERES.globalCollateralValue();
+    function recollateralizeCERES(uint256 collateral_amount, uint256 CSS_out_min) external {
+        require(recollateralizePaused == false, "Recollateralize is paused");
+        uint256 collateral_amount_d18 = collateral_amount * (10 ** missing_decimals);
+        uint256 css_price = CERES.css_price();
+        uint256 ceres_total_supply = CERES.totalSupply();
+        uint256 global_collateral_ratio = CERES.global_collateral_ratio();
+        uint256 global_collat_value = CERES.globalCollateralValue();
 
-    //     (uint256 collateral_units, uint256 amount_to_recollat) = CERESPoolLibrary.calcRecollateralizeCERESInner(
-    //         collateral_amount_d18,
-    //         getCollateralPrice(),
-    //         global_collat_value,
-    //         ceres_total_supply,
-    //         global_collateral_ratio
-    //     ); 
+        (uint256 collateral_units, uint256 amount_to_recollat) = CERESPoolLibrary.calcRecollateralizeCERESInner(
+            collateral_amount_d18,
+            getCollateralPrice(),
+            global_collat_value,
+            ceres_total_supply,
+            global_collateral_ratio
+        ); 
 
-    //     uint256 collateral_units_precision = collateral_units.div(10 ** missing_decimals);
+        uint256 collateral_units_precision = collateral_units.div(10 ** missing_decimals);
 
-    //     uint256 css_paid_back = amount_to_recollat.mul(uint(1e6).add(bonus_rate).sub(recollat_fee)).div(css_price);
+        uint256 css_paid_back = amount_to_recollat.mul(uint(1e6).add(bonus_rate).sub(recollat_fee)).div(css_price);
 
-    //     require(CSS_out_min <= css_paid_back, "Slippage limit reached");
-    //     collateral_token.transferFrom(msg.sender, address(this), collateral_units_precision);
-    //     CSS.pool_mint(msg.sender, css_paid_back);
+        require(CSS_out_min <= css_paid_back, "Slippage limit reached");
+        collateral_token.transferFrom(msg.sender, address(this), collateral_units_precision);
+        CSS.pool_mint(msg.sender, css_paid_back);
         
-    // }
+    }
 }

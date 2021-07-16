@@ -154,7 +154,7 @@ contract CeresPool is AccessControl {
         CERES.pool_mint(msg.sender, ceres_amount_d18);
     }
 
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function mintFractionalCERES(uint256 collateral_amount, uint256 css_amount, uint256 CERES_out_min) external notMintPaused {
         uint256 css_price = CERES.css_price();
         uint256 global_collateral_ratio = CERES.global_collateral_ratio();

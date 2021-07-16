@@ -223,6 +223,30 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         const NEW_VALUE = 1000000;
         await ceresInstance.set_global_collateral_ratio(NEW_VALUE,{from: OWNER});
 
+        // PRINT BEFORE PARAMETERS
+        const totalSupplyCERES_before = new BigNumber(await ceresInstance.totalSupply.call()).div(BIG18).toNumber();
+        const totalSupplyCSS_before = new BigNumber(await cssInstance.totalSupply.call()).div(BIG18).toNumber();
+        const global_collateral_ratio_before = new BigNumber(await ceresInstance.global_collateral_ratio.call()).toNumber();
+
+        const ceres_before = new BigNumber(await ceresInstance.balanceOf.call(OWNER)).div(BIG18);
+        const css_before = new BigNumber(await cssInstance.balanceOf.call(OWNER)).div(BIG18);
+        const usdc_before = new BigNumber(await col_instance_USDC.balanceOf.call(OWNER)).div(BIG18);
+        const pool_usdc_before = new BigNumber(await col_instance_USDC.balanceOf.call(instance_Pool_USDC.address)).div(BIG18);
+        const collateral_price = (new BigNumber(await instance_Pool_USDC.getCollateralPrice.call()).div(BIG6)).toNumber()
+        const unclaimedPoolCollateral_before = new BigNumber(await instance_Pool_USDC.unclaimedPoolCollateral.call()).div(BIG18);
+        console.log(chalk.red(`=============================== SEPERATOR BEFORE ============================`));
+        console.log(chalk.yellow(`totalSupplyCERES_before: ${totalSupplyCERES_before}`));
+        console.log(chalk.yellow(`totalSupplyCSS_before: ${totalSupplyCSS_before}`));
+        console.log(chalk.yellow(`global_collateral_ratio_before: ${global_collateral_ratio_before}`));
+
+        console.log(chalk.blue(`ceres_before: ${ceres_before}`));
+        console.log(chalk.blue(`css_before: ${css_before}`));
+        console.log(chalk.blue(`usdc_before: ${usdc_before}`));
+        console.log(chalk.blue(`pool_usdc_before: ${pool_usdc_before}`));
+        console.log(chalk.blue(`collateral_price: ${collateral_price}`));
+        console.log(chalk.blue(`unclaimedPoolCollateral_before: ${unclaimedPoolCollateral_before}`));
+
+
         // ACTION
 		const collateral_amount = ONE_DEC18;
 		await instance_Pool_USDC.redeem1t1CERES(collateral_amount, 0, { from: OWNER });
@@ -230,5 +254,27 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         // ROLLBACK CODE
         await ceresInstance.set_global_collateral_ratio(DEFAUT_VALUE,{from: OWNER});
         expect(parseFloat(await ceresInstance.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
+
+        // PRINT AFTER PARAMETERS
+        const totalSupplyCERES_AFTER = new BigNumber(await ceresInstance.totalSupply.call()).div(BIG18).toNumber();
+        const totalSupplyCSS_AFTER = new BigNumber(await cssInstance.totalSupply.call()).div(BIG18).toNumber();
+        const global_collateral_ratio_AFTER = new BigNumber(await ceresInstance.global_collateral_ratio.call()).toNumber();
+        const ceres_AFTER = new BigNumber(await ceresInstance.balanceOf.call(OWNER)).div(BIG18);
+        const css_AFTER = new BigNumber(await cssInstance.balanceOf.call(OWNER)).div(BIG18);
+        const usdc_AFTER = new BigNumber(await col_instance_USDC.balanceOf.call(OWNER)).div(BIG18);
+        const pool_usdc_AFTER = new BigNumber(await col_instance_USDC.balanceOf.call(instance_Pool_USDC.address)).div(BIG18);
+        const collateral_price_AFTER = (new BigNumber(await instance_Pool_USDC.getCollateralPrice.call()).div(BIG6)).toNumber();
+        const unclaimedPoolCollateral_AFTER = new BigNumber(await instance_Pool_USDC.unclaimedPoolCollateral.call()).div(BIG18);
+        
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+        console.log(chalk.yellow(`totalSupplyCERES_AFTER: ${totalSupplyCERES_AFTER}`));
+        console.log(chalk.yellow(`totalSupplyCSS_AFTER: ${totalSupplyCSS_AFTER}`));
+        console.log(chalk.yellow(`global_collateral_ratio_AFTER: ${global_collateral_ratio_AFTER}`));
+        console.log(chalk.blue(`ceres_AFTER: ${ceres_AFTER}`));
+        console.log(chalk.blue(`css_AFTER: ${css_AFTER}`));
+        console.log(chalk.blue(`usdc_AFTER: ${usdc_AFTER}`));
+        console.log(chalk.blue(`pool_usdc_AFTER: ${pool_usdc_AFTER}`));
+        console.log(chalk.blue(`collateral_price_AFTER: ${collateral_price_AFTER}`));
+        console.log(chalk.blue(`unclaimedPoolCollateral_AFTER: ${unclaimedPoolCollateral_AFTER}`));
     });
 });

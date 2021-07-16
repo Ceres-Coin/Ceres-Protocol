@@ -200,7 +200,7 @@ contract CEREStable is ERC20Custom, AccessControl {
     function toggleCollateralRatio() public onlyByOwnerOrGovernance {
         collateral_ratio_paused = !collateral_ratio_paused;
     }
-    // TODO: ADD TEST CASE
+    //TEST CASE DONE
     function pool_burn_from(address b_address, uint256 b_amount) public onlyPools {
         super._burnFrom(b_address, b_amount);
         emit CERESBurned(b_address, msg.sender, b_amount);

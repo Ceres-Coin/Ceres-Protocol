@@ -213,7 +213,7 @@ contract CeresPool is AccessControl {
         CERES.pool_mint(msg.sender, ceres_amount_d18);
     }
 
-    // TODO: ADD TEST CASE
+    // TEST CASE DONE
     function redeem1t1CERES(uint256 CERES_amount, uint256 COLLATERAL_out_min) external notRedeemPaused {
         require(CERES.global_collateral_ratio() == COLLATERAL_RATIO_MAX, "Collateral ratio must be == 1");
 

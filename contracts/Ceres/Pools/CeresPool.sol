@@ -39,10 +39,13 @@ contract CeresPool is AccessControl {
 
     // Stores price of the collateral, if price is paused
     uint256 public pausedPrice = 0; //TEST CASE DONE
+    
     uint256 public unclaimedPoolCollateral; //TEST CASE DONE
+    uint256 public unclaimedPoolCSS; //TODO: ADD TEST CASES
     
     mapping (address => uint256) public lastRedeemed; //TEST CASE DONE
     mapping (address => uint256) public redeemCollateralBalances; //TEST CASE DONE
+    mapping (address => uint256) public redeemCSSBalances; //TODO: ADD TEST CASES
     uint256 public redemption_fee = 400; //TEST CASE DONE
     
     // AccessControl state variables
@@ -234,5 +237,43 @@ contract CeresPool is AccessControl {
         
         // Move all external functions to the end
         CERES.pool_burn_from(msg.sender, CERES_amount);
+    }
+    // TODO: ADD TEST CASES
+    function redeemFractionalCERES(uint256 CERES_amount, uint256 CSS_out_min, uint256 COLLATERAL_out_min) external notRedeemPaused {
+        uint256 css_price = CERES.css_price();
+        uint256 global_collateral_ratio = CERES.global_collateral_ratio();
+
+        require(global_collateral_ratio < COLLATERAL_RATIO_MAX && global_collateral_ratio > 0, "Collateral ratio needs to be between .000001 and .999999");
+        uint256 col_price_usd = getCollateralPrice();
+
+        uint256 CERES_amount_post_fee = (CERES_amount.mul(uint(1e6).sub(redemption_fee))).div(PRICE_PRECISION);
+
+        uint256 css_dollar_value_d18 = CERES_amount_post_fee.sub(CERES_amount_post_fee.mul(global_collateral_ratio).div(PRICE_PRECISION));
+        uint256 css_amount = css_dollar_value_d18.mul(PRICE_PRECISION).div(css_price);
+
+        // Need to adjust for decimals of collateral
+        uint256 CERES_amount_precision = CERES_amount_post_fee.div(10 ** missing_decimals);
+        uint256 collateral_dollar_value = CERES_amount_precision.mul(global_collateral_ratio).div(PRICE_PRECISION);
+        uint256 collateral_amount = collateral_dollar_value.mul(PRICE_PRECISION).div(col_price_usd);
+
+
+        require(collateral_amount <= collateral_token.balanceOf(address(this)).sub(unclaimedPoolCollateral), "Not enough collateral in pool");
+        require(COLLATERAL_out_min <= collateral_amount, "Slippage limit reached [collateral]");
+        require(CSS_out_min <= css_amount, "Slippage limit reached [CSS]");
+
+        redeemCollateralBalances[msg.sender] = redeemCollateralBalances[msg.sender].add(collateral_amount);
+        unclaimedPoolCollateral = unclaimedPoolCollateral.add(collateral_amount);
+
+        redeemCSSBalances[msg.sender] = redeemCSSBalances[msg.sender].add(css_amount);
+        unclaimedPoolCSS = unclaimedPoolCSS.add(css_amount);
+
+        lastRedeemed[msg.sender] = block.number;
+        
+        // Move all external functions to the end
+        CERES.pool_burn_from(msg.sender, CERES_amount);
+        
+        collateral_token.transferFrom(address(this), msg.sender, collateral_amount);
+        // collateral_token.transfer(msg.sender, collateral_amount);
+        CSS.pool_mint(address(this), css_amount);
     }
 }

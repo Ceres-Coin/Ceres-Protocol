@@ -315,4 +315,9 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.redeemCollateralBalances.call(account7))).to.equal(parseFloat(0));
     });
 
+    it('check instance_Pool_USDC.unclaimedPoolCSS.call() = 0', async() => {
+        const expected_value = new BigNumber("0");
+        expect(parseFloat(await instance_Pool_USDC.unclaimedPoolCSS.call())).to.equal(parseFloat(expected_value));
+    });
+
 });

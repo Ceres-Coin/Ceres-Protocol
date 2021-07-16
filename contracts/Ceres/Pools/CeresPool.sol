@@ -41,6 +41,10 @@ contract CeresPool is AccessControl {
     uint256 public pausedPrice = 0; //TEST CASE DONE
     uint256 public unclaimedPoolCollateral; //TEST CASE DONE
     
+    mapping (address => uint256) public lastRedeemed; //TODO: ADD TEST CASE
+    mapping (address => uint256) public redeemCollateralBalances; //TODO: ADD TEST CASE
+    uint256 public redemption_fee = 400; //TODO: ADD TEST CASE
+    
     // AccessControl state variables
     bool public collateralPricePaused = false; //TEST CASE DONE
     bool public mintPaused = false; //TEST CASE DONE
@@ -52,6 +56,7 @@ contract CeresPool is AccessControl {
     address public weth_address; //TEST CASE DONE
 
     uint256 public minting_fee = 300; //TEST CASE DONE
+    
 
 
 
@@ -206,5 +211,28 @@ contract CeresPool is AccessControl {
 
         CSS.pool_burn_from(msg.sender, css_amount_d18);
         CERES.pool_mint(msg.sender, ceres_amount_d18);
+    }
+
+    // TODO: ADD TEST CASE
+    function redeem1t1CERES(uint256 CERES_amount, uint256 COLLATERAL_out_min) external notRedeemPaused {
+        require(CERES.global_collateral_ratio() == COLLATERAL_RATIO_MAX, "Collateral ratio must be == 1");
+
+        // Need to adjust for decimals of collateral
+        uint256 CERES_amount_precision = CERES_amount.div(10 ** missing_decimals);
+        (uint256 collateral_needed) = CERESPoolLibrary.calcRedeem1t1CERES(
+            getCollateralPrice(),
+            CERES_amount_precision
+        );
+
+        collateral_needed = (collateral_needed.mul(uint(1e6).sub(redemption_fee))).div(1e6);
+        require(collateral_needed <= collateral_token.balanceOf(address(this)).sub(unclaimedPoolCollateral), "Not enough collateral in pool");
+        require(COLLATERAL_out_min <= collateral_needed, "Slippage limit reached");
+
+        redeemCollateralBalances[msg.sender] = redeemCollateralBalances[msg.sender].add(collateral_needed);
+        unclaimedPoolCollateral = unclaimedPoolCollateral.add(collateral_needed);
+        lastRedeemed[msg.sender] = block.number;
+        
+        // Move all external functions to the end
+        CERES.pool_burn_from(msg.sender, CERES_amount);
     }
 }

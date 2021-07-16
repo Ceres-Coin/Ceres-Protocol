@@ -269,4 +269,9 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         // console.log(chalk.blue(`getCollateralPrice: ${getCollateralPrice}`));
     });
 
+    it('check instance_Pool_USDC.redeemPaused.call() = FALSE', async() => {
+        const expected_value = false
+        expect(await instance_Pool_USDC.redeemPaused.call()).to.equal(expected_value);
+    });
+
 });

@@ -41,8 +41,8 @@ contract CeresPool is AccessControl {
     uint256 public pausedPrice = 0; //TEST CASE DONE
     uint256 public unclaimedPoolCollateral; //TEST CASE DONE
     
-    mapping (address => uint256) public lastRedeemed; //TODO: ADD TEST CASE
-    mapping (address => uint256) public redeemCollateralBalances; //TODO: ADD TEST CASE
+    mapping (address => uint256) public lastRedeemed; //TEST CASE DONE
+    mapping (address => uint256) public redeemCollateralBalances; //TEST CASE DONE
     uint256 public redemption_fee = 400; //TEST CASE DONE
     
     // AccessControl state variables

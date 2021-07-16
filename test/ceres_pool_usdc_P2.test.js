@@ -108,6 +108,27 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         const NEW_VALUE = 900000;
         await ceresInstance.set_global_collateral_ratio(NEW_VALUE,{from: OWNER});
 
+        const totalSupplyCERES = new BigNumber(await ceresInstance.totalSupply.call()).div(BIG18).toNumber();
+		const totalSupplyCSS = new BigNumber(await cssInstance.totalSupply.call()).div(BIG18).toNumber();
+        const global_collateral_ratio = new BigNumber(await ceresInstance.global_collateral_ratio.call()).toNumber();
+
+		// Note the collateral and CERES amounts before minting
+		const ceres_before = new BigNumber(await ceresInstance.balanceOf.call(OWNER)).div(BIG18);
+        const css_before = new BigNumber(await cssInstance.balanceOf.call(OWNER)).div(BIG18);
+		const usdc_before = new BigNumber(await col_instance_USDC.balanceOf.call(OWNER)).div(BIG18);
+		const pool_usdc_before = new BigNumber(await col_instance_USDC.balanceOf.call(instance_Pool_USDC.address)).div(BIG18);
+		const collateral_price = (new BigNumber(await instance_Pool_USDC.getCollateralPrice.call()).div(BIG6)).toNumber()
+        console.log(chalk.red(`=============================== SEPERATOR BEFORE ============================`));
+        console.log(chalk.yellow(`totalSupplyCERES: ${totalSupplyCERES}`));
+        console.log(chalk.yellow(`totalSupplyCSS: ${totalSupplyCSS}`));
+		console.log(chalk.yellow(`global_collateral_ratio: ${global_collateral_ratio}`));
+
+		console.log(chalk.blue(`ceres_before: ${ceres_before}`));
+        console.log(chalk.blue(`css_before: ${css_before}`));
+		console.log(chalk.blue(`usdc_before: ${usdc_before}`));
+		console.log(chalk.blue(`pool_usdc_before: ${pool_usdc_before}`));
+		console.log(chalk.blue(`collateral_price: ${collateral_price}`));
+
         // ACTION
 		const collateral_amount = ONE_DEC18;
 		await instance_Pool_USDC.mintFractionalCERES(collateral_amount, collateral_amount, collateral_amount, { from: OWNER });

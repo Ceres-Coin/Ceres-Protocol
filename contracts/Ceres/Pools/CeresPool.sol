@@ -127,6 +127,28 @@ contract CeresPool is AccessControl {
     function setMinting_fee(uint256 _minting_fee) external onlyByOwnerOrGovernance {
         minting_fee = _minting_fee;
     }
+
+    // TODO: ADD TEST CASES;
+    function setRedemption_fee(uint256 _redemption_fee) external onlyByOwnerOrGovernance {
+        redemption_fee = _redemption_fee;
+    }
+
+    // TODO: ADD TEST CASES;
+    function setBuyback_fee(uint256 _buyback_fee) external onlyByOwnerOrGovernance {
+        buyback_fee = _buyback_fee;
+    }
+
+    // TODO: ADD TEST CASES;
+    function setRecollat_fee(uint256 _recollat_fee) external onlyByOwnerOrGovernance {
+        recollat_fee = _recollat_fee;
+    }
+
+    // TODO: ADD TEST CASES;
+    function setBonus_rate(uint256 _bonus_rate) external onlyByOwnerOrGovernance {
+        bonus_rate = _bonus_rate;
+    }
+
+    
     //TEST CASE DONE
     function toggleMinting() external onlyByOwnerOrGovernance {
         mintPaused = !mintPaused;

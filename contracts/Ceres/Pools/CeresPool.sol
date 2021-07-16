@@ -47,6 +47,8 @@ contract CeresPool is AccessControl {
     mapping (address => uint256) public redeemCollateralBalances; //TEST CASE DONE
     mapping (address => uint256) public redeemCSSBalances; //TEST CASE DONE
     uint256 public redemption_fee = 400; //TEST CASE DONE
+
+    uint256 public redemption_delay = 0; //TODO: ADD TEST CASES
     
     // AccessControl state variables
     bool public collateralPricePaused = false; //TEST CASE DONE
@@ -297,5 +299,37 @@ contract CeresPool is AccessControl {
         // Move all external functions to the end
         CERES.pool_burn_from(msg.sender, CERES_amount);
         CSS.pool_mint(address(this), css_amount);
+    }
+    // TODO: ADD TEST CASES
+    function collectRedemption() external {
+        require((lastRedeemed[msg.sender].add(redemption_delay)) <= block.number, "Must wait for redemption_delay blocks before collecting redemption");
+        bool sendCSS = false;
+        bool sendCollateral = false;
+        uint CSSAmount;
+        uint CollateralAmount;
+
+        // Use Checks-Effects-Interactions pattern
+        if(redeemCSSBalances[msg.sender] > 0){
+            CSSAmount = redeemCSSBalances[msg.sender];
+            redeemCSSBalances[msg.sender] = 0;
+            unclaimedPoolCSS = unclaimedPoolCSS.sub(CSSAmount);
+
+            sendCSS = true;
+        }
+        
+        if(redeemCollateralBalances[msg.sender] > 0){
+            CollateralAmount = redeemCollateralBalances[msg.sender];
+            redeemCollateralBalances[msg.sender] = 0;
+            unclaimedPoolCollateral = unclaimedPoolCollateral.sub(CollateralAmount);
+
+            sendCollateral = true;
+        }
+
+        if(sendCSS == true){
+            CSS.transfer(msg.sender, CSSAmount);
+        }
+        if(sendCollateral == true){
+            collateral_token.transfer(msg.sender, CollateralAmount);
+        }
     }
 }

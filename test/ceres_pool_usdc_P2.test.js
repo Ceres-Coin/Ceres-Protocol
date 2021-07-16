@@ -50,13 +50,17 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
     });
 
     it('check instance_Pool_USDC.mint1t1CERES()', async() => {
-
-        console.log(await instance_Pool_USDC.collateral_token());
         // ACTION
 		const collateral_amount = ONE_DEC18;
         const collateral_price = parseFloat(new BigNumber(await instance_Pool_USDC.getCollateralPrice.call()).div(BIG6));
 		const ceres_out_min = new BigNumber(collateral_amount.times(collateral_price).times(0.99)); // 1% slippage
 		await instance_Pool_USDC.mint1t1CERES(collateral_amount, ceres_out_min, { from: OWNER });
+    });
+
+    it('check instance_Pool_USDC.mint1t1CERES() PART 2', async() => {
+        // ACTION
+		const collateral_amount = ONE_DEC18;
+		await instance_Pool_USDC.mint1t1CERES(collateral_amount, collateral_amount, { from: OWNER });
     })
 
 });

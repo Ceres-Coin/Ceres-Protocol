@@ -153,4 +153,32 @@ contract CeresPool is AccessControl {
         collateral_token.transferFrom(msg.sender, address(this), collateral_amount);
         CERES.pool_mint(msg.sender, ceres_amount_d18);
     }
+
+    // TODO: ADD TEST CASES
+    function mintFractionalCERES(uint256 collateral_amount, uint256 css_amount, uint256 CERES_out_min) external notMintPaused {
+        uint256 css_price = CERES.css_price();
+        uint256 global_collateral_ratio = CERES.global_collateral_ratio();
+
+        require(global_collateral_ratio < COLLATERAL_RATIO_MAX && global_collateral_ratio > 0, "Collateral ratio needs to be between .000001 and .999999");
+        require(collateral_token.balanceOf(address(this)).sub(unclaimedPoolCollateral).add(collateral_amount) <= pool_ceiling, "Pool ceiling reached, no more CERES can be minted with this collateral");
+
+        uint256 collateral_amount_d18 = collateral_amount * (10 ** missing_decimals);
+        CERESPoolLibrary.MintCSS_Params memory input_params = CERESPoolLibrary.MintCSS_Params(
+            css_price,
+            getCollateralPrice(),
+            css_amount,
+            collateral_amount_d18,
+            global_collateral_ratio
+        );
+
+        (uint256 mint_amount, uint256 css_needed) = CERESPoolLibrary.calcMintFractionalCERES(input_params);
+
+        mint_amount = (mint_amount.mul(uint(1e6).sub(minting_fee))).div(1e6);
+        require(CERES_out_min <= mint_amount, "Slippage limit reached");
+        require(css_needed <= css_amount, "Not enough CSS inputted");
+
+        CSS.pool_burn_from(msg.sender, css_needed);
+        collateral_token.transferFrom(msg.sender, address(this), collateral_amount);
+        CERES.pool_mint(msg.sender, mint_amount);
+    }
 }

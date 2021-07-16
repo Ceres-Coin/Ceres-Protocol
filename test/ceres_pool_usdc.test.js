@@ -293,4 +293,15 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.redemption_fee.call())).to.equal(parseFloat(expected_value));
     });
 
+    it('check instance_Pool_USDC.lastRedeemed.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO', async() => {
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account0))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account1))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account2))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account3))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account4))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account5))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account6))).to.equal(parseFloat(0));
+        expect(parseFloat(await instance_Pool_USDC.lastRedeemed.call(account7))).to.equal(parseFloat(0));
+    });
+
 });

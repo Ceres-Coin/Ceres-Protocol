@@ -288,4 +288,9 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.redeemPaused.call()).to.equal(DEFAUT_VALUE);
     });
 
+    it('check instance_Pool_USDC.redemption_fee.call() = 400', async() => {
+        const expected_value = new BigNumber("400");
+        expect(parseFloat(await instance_Pool_USDC.redemption_fee.call())).to.equal(parseFloat(expected_value));
+    });
+
 });

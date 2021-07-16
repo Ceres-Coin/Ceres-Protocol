@@ -86,7 +86,7 @@ contract CEREShares is ERC20Custom, AccessControl {
         emit CSSBurned(b_address, address(this), b_amount);
     }
 
-    // TODO: ADD TEST CASES;
+    //TEST CASE DONE
     function pool_mint(address m_address, uint256 m_amount) external onlyPools {        
         // if(trackingVotes){
         //     uint32 srcRepNum = numCheckpoints[address(this)];

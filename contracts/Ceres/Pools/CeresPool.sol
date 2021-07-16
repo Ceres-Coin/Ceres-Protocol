@@ -41,11 +41,11 @@ contract CeresPool is AccessControl {
     uint256 public pausedPrice = 0; //TEST CASE DONE
     
     uint256 public unclaimedPoolCollateral; //TEST CASE DONE
-    uint256 public unclaimedPoolCSS; //TODO: ADD TEST CASES
+    uint256 public unclaimedPoolCSS; //TEST CASE DONE
     
     mapping (address => uint256) public lastRedeemed; //TEST CASE DONE
     mapping (address => uint256) public redeemCollateralBalances; //TEST CASE DONE
-    mapping (address => uint256) public redeemCSSBalances; //TODO: ADD TEST CASES
+    mapping (address => uint256) public redeemCSSBalances; //TEST CASE DONE
     uint256 public redemption_fee = 400; //TEST CASE DONE
     
     // AccessControl state variables
@@ -238,7 +238,7 @@ contract CeresPool is AccessControl {
         // Move all external functions to the end
         CERES.pool_burn_from(msg.sender, CERES_amount);
     }
-    // TODO: ADD TEST CASES
+    // TEST CASE DONE
     function redeemFractionalCERES(uint256 CERES_amount, uint256 CSS_out_min, uint256 COLLATERAL_out_min) external notRedeemPaused {
         uint256 css_price = CERES.css_price();
         uint256 global_collateral_ratio = CERES.global_collateral_ratio();

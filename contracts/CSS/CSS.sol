@@ -73,7 +73,7 @@ contract CEREShares is ERC20Custom, AccessControl {
         CERES = CEREStable(ceres_contract_address);
     }
     // TODO: ADD TEST CASES
-    function pool_burn_from(address b_address, uint256 b_amount) external onlyPools {
+    function pool_burn_from(address b_address, uint256 b_amount) external {
         // if(trackingVotes){
         //     trackVotes(b_address, address(this), uint96(b_amount));
         //     uint32 srcRepNum = numCheckpoints[address(this)];

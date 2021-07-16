@@ -159,4 +159,18 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
 		console.log(chalk.blue(`pool_usdc_AFTER: ${pool_usdc_AFTER}`));
 		console.log(chalk.blue(`collateral_price_AFTER: ${collateral_price_AFTER}`));
     });
+
+    it('check instance_Pool_USDC.mintAlgorithmicCERES()', async() => {
+        const DEFAUT_VALUE = 1000000;
+        const NEW_VALUE = 0;
+        await ceresInstance.set_global_collateral_ratio(NEW_VALUE,{from: OWNER});
+
+        // ACTION
+		const collateral_amount = ONE_DEC18;
+		await instance_Pool_USDC.mintAlgorithmicCERES(collateral_amount, collateral_amount, { from: OWNER });
+
+        // ROLLBACK CODE
+        await ceresInstance.set_global_collateral_ratio(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await ceresInstance.global_collateral_ratio.call())).to.equal(DEFAUT_VALUE);
+    });
 });

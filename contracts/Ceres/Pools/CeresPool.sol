@@ -181,7 +181,7 @@ contract CeresPool is AccessControl {
         collateral_token.transferFrom(msg.sender, address(this), collateral_amount);
         CERES.pool_mint(msg.sender, mint_amount);
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function mintAlgorithmicCERES(uint256 css_amount_d18, uint256 CERES_out_min) external notMintPaused {
         uint256 css_price = CERES.css_price();
         require(CERES.global_collateral_ratio() == 0, "Collateral ratio must be 0");

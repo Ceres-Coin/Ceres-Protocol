@@ -356,4 +356,18 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.recollateralizePaused.call()).to.equal(expected_value);
     });
 
+    it('check instance_Pool_USDC.setRedemption_fee() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = new BigNumber(400);
+        const NEW_VALUE = new BigNumber(800);
+        expect(parseFloat(await instance_Pool_USDC.redemption_fee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.setRedemption_fee(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.redemption_fee.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.setRedemption_fee(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instance_Pool_USDC.redemption_fee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+    });
+
 });

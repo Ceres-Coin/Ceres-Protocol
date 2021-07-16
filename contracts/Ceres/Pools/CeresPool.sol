@@ -46,7 +46,7 @@ contract CeresPool is AccessControl {
     mapping (address => uint256) public lastRedeemed; //TEST CASE DONE
     mapping (address => uint256) public redeemCollateralBalances; //TEST CASE DONE
     mapping (address => uint256) public redeemCSSBalances; //TEST CASE DONE
-    uint256 public redemption_fee = 400; //TEST CASE DONE
+    
 
     uint256 public redemption_delay = 0; //TEST CASE DONE
     
@@ -62,6 +62,7 @@ contract CeresPool is AccessControl {
     address public weth_address; //TEST CASE DONE
 
     uint256 public minting_fee = 300; //TEST CASE DONE
+    uint256 public redemption_fee = 400; //TEST CASE DONE
     uint256 public buyback_fee = 100; //TEST CASE DONE
     uint256 public recollat_fee = 100; //TEST CASE DONE
     uint256 public bonus_rate = 7500; //TEST CASE DONE

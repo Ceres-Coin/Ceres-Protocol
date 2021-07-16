@@ -87,7 +87,7 @@ module.exports = async function(deployer,network,accounts) {
 		wethInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
 		ceresInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
 		cssInstance.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
-		col_instance_USDC.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
+		col_instance_USDC.approve(routerInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
 	]);	
 
 	await Promise.all([
@@ -96,6 +96,13 @@ module.exports = async function(deployer,network,accounts) {
 		cssInstance.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
 		col_instance_USDC.approve(swapToPriceInstance.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
 	]);	
+
+	// approve for mint() & redeem() func
+	await Promise.all([
+		col_instance_USDC.approve(pool_instance_USDC.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),	
+		cssInstance.approve(pool_instance_USDC.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
+		ceresInstance.approve(pool_instance_USDC.address, new BigNumber(TWO_MILLION_DEC18), { from: OWNER }),
+	]);
 
 	await routerInstance.addLiquidity(
 		ceresInstance.address, 

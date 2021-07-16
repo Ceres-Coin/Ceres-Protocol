@@ -54,7 +54,6 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         console.log(await instance_Pool_USDC.collateral_token());
         // ACTION
 		const collateral_amount = ONE_DEC18;
-		await col_instance_USDC.approve(instance_Pool_USDC.address, ONE_MILLION_DEC18, { from: OWNER });
         const collateral_price = parseFloat(new BigNumber(await instance_Pool_USDC.getCollateralPrice.call()).div(BIG6));
 		const ceres_out_min = new BigNumber(collateral_amount.times(collateral_price).times(0.99)); // 1% slippage
 		await instance_Pool_USDC.mint1t1CERES(collateral_amount, ceres_out_min, { from: OWNER });

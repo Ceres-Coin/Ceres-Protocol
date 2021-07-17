@@ -55,6 +55,8 @@ contract CeresPool is AccessControl {
     bool public mintPaused = false; //TEST CASE DONE
     bool public redeemPaused = false; //TEST CASE DONE
     bool public recollateralizePaused = false; //TEST CASE DONE
+    bool public buyBackPaused = false; //TODO: ADD TEST CASES
+    
     
     // [PARAMETER][collat_eth_oracle_address]
     UniswapPairOracle public collatEthOracle; //TEST CASE DONE
@@ -402,4 +404,37 @@ contract CeresPool is AccessControl {
         CSS.pool_mint(msg.sender, css_paid_back);
         
     }
+
+    // TODO: ADD TEST CASES
+    function availableExcessCollatDV() public view returns (uint256) {
+        uint256 total_supply = CERES.totalSupply();
+        uint256 global_collateral_ratio = CERES.global_collateral_ratio();
+        uint256 global_collat_value = CERES.globalCollateralValue();
+
+        if (global_collateral_ratio > COLLATERAL_RATIO_PRECISION) global_collateral_ratio = COLLATERAL_RATIO_PRECISION; // Handles an overcollateralized contract with CR > 1
+        uint256 required_collat_dollar_value_d18 = (total_supply.mul(global_collateral_ratio)).div(COLLATERAL_RATIO_PRECISION); // Calculates collateral needed to back each 1 CERES with $1 of collateral at current collat ratio
+        if (global_collat_value > required_collat_dollar_value_d18) return global_collat_value.sub(required_collat_dollar_value_d18);
+        else return 0;
+    }
+
+    // TODO: ADD TEST CASES
+    function buyBackCSS(uint256 CSS_amount, uint256 COLLATERAL_out_min) external {
+        require(buyBackPaused == false, "Buyback is paused");
+        uint256 css_price = CERES.css_price();
+    
+        CERESPoolLibrary.BuybackCSS_Params memory input_params = CERESPoolLibrary.BuybackCSS_Params(
+            availableExcessCollatDV(),
+            css_price,
+            getCollateralPrice(),
+            CSS_amount
+        );
+
+        (uint256 collateral_equivalent_d18) = (CERESPoolLibrary.calcBuyBackCSS(input_params)).mul(uint(1e6).sub(buyback_fee)).div(1e6);
+        uint256 collateral_precision = collateral_equivalent_d18.div(10 ** missing_decimals);
+
+        require(COLLATERAL_out_min <= collateral_precision, "Slippage limit reached");
+        
+        CSS.pool_burn_from(msg.sender, CSS_amount);
+        collateral_token.transfer(msg.sender, collateral_precision);
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 }

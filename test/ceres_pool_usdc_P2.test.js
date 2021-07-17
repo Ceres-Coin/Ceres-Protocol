@@ -518,7 +518,7 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         console.log(chalk.blue(`unclaimedPoolCSS_AFTER: ${unclaimedPoolCSS_AFTER}`));
     });
 
-    it('check buyback()', async() => {
+    it('check instance_Pool_USDC.buyBackCSS()', async() => {
         await col_instance_USDC.transfer(instance_Pool_USDC.address, FIVE_MILLION_DEC18, { from:  OWNER});
 
         // PRINT BEFORE PARAMETERS

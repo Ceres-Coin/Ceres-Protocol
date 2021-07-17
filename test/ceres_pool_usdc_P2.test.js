@@ -12,6 +12,7 @@ const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 const ERC20 = artifacts.require("ERC20");
 const ONE_DEC18 = new BigNumber("1e18");
+const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
@@ -460,5 +461,11 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         console.log(chalk.blue(`collateral_price_AFTER: ${collateral_price_AFTER}`));
         console.log(chalk.blue(`unclaimedPoolCollateral_AFTER: ${unclaimedPoolCollateral_AFTER}`));
         console.log(chalk.blue(`unclaimedPoolCSS_AFTER: ${unclaimedPoolCSS_AFTER}`));
+    });
+
+    it('check instance_Pool_USDC.recollateralizeCSS()', async() => {
+        // ACTION
+        const USDC_amount = ONE_HUNDRED_DEC18;
+		await instance_Pool_USDC.recollateralizeCSS(USDC_amount,0,{ from: OWNER });
     });
 });

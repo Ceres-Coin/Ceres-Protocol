@@ -377,7 +377,7 @@ contract CeresPool is AccessControl {
     }
 
     // TODO: ADD TEST CASES
-    function recollateralizeCERES(uint256 collateral_amount, uint256 CSS_out_min) external {
+    function recollateralizeCSS(uint256 collateral_amount, uint256 CSS_out_min) external {
         require(recollateralizePaused == false, "Recollateralize is paused");
         uint256 collateral_amount_d18 = collateral_amount * (10 ** missing_decimals);
         uint256 css_price = CERES.css_price();

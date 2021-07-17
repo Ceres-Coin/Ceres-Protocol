@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.15.0...v1.16.0) (2021-07-17)
+
+
+### Features
+
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][CORE][FUNC]: 'buyBackCSS' && 'availableExcessCollatDV()' ([501f10e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/501f10e36972aa10efcda9dfd9ea77217d9b6622))
+
+
+### Tests
+
+* **'check instance_pool_usdc.togglerecollateralize() func':** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.toggleRecollateralize() FUNC' ([667e32a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/667e32a4b3e2a21f071d50292df8c57a22d66c5f))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][CORE][TEST SCRIPTS]: 'check instance_Pool_USDC.recollateralizeCSS()' ([427d351](https://github.com/Ceres-Coin/Ceres-Protocol/commit/427d351eb18f65e4950598835b92743e6b145669))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.buyBackCSS()' ([63cbd1a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/63cbd1a6cfba370500bda7c6ce80c8305bda3f9a))
+* **test/ceres_pool_usdc_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.recollateralizeCSS()' ([f8bdcfe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f8bdcfecb20a7ef82b93d594c108c83cdd77a4f9))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.availableExcessCollatDV.call(), its default is 0' ([7aee033](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7aee0335326966d0b60e1f6cf85cb654d2387f7a))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.buyBackPaused.call() = FALSE' ([8af214f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8af214f6aba1ae0d5d9a1304935378951634e301))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.collatDollarBalance()' ([80fb901](https://github.com/Ceres-Coin/Ceres-Protocol/commit/80fb90160bdcb5d7a644225908d2d720acaff8be))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.setBonus_rate() FUNC' ([a2615ca](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a2615ca2dc98cad896271748c8f7945e85c0eebb))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.setBuyback_fee() FUNC' ([d2abf41](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d2abf415e0e8d16f5e74f38fb1882775ed0b8ee8))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.setRecollat_fee() FUNC' ([5019f9c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5019f9c5adbe61258bda342e9479cd7c626c27d4))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instance_Pool_USDC.setRedemption_fee() FUNC' ([0d8941d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0d8941d04289fb34861e12c8ff419f82fd65df0d))
+* **test/ceres_pool_usdc.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceCERES.globalCollateralValue()' ([6d11651](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6d11651771be5eb76ce67f0afc6784094aa41d56))
+
+
+### Styling
+
+* **contracts/ceres/pools/cerespool.sol && contracts/ceres/ceres.sol:** [ADDED][TEST CASE DONE] && [REMOVED][TODO TASKS] ([fb537fb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fb537fba26a26447782144d037afe64bdd03c742))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASE DONE] && [REMOVED][TODO TASKS] ([2ea5420](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2ea54206fe1931ac9dda16efe6825ca78f411948))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] & [REMOVED][TODO TASKS] ([f86c705](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f86c70501cc2d64c1cf331f763f053c53589c2dc))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([f7bd8f7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f7bd8f76d74dfdce7855362672aab72f905e47ad))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([5ecd84b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5ecd84bc6b57778e6a40b009c574e31428c4539c))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([5a75898](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5a7589849b43c27611f7e917c48f2a3c77a5365a))
+* **contracts/ceres/pools/cerespool.sol:** [ADDED][TEST CASES DONE] && [REMOVED][TODO TASKS] ([0666fa1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0666fa1b51715a649bc486bbb7031ec57d2f7fc9))
+
 ## [1.15.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.14.0...v1.15.0) (2021-07-16)
 
 

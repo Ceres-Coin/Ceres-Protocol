@@ -55,7 +55,7 @@ contract CeresPool is AccessControl {
     bool public mintPaused = false; //TEST CASE DONE
     bool public redeemPaused = false; //TEST CASE DONE
     bool public recollateralizePaused = false; //TEST CASE DONE
-    bool public buyBackPaused = false; //TODO: ADD TEST CASES
+    bool public buyBackPaused = false; //TEST CASE DONE
     
     
     // [PARAMETER][collat_eth_oracle_address]

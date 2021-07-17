@@ -405,7 +405,7 @@ contract CeresPool is AccessControl {
         
     }
 
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function availableExcessCollatDV() public view returns (uint256) {
         uint256 total_supply = CERES.totalSupply();
         uint256 global_collateral_ratio = CERES.global_collateral_ratio();

@@ -14,6 +14,8 @@ const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USD
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
+const BIG18 = new BigNumber("1e18");
+const BIG6 = new BigNumber("1e6");
 
 contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
     // set the deploy address
@@ -425,5 +427,16 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         await instance_Pool_USDC.toggleRecollateralize({from: OWNER});
         expect(await instance_Pool_USDC.recollateralizePaused.call()).to.equal(DEFAUT_VALUE);
     });
+
+    it('check instance_Pool_USDC.collatDollarBalance()', async() => {
+        const collatDollarBalance = new BigNumber(await instance_Pool_USDC.collatDollarBalance.call()).div(BIG18);
+        const collatAmount = new BigNumber(await col_instance_USDC.balanceOf(instance_Pool_USDC.address)).div(BIG18);
+        const getCollateralPrice = new BigNumber(await instance_Pool_USDC.getCollateralPrice.call()).div(BIG6);
+        console.log(chalk.blue(`collatDollarBalance: ${collatDollarBalance}`));
+        console.log(chalk.blue(`collatAmount: ${collatAmount}`));
+        console.log(chalk.blue(`getCollateralPrice: ${getCollateralPrice}`));
+
+        expect(parseFloat(collatDollarBalance)).to.gt(0);
+    })
 
 });

@@ -450,4 +450,9 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(await instance_Pool_USDC.buyBackPaused.call()).to.equal(expected_value);
     });
 
+    it('check instance_Pool_USDC.availableExcessCollatDV.call(), its default is 0', async() => {
+        const expected_value = new BigNumber("0");
+        expect(parseFloat(await instance_Pool_USDC.availableExcessCollatDV.call())).to.equal(parseFloat(expected_value));
+    });
+
 });

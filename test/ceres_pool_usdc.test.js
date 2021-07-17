@@ -412,4 +412,18 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         expect(parseFloat(await instance_Pool_USDC.bonus_rate.call())).to.equal(parseFloat(DEFAUT_VALUE));
     });
 
+    it('check instance_Pool_USDC.toggleRecollateralize() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = false;
+        const NEW_VALUE = true;
+        expect(await instance_Pool_USDC.recollateralizePaused.call()).to.equal(DEFAUT_VALUE);
+        // ACTION & ASSERTION
+        await instance_Pool_USDC.toggleRecollateralize({from: OWNER});
+        expect(await instance_Pool_USDC.recollateralizePaused.call()).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await instance_Pool_USDC.toggleRecollateralize({from: OWNER});
+        expect(await instance_Pool_USDC.recollateralizePaused.call()).to.equal(DEFAUT_VALUE);
+    });
+
 });

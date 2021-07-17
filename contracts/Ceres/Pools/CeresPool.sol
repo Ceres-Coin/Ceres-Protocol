@@ -158,7 +158,7 @@ contract CeresPool is AccessControl {
     function toggleRedeeming() external onlyByOwnerOrGovernance {
         redeemPaused = !redeemPaused;
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function toggleRecollateralize() external onlyByOwnerOrGovernance {
         recollateralizePaused = !recollateralizePaused;
     }

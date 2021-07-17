@@ -443,6 +443,11 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         const globalCollateralValue = new BigNumber(await instanceCERES.globalCollateralValue.call()).div(BIG18);
         console.log(chalk.blue(`globalCollateralValue: ${globalCollateralValue}`));
         expect(parseFloat(globalCollateralValue)).to.gt(0);
-    })
+    });
+
+    it('check instance_Pool_USDC.buyBackPaused.call() = FALSE', async() => {
+        const expected_value = false
+        expect(await instance_Pool_USDC.buyBackPaused.call()).to.equal(expected_value);
+    });
 
 });

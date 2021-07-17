@@ -207,7 +207,7 @@ contract CEREStable is ERC20Custom, AccessControl {
         emit CERESBurned(b_address, msg.sender, b_amount);
     }
 
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function globalCollateralValue() public view returns (uint256) {
         uint256 total_collateral_value_d18 = 0; 
 

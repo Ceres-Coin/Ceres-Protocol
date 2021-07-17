@@ -363,7 +363,7 @@ contract CeresPool is AccessControl {
             collateral_token.transfer(msg.sender, CollateralAmount);
         }
     }
-    // TODO: ADD TEST CASES
+    //TEST CASE DONE
     function collatDollarBalance() public view returns (uint256) {
         if(collateralPricePaused == true){
             return (collateral_token.balanceOf(address(this)).sub(unclaimedPoolCollateral)).mul(10 ** missing_decimals).mul(pausedPrice).div(PRICE_PRECISION);

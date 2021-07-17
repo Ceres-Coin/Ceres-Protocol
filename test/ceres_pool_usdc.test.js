@@ -437,6 +437,12 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         console.log(chalk.blue(`getCollateralPrice: ${getCollateralPrice}`));
 
         expect(parseFloat(collatDollarBalance)).to.gt(0);
+    });
+
+    it('check instanceCERES.globalCollateralValue()', async() => {
+        const globalCollateralValue = new BigNumber(await instanceCERES.globalCollateralValue.call()).div(BIG18);
+        console.log(chalk.blue(`globalCollateralValue: ${globalCollateralValue}`));
+        expect(parseFloat(globalCollateralValue)).to.gt(0);
     })
 
 });

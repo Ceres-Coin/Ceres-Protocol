@@ -154,6 +154,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.locked_stake_min_time.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check instanceStakingRewards_CERES_WETH.locked_stake_min_time_str.call(), its default value is equal "604800"', async () => {
+        const EXPECTED_VALUE = "604800";
+        expect(await instanceStakingRewards_CERES_WETH.locked_stake_min_time_str.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
     
 });

@@ -374,5 +374,19 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsDuration.call())).to.equal(parseFloat(DEFAUT_VALUE));
     });
 
+    it('check STAKE_CERES_WETH.greylistAddress(TEST_ACCOUNT) FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = false; 
+        const NEW_VALUE = true; 
+        expect((await instanceStakingRewards_CERES_WETH.greylist.call(TEST_ACCOUNT))).to.equal((DEFAUT_VALUE));
+        // ACTION & ASSERTION
+        await instanceStakingRewards_CERES_WETH.greylistAddress(TEST_ACCOUNT,{from: OWNER});
+        expect((await instanceStakingRewards_CERES_WETH.greylist.call(TEST_ACCOUNT))).to.equal((NEW_VALUE));
+
+        // ROLLBACK CODE
+        await instanceStakingRewards_CERES_WETH.greylistAddress(TEST_ACCOUNT,{from: OWNER});
+        expect((await instanceStakingRewards_CERES_WETH.greylist.call(TEST_ACCOUNT))).to.equal((DEFAUT_VALUE));
+    });
+
 
 });

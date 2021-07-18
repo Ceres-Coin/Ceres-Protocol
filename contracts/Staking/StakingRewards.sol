@@ -395,7 +395,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         rewardsDuration = _rewardsDuration;
         emit RewardsDurationUpdated(rewardsDuration);
     }
-
+    // TODO: [LATER]:ADD TEST CASES 
     function setMultipliers(uint256 _locked_stake_max_multiplier, uint256 _cr_boost_max_multiplier) external onlyByOwnerOrGovernance {
         require(_locked_stake_max_multiplier >= 1, "Multiplier must be greater than or equal to 1");
         require(_cr_boost_max_multiplier >= 1, "Max CR Boost must be greater than or equal to 1");
@@ -406,7 +406,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         emit MaxCRBoostMultiplier(cr_boost_max_multiplier);
         emit LockedStakeMaxMultiplierUpdated(locked_stake_max_multiplier);
     }
-
+    // TODO: [LATER]: ADD TEST CASES
     function setLockedStakeTimeForMinAndMaxMultiplier(uint256 _locked_stake_time_for_max_multiplier, uint256 _locked_stake_min_time) external onlyByOwnerOrGovernance {
         require(_locked_stake_time_for_max_multiplier >= 1, "Multiplier Max Time must be greater than or equal to 1");
         require(_locked_stake_min_time >= 1, "Multiplier Min Time must be greater than or equal to 1");

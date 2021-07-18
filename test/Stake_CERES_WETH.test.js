@@ -402,5 +402,20 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect((await instanceStakingRewards_CERES_WETH.unlockedStakes.call())).to.equal((DEFAUT_VALUE));
     });
 
+    it('check STAKE_CERES_WETH.setRewardRate() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call());
+        // console.log(chalk.blue(`DEFAUT_VALUE: ${DEFAUT_VALUE}`));
+        const NEW_VALUE = 2 * parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call()); 
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call())).to.equal(parseFloat(DEFAUT_VALUE));
+        // ACTION & ASSERTION
+        await instanceStakingRewards_CERES_WETH.setRewardRate(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await instanceStakingRewards_CERES_WETH.setRewardRate(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call())).to.equal(parseFloat(DEFAUT_VALUE));
+    });
+
 
 });

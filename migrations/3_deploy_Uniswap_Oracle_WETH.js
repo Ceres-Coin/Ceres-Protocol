@@ -178,11 +178,11 @@ module.exports = async function(deployer,network,accounts) {
 	await cssInstance.setCERESAddress(ceresInstance.address, { from: OWNER });
 
 	// DEPLOY STAKING_CERES_WETH
-		await deployer.link(CEREStable, [StakingRewards_CERES_WETH]);
-		await deployer.deploy(StringHelpers);
-		await deployer.link(StringHelpers, [StakingRewards_CERES_WETH]);
-		await Promise.all([
-			deployer.deploy(StakingRewards_CERES_WETH, STAKING_OWNER, STAKING_REWARDS_DISTRIBUTOR, cssInstance.address, pair_addr_CERES_WETH, ceresInstance.address, timelockInstance, 500000,{from: OWNER}),	
-		]);
+	await deployer.link(CEREStable, [StakingRewards_CERES_WETH]);
+	await deployer.deploy(StringHelpers);
+	await deployer.link(StringHelpers, [StakingRewards_CERES_WETH]);
+	await Promise.all([
+		deployer.deploy(StakingRewards_CERES_WETH, STAKING_OWNER, STAKING_REWARDS_DISTRIBUTOR, cssInstance.address, pair_addr_CERES_WETH, ceresInstance.address, timelockInstance, 500000,{from: OWNER}),	
+	]);
 
 };

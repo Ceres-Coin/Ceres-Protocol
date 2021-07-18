@@ -54,13 +54,18 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     });
 
     it('check instanceStakingRewards_CERES_WETH.address, its value is not be empty', async () => {
-        console.log(chalk.blue(`instanceStakingRewards_CERES_WETH: ${await instanceStakingRewards_CERES_WETH.address}`));
+        // console.log(chalk.blue(`instanceStakingRewards_CERES_WETH: ${await instanceStakingRewards_CERES_WETH.address}`));
         expect(instanceStakingRewards_CERES_WETH.address).to.not.be.empty;
     });
 
     it('check instanceStakingRewards_CERES_WETH.owner_address, its value is OWNER', async () => {
         const EXPECTED_VALUE = OWNER;
         expect(await instanceStakingRewards_CERES_WETH.owner_address.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check instanceStakingRewards_CERES_WETH.timelock_address, its value is OWNER', async () => {
+        const EXPECTED_VALUE = OWNER;
+        expect(await instanceStakingRewards_CERES_WETH.timelock_address.call()).to.equal(EXPECTED_VALUE);
     });
 
 

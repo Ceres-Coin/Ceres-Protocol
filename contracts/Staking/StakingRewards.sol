@@ -63,10 +63,10 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     mapping(address => uint256) private _locked_balances;
     mapping(address => uint256) private _boosted_balances;
     mapping(address => LockedStake[]) private lockedStakes;
-    
-    mapping(address => bool) public greylist; 
 
-    bool public unlockedStakes; // Release lock stakes in case of system migration
+    mapping(address => bool) public greylist; // TEST CASE DONE
+
+    bool public unlockedStakes; // Release lock stakes in case of system migration // TEST CASE DONE
 
     struct LockedStake {
         bytes32 kek_id;

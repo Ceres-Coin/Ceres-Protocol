@@ -47,11 +47,11 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     address public owner_address; //TEST CASES DONE
     address public timelock_address;  //TEST CASES DONE // Governance timelock address
 
-    uint256 public locked_stake_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000
-    uint256 public locked_stake_time_for_max_multiplier = 3 * 365 * 86400; // 3 years
-    uint256 public locked_stake_min_time = 604800; // 7 * 86400  (7 days)
-    string public locked_stake_min_time_str = "604800"; // 7 days on genesis
-    uint256 public cr_boost_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000
+    uint256 public locked_stake_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000 //TEST CASES DONE
+    uint256 public locked_stake_time_for_max_multiplier = 3 * 365 * 86400; // 3 years //TEST CASES DONE
+    uint256 public locked_stake_min_time = 604800; // 7 * 86400  (7 days) //TEST CASES DONE
+    string public locked_stake_min_time_str = "604800"; // 7 days on genesis //TEST CASES DONE
+    uint256 public cr_boost_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000 //TEST CASES DONE
 
     mapping(address => uint256) public userRewardPerTokenPaid; // TEST CASE DONE
     mapping(address => uint256) public rewards; // TEST CASE DONE

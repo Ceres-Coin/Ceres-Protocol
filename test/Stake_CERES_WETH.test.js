@@ -242,7 +242,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.crBoostMultiplier.call())).to.equal(parseFloat(1000000));
     });
 
-    it ("check Stake_CERES_WETH.balanceOf(account0 - account7), check its value for account0 - 7 should ALL be 0 ", async() => {
+    it ('check Stake_CERES_WETH.balanceOf(account0 - account7), check its value for account0 - 7 should ALL be 0 ', async() => {
 	    const EXPECTED_VALUE = new BigNumber(0);
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.balanceOf.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.balanceOf.call(account1))).to.equal(parseFloat(EXPECTED_VALUE));

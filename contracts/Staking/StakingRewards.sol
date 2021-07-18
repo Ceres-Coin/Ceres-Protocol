@@ -44,8 +44,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     uint256 public rewardPerTokenStored = 0; 
     uint256 public pool_weight; // This staking pool's percentage of the total CSS being distributed by all pools, 6 decimals of precision
 
-    address public owner_address;
-    address public timelock_address; // Governance timelock address
+    address public owner_address; //TEST CASES DONE
+    address public timelock_address;  //TEST CASES DONE // Governance timelock address
 
     uint256 public locked_stake_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000
     uint256 public locked_stake_time_for_max_multiplier = 3 * 365 * 86400; // 3 years

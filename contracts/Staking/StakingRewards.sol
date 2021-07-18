@@ -116,12 +116,12 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         if (multiplier > locked_stake_max_multiplier) multiplier = locked_stake_max_multiplier;
         return multiplier;
     }
-
+    // TEST CASES DONE
     function crBoostMultiplier() public view returns (uint256) {
         uint256 multiplier = uint(MULTIPLIER_BASE).add((uint(MULTIPLIER_BASE).sub(CERES.global_collateral_ratio())).mul(cr_boost_max_multiplier.sub(MULTIPLIER_BASE)).div(MULTIPLIER_BASE) );
         return multiplier;
     }
-
+    // TEST CASES DONE
     // Total unlocked and locked liquidity tokens
     function balanceOf(address account) external override view returns (uint256) {
         return (_unlocked_balances[account]).add(_locked_balances[account]);

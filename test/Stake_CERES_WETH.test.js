@@ -53,7 +53,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
     });
 
-    it('check instanceStakingRewards_CERES_WETH.address, its value is not be empty" ', async () => {
+    it('check instanceStakingRewards_CERES_WETH.address, its value is not be empty', async () => {
         console.log(chalk.blue(`instanceStakingRewards_CERES_WETH: ${await instanceStakingRewards_CERES_WETH.address}`));
         expect(instanceStakingRewards_CERES_WETH.address).to.not.be.empty;
     });

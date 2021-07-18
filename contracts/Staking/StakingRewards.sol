@@ -24,67 +24,48 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     using SafeERC20 for ERC20;
 
     /* ========== STATE VARIABLES ========== */
-    // TEST CASE DONE 
     CEREStable public CERES;
-    // TEST CASE DONE 
     ERC20 public rewardsToken;
-    // TEST CASE DONE 
     ERC20 public stakingToken;
-    // TEST CASE DONE 
     uint256 public periodFinish;
 
     // Constant for various precisions
     // NOTHING TO DO FOR PRIVATE
-    uint256 private constant PRICE_PRECISION = 1e6;
-    uint256 private constant MULTIPLIER_BASE = 1e6;
+    uint256 public constant PRICE_PRECISION = 1e6;
+    uint256 public constant MULTIPLIER_BASE = 1e6;
 
     // Max reward per second
-    //TEST CASE DONE
     uint256 public rewardRate; 
 
     // uint256 public rewardsDuration = 86400 hours;
-    // TEST CASE DONE
     uint256 public rewardsDuration = 604800; // 7 * 86400  (7 days)
 
-    // TEST CASE DONE
     uint256 public lastUpdateTime;
-    // TEST CASE DONE
     uint256 public rewardPerTokenStored = 0; 
-    // TEST CASE DONE
     uint256 public pool_weight; // This staking pool's percentage of the total CSS being distributed by all pools, 6 decimals of precision
 
-    // TEST CASE DONE
     address public owner_address;
-    // TEST CASE DONE
     address public timelock_address; // Governance timelock address
 
-    // TEST CASE DONE
     uint256 public locked_stake_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000
-    // TEST CASE DONE
     uint256 public locked_stake_time_for_max_multiplier = 3 * 365 * 86400; // 3 years
-    // TEST CASE DONE
     uint256 public locked_stake_min_time = 604800; // 7 * 86400  (7 days)
-    // TEST CASE DONE
-    string private locked_stake_min_time_str = "604800"; // 7 days on genesis
-    // TEST CASE DONE
+    string public locked_stake_min_time_str = "604800"; // 7 days on genesis
     uint256 public cr_boost_max_multiplier = 3000000; // 6 decimals of precision. 1x = 1000000
 
-    // TEST CASE DONE
     mapping(address => uint256) public userRewardPerTokenPaid; // TEST CASE DONE
     mapping(address => uint256) public rewards; // TEST CASE DONE
 
     // NOTHING TO DO FOR PRIVATE
-    uint256 private _staking_token_supply = 0;
-    uint256 private _staking_token_boosted_supply = 0;
-    mapping(address => uint256) private _unlocked_balances;
-    mapping(address => uint256) private _locked_balances;
-    mapping(address => uint256) private _boosted_balances;
+    uint256 public _staking_token_supply = 0;
+    uint256 public _staking_token_boosted_supply = 0;
+    mapping(address => uint256) public _unlocked_balances;
+    mapping(address => uint256) public _locked_balances;
+    mapping(address => uint256) public _boosted_balances;
 
-    mapping(address => LockedStake[]) private lockedStakes;
-    // TEST CASE DONE
+    mapping(address => LockedStake[]) public lockedStakes;
     mapping(address => bool) public greylist; 
 
-    // TEST CASE DONE
     bool public unlockedStakes; // Release lock stakes in case of system migration
 
     struct LockedStake {
@@ -122,41 +103,35 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
     /* ========== VIEWS ========== */
 
-    // TEST CASE DONE
     function totalSupply() external override view returns (uint256) {
         return _staking_token_supply;
     }
 
-    // TEST CASE DONE
     function totalBoostedSupply() external view returns (uint256) {
         return _staking_token_boosted_supply;
     }
 
-    // TODO: [later]
     function stakingMultiplier(uint256 secs) public view returns (uint256) {
         uint256 multiplier = uint(MULTIPLIER_BASE).add(secs.mul(locked_stake_max_multiplier.sub(MULTIPLIER_BASE)).div(locked_stake_time_for_max_multiplier));
         if (multiplier > locked_stake_max_multiplier) multiplier = locked_stake_max_multiplier;
         return multiplier;
     }
-    // TODO: [LATER]
+
     function crBoostMultiplier() public view returns (uint256) {
         uint256 multiplier = uint(MULTIPLIER_BASE).add((uint(MULTIPLIER_BASE).sub(CERES.global_collateral_ratio())).mul(cr_boost_max_multiplier.sub(MULTIPLIER_BASE)).div(MULTIPLIER_BASE) );
         return multiplier;
     }
 
-    // TEST CASE DONE
     // Total unlocked and locked liquidity tokens
     function balanceOf(address account) external override view returns (uint256) {
         return (_unlocked_balances[account]).add(_locked_balances[account]);
     }
 
-    // TEST CASE DONE
     // Total unlocked liquidity tokens
     function unlockedBalanceOf(address account) external view returns (uint256) {
         return _unlocked_balances[account];
     }
 
-    // TEST CASE DONE
     // Total locked liquidity tokens
     function lockedBalanceOf(address account) public view returns (uint256) {
         return _locked_balances[account];
@@ -168,25 +143,23 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         return _boosted_balances[account];
     }
 
-    
-    // TODO: [LATER] Write some test scripts for this function
     function lockedStakesOf(address account) external view returns (LockedStake[] memory) {
         return lockedStakes[account];
     }
-    // TEST CASE DONE
+    
     function stakingDecimals() external view returns (uint256) {
         return stakingToken.decimals();
     }
-    // TEST CASE DONE
+    
     function rewardsFor(address account) external view returns (uint256) {
         // You may have use earned() instead, because of the order in which the contract executes 
         return rewards[account];
     }
-    // TEST CASE DONE
+    
     function lastTimeRewardApplicable() public override view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }
-    // TEST CASE DONE
+    
     function rewardPerToken() public override view returns (uint256) {
         if (_staking_token_supply == 0) {
             return rewardPerTokenStored;
@@ -197,7 +170,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
             );
         }
     }
-    // TEST CASE DONE
+    
     function earned(address account) public override view returns (uint256) {
         return _boosted_balances[account].mul(rewardPerToken().sub(userRewardPerTokenPaid[account])).div(1e18).add(rewards[account]);
     }
@@ -205,13 +178,12 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     // function earned(address account) public override view returns (uint256) {
     //     return _balances[account].mul(rewardPerToken().sub(userRewardPerTokenPaid[account])).add(rewards[account]);
     // }
-    // TEST CASE DONE
+    
     function getRewardForDuration() external override view returns (uint256) {
         return rewardRate.mul(rewardsDuration).mul(crBoostMultiplier()).div(PRICE_PRECISION);
     }
 
     /* ========== MUTATIVE FUNCTIONS ========== */
-    // TEST CASE DONE
     function stake(uint256 amount) external override nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(greylist[msg.sender] == false, "address has been greylisted");
@@ -231,8 +203,6 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         emit Staked(msg.sender, amount);
     }
 
-    
-    // TEST CASE DONE
     function stakeLocked(uint256 amount, uint256 secs) external nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(secs > 0, "Cannot wait for a negative number");
@@ -265,7 +235,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit StakeLocked(msg.sender, amount, secs);
     }
-    // TODO: [LATER]
+    
     function withdraw(uint256 amount) public override nonReentrant updateReward(msg.sender) {
         require(amount > 0, "Cannot withdraw 0");
 
@@ -282,7 +252,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         stakingToken.transfer(msg.sender, amount);
         emit Withdrawn(msg.sender, amount);
     }
-    // TODO: [LATER]
+    
     function withdrawLocked(bytes32 kek_id) public nonReentrant updateReward(msg.sender) {
         LockedStake memory thisStake;
         thisStake.amount = 0;
@@ -319,7 +289,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         }
 
     }
-    // TEST CASE DONE
+    
     function getReward() public override nonReentrant updateReward(msg.sender) {
         uint256 reward = rewards[msg.sender];
         if (reward > 0) {
@@ -337,7 +307,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         getReward();
     }
 */
-    // TODO: [LATER]
+    
     function renewIfApplicable() external {
         if (block.timestamp > periodFinish) {
             retroCatchUp();
@@ -440,25 +410,25 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         emit LockedStakeTimeForMaxMultiplier(locked_stake_time_for_max_multiplier);
         emit LockedStakeMinTime(_locked_stake_min_time);
     }
-    // TEST CASE DONE
+    
     function initializeDefault() external onlyByOwnerOrGovernance {
         lastUpdateTime = block.timestamp;
         periodFinish = block.timestamp.add(rewardsDuration);
         emit DefaultInitialization();
     }
-    // TEST CASE DONE
+    
     function greylistAddress(address _address) external onlyByOwnerOrGovernance {
         greylist[_address] = !(greylist[_address]);
     }
-    // TEST CASE DONE
+    
     function unlockStakes() external onlyByOwnerOrGovernance {
         unlockedStakes = !unlockedStakes;
     }
-    // TEST CASE DONE
+    
     function setRewardRate(uint256 _new_rate) external onlyByOwnerOrGovernance {
         rewardRate = _new_rate;
     }
-    // TEST CASE DONE
+    
     function setOwnerAndTimelock(address _new_owner, address _new_timelock) external onlyByOwnerOrGovernance {
         owner_address = _new_owner;
         timelock_address = _new_timelock;

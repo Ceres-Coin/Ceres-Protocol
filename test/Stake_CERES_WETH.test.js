@@ -105,6 +105,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.PRICE_PRECISION.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check instanceStakingRewards_CERES_WETH.MULTIPLIER_BASE.call(), its default value is 1e6', async () => {
+        const EXPECTED_VALUE = new BigNumber("1e6");
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.MULTIPLIER_BASE.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
 });

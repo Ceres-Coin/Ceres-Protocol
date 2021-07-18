@@ -290,7 +290,22 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.boostedBalanceOf.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
 	});
 
+    it('check STAKE_CERES_WETH.stakingDecimals.call(), its default value is equal 18', async () => {
+        const EXPECTED_VALUE = new BigNumber(18);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.stakingDecimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
 
+    it ('check Stake_CERES_WETH.rewardsFor(account0 - account7), check its value for account0 - 7 should ALL be 0', async() => {
+	    const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account1))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account2))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account3))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account4))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account5))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account6))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
+	});
 
 
     

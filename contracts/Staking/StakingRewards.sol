@@ -35,13 +35,13 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     uint256 public constant MULTIPLIER_BASE = 1e6; //TEST CASE DONE
 
     // Max reward per second IN DEC18
-    uint256 public rewardRate; 
+    uint256 public rewardRate; //TEST CASES DONE
 
-    // uint256 public rewardsDuration = 86400 hours;
-    uint256 public rewardsDuration = 604800; // 7 * 86400  (7 days)
+    // uint256 public rewardsDuration = 86400 hours; 
+    uint256 public rewardsDuration = 604800; // 7 * 86400  (7 days) //TEST CASES DONE
 
-    uint256 public lastUpdateTime;
-    uint256 public rewardPerTokenStored = 0; 
+    uint256 public lastUpdateTime; //TEST CASES DONE
+    uint256 public rewardPerTokenStored = 0;  //TEST CASES DONE
     uint256 public pool_weight; // This staking pool's percentage of the total CSS being distributed by all pools, 6 decimals of precision
 
     address public owner_address; //TEST CASES DONE

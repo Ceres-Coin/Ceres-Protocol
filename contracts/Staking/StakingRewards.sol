@@ -27,12 +27,12 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     CEREStable public CERES; //TEST CASE DONE
     ERC20 public rewardsToken; //TEST CASE DONE
     ERC20 public stakingToken; //TEST CASE DONE
-    uint256 public periodFinish;
+    uint256 public periodFinish; //TEST CASE DONE
 
     // Constant for various precisions
     // NOTHING TO DO FOR PRIVATE
-    uint256 public constant PRICE_PRECISION = 1e6;
-    uint256 public constant MULTIPLIER_BASE = 1e6;
+    uint256 public constant PRICE_PRECISION = 1e6; //TEST CASE DONE
+    uint256 public constant MULTIPLIER_BASE = 1e6; //TEST CASE DONE
 
     // Max reward per second
     uint256 public rewardRate; 

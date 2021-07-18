@@ -148,11 +148,11 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     function lockedStakesOf(address account) external view returns (LockedStake[] memory) {
         return lockedStakes[account];
     }
-    
+    // TEST CASES DONE
     function stakingDecimals() external view returns (uint256) {
         return stakingToken.decimals();
     }
-    
+    // TEST CASES DONE
     function rewardsFor(address account) external view returns (uint256) {
         // You may have use earned() instead, because of the order in which the contract executes 
         return rewards[account];

@@ -24,9 +24,9 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     using SafeERC20 for ERC20;
 
     /* ========== STATE VARIABLES ========== */
-    CEREStable public CERES;
-    ERC20 public rewardsToken;
-    ERC20 public stakingToken;
+    CEREStable public CERES; //TEST CASE DONE
+    ERC20 public rewardsToken; //TEST CASE DONE
+    ERC20 public stakingToken; //TEST CASE DONE
     uint256 public periodFinish;
 
     // Constant for various precisions

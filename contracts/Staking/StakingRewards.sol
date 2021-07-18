@@ -320,12 +320,13 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
             retroCatchUp();
         }
     }
-
+    // TEST CASES DONE
     function rewardsToken_balance() external view returns (uint256) {
         return rewardsToken.balanceOf(address(this));
     }
 
     // If the period expired, renew it
+    // NO TEST CASES FOR INTERNAL FUNC()
     function retroCatchUp() internal {
         // Failsafe check
         require(block.timestamp > periodFinish, "Period has not expired yet!");

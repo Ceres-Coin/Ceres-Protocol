@@ -379,6 +379,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     }
 */
     // Added to support recovering LP Rewards from other systems to be distributed to holders
+    // TODO: ADD TEST CASES (NOT TOTALLY UNDERSTAND, DO INVESTIGATE LATER)
     function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyByOwnerOrGovernance {
         // Admin cannot withdraw the staking token from the contract
         require(tokenAddress != address(stakingToken));

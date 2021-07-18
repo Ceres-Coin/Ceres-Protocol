@@ -161,7 +161,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     function lastTimeRewardApplicable() public override view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }
-    
+    // TEST CASES DONE
     function rewardPerToken() public override view returns (uint256) {
         if (_staking_token_supply == 0) {
             return rewardPerTokenStored;
@@ -172,7 +172,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
             );
         }
     }
-    
+    // TEST CASES DONE
     function earned(address account) public override view returns (uint256) {
         return _boosted_balances[account].mul(rewardPerToken().sub(userRewardPerTokenPaid[account])).div(1e18).add(rewards[account]);
     }

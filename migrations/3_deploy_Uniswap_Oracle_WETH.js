@@ -17,6 +17,8 @@ const UniswapPairOracle_USDC_WETH = artifacts.require("Oracle/Variants/UniswapPa
 const SwapToPrice = artifacts.require("Uniswap/SwapToPrice");
 const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
+const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
+const StringHelpers = artifacts.require("Utils/StringHelpers");
 
 
 const DUMP_ADDRESS = constants.ZERO_ADDRESS;
@@ -47,6 +49,13 @@ module.exports = async function(deployer,network,accounts) {
 	const account1 = accounts[1];
 	const account2 = accounts[2];
 	const account3 = accounts[3];
+	const account4 = accounts[4];
+	const account5 = accounts[5];
+	const account6 = accounts[6];
+	const account7 = accounts[7];
+	const STAKING_OWNER = account0;
+	const STAKING_REWARDS_DISTRIBUTOR = account7;
+	const timelockInstance = OWNER;
 
 
 	let wethInstance;
@@ -167,5 +176,13 @@ module.exports = async function(deployer,network,accounts) {
 		await ceresInstance.addPool(pool_instance_USDC.address, { from: OWNER });
 	}
 	await cssInstance.setCERESAddress(ceresInstance.address, { from: OWNER });
+
+	// DEPLOY STAKING_CERES_WETH
+		await deployer.link(CEREStable, [StakingRewards_CERES_WETH]);
+		await deployer.deploy(StringHelpers);
+		await deployer.link(StringHelpers, [StakingRewards_CERES_WETH]);
+		await Promise.all([
+			deployer.deploy(StakingRewards_CERES_WETH, STAKING_OWNER, STAKING_REWARDS_DISTRIBUTOR, cssInstance.address, pair_addr_CERES_WETH, ceresInstance.address, timelockInstance, 500000,{from: OWNER}),	
+		]);
 
 };

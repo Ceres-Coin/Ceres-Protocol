@@ -417,5 +417,24 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call())).to.equal(parseFloat(DEFAUT_VALUE));
     });
 
+    it('check STAKE_CERES_WETH.setOwnerAndTimelock() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = OWNER;
+        const DEFAUT_VALUE2 = OWNER;
+        const NEW_VALUE = TEST_ACCOUNT;
+        const NEW_VALUE2 = TEST_ACCOUNT;
+        expect((await instanceStakingRewards_CERES_WETH.owner_address.call())).to.equal((DEFAUT_VALUE));
+        expect((await instanceStakingRewards_CERES_WETH.timelock_address.call())).to.equal((DEFAUT_VALUE2));
+        // ACTION & ASSERTION
+        await instanceStakingRewards_CERES_WETH.setOwnerAndTimelock(NEW_VALUE,NEW_VALUE2,{from: DEFAUT_VALUE});
+        expect((await instanceStakingRewards_CERES_WETH.owner_address.call())).to.equal((NEW_VALUE));
+        expect((await instanceStakingRewards_CERES_WETH.timelock_address.call())).to.equal((NEW_VALUE2));
+
+        // ROLLBACK CODE
+        await instanceStakingRewards_CERES_WETH.setOwnerAndTimelock(DEFAUT_VALUE,DEFAUT_VALUE2,{from: NEW_VALUE});
+        expect((await instanceStakingRewards_CERES_WETH.owner_address.call())).to.equal((DEFAUT_VALUE));
+        expect((await instanceStakingRewards_CERES_WETH.timelock_address.call())).to.equal((DEFAUT_VALUE2));
+    });
+
 
 });

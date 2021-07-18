@@ -58,6 +58,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(instanceStakingRewards_CERES_WETH.address).to.not.be.empty;
     });
 
+    it('check instanceStakingRewards_CERES_WETH.owner_address, its value is OWNER', async () => {
+        const EXPECTED_VALUE = OWNER;
+        expect(await instanceStakingRewards_CERES_WETH.owner_address.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
     
 });

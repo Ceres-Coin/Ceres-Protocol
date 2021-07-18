@@ -139,10 +139,12 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
     // Total 'balance' used for calculating the percent of the pool the account owns
     // Takes into account the locked stake time multiplier
+    // TEST CASES DONE
     function boostedBalanceOf(address account) external view returns (uint256) {
         return _boosted_balances[account];
     }
 
+    // TODO: ADD TEST CASES
     function lockedStakesOf(address account) external view returns (LockedStake[] memory) {
         return lockedStakes[account];
     }

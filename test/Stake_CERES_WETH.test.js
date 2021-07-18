@@ -11,6 +11,7 @@ const UniswapPairOracle_USDC_WETH = artifacts.require("Oracle/Variants/UniswapPa
 const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
+const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const ERC20 = artifacts.require("ERC20");
 const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
@@ -41,16 +42,22 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     let instance_Pool_USDC_collateral_token;
     let col_instance_USDC;
     let instanceStakingRewards_CERES_WETH;
+    let pair_addr_CERES_WETH;
+    let wethInstance;
+    let uniswapFactoryInstance;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
         instance_Pool_USDC = await Pool_USDC.deployed();
+        wethInstance = await WETH.deployed();
 
+        uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
         instance_Pool_USDC_collateral_token = await ERC20.at(await instance_Pool_USDC.collateral_token());
         instance_Pool_USDC_CERES = await CEREStable.at(await instance_Pool_USDC.CERES());
         instance_Pool_USDC_CSS = await CEREShares.at(await instance_Pool_USDC.CSS());
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
         instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
+        pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
     });
 
     it('check instanceStakingRewards_CERES_WETH.address, its value is not be empty', async () => {
@@ -76,6 +83,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     it('check instanceStakingRewards_CERES_WETH.rewardsToken, its value is cssInstance.address', async () => {
         const EXPECTED_VALUE = cssInstance.address;
         expect(await instanceStakingRewards_CERES_WETH.rewardsToken.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check instanceStakingRewards_CERES_WETH.stakingToken, its value is pair_addr_CERES_WETH', async () => {
+        const EXPECTED_VALUE = pair_addr_CERES_WETH;
+        expect(await instanceStakingRewards_CERES_WETH.stakingToken.call()).to.equal(EXPECTED_VALUE);
     });
 
 

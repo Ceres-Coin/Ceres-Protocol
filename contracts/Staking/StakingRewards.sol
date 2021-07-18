@@ -190,6 +190,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     // TODO: ADD VIP LEVEL, STAKING MORE AND GET MORE REWARDSTOKEN(CSS)
 
     /* ========== MUTATIVE FUNCTIONS ========== */
+    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function stake(uint256 amount) external override nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(greylist[msg.sender] == false, "address has been greylisted");
@@ -208,7 +209,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit Staked(msg.sender, amount);
     }
-
+    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function stakeLocked(uint256 amount, uint256 secs) external nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(secs > 0, "Cannot wait for a negative number");
@@ -241,7 +242,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit StakeLocked(msg.sender, amount, secs);
     }
-    
+    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function withdraw(uint256 amount) public override nonReentrant updateReward(msg.sender) {
         require(amount > 0, "Cannot withdraw 0");
 
@@ -258,7 +259,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         stakingToken.transfer(msg.sender, amount);
         emit Withdrawn(msg.sender, amount);
     }
-    
+    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function withdrawLocked(bytes32 kek_id) public nonReentrant updateReward(msg.sender) {
         LockedStake memory thisStake;
         thisStake.amount = 0;
@@ -295,7 +296,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         }
 
     }
-    
+    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function getReward() public override nonReentrant updateReward(msg.sender) {
         uint256 reward = rewards[msg.sender];
         if (reward > 0) {

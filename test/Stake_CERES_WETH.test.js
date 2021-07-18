@@ -358,5 +358,21 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         // expect(parseFloat(await instanceStakingRewards_CERES_WETH.getRewardForDuration.call())).to.equal(parseFloat(new BigNumber("1150684931506849200000")));
     });
 
+    it('check STAKE_CERES_WETH.setRewardsDuration() FUNC', async() => {
+        // PREPARE
+        await instanceStakingRewards_CERES_WETH.setPeriodFinish(0,{from: OWNER});
+        // BEFORE
+        const DEFAUT_VALUE = new BigNumber("604800"); //7 days
+        const NEW_VALUE = new BigNumber("1209600"); //14 days
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsDuration.call())).to.equal(parseFloat(DEFAUT_VALUE));
+        // ACTION & ASSERTION
+        await instanceStakingRewards_CERES_WETH.setRewardsDuration(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsDuration.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await instanceStakingRewards_CERES_WETH.setRewardsDuration(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsDuration.call())).to.equal(parseFloat(DEFAUT_VALUE));
+    });
+
 
 });

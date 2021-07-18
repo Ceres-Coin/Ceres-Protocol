@@ -57,13 +57,13 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     mapping(address => uint256) public rewards; // TEST CASE DONE
 
     // NOTHING TO DO FOR PRIVATE
-    uint256 public _staking_token_supply = 0;
-    uint256 public _staking_token_boosted_supply = 0;
-    mapping(address => uint256) public _unlocked_balances;
-    mapping(address => uint256) public _locked_balances;
-    mapping(address => uint256) public _boosted_balances;
-
-    mapping(address => LockedStake[]) public lockedStakes;
+    uint256 private _staking_token_supply = 0;
+    uint256 private _staking_token_boosted_supply = 0;
+    mapping(address => uint256) private _unlocked_balances;
+    mapping(address => uint256) private _locked_balances;
+    mapping(address => uint256) private _boosted_balances;
+    mapping(address => LockedStake[]) private lockedStakes;
+    
     mapping(address => bool) public greylist; 
 
     bool public unlockedStakes; // Release lock stakes in case of system migration

@@ -90,6 +90,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(await instanceStakingRewards_CERES_WETH.stakingToken.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check instanceStakingRewards_CERES_WETH.CERES, its value is ceresInstance.address', async () => {
+        const EXPECTED_VALUE = ceresInstance.address;
+        expect(await instanceStakingRewards_CERES_WETH.CERES.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
     
 });

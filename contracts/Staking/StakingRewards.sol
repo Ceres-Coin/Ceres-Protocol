@@ -102,15 +102,15 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     }
 
     /* ========== VIEWS ========== */
-
+    // TEST CASES DONE
     function totalSupply() external override view returns (uint256) {
         return _staking_token_supply;
     }
-
+    // TEST CASES DONE
     function totalBoostedSupply() external view returns (uint256) {
         return _staking_token_boosted_supply;
     }
-
+    // TEST CASES DONE
     function stakingMultiplier(uint256 secs) public view returns (uint256) {
         uint256 multiplier = uint(MULTIPLIER_BASE).add(secs.mul(locked_stake_max_multiplier.sub(MULTIPLIER_BASE)).div(locked_stake_time_for_max_multiplier));
         if (multiplier > locked_stake_max_multiplier) multiplier = locked_stake_max_multiplier;

@@ -10,6 +10,7 @@ const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const UniswapPairOracle_USDC_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_USDC_WETH");
 const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
+const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
 const ERC20 = artifacts.require("ERC20");
 const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
@@ -39,6 +40,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     let instance_Pool_USDC;
     let instance_Pool_USDC_collateral_token;
     let col_instance_USDC;
+    let instanceStakingRewards_CERES_WETH;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -48,11 +50,12 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         instance_Pool_USDC_CERES = await CEREStable.at(await instance_Pool_USDC.CERES());
         instance_Pool_USDC_CSS = await CEREShares.at(await instance_Pool_USDC.CSS());
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
+        instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
     });
 
-    it('check instance_Pool_USDC.USDC_address is col_instance_USDC.address" ', async () => {
-        // console.log(chalk.yellow(`USDC_address: ${await instance_Pool_USDC.USDC_address.call()}`));
-        expect(await instance_Pool_USDC.USDC_address.call()).to.equal(col_instance_USDC.address);
+    it('check instanceStakingRewards_CERES_WETH.address, its value is not be empty" ', async () => {
+        console.log(chalk.blue(`instanceStakingRewards_CERES_WETH: ${await instanceStakingRewards_CERES_WETH.address}`));
+        expect(instanceStakingRewards_CERES_WETH.address).to.not.be.empty;
     });
 
 

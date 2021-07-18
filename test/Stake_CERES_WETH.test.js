@@ -219,6 +219,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check STAKE_CERES_WETH.totalBoostedSupply.call(), its default value is equal 0', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.totalBoostedSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
 });

@@ -386,7 +386,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         ERC20(tokenAddress).transfer(owner_address, tokenAmount);
         emit Recovered(tokenAddress, tokenAmount);
     }
-
+    // TEST CASES DONE
     function setRewardsDuration(uint256 _rewardsDuration) external onlyByOwnerOrGovernance {
         require(
             periodFinish == 0 || block.timestamp > periodFinish,
@@ -437,7 +437,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     function setRewardRate(uint256 _new_rate) external onlyByOwnerOrGovernance {
         rewardRate = _new_rate;
     }
-
+    // TEST CASES DONE
     function setPeriodFinish(uint256 _periodFinish) external onlyByOwnerOrGovernance {
         periodFinish = _periodFinish;
     }

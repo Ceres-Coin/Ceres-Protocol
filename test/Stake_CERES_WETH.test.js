@@ -139,6 +139,12 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.pool_weight.call())).to.equal(parseFloat(500000));
     });
 
+    it('check instanceStakingRewards_CERES_WETH.locked_stake_max_multiplier.call(), its default value is equal 3000000', async () => {
+        const EXPECTED_VALUE = new BigNumber("3000000");
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.locked_stake_max_multiplier.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+
 
     
 });

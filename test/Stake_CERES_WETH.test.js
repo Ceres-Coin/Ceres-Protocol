@@ -224,6 +224,19 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.totalBoostedSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check STAKE_CERES_WETH.stakingMultiplier.call(1), its default value is gt 0', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.stakingMultiplier.call(1))).to.gt(parseFloat(EXPECTED_VALUE));
+
+        // console.log(chalk.blue(`stakingMultiplier.call(1): ${await instanceStakingRewards_CERES_WETH.stakingMultiplier.call(1)}`));
+        // console.log(chalk.blue(`stakingMultiplier.call(100): ${await instanceStakingRewards_CERES_WETH.stakingMultiplier.call(100)}`));
+        // // staking for 1 day
+        // console.log(chalk.blue(`stakingMultiplier.call(86400): ${await instanceStakingRewards_CERES_WETH.stakingMultiplier.call(86400)}`))
+
+    });
+
+
+
 
     
 });

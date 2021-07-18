@@ -314,7 +314,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         getReward();
     }
 */
-    
+    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function renewIfApplicable() external {
         if (block.timestamp > periodFinish) {
             retroCatchUp();

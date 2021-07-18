@@ -116,6 +116,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardRate.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check instanceStakingRewards_CERES_WETH.rewardsDuration.call(), its default value is 604800', async () => {
+        const EXPECTED_VALUE = new BigNumber("604800");
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsDuration.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
 });

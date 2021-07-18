@@ -185,6 +185,10 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         return rewardRate.mul(rewardsDuration).mul(crBoostMultiplier()).div(PRICE_PRECISION);
     }
 
+    // CURRENT RATE IS 1140 CSS/WEEK
+    // TODO: ADD RATE CHANGES, THE RATE WILL BE REDUCED AFTER EACH WEEK (SUCH AS 2-5% PERWEEK)
+    // TODO: ADD VIP LEVEL, STAKING MORE AND GET MORE REWARDSTOKEN(CSS)
+
     /* ========== MUTATIVE FUNCTIONS ========== */
     function stake(uint256 amount) external override nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");

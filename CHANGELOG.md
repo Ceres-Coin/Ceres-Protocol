@@ -2,6 +2,97 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.16.0...v1.17.0) (2021-07-18)
+
+
+### Features
+
+* **contracts/staking/stakingrewards.sol:** [ADDED][CONTRACTS][FUNC]: ADDED 'setPeriodFinish(uint256 _periodFinish)' ([13b39a6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/13b39a65fe6e06092e86c88011ce0955a2dd043b))
+* **contracts/staking/stakingrewards.sol:** [CREATED][NEW][CONTRACT]: contracts/Staking/StakingRewards.sol; contracts/Staking/RewardsDistributionRecipient.sol; contracts/Staking/Pausable.sol; contracts/Staking/Owned.sol; contracts/Staking/IStakingRewards.sol; contracts/ERC20/SafeERC20.sol ([bffe09d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bffe09deefadf56c07c47ec91bd73d56dedb42fb))
+* **contracts/staking/stakingrewards.sol:** [MODIFIED][CONTRACTS]: [REMOVED][TEST CASES DONE] ([5128c2c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5128c2c5c5264920938690813c1827ee86646eeb))
+* **contracts/staking/stakingrewards.sol:** [MODIFIED][CONTRACTS]: Using 'SafeERC20' as 'ERC20' ([25830eb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/25830ebac3d1ef3488da1dbfa974464551b8f349))
+* **contracts/staking/variants/stake_ceres_weth.sol:** [ADDED][NEW][CONTRACTS][FILE]: 'contracts/Staking/Variants/Stake_CERES_WETH.sol' ([342a993](https://github.com/Ceres-Coin/Ceres-Protocol/commit/342a993227bd8c3b0ec961243f479b8689f013e2))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED PRINT 'instanceStakingRewards_CERES_WETH.address' ([96d1efa](https://github.com/Ceres-Coin/Ceres-Protocol/commit/96d1efa60e170cf077fb9c74fa408778c5d38a2c))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [MODIFIED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT SCRIPTS OF 'StakingRewards_CERES_WETH' ([ba2d60a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ba2d60ab6207ed40410fdd01fd922252f66723b1))
+
+
+### Docs
+
+* **contracts/staking/stakingrewards.sol:** [ADDED][TODO TASKS] IN contracts/Staking/StakingRewards.sol ([ca9ffdd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ca9ffdd7d013e9929609e16cb9fc3ad2aa83b381))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TODO TASKS]: '// TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]' ([8a60945](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8a60945fc02d68cfea97a0017049de754d89546b))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TODO TASKS]: // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js] ([2bffde0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2bffde0718b092eac0d8b0fca13e369a91d73f64))
+
+
+### Tests
+
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([2a37f30](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2a37f307225966eb41b53bf4549b87529b025e47))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([58f111f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/58f111fdf944ae69c2599800dcd6d791b2fb2ab6))
+* **test/stake_ceres_weth.test.js:** 'check instanceStakingRewards_CERES_WETH.CERES, its value is ceresInstance.address' ([bee4a84](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bee4a842dd768642f754879de392464dd2e26211))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES DONE]: 'check instanceStakingRewards_CERES_WETH.cr_boost_max_multiplier.call(), its default value is equal 3000000' ([7b87e3c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7b87e3c2c782661b2d3a301957bdcc6de4f6f62b))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES DONE]: 'check instanceStakingRewards_CERES_WETH.locked_stake_min_time_str.call(), its default value is equal "604800"' ([e758399](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e7583997443d1ae15445ece862d04f0f2260949c))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES DONE]: 'check instanceStakingRewards_CERES_WETH.unlockedStakes.call(), its default value is equal false' ([1a2e98c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1a2e98cb09bffb2bc87a4f463ff9e2aafb8e071b))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES DONE]: "check instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid(account0 - account7), check its default value for account0 - account7 should ALL be 0 " ([623c689](https://github.com/Ceres-Coin/Ceres-Protocol/commit/623c689f26885e231fd912ae8a67b6e283483b0c))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES DONE]: "check Stake_CERES_WETH.greylist(account0 - account7), check its value for account0 - 7 should ALL be FALSE " ([b29e514](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b29e5141ad8cf6d280828a73728dbd42b5a2c565))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES DONE]: "check Stake_CERES_WETH.rewards(account0 - account7), check its value for account0 - 7 should ALL be 0 " ([3b30693](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3b30693c7e38dc6602fb4420a09f68bec868fe5c))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES]: 'check instanceStakingRewards_CERES_WETH.locked_stake_max_multiplier.call(), its default value is equal 3000000' ([067254f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/067254f21fbea22e5780a8eb19b44b473670b726))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST CASES]: 'check instanceStakingRewards_CERES_WETH.locked_stake_min_time.call(), its default value is equal 604800' ([f45f268](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f45f268a734d23d11af87b893a6196430abdd2c9))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.address, its value is not be empty' ([4ec1ed0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4ec1ed0ca85f633fc487de46b2050d1b441f87f5))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.lastUpdateTime.call(), its default value is gt(0)' ([84f76e9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/84f76e9c047ccc462699c3b290a03d09c9de1fab))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.locked_stake_time_for_max_multiplier.call(), its default value is equal 3 * 365 * 86400' ([359ab09](https://github.com/Ceres-Coin/Ceres-Protocol/commit/359ab09f1cf9a94121e2c75e965bb8bca2e11e60))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.MULTIPLIER_BASE.call(), its default value is 1e6' ([48dcce4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/48dcce428d402ec85abe208cb6b5c572b55cce9a))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.owner_address, its value is OWNER' ([8d1fe2d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8d1fe2d7fa90467326d7db20285aa98db71d1393))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.periodFinish.call(), its default value is 0' ([973b541](https://github.com/Ceres-Coin/Ceres-Protocol/commit/973b5417fd116c825a6be2ae97cda05d4032b95d))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.pool_weight.call(), its default value is gt(0)' ([62b5d4c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/62b5d4cc17db2350178343721ab5aade5dd0a17e))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.PRICE_PRECISION.call(), its default value is 1e6' ([f81e7f4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f81e7f4a8635f532b13b8d201d12f6b65b1dcf65))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.rewardPerTokenStored.call(), its default value is equal (0)' ([0e6d1a1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0e6d1a10ab5fafbbbaa7b4e76bf716855b4d8e37))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.rewardRate.call(), its default value is gt(0)' ([7610ce5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7610ce5d98ff43ae7c59619ea785d08dcb8c3057))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.rewardsDistribution, its value is TEST_ACCOUNT' ([bd37a78](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bd37a78112c0dab83584926d461a772defbad87f))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.rewardsDuration.call(), its default value is 604800' ([ae19989](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ae199894df2f8f01a22e81c3a0ecedd5302ca63e))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.rewardsToken, its value is cssInstance.address' ([8d1cd52](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8d1cd5234fe1b9e57118eee27329032e31fe071f))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.stakingToken, its value is pair_addr_CERES_WETH' ([23ea9fd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/23ea9fdc78ff5e9bc262c6daedcd816cc07a2b3b))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.timelock_address, its value is OWNER' ([950d3d7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/950d3d7205bfcc526609ee420936e42bd1f37215))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check Stake_CERES_WETH.boostedBalanceOf(account0 - account7), check its value for account0 - 7 should ALL be 0 ' ([a2aa57f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a2aa57fdad67a92ff5fb858cc6f829014eb8e516))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.crBoostMultiplier.call(), its default value is gt 0' ([068320f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/068320f09d5694c0596fdf745ce172c897220a36))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check Stake_CERES_WETH.earned(account0 - account7), check its value for account0 - 7 should ALL be 0' ([c1c0f1d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c1c0f1d78b00770ea984d5b7446a535ecde9a4b5))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.getRewardForDuration.call(), its default value is gt 0' ([7a9cc88](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7a9cc88e6b32ef54d522d562b7044f5b466938b2))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.lastTimeRewardApplicable.call(), after initializeDefault() its default value is gt 0' ([f3ebe2a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f3ebe2a0a8df50b75f5ca4b50196ebd2fb7d0e92))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.lastTimeRewardApplicable.call(), its default value is equal 0' ([3f6a9cb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3f6a9cbb9cd485c84c9d394e8ff884e25077e3d6))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check Stake_CERES_WETH.lockedBalanceOf(account0 - account7), check its value for account0 - 7 should ALL be 0 ' ([a24477e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a24477ea064df4141fa70cf2776d9ed5b63c945a))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.rewardPerToken.call(), its default value is equal 0' ([10e59db](https://github.com/Ceres-Coin/Ceres-Protocol/commit/10e59db8474f77883db87da5adfc30ab2a176620))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.rewardsToken_balance.call(), its default value is equal 0' ([ca5fa31](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ca5fa3194282b70e2e121cc0ad201d76efa02e45))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.setRewardsDuration() FUNC' ([d3a2e37](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d3a2e37fa0580f2eb4ffc4c080c9f1bfb8da4332))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.stakingDecimals.call(), its default value is equal 18' && 'check Stake_CERES_WETH.rewardsFor(account0 - account7), check its value for account0 - 7 should ALL be 0' ([d459cdf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d459cdf31e0b0e384d81e9427f019ac98bedc582))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.stakingMultiplier.call(1), its default value is gt 0' ([3f67ebe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3f67ebeab09e66f25ece49dbfa91c415b0176693))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.totalBoostedSupply.call(), its default value is equal 0' ([0f76bd1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0f76bd187d3314e393678c235ed4cf23ae604e0b))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.totalSupply.call(), its default value is equal 0' ([10ca6cd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/10ca6cd1a8248896cf5f06fb1848ba00ed6b66c6))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: "check Stake_CERES_WETH.balanceOf(account0 - account7), check its value for account0 - 7 should ALL be 0 " ([02f4144](https://github.com/Ceres-Coin/Ceres-Protocol/commit/02f414424945095cb2eb3b7ba95623832e8986d8))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: ('check Stake_CERES_WETH.unlockedBalanceOf(account0 - account7), check its value for account0 - 7 should ALL be 0 ' ([54212d8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/54212d8f6fa20a30429c8edb9badf3206334654b))
+* **test/stake_ceres_weth.test.js:** [CREATED][NEW][FILE]: 'test/Stake_CERES_WETH.test.js' ([d06a913](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d06a913f1693d81ace813366485bded99cbc0a3d))
+
+
+### Styling
+
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS]: 'TEST CASES DONE' ([cdf799f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cdf799f27569800eb384b9c869ada9713907f106))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS]: TEST CASES DONE ([e52a450](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e52a450bc57f1e41047a6d005e441a43819f5099))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([4e6e8c9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4e6e8c92ca6fff06b34dae0c7c59fd9d9008aae2))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([881d829](https://github.com/Ceres-Coin/Ceres-Protocol/commit/881d829b47b06af5a36994be25511f540ac1da7c))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([0df2d77](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0df2d77905ae7c55ff2a173fda8122652d633939))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([092f8d2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/092f8d23b30224183c0ea2e9679b5362aeb04e5e))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([937ce52](https://github.com/Ceres-Coin/Ceres-Protocol/commit/937ce52f0cc976a07cfce74338cc15034a1fb339))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TEST CASES DONE] ([510f513](https://github.com/Ceres-Coin/Ceres-Protocol/commit/510f513030d5203ecad16a08635be6c74a877f69))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TEST CASES DONE] ([2d95466](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2d95466424b4545c5d998cff4d9cff1e4d6f91b2))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TEST CASES DONE] ([cb39cc8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cb39cc853ed5199d91049d88c4941727dec9bb3a))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TEST CASES DONE] ([df69045](https://github.com/Ceres-Coin/Ceres-Protocol/commit/df69045ac598af1a01de29b7ab2f434024a95b7b))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TEST CASES DONE] ([0b8b01c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0b8b01cca6e146c9a99e1a43b08d1e6332e82747))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TODO TASKS] && [ADDED][COMMENTS][TEST CASES DONE] ([41fc775](https://github.com/Ceres-Coin/Ceres-Protocol/commit/41fc775e56d2bc878aa335be37c145ec140a1897))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TODO TASKS]: 'ADD TEST CASES (NOT TOTALLY UNDERSTAND, DO INVESTIGATE LATER)' ([dbcefdd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/dbcefdd5b846aa55647a7cb868645be0106ef21a))
+* **contracts/staking/stakingrewards.sol:** [MODIFIED][CONTRACTS]: UPDATE PUBLIC TO PRIVATE ([b3b9955](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b3b9955a5c39f2bd4f24ced7acd6f70fa4e1511f))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [REFORMATTING] ([12d259e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/12d259ece48b2f87e621cdd0b579f13568ecba12))
+* **test/stake_ceres_weth.test.js:** [REFORMATTING][CODE] ([ef4672f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef4672fadedf201dbdb601effb6ba78e83062ace))
+* **test/stake_ceres_weth.test.js:** [REFORMATTING][CODE] ([b383577](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b383577e8e9fad1d951133fcdbe382770dec62b1))
+* **test/stake_ceres_weth.test.js:** [REFORMATTING][CODE] ([46afb12](https://github.com/Ceres-Coin/Ceres-Protocol/commit/46afb124bd92f01e227ef61ae18efed9c44ee628))
+* **test/stake_ceres_weth.test.js:** [REFORMATTING][CODE] ([a6848d8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a6848d82b9ca87191a546b43dadcf0a37cc70697))
+
 ## [1.16.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.15.0...v1.16.0) (2021-07-17)
 
 

@@ -235,6 +235,13 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
 
     });
 
+    it('check STAKE_CERES_WETH.crBoostMultiplier.call(), its default value is gt 0', async () => {
+        // console.log(chalk.blue(`crBoostMultiplier.call(): ${await instanceStakingRewards_CERES_WETH.crBoostMultiplier.call()}`));
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.crBoostMultiplier.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.crBoostMultiplier.call())).to.equal(parseFloat(1000000));
+    });
+
 
 
 

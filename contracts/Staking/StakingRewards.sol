@@ -21,7 +21,7 @@ import "./Pausable.sol";
 
 contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, ReentrancyGuard, Pausable {
     using SafeMath for uint256;
-    // using SafeERC20 for ERC20;
+    using SafeERC20 for ERC20;
 
     /* ========== STATE VARIABLES ========== */
     // TEST CASE DONE 

@@ -164,6 +164,26 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.cr_boost_max_multiplier.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it ("check instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid(account0 - account7), check its default value for account0 - account7 should ALL be 0 ", async() => {
+		// console.log(chalk.yellow(`rewards_account0: ${account0} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account0))}`));
+		// console.log(chalk.yellow(`rewards_account1: ${account1} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account1))}`));
+		// console.log(chalk.yellow(`rewards_account2: ${account2} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account2))}`));
+		// console.log(chalk.yellow(`rewards_account3: ${account3} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account3))}`));
+		// console.log(chalk.yellow(`rewards_account4: ${account4} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account4))}`));
+		// console.log(chalk.yellow(`rewards_account5: ${account5} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account5))}`));
+		// console.log(chalk.yellow(`rewards_account6: ${account6} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account6))}`));
+		// console.log(chalk.yellow(`rewards_account7: ${account7} value: ${parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account7))}`));
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account1))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account2))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account3))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account4))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account5))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account6))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.userRewardPerTokenPaid.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
+	});
+
 
     
 });

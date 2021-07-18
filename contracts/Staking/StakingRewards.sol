@@ -157,7 +157,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         // You may have use earned() instead, because of the order in which the contract executes 
         return rewards[account];
     }
-    
+    // TEST CASES DONE
     function lastTimeRewardApplicable() public override view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }
@@ -412,7 +412,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         emit LockedStakeTimeForMaxMultiplier(locked_stake_time_for_max_multiplier);
         emit LockedStakeMinTime(_locked_stake_min_time);
     }
-    
+    // TEST CASES DONE
     function initializeDefault() external onlyByOwnerOrGovernance {
         lastUpdateTime = block.timestamp;
         periodFinish = block.timestamp.add(rewardsDuration);

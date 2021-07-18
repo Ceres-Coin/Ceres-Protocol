@@ -307,6 +307,13 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsFor.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
 	});
 
+    it('check STAKE_CERES_WETH.lastTimeRewardApplicable.call(), its default value is equal 0', async () => {
+        // console.log(chalk.blue(`lastTimeRewardApplicable: ${await instanceStakingRewards_CERES_WETH.lastTimeRewardApplicable.call()}`));
+        // console.log(chalk.blue(`periodFinish: ${await instanceStakingRewards_CERES_WETH.periodFinish.call()}`));
+
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.lastTimeRewardApplicable.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
 
     
 });

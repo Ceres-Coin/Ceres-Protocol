@@ -441,10 +441,13 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     function setPeriodFinish(uint256 _periodFinish) external onlyByOwnerOrGovernance {
         periodFinish = _periodFinish;
     }
-    
-    function setOwnerAndTimelock(address _new_owner, address _new_timelock) external onlyByOwnerOrGovernance {
-        owner_address = _new_owner;
-        timelock_address = _new_timelock;
+
+    function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
+        owner_address = _owner_address;
+    }
+
+    function setTimelock(address _timelock_address) external onlyByOwnerOrGovernance {
+        timelock_address = _timelock_address;
     }
 
     /* ========== MODIFIERS ========== */

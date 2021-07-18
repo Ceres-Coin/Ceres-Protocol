@@ -185,4 +185,7 @@ module.exports = async function(deployer,network,accounts) {
 		deployer.deploy(StakingRewards_CERES_WETH, STAKING_OWNER, STAKING_REWARDS_DISTRIBUTOR, cssInstance.address, pair_addr_CERES_WETH, ceresInstance.address, timelockInstance, 500000,{from: OWNER}),	
 	]);
 
+	const instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
+	console.log(chalk.red.bold(`instanceStakingRewards_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address}`));
+
 };

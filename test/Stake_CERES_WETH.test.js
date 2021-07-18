@@ -50,5 +50,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
     });
 
+    it('check instance_Pool_USDC.USDC_address is col_instance_USDC.address" ', async () => {
+        // console.log(chalk.yellow(`USDC_address: ${await instance_Pool_USDC.USDC_address.call()}`));
+        expect(await instance_Pool_USDC.USDC_address.call()).to.equal(col_instance_USDC.address);
+    });
+
+
     
 });

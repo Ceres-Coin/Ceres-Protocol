@@ -68,6 +68,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(await instanceStakingRewards_CERES_WETH.timelock_address.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check instanceStakingRewards_CERES_WETH.rewardsDistribution, its value is TEST_ACCOUNT', async () => {
+        const EXPECTED_VALUE = TEST_ACCOUNT;
+        expect(await instanceStakingRewards_CERES_WETH.rewardsDistribution.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
     
 });

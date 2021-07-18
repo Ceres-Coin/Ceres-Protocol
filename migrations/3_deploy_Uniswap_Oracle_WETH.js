@@ -53,8 +53,9 @@ module.exports = async function(deployer,network,accounts) {
 	const account5 = accounts[5];
 	const account6 = accounts[6];
 	const account7 = accounts[7];
+	const TEST_ACCOUNT = account7;
 	const STAKING_OWNER = account0;
-	const STAKING_REWARDS_DISTRIBUTOR = account7;
+	const STAKING_REWARDS_DISTRIBUTOR = TEST_ACCOUNT;
 	const timelockInstance = OWNER;
 
 

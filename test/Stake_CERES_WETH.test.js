@@ -201,6 +201,18 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(await instanceStakingRewards_CERES_WETH.unlockedStakes.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it ("check Stake_CERES_WETH.greylist(account0 - account7), check its value for account0 - 7 should ALL be FALSE ", async() => {
+	    const EXPECTED_VALUE = false;
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account0)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account1)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account2)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account3)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account4)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account5)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account6)).to.equal((EXPECTED_VALUE));
+        expect(await instanceStakingRewards_CERES_WETH.greylist.call(account7)).to.equal((EXPECTED_VALUE));
+	});
+
 
     
 });

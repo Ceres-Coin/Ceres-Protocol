@@ -929,7 +929,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     }
     
     //test scripts done
-    function setTaxFeePercent(uint256 _taxFee) external {
+    function setTaxFeePercent(uint256 _taxFee) external onlyOwner {
         taxFee = _taxFee;
     } 
     

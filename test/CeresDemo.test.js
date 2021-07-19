@@ -129,5 +129,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance.uniswapV2Router.call())).to.equal((EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance.uniswapV2Pair.call()', async () => {
+        console.log(chalk.blue(`ceresDemoInstance.uniswapV2Router: ${(await ceresDemoInstance.uniswapV2Router.call())}`));
+        console.log(chalk.blue((await ceresDemoInstance.uniswapV2Pair.call())));
+    });
+
 
 });

@@ -77,9 +77,11 @@ module.exports = async function(deployer,network,accounts) {
 
 	await deployer.deploy(UniswapV2Factory, DUMP_ADDRESS);
 	uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
+	console.log(chalk.red.bold(`uniswapFactoryInstance: ${await uniswapFactoryInstance.address}`));
 
 	await deployer.deploy(UniswapV2Router02_Modified, UniswapV2Factory.address, wethInstance.address);
 	routerInstance = await UniswapV2Router02_Modified.deployed(); 
+	console.log(chalk.red.bold(`routerInstance: ${await routerInstance.address}`));
 	
 	await deployer.deploy(SwapToPrice, uniswapFactoryInstance.address, routerInstance.address);
 	swapToPriceInstance = await SwapToPrice.deployed();

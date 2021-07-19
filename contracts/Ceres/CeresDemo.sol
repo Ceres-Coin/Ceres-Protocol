@@ -711,7 +711,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public liquidityFee = 3; //TEST CASES DONE
     uint256 private _previousLiquidityFee = liquidityFee;
 
-    IUniswapV2Router02 public immutable uniswapV2Router;
+    IUniswapV2Router02 public immutable uniswapV2Router; //TEST CASES DONE
     address public immutable uniswapV2Pair; 
     
     bool inSwapAndLiquify;

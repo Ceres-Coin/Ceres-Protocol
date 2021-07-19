@@ -697,7 +697,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     address[] public _excluded;
    
     uint256 public constant MAX = ~uint256(0);
-    uint256 public _tTotal = 1000000000 * 10**6 * 10**9;
+    uint256 public _tTotal = 1000000000 * 10**6 * 10**18;
     uint256 public _rTotal = (MAX - (MAX % _tTotal));
     uint256 public _tFeeTotal;
 
@@ -763,17 +763,17 @@ contract CeresDemo is Context, IERC20, Ownable {
         return _rOwned[_address];
     } 
 
-    //
+    //TEST CASES DONE
     function name() public view returns (string memory) {
         return _name;
     } 
 
-    //
+    //TEST CASES DONE
     function symbol() public view returns (string memory) {
         return _symbol;
     } 
 
-    //
+    //TEST CASES DONE
     function decimals() public view returns (uint8) {
         return _decimals;
     } 

@@ -699,7 +699,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public constant MAX = ~uint256(0); //TEST CASES DONE
     uint256 public _tTotal = 1000000000 * 10**6 * 10**18; //TEST CASES DONE
     uint256 public _rTotal = (MAX - (MAX % _tTotal)); //TEST CASES DONE
-    uint256 public _tFeeTotal;
+    uint256 public tFeeTotal;
 
     string private _name = "Ceres Demo"; //TEST CASE DONE
     string private _symbol = "CRSD"; //TEST CASE DONE
@@ -845,7 +845,7 @@ contract CeresDemo is Context, IERC20, Ownable {
 
     //
     function totalFees() public view returns (uint256) {
-        return _tFeeTotal;
+        return tFeeTotal;
     } 
 
     function deliver(uint256 tAmount) public {
@@ -854,7 +854,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         (uint256 rAmount,,,,,) = _getValues(tAmount);
         _rOwned[sender] = _rOwned[sender].sub(rAmount);
         _rTotal = _rTotal.sub(rAmount);
-        _tFeeTotal = _tFeeTotal.add(tAmount);
+        tFeeTotal = tFeeTotal.add(tAmount);
     }
 
     // TO DO: add test scripts
@@ -956,7 +956,7 @@ contract CeresDemo is Context, IERC20, Ownable {
 
     function _reflectFee(uint256 rFee, uint256 tFee) private {
         _rTotal = _rTotal.sub(rFee);
-        _tFeeTotal = _tFeeTotal.add(tFee);
+        tFeeTotal = tFeeTotal.add(tFee);
     }
 
     function _getValues(uint256 tAmount) private view returns (uint256, uint256, uint256, uint256, uint256, uint256) {

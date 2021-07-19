@@ -56,8 +56,9 @@ contract('CSS.sol', async (accounts) => {
         expect(await instanceCSS.timelock_address()).to.equal(OWNER);
     });
     // Because we transferred 800 CSS to addLiquidity
-    it('check CSS.balanceOf(OWNER) = ONE_HUNDRED_MILLION_DEC18 - 800 ', async () => {
-        const expected_value_owner = parseFloat(new BigNumber("99999200e18"));
+    // Becasue we transferred 5 million css to STAKE_CERES_WETH
+    it('check CSS.balanceOf(OWNER) = ONE_HUNDRED_MILLION_DEC18 - 800 - 5MILLION ', async () => {
+        const expected_value_owner = parseFloat(new BigNumber("94999200e18"));
         expect(parseFloat(await instanceCSS.balanceOf(OWNER))).to.equal(expected_value_owner);
     });
 

@@ -244,7 +244,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit StakeLocked(msg.sender, amount, secs);
     }
-    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TEST CASES DONE
     function withdraw(uint256 amount) public override nonReentrant updateReward(msg.sender) {
         require(amount > 0, "Cannot withdraw 0");
 

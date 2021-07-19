@@ -102,5 +102,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.taxFee.call())).to.equal(parseFloat(DEFAUT_VALUE));
     });
 
+    it('check ceresDemoInstance.liquidityFee.call(), its DEFAULT value is "3"', async () => {
+        const EXPECTED_VALUE = new BigNumber("3");
+        expect(parseFloat(await ceresDemoInstance.liquidityFee.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

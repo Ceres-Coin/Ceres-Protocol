@@ -88,5 +88,19 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.taxFee.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance.setTaxFeePercent() FUNC', async() => {
+        // BEFORE
+        const DEFAUT_VALUE = new BigNumber("2"); //tax = 2%
+        const NEW_VALUE = new BigNumber("4"); //tax = 4%
+        expect(parseFloat(await ceresDemoInstance.taxFee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+        // ACTION & ASSERTION
+        await ceresDemoInstance.setTaxFeePercent(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await ceresDemoInstance.taxFee.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await ceresDemoInstance.setTaxFeePercent(DEFAUT_VALUE,{from: OWNER});
+        expect(parseFloat(await ceresDemoInstance.taxFee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+    });
+
 
 });

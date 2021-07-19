@@ -190,4 +190,5 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`instanceStakingRewards_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address}`));
 
 	await pair_instance_CERES_WETH.approve(instanceStakingRewards_CERES_WETH.address, TWO_MILLION_DEC18, { from: OWNER });
+	await cssInstance.transfer(instanceStakingRewards_CERES_WETH.address,FIVE_MILLION_DEC18,{from: OWNER});
 };

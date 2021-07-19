@@ -153,5 +153,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance._maxTxAmount.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance.totalSupply.call(), its value is 1000000000 * 10**6 * 10**18 ', async () => {
+        const EXPECTED_VALUE = new BigNumber(1000000000 * 10**6 * 10**18);
+        expect(parseFloat(await ceresDemoInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

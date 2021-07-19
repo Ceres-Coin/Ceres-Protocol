@@ -702,7 +702,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public _tFeeTotal;
 
     string private _name = "Ceres Demo"; //TEST CASE DONE
-    string private _symbol = "CRS"; //TEST CASE DONE
+    string private _symbol = "CRSD"; //TEST CASE DONE
     uint8 private _decimals = 9; //TEST CASE DONE
     
     uint256 public _taxFee = 2;  //TEST CASE DONE

@@ -22,7 +22,7 @@ const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 
-contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => {
+contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -66,6 +66,11 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     it('check ceresDemoInstance.address, its value is not be empty', async () => {
         console.log(chalk.blue(`ceresDemoInstance: ${await ceresDemoInstance.address}`));
         expect(ceresDemoInstance.address).to.not.be.empty;
+    });
+
+    it('check ceresDemoInstance.name.call(), its value is "Ceres Demo"', async () => {
+        const EXPECTED_VALUE = "Ceres Demo";
+        expect(await ceresDemoInstance.name.call()).to.equal(EXPECTED_VALUE);
     });
 
 

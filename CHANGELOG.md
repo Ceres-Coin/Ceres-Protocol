@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.19.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.18.0...v1.19.0) (2021-07-19)
+
+
+### Features
+
+* **contracts/ceres/ceresdemo.sol && migrations/3_deploy_uniswap_oracle_weth.js:** [MODIFIED][CONTRACTS]: MODIFIED 'Constructor()' of 'CeresDemo.sol' && [ADDED][DEPLOYMENT SCRIPTS]: ADD DEPLOYMENT SCRIPTS OF 'CeresDemo.sol' ([50752fc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/50752fcbbcbea70a3294603381179350feabc389))
+* **contracts/ceres/ceresdemo.sol:** [CREATED][NEW][CONTRACTS FILE]: 'contracts/Ceres/CeresDemo.sol' ([7267560](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7267560c5cf5f1a78089e160e15bf3d9a61ea936))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED]: MODIFIED PARAMETER '_tTotal' FROM decimals = 9 to decimals =18; ([5b1b7bb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5b1b7bbcae82490aca725a163b37c279bb3b04a8))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]: PARAMETERS '_liquidityFee' IS CHANGED TO 'liquidityFee' ([b0cb446](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b0cb4463667c7fd5f2b0cd4f9fd4e9f9438353d0))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]: Refactoring '_taxFee' as 'taxFee' ([c3e7955](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c3e7955b7d1543f4d4198353ca9c5d966f3a2046))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]: UPDATE PARAMETERS '_maxTxAmount' & 'numTokensSellToAddToLiquidity' FROM decimals=9 to decimals=18 ([20ca4c0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/20ca4c053c5752a06face2a6a1925b347132a745))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][FUNC]: 'setTaxFeePercent' ADDED Modifiers 'onlyOwner' ([dbd6529](https://github.com/Ceres-Coin/Ceres-Protocol/commit/dbd65293fc7079b59e72deaa67ddf347f91bc4df))
+* **test/ceresdemo.test.js:** [CREATED][NEW FILE][TEST SCRIPTS FILE]: 'test/ceresdemo.test.js' ([a517d6f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a517d6f145784d5656abb1a93aeb59d6d8029abb))
+
+
+### Styling
+
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([61193a2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/61193a2f3f7fea5ac77d0e125030b5492d7bbfaa))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([b967001](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b967001924de22fca404538067944f008bc86b53))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([9b255d2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9b255d218b0a3e05481596078ed9b29d85b1aefe))
+* **contracts/ceres/ceresdemo.sol:** [REMOVED][COMMENTS] & [ADDED][COMMENTS][TEST CASES DONE] ([fb7e242](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fb7e242df0853760990f5ab163ea2b042afbaba1))
+
+
+### Tests
+
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance._maxTxAmount.call(), its value is 5million * 1 million ' ([250da3c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/250da3c1f1d98353f5d40ee33b665e3e205fb894))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance._taxFee.call(), its value is "2"' ([3c9ed74](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3c9ed74fd98e2e2cd056904cd4f3fd5ba1952e76))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.address, its value is not be empty' ([8207b9c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8207b9c1e5bb2767f102e2a3605cbcae3cf2ff18))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.liquidityFee.call(), its DEFAULT value is "3"' ([73e53ce](https://github.com/Ceres-Coin/Ceres-Protocol/commit/73e53ce58c0967190387a3d4891ef8068d2b619f))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.MAX.call(), its value is gt(0) ' && 'check ceresDemoInstance._tTotal.call(), its value is gt(0) ' && 'check ceresDemoInstance._rTotal.call(), its value is gt(0) ' ([71b7a83](https://github.com/Ceres-Coin/Ceres-Protocol/commit/71b7a83c4df777d607a9a6733169197b0807bfe6))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.name.call(), its value is "Ceres Demo"' ([2db530b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2db530bd0dc8b1bc6f8f085ac5b7a12f9acb3636))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.setLiquidityFeePercent() FUNC' ([058ce84](https://github.com/Ceres-Coin/Ceres-Protocol/commit/058ce842d98affbdf6601f56cdffde38a83b066a))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.setTaxFeePercent() FUNC' ([08776b9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/08776b9d57b9d88c85b6147d276e8c4985309db1))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.swapAndLiquifyEnabled.call(), its DEFAULT value is TRUE' ([bb86172](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bb86172b055333d9de6d31eb6e78146cfdc4ab92))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.symbol.call(), its value is "CRSD"' && 'check ceresDemoInstance.decimals.call(), its value is "18"' ([76cbd09](https://github.com/Ceres-Coin/Ceres-Protocol/commit/76cbd0901fa451b7389d9969d2464ee83580352c))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.totalSupply.call(), its value is 1000000000 * 10**6 * 10**18 ' ([7619431](https://github.com/Ceres-Coin/Ceres-Protocol/commit/76194315112df1e71c9078cbd790734942b96967))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.uniswapV2Pair.call()' ([d7ce3cf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d7ce3cfa7fb56d979024f6f41dcc995095cb04e2))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.uniswapV2Pair.call()' ([d1b7ca7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d1b7ca7045ef72ffb5637c927735f0303da7466d))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.uniswapV2Router.call(), its DEFAULT value is routerInstance' ([7e3bd5c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7e3bd5c81b30cbdedcbe818ad2bee0aa4c0417a8))
+
 ## [1.18.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.17.0...v1.18.0) (2021-07-19)
 
 

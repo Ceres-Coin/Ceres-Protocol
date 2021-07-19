@@ -158,5 +158,23 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance.MAX.call(), its value is gt(0) ', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await ceresDemoInstance.MAX.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        console.log(chalk.blue(`MAX: ${await ceresDemoInstance.MAX.call()}`));
+    });
+
+    it('check ceresDemoInstance._tTotal.call(), its value is gt(0) ', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await ceresDemoInstance._tTotal.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        console.log(chalk.blue(`_tTotal: ${await ceresDemoInstance._tTotal.call()}`));
+    });
+
+    it('check ceresDemoInstance._rTotal.call(), its value is gt(0) ', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await ceresDemoInstance._rTotal.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        console.log(chalk.blue(`_rTotal: ${await ceresDemoInstance._rTotal.call()}`));
+    });
+
 
 });

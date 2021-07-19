@@ -144,7 +144,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         return _boosted_balances[account];
     }
 
-    // TODO: ADD TEST CASES
+    // TODO: [ADD][TEST CASES] ADD TEST CASES
     function lockedStakesOf(address account) external view returns (LockedStake[] memory) {
         return lockedStakes[account];
     }
@@ -186,11 +186,11 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     }
 
     // CURRENT RATE IS 1140 CSS/WEEK
-    // TODO: ADD RATE CHANGES, THE RATE WILL BE REDUCED AFTER EACH WEEK (SUCH AS 2-5% PERWEEK)
-    // TODO: ADD VIP LEVEL, STAKING MORE AND GET MORE REWARDSTOKEN(CSS)
+    // TODO: [CORE][ADD][NEW FUNC]: ADD RATE CHANGES, THE RATE WILL BE REDUCED AFTER EACH WEEK (SUCH AS 2-5% PERWEEK)
+    // TODO: [CORE][ADD][NEW FUNC]: ADD VIP LEVEL, STAKING MORE AND GET MORE REWARDSTOKEN(CSS)
 
     /* ========== MUTATIVE FUNCTIONS ========== */
-    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function stake(uint256 amount) external override nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(greylist[msg.sender] == false, "address has been greylisted");
@@ -209,7 +209,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit Staked(msg.sender, amount);
     }
-    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function stakeLocked(uint256 amount, uint256 secs) external nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(secs > 0, "Cannot wait for a negative number");
@@ -242,7 +242,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit StakeLocked(msg.sender, amount, secs);
     }
-    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function withdraw(uint256 amount) public override nonReentrant updateReward(msg.sender) {
         require(amount > 0, "Cannot withdraw 0");
 
@@ -259,7 +259,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         stakingToken.transfer(msg.sender, amount);
         emit Withdrawn(msg.sender, amount);
     }
-    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function withdrawLocked(bytes32 kek_id) public nonReentrant updateReward(msg.sender) {
         LockedStake memory thisStake;
         thisStake.amount = 0;
@@ -296,7 +296,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         }
 
     }
-    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function getReward() public override nonReentrant updateReward(msg.sender) {
         uint256 reward = rewards[msg.sender];
         if (reward > 0) {
@@ -314,7 +314,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         getReward();
     }
 */
-    // TODO: [P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
     function renewIfApplicable() external {
         if (block.timestamp > periodFinish) {
             retroCatchUp();
@@ -379,7 +379,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     }
 */
     // Added to support recovering LP Rewards from other systems to be distributed to holders
-    // TODO: ADD TEST CASES (NOT TOTALLY UNDERSTAND, DO INVESTIGATE LATER)
+    // TODO: [ADD][TEST CASES] (NOT TOTALLY UNDERSTAND, DO INVESTIGATE LATER)
     function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyByOwnerOrGovernance {
         // Admin cannot withdraw the staking token from the contract
         require(tokenAddress != address(stakingToken));
@@ -395,7 +395,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         rewardsDuration = _rewardsDuration;
         emit RewardsDurationUpdated(rewardsDuration);
     }
-    // TODO: [LATER]:ADD TEST CASES 
+    // TODO: [ADD][TEST CASES]
     function setMultipliers(uint256 _locked_stake_max_multiplier, uint256 _cr_boost_max_multiplier) external onlyByOwnerOrGovernance {
         require(_locked_stake_max_multiplier >= 1, "Multiplier must be greater than or equal to 1");
         require(_cr_boost_max_multiplier >= 1, "Max CR Boost must be greater than or equal to 1");
@@ -406,7 +406,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         emit MaxCRBoostMultiplier(cr_boost_max_multiplier);
         emit LockedStakeMaxMultiplierUpdated(locked_stake_max_multiplier);
     }
-    // TODO: [LATER]: ADD TEST CASES
+    // TODO: [ADD][TEST CASES]
     function setLockedStakeTimeForMinAndMaxMultiplier(uint256 _locked_stake_time_for_max_multiplier, uint256 _locked_stake_min_time) external onlyByOwnerOrGovernance {
         require(_locked_stake_time_for_max_multiplier >= 1, "Multiplier Max Time must be greater than or equal to 1");
         require(_locked_stake_min_time >= 1, "Multiplier Min Time must be greater than or equal to 1");

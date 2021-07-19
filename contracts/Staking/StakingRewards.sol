@@ -144,7 +144,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         return _boosted_balances[account];
     }
 
-    // TODO: [ADD][TEST CASES] ADD TEST CASES
+    // [ADD][TEST CASES] ADD TEST CASES
+    // TEST CASES DONE
     function lockedStakesOf(address account) external view returns (LockedStake[] memory) {
         return lockedStakes[account];
     }

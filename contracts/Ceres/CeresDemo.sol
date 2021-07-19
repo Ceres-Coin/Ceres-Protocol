@@ -708,16 +708,16 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public taxFee = 2;  //TEST CASE DONE
     uint256 private _previousTaxFee = taxFee;
     
-    uint256 public _liquidityFee = 3; //TEST CASE DONE
+    uint256 public _liquidityFee = 3; 
     uint256 private _previousLiquidityFee = _liquidityFee;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
-    address public immutable uniswapV2Pair; //TEST CASE DONE
+    address public immutable uniswapV2Pair; 
     
     bool inSwapAndLiquify;
-    bool public swapAndLiquifyEnabled = true; //test scripts done
+    bool public swapAndLiquifyEnabled = true; //
     
-    uint256 public _maxTxAmount = 5000000 * 10**6 * 10**9; //test scripts done
+    uint256 public _maxTxAmount = 5000000 * 10**6 * 10**9; //
     uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**9;
     
     event MinTokensBeforeSwapUpdated(uint256 minTokensBeforeSwap);
@@ -763,27 +763,27 @@ contract CeresDemo is Context, IERC20, Ownable {
         return _rOwned[_address];
     } 
 
-    //test scripts done
+    //
     function name() public view returns (string memory) {
         return _name;
     } 
 
-    //test scripts done
+    //
     function symbol() public view returns (string memory) {
         return _symbol;
     } 
 
-    //test scripts done
+    //
     function decimals() public view returns (uint8) {
         return _decimals;
     } 
 
-    //test scripts done
+    //
     function totalSupply() public view override returns (uint256) {
         return _tTotal;
     }  
 
-    //test scripts done
+    //
     function balanceOf(address account) public view override returns (uint256) {
         if (_isExcluded[account]) return _tOwned[account];
         return tokenFromReflection(_rOwned[account]);
@@ -838,12 +838,12 @@ contract CeresDemo is Context, IERC20, Ownable {
         return true;
     }
 
-    //test scripts done
+    //
     function isExcludedFromReward(address account) public view returns (bool) {
         return _isExcluded[account];
     } 
 
-    //test scripts done
+    //
     function totalFees() public view returns (uint256) {
         return _tFeeTotal;
     } 
@@ -919,7 +919,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         emit Transfer(sender, recipient, tTransferAmount);
     }
     
-    //test scripts done
+    
     function excludeFromFee(address account) public {
         _isExcludedFromFee[account] = true;
     } 
@@ -928,24 +928,24 @@ contract CeresDemo is Context, IERC20, Ownable {
         _isExcludedFromFee[account] = false;
     }
     
-    //test scripts done
+    //TEST CASES DONE
     function setTaxFeePercent(uint256 _taxFee) external onlyOwner {
         taxFee = _taxFee;
     } 
     
-    //test scripts done
+    //
     function setLiquidityFeePercent(uint256 liquidityFee) external {
         _liquidityFee = liquidityFee;
     } 
    
-    //test scripts done
+    //
     function setMaxTxPercent(uint256 maxTxPercent) external onlyOwner() {
         _maxTxAmount = _tTotal.mul(maxTxPercent).div(
             10**2
         );
     } 
 
-    //test scripts done
+    //
     function setSwapAndLiquifyEnabled(bool _enabled) public onlyOwner {
         swapAndLiquifyEnabled = _enabled;
         emit SwapAndLiquifyEnabledUpdated(_enabled);

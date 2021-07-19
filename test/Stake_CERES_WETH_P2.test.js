@@ -178,5 +178,27 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async 
         console.log(chalk.green(`LockedStake_2_AFTER_2: ${LockedStake_2_AFTER_2}`));
     })
 
+    it ('check instanceStakingRewards_CERES_WETH.renewIfApplicable', async() => {
+        // prepare & before
+        const periodFinish_before = await instanceStakingRewards_CERES_WETH.periodFinish.call();
+        console.log(chalk.blue(`periodFinish_before: ${periodFinish_before}`));
+
+        const block_timestamp_before = await time.latest();
+        console.log(chalk.blue(`block_timestamp_before: ${block_timestamp_before}`))
+
+        await time.increase(1000000);
+
+        const block_timestamp_after = await time.latest();
+        console.log(chalk.blue(`block_timestamp_after: ${block_timestamp_after}`))
+        // action
+        await instanceStakingRewards_CERES_WETH.renewIfApplicable();
+        // AFTER
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+        console.log(chalk.blue(`periodFinish: ${await instanceStakingRewards_CERES_WETH.periodFinish.call()}`));
+        console.log(chalk.blue(`rewardPerTokenStored: ${new BigNumber(await instanceStakingRewards_CERES_WETH.rewardPerTokenStored.call()).div(BIG18)}`));
+        console.log(chalk.blue(`lastUpdateTime: ${await instanceStakingRewards_CERES_WETH.lastUpdateTime.call()}`));
+
+    })
+
 
 });

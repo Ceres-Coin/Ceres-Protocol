@@ -351,10 +351,12 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(parseFloat(await instanceStakingRewards_CERES_WETH.getRewardForDuration.call())).to.equal(parseFloat(new BigNumber("1150684931506849200000")));
     });
 
-    it('check STAKE_CERES_WETH.rewardsToken_balance.call(), its default value is equal 0', async () => {
+    it('check STAKE_CERES_WETH.rewardsToken_balance.call(), its default value is gt 0', async () => {
         // console.log(chalk.blue(`getRewardForDuration IN DEC18: ${new BigNumber(await instanceStakingRewards_CERES_WETH.rewardsToken_balance.call()).div(BIG18)}`));
         const EXPECTED_VALUE = new BigNumber(0);
-        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsToken_balance.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsToken_balance.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        const EXPECTED_VALUE2 = FIVE_MILLION_DEC18;
+        expect(parseFloat(await instanceStakingRewards_CERES_WETH.rewardsToken_balance.call())).to.equal(parseFloat(EXPECTED_VALUE2));
         // expect(parseFloat(await instanceStakingRewards_CERES_WETH.getRewardForDuration.call())).to.equal(parseFloat(new BigNumber("1150684931506849200000")));
     });
 

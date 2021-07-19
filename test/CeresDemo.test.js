@@ -142,5 +142,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
 
     });
 
+    it('check ceresDemoInstance.swapAndLiquifyEnabled.call(), its DEFAULT value is TRUE', async () => {
+        const EXPECTED_VALUE = true;
+        expect((await ceresDemoInstance.swapAndLiquifyEnabled.call())).to.equal((EXPECTED_VALUE));
+    });
+
 
 });

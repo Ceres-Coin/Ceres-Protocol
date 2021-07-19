@@ -142,5 +142,41 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async 
 		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
 	});
 
+    it ('check instanceStakingRewards_CERES_WETH.lockedStakesOf(OWNER)', async() => {
+        // before
+        const LockedStake_0_before = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[0];
+        const LockedStake_1_before = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[1];
+        const LockedStake_2_before = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[2];
+        console.log(chalk.yellow(`LockedStake_0_before: ${LockedStake_0_before}`));
+        console.log(chalk.yellow(`LockedStake_1_before: ${LockedStake_1_before}`));
+        console.log(chalk.yellow(`LockedStake_2_before: ${LockedStake_2_before}`));
+
+        // ACTION
+        const NEW_VALUE = ONE_DEC18;
+        const NEW_VALUE2 = 1209600; // 14 DAYS
+        await instanceStakingRewards_CERES_WETH.stakeLocked(NEW_VALUE,NEW_VALUE2,{from: account0});
+
+        // AFTER
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+        const LockedStake_0_AFTER = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[0];
+        const LockedStake_1_AFTER = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[1];
+        const LockedStake_2_AFTER = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[2];
+        console.log(chalk.blue(`LockedStake_0_AFTER: ${LockedStake_0_AFTER}`));
+        console.log(chalk.blue(`LockedStake_1_AFTER: ${LockedStake_1_AFTER}`));
+        console.log(chalk.blue(`LockedStake_2_AFTER: ${LockedStake_2_AFTER}`));
+
+        // ACTION AGAIN
+        await instanceStakingRewards_CERES_WETH.stakeLocked(NEW_VALUE,NEW_VALUE2,{from: account0});
+
+        // AFTER * 2
+        console.log(chalk.red(`=============================== SEPERATOR AFTER * 2 ============================`));
+        const LockedStake_0_AFTER_2 = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[0];
+        const LockedStake_1_AFTER_2 = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[1];
+        const LockedStake_2_AFTER_2 = (await instanceStakingRewards_CERES_WETH.lockedStakesOf.call(OWNER))[2];
+        console.log(chalk.green(`LockedStake_0_AFTER_2: ${LockedStake_0_AFTER_2}`));
+        console.log(chalk.green(`LockedStake_1_AFTER_2: ${LockedStake_1_AFTER_2}`));
+        console.log(chalk.green(`LockedStake_2_AFTER_2: ${LockedStake_2_AFTER_2}`));
+    })
+
 
 });

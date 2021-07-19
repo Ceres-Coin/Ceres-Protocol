@@ -73,5 +73,15 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(await ceresDemoInstance.name.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check ceresDemoInstance.symbol.call(), its value is "CRSD"', async () => {
+        const EXPECTED_VALUE = "CRSD";
+        expect(await ceresDemoInstance.symbol.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check ceresDemoInstance.decimals.call(), its value is "18"', async () => {
+        const EXPECTED_VALUE = new BigNumber("18");
+        expect(parseFloat(await ceresDemoInstance.decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

@@ -758,7 +758,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     function get_tOwned(address _address) public view returns (uint256) {
         return _tOwned[_address];
     }
-
+    //TEST CASES DONE
     function get_rOwned(address _address) public view returns (uint256) {
         return _rOwned[_address];
     } 
@@ -778,7 +778,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         return _decimals;
     } 
 
-    //
+    //TEST CASES DONE
     function totalSupply() public view override returns (uint256) {
         return _tTotal;
     }  

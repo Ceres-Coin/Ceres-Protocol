@@ -198,6 +198,13 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async 
         console.log(chalk.blue(`rewardPerTokenStored: ${new BigNumber(await instanceStakingRewards_CERES_WETH.rewardPerTokenStored.call()).div(BIG18)}`));
         console.log(chalk.blue(`lastUpdateTime: ${await instanceStakingRewards_CERES_WETH.lastUpdateTime.call()}`));
 
+        // ACTION:
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+        console.log(chalk.yellow(`CSS.balanceOf(OWNER): ${new BigNumber(await cssInstance.balanceOf(OWNER)).div(BIG18)}`));
+        
+        await instanceStakingRewards_CERES_WETH.getReward({from:OWNER});
+        console.log(chalk.blue(`CSS.balanceOf(OWNER): ${new BigNumber(await cssInstance.balanceOf(OWNER)).div(BIG18)}`));
+
     })
 
 

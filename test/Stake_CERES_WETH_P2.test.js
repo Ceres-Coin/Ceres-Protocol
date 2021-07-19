@@ -50,6 +50,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async 
     let pair_addr_CERES_WETH;
     let wethInstance;
     let uniswapFactoryInstance;
+    let stakingTokenInstance;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -63,6 +64,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async 
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
         instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
         pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+        stakingTokenInstance = await UniswapV2Pair.at(pair_addr_CERES_WETH);
     });
 
     it('check instanceStakingRewards_CERES_WETH.address, its value is not be empty', async () => {
@@ -113,6 +115,25 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async 
 		// ACTION -- STAKE
 		await instanceStakingRewards_CERES_WETH.stakeLocked(NEW_VALUE,NEW_VALUE2,{from: account0});
         
+		// AFTER
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+		console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));
+		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
+		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
+		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
+	});
+
+    it ("check instanceStakingRewards_CERES_WETH.withdraw() FUNC", async() => {
+        const NEW_VALUE = POINT_ONE_DEC18;
+		// BEFORE
+        console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));
+		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
+		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
+		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
+        // INITIALIZE
+		await instanceStakingRewards_CERES_WETH.initializeDefault({from: STAKING_OWNER});
+		// ACTION
+		await instanceStakingRewards_CERES_WETH.withdraw(NEW_VALUE,{from: account0});
 		// AFTER
         console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
 		console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));

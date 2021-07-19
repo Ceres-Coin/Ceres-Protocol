@@ -717,8 +717,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     bool inSwapAndLiquify;
     bool public swapAndLiquifyEnabled = true; //TEST CASES DONE
     
-    uint256 public _maxTxAmount = 5000000 * 10**6 * 10**_decimals; //
-    uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**_decimals;
+    uint256 public _maxTxAmount = 5000000 * 10**6 * 10**18; //
+    uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**18;
     
     event MinTokensBeforeSwapUpdated(uint256 minTokensBeforeSwap);
     event SwapAndLiquifyEnabledUpdated(bool enabled);

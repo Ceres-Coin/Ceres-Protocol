@@ -204,6 +204,18 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.get_rOwned.call(account7))).to.equal(parseFloat(0));
     });
 
+    it('check ceresDemoInstance.balanceOf.call(account1/2/3/4/5/6/7),its default value should be ZERO, && balanceOf(account0) is gt(0)', async() => {
+        console.log(chalk.blue(`ceresDemoInstance.balanceOf.call(account0) in DEC18: ${new BigNumber(await ceresDemoInstance.balanceOf.call(account0)).div(BIG18)}`));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account0))).to.gt(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account1))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account2))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account3))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account4))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account5))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account6))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(account7))).to.equal(parseFloat(0));
+    });
+
 
 
 });

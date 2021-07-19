@@ -699,7 +699,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public constant MAX = ~uint256(0); //TEST CASES DONE
     uint256 public _tTotal = 1000000000 * 10**6 * 10**18; //TEST CASES DONE
     uint256 public _rTotal = (MAX - (MAX % _tTotal)); //TEST CASES DONE
-    uint256 public tFeeTotal;
+    uint256 public tFeeTotal; //TEST CASES DONE
 
     string private _name = "Ceres Demo"; //TEST CASE DONE
     string private _symbol = "CRSD"; //TEST CASE DONE
@@ -754,7 +754,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         emit Transfer(address(0), _msgSender(), _tTotal);
     }
 
-    
+    //TEST CASES DONE
     function get_tOwned(address _address) public view returns (uint256) {
         return _tOwned[_address];
     }

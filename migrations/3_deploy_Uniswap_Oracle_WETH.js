@@ -183,10 +183,11 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(StringHelpers);
 	await deployer.link(StringHelpers, [StakingRewards_CERES_WETH]);
 	await Promise.all([
-		deployer.deploy(StakingRewards_CERES_WETH, STAKING_OWNER, STAKING_REWARDS_DISTRIBUTOR, cssInstance.address, pair_addr_CERES_WETH, ceresInstance.address, timelockInstance, 500000,{from: OWNER}),	// 500K = 50% * 1E6 = 50%
+		deployer.deploy(StakingRewards_CERES_WETH, STAKING_OWNER, STAKING_REWARDS_DISTRIBUTOR, cssInstance.address, pair_instance_CERES_WETH.address, ceresInstance.address, timelockInstance, 500000,{from: OWNER}),	// 500K = 50% * 1E6 = 50%
 	]);
 
 	const instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
 	console.log(chalk.red.bold(`instanceStakingRewards_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address}`));
 
+	await pair_instance_CERES_WETH.approve(instanceStakingRewards_CERES_WETH.address, TWO_MILLION_DEC18, { from: OWNER });
 };

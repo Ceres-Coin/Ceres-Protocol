@@ -82,7 +82,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
 
         // INITIALIZE
 		await instanceStakingRewards_CERES_WETH.initializeDefault({from: STAKING_OWNER});
-		await stakingTokenInstance.approve(instanceStakingRewards_CERES_WETH.address, TWO_MILLION_DEC18, { from: account0 });
+		
         
 		// ACTION -- STAKE
 		await instanceStakingRewards_CERES_WETH.stake(POINT_THREE_DEC18,{from: account0});

@@ -300,7 +300,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         }
 
     }
-    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TEST CASES DONE
     function getReward() public override nonReentrant updateReward(msg.sender) {
         uint256 reward = rewards[msg.sender];
         if (reward > 0) {
@@ -318,7 +319,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         getReward();
     }
 */
-    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TEST CASES DONE
     function renewIfApplicable() external {
         if (block.timestamp > periodFinish) {
             retroCatchUp();
@@ -399,7 +401,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         rewardsDuration = _rewardsDuration;
         emit RewardsDurationUpdated(rewardsDuration);
     }
-    // TODO: [ADD][TEST CASES]
+    // [ADD][TEST CASES]
     function setMultipliers(uint256 _locked_stake_max_multiplier, uint256 _cr_boost_max_multiplier) external onlyByOwnerOrGovernance {
         require(_locked_stake_max_multiplier >= 1, "Multiplier must be greater than or equal to 1");
         require(_cr_boost_max_multiplier >= 1, "Max CR Boost must be greater than or equal to 1");
@@ -410,7 +412,7 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         emit MaxCRBoostMultiplier(cr_boost_max_multiplier);
         emit LockedStakeMaxMultiplierUpdated(locked_stake_max_multiplier);
     }
-    // TODO: [ADD][TEST CASES]
+    // [ADD][TEST CASES]
     function setLockedStakeTimeForMinAndMaxMultiplier(uint256 _locked_stake_time_for_max_multiplier, uint256 _locked_stake_min_time) external onlyByOwnerOrGovernance {
         require(_locked_stake_time_for_max_multiplier >= 1, "Multiplier Max Time must be greater than or equal to 1");
         require(_locked_stake_min_time >= 1, "Multiplier Min Time must be greater than or equal to 1");

@@ -7,6 +7,7 @@ const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
+const CeresDemo = artifacts.require("Ceres/CeresDemo");
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
@@ -191,4 +192,8 @@ module.exports = async function(deployer,network,accounts) {
 
 	await pair_instance_CERES_WETH.approve(instanceStakingRewards_CERES_WETH.address, TWO_MILLION_DEC18, { from: OWNER });
 	await cssInstance.transfer(instanceStakingRewards_CERES_WETH.address,FIVE_MILLION_DEC18,{from: OWNER});
+
+	await deployer.deploy(CeresDemo,routerInstance.address,{from: OWNER}); //deploy PigToken
+	const ceresDemoInstance = await CeresDemo.deployed();
+	console.log(chalk.red.bold(`ceresDemoInstance.address: ${await ceresDemoInstance.address}`));
 };

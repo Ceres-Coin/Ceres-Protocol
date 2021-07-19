@@ -12,6 +12,7 @@ const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
+const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
 const ERC20 = artifacts.require("ERC20");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
@@ -130,8 +131,15 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     });
 
     it('check ceresDemoInstance.uniswapV2Pair.call()', async () => {
-        console.log(chalk.blue(`ceresDemoInstance.uniswapV2Router: ${(await ceresDemoInstance.uniswapV2Router.call())}`));
-        console.log(chalk.blue((await ceresDemoInstance.uniswapV2Pair.call())));
+        // console.log(chalk.blue(`ceresDemoInstance.uniswapV2Router: ${(await ceresDemoInstance.uniswapV2Router.call())}`));
+        
+        console.log(chalk.blue(`ceresDemoInstance.uniswapV2Pair: ${await ceresDemoInstance.uniswapV2Pair.call()}`));
+        const pair_addr_uniswapV2Pair = await ceresDemoInstance.uniswapV2Pair.call();
+        const pair_instance_CERESDEMO_WETH = await UniswapV2Pair.at(pair_addr_uniswapV2Pair);
+
+        console.log(chalk.blue(`pair_instance_CERESDEMO_WETH.token0: ${await pair_instance_CERESDEMO_WETH.token0.call()}`));
+        console.log(chalk.blue(`pair_instance_CERESDEMO_WETH.token1: ${await pair_instance_CERESDEMO_WETH.token1.call()}`));
+
     });
 
 

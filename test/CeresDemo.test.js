@@ -176,5 +176,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         console.log(chalk.blue(`_rTotal: ${await ceresDemoInstance._rTotal.call()}`));
     });
 
+    it('check ceresDemoInstance.tFeeTotal.call(), its value is equal(0) ', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await ceresDemoInstance.tFeeTotal.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

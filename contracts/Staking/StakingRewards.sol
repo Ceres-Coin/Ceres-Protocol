@@ -190,7 +190,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
     // TODO: [CORE][ADD][NEW FUNC]: ADD VIP LEVEL, STAKING MORE AND GET MORE REWARDSTOKEN(CSS)
 
     /* ========== MUTATIVE FUNCTIONS ========== */
-    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TEST CASES DOEN
     function stake(uint256 amount) external override nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(greylist[msg.sender] == false, "address has been greylisted");
@@ -209,7 +210,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
 
         emit Staked(msg.sender, amount);
     }
-    // TODO: [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // [ADD][TEST CASES][P2][CORE]: ADD TEST CASES IN [Stake_CERES_WETH_P2.test.js]
+    // TEST CASES DONE
     function stakeLocked(uint256 amount, uint256 secs) external nonReentrant notPaused updateReward(msg.sender) {
         require(amount > 0, "Cannot stake 0");
         require(secs > 0, "Cannot wait for a negative number");

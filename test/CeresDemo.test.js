@@ -12,6 +12,7 @@ const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
+const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
 const ERC20 = artifacts.require("ERC20");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const ONE_DEC18 = new BigNumber("1e18");
@@ -47,6 +48,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     let wethInstance;
     let uniswapFactoryInstance;
     let ceresDemoInstance;
+    let routerInstance;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -54,6 +56,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         wethInstance = await WETH.deployed();
 
         uniswapFactoryInstance = await UniswapV2Factory.deployed(); 
+        routerInstance = await UniswapV2Router02_Modified.deployed(); 
         instance_Pool_USDC_collateral_token = await ERC20.at(await instance_Pool_USDC.collateral_token());
         instance_Pool_USDC_CERES = await CEREStable.at(await instance_Pool_USDC.CERES());
         instance_Pool_USDC_CSS = await CEREShares.at(await instance_Pool_USDC.CSS());
@@ -119,6 +122,11 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         // ROLLBACK CODE
         await ceresDemoInstance.setLiquidityFeePercent(DEFAUT_VALUE,{from: OWNER});
         expect(parseFloat(await ceresDemoInstance.liquidityFee.call())).to.equal(parseFloat(DEFAUT_VALUE));
+    });
+
+    it('check ceresDemoInstance.uniswapV2Router.call(), its DEFAULT value is routerInstance', async () => {
+        const EXPECTED_VALUE = await routerInstance.address;
+        expect((await ceresDemoInstance.uniswapV2Router.call())).to.equal((EXPECTED_VALUE));
     });
 
 

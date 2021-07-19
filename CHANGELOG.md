@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.17.0...v1.18.0) (2021-07-19)
+
+
+### Features
+
+* **contracts/staking/stakingrewards.sol && test/stake_ceres_weth.test.js:** [MODIFIED][CONTRACTS]: Seperated the func() setOwnerAndTimelock to two func() 'setOwner' & 'setTimelock' ([5300935](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5300935eca5c00c0a762263f5a8b88da340d2169))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED 'TRANSFER 5 MILLION CSS TO STAKE_CERES_WETH' scripts ([00bb872](https://github.com/Ceres-Coin/Ceres-Protocol/commit/00bb872effa9e6e1a961003422be23ed3d8d4388))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [MODIFIED][DEPLOYMENT SCRIPTS]: ADDED APPROVE STEPS FOR 'instanceStakingRewards_CERES_WETH' ([09e3afe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/09e3afe75ed2eab4d77f3bc6c1b22398d2983c7d))
+* **test/stake_ceres_weth_p2.test.js:** [CREATED][NEW FILE][TEST SCRIPTS]: 'test/Stake_CERES_WETH_P2.test.js' ([bd40478](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bd40478b9693f67d71c38928df6e8f96ceb391ca))
+
+
+### Tests
+
+* **test/css.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([5604bbf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5604bbf5de72da964725c296e30365f08aed0ec8))
+* **test/stake_ceres_weth_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.lockedStakesOf(OWNER)' ([7e3e115](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7e3e115dbd277f1f16e316e13a137e77003c42d9))
+* **test/stake_ceres_weth_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check instanceStakingRewards_CERES_WETH.renewIfApplicable' ([28047ca](https://github.com/Ceres-Coin/Ceres-Protocol/commit/28047ca2ba91d05b494fb1d2d0964360c3effd26))
+* **test/stake_ceres_weth_p2.test.js:** [ADDED][TEST SCRIPTS]: "check instanceStakingRewards_CERES_WETH.stake() FUNC" ([ef340d4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef340d47cae1f7ed422a5888b90f4a4a87620fef))
+* **test/stake_ceres_weth_p2.test.js:** [ADDED][TEST SCRIPTS]: "check instanceStakingRewards_CERES_WETH.stakeLocked() FUNC" ([8695200](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8695200e056e703acd98072294799e694ea362fa))
+* **test/stake_ceres_weth_p2.test.js:** [ADDED][TEST SCRIPTS]: "check instanceStakingRewards_CERES_WETH.withdraw() FUNC" ([d801e2c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d801e2c1782e157cfaa10fd32ae1047bee00f824))
+* **test/stake_ceres_weth_p2.test.js:** [ADDED][TEST SCRIPTS]: ADDED TEST CASES FOR 'STAEK_CERES_WETH.getReward()'; ([6f9d615](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6f9d615d782e1ff40c0764890ba2c564655a19fa))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.greylistAddress(TEST_ACCOUNT) FUNC' ([d05e16f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d05e16f30f9e4e8bf1643eeea674fa5ceb2d21bc))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.setOwner() FUNC' ([399dd69](https://github.com/Ceres-Coin/Ceres-Protocol/commit/399dd69ccd3c191f1afdb6fc50c34a699124ecf1))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.setOwnerAndTimelock() FUNC' ([aa0c4a0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/aa0c4a0773c496a0d1b7b4b64acacb892f8c253e))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.setRewardRate() FUNC' ([09bde24](https://github.com/Ceres-Coin/Ceres-Protocol/commit/09bde24c7d188109315f0a2b779ef4505be6f602))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.setTimelock() FUNC' ([1ed6602](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1ed66022f7ec386f6d9942d290d03276b6d3ff37))
+* **test/stake_ceres_weth.test.js:** [ADDED][TEST SCRIPTS]: 'check STAKE_CERES_WETH.unlockStakes() FUNC' ([5ab3fff](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5ab3fffcb68a09e74fe1758663bac9a6fd4d5648))
+* **test/stake_ceres_weth.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([1425c23](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1425c23ffea522919b76c2d8bf3375ee10e6e4ba))
+
+
+### Styling
+
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([ef761bd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef761bd0b1405e67047a1584dbb7e4678e6c1f1d))
+* **contracts/staking/stakingrewards.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([c442c5d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c442c5d8711f729930bbe7594de4ac10c9bf3dc5))
+* **contracts/staking/stakingrewards.sol:** [ADDED][TEST CASES DONE] & [REMOVED][TODO TASKS] ([b1b7d00](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b1b7d00c2d49e988d5fdcc74d4b850926527af44))
+* **contracts/staking/stakingrewards.sol:** [REMOVED][TODO TASKS] && [ADDED][COMMENTS][TEST CASES DONE] ([85ae6ed](https://github.com/Ceres-Coin/Ceres-Protocol/commit/85ae6eddf0d83947fbcd638fdca56fccac717323))
+* **contracts/staking/stakingrewards.sol:** [REMOVED][TODO TASKS] && [ADDED][COMMENTS][TEST CASES DONE] ([c1bdd06](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c1bdd06b75db4bc164d6dcf8ab285fe592b59281))
+* **contracts/staking/stakingrewards.sol:** [REMOVED][TODO TASKS] && [ADDED][TEST CASES DONE] ([b722cd8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b722cd84bccf085b1fc925c5fa7a99f9d2350d36))
+* **contracts/staking/stakingrewards.sol:** [UPDATED][TODO TASKS] && [COMMENTS] ([d2bee85](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d2bee85992baef70342969774bb7d1bde925111d))
+* **test/stake_ceres_weth_p2.test.js:** [REFORMATTING][CODE] ([4835cec](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4835cec5b55547c46a53f2bcbf7cd3f0cdad55b5))
+* **test/stake_ceres_weth.test.js:** [REMOVED][UNUSED][CODE] ([4e7a75e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4e7a75e5d82e680b6967c0ff2476189f4d56b626))
+
 ## [1.17.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.16.0...v1.17.0) (2021-07-18)
 
 

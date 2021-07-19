@@ -705,8 +705,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     string private _symbol = "CRSD"; //TEST CASE DONE
     uint8 private _decimals = 18; //TEST CASE DONE
     
-    uint256 public _taxFee = 2;  //TEST CASE DONE
-    uint256 private _previousTaxFee = _taxFee;
+    uint256 public taxFee = 2;  //TEST CASE DONE
+    uint256 private _previousTaxFee = taxFee;
     
     uint256 public _liquidityFee = 3; //TEST CASE DONE
     uint256 private _previousLiquidityFee = _liquidityFee;
@@ -929,8 +929,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     }
     
     //test scripts done
-    function setTaxFeePercent(uint256 taxFee) external {
-        _taxFee = taxFee;
+    function setTaxFeePercent(uint256 _taxFee) external {
+        taxFee = _taxFee;
     } 
     
     //test scripts done
@@ -1007,7 +1007,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     }
     
     function calculateTaxFee(uint256 _amount) private view returns (uint256) {
-        return _amount.mul(_taxFee).div(
+        return _amount.mul(taxFee).div(
             10**2
         );
     }
@@ -1019,17 +1019,17 @@ contract CeresDemo is Context, IERC20, Ownable {
     }
     
     function removeAllFee() private {
-        if(_taxFee == 0 && _liquidityFee == 0) return;
+        if(taxFee == 0 && _liquidityFee == 0) return;
         
-        _previousTaxFee = _taxFee;
+        _previousTaxFee = taxFee;
         _previousLiquidityFee = _liquidityFee;
         
-        _taxFee = 0;
+        taxFee = 0;
         _liquidityFee = 0;
     }
     
     function restoreAllFee() private {
-        _taxFee = _previousTaxFee;
+        taxFee = _previousTaxFee;
         _liquidityFee = _previousLiquidityFee;
     }
     

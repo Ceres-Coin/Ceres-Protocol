@@ -708,7 +708,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public taxFee = 2;  //TEST CASE DONE
     uint256 private _previousTaxFee = taxFee;
     
-    uint256 public liquidityFee = 3; 
+    uint256 public liquidityFee = 3; //TEST CASE DONE
     uint256 private _previousLiquidityFee = liquidityFee;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
@@ -933,7 +933,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         taxFee = _taxFee;
     } 
     
-    //
+    //TEST CASES DONE
     function setLiquidityFeePercent(uint256 _liquidityFee) external onlyOwner{
         liquidityFee = _liquidityFee;
     } 

@@ -93,7 +93,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
 		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
 		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
 		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
-		});
+	});
 
 
 });

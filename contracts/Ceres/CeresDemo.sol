@@ -708,8 +708,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint256 public taxFee = 2;  //TEST CASE DONE
     uint256 private _previousTaxFee = taxFee;
     
-    uint256 public _liquidityFee = 3; 
-    uint256 private _previousLiquidityFee = _liquidityFee;
+    uint256 public liquidityFee = 3; 
+    uint256 private _previousLiquidityFee = liquidityFee;
 
     IUniswapV2Router02 public immutable uniswapV2Router;
     address public immutable uniswapV2Pair; 
@@ -934,8 +934,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     } 
     
     //
-    function setLiquidityFeePercent(uint256 liquidityFee) external {
-        _liquidityFee = liquidityFee;
+    function setLiquidityFeePercent(uint256 _liquidityFee) external onlyOwner{
+        liquidityFee = _liquidityFee;
     } 
    
     //
@@ -1013,24 +1013,24 @@ contract CeresDemo is Context, IERC20, Ownable {
     }
 
     function calculateLiquidityFee(uint256 _amount) private view returns (uint256) {
-        return _amount.mul(_liquidityFee).div(
+        return _amount.mul(liquidityFee).div(
             10**2
         );
     }
     
     function removeAllFee() private {
-        if(taxFee == 0 && _liquidityFee == 0) return;
+        if(taxFee == 0 && liquidityFee == 0) return;
         
         _previousTaxFee = taxFee;
-        _previousLiquidityFee = _liquidityFee;
+        _previousLiquidityFee = liquidityFee;
         
         taxFee = 0;
-        _liquidityFee = 0;
+        liquidityFee = 0;
     }
     
     function restoreAllFee() private {
         taxFee = _previousTaxFee;
-        _liquidityFee = _previousLiquidityFee;
+        liquidityFee = _previousLiquidityFee;
     }
     
     // test scripts done

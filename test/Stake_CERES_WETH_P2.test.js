@@ -12,11 +12,15 @@ const WETH = artifacts.require("ERC20/WETH");
 const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USDC");
 const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
+const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 const ERC20 = artifacts.require("ERC20");
 const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
+const TWO_MILLION_DEC18 = new BigNumber("2000000e18");
+const POINT_ONE_DEC18 = new BigNumber("1e17"); //0.1_dec18
+const POINT_THREE_DEC18 = new BigNumber("3e17"); //0.3_dec18
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
@@ -33,6 +37,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     const account7 = accounts[7];
 
     const OWNER = account0;
+    const STAKING_OWNER = account0;
 	const ADMIN = account1;
     const TEST_ACCOUNT = account7;
 
@@ -65,7 +70,30 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         expect(instanceStakingRewards_CERES_WETH.address).to.not.be.empty;
     });
 
-    
+    it ("check instanceStakingRewards_CERES_WETH.stake() FUNC", async() => {
+		const stakingTokenInstance = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+		expect(await stakingTokenInstance.name()).to.equal("Uniswap V2");
+
+		// BEFORE
+        console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));
+		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
+		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
+		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
+
+        // INITIALIZE
+		await instanceStakingRewards_CERES_WETH.initializeDefault({from: STAKING_OWNER});
+		await stakingTokenInstance.approve(instanceStakingRewards_CERES_WETH.address, TWO_MILLION_DEC18, { from: account0 });
+        
+		// ACTION -- STAKE
+		await instanceStakingRewards_CERES_WETH.stake(POINT_THREE_DEC18,{from: account0});
+        
+		// AFTER
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+		console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));
+		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
+		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
+		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
+		});
 
 
 });

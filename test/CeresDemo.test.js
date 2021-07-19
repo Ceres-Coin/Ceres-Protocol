@@ -13,6 +13,7 @@ const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USD
 const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const ERC20 = artifacts.require("ERC20");
+const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
@@ -45,6 +46,7 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
     let pair_addr_CERES_WETH;
     let wethInstance;
     let uniswapFactoryInstance;
+    let ceresDemoInstance;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -58,9 +60,13 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
         instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
         pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+        ceresDemoInstance = await CeresDemo.deployed();
     });
 
-    
+    it('check ceresDemoInstance.address, its value is not be empty', async () => {
+        console.log(chalk.blue(`ceresDemoInstance: ${await ceresDemoInstance.address}`));
+        expect(ceresDemoInstance.address).to.not.be.empty;
+    });
 
 
 });

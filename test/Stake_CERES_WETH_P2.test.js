@@ -25,7 +25,7 @@ const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 
-contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => {
+contract('contracts/Staking/Variants/Stake_CERES_WETH.sol TEST_CASES_P2', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -86,6 +86,32 @@ contract('contracts/Staking/Variants/Stake_CERES_WETH.sol', async (accounts) => 
         
 		// ACTION -- STAKE
 		await instanceStakingRewards_CERES_WETH.stake(POINT_THREE_DEC18,{from: account0});
+        
+		// AFTER
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+		console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));
+		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
+		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
+		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
+	});
+
+    it ("check instanceStakingRewards_CERES_WETH.stakeLocked() FUNC", async() => {
+        const NEW_VALUE = POINT_THREE_DEC18;
+        const NEW_VALUE2 = 864000; // 10 DAYS
+		const stakingTokenInstance = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+		expect(await stakingTokenInstance.name()).to.equal("Uniswap V2");
+
+		// BEFORE
+        console.log(chalk.yellow(`address_account0: ${account0} value: ${await stakingTokenInstance.balanceOf.call(account0)}`));
+		console.log(chalk.yellow(`address_account1: ${account1} value: ${await stakingTokenInstance.balanceOf.call(account1)}`));
+		console.log(chalk.yellow(`stakingInstance_CERES_WETH: ${instanceStakingRewards_CERES_WETH.address} value: ${await stakingTokenInstance.balanceOf.call(instanceStakingRewards_CERES_WETH.address)}`));
+		console.log(chalk.yellow(`address_account2: ${account2} value: ${await stakingTokenInstance.balanceOf.call(account2)}`));
+
+        // INITIALIZE
+		await instanceStakingRewards_CERES_WETH.initializeDefault({from: STAKING_OWNER});
+		
+		// ACTION -- STAKE
+		await instanceStakingRewards_CERES_WETH.stakeLocked(NEW_VALUE,NEW_VALUE2,{from: account0});
         
 		// AFTER
         console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));

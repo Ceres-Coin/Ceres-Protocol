@@ -157,6 +157,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
         return boardHistory[getLastSnapshotIndexOf(director)];
     }
 
+    // TEST CASES DONE
     function getCurrentEpochTimestamp() public view returns(uint256) {
         // return epochAlignTimestamp.add(
         //         block.timestamp
@@ -166,11 +167,13 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
         //     );
         return block.timestamp;
     }
+    // TEST CASES DONE
     function getCanWithdrawTime(address director) public view returns(uint256) {
         return directors[director].epochTimerStart.add(
                     withdrawLockupEpochs.mul(epochPeriod)
                 );
     }
+    // TEST CASES DONE
     function getCanClaimTime(address director) public view returns(uint256) {
         return directors[director].epochTimerStart.add(
                     rewardLockupEpochs.mul(epochPeriod)

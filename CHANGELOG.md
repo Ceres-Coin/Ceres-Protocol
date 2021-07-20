@@ -2,6 +2,64 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.20.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.19.0...v1.20.0) (2021-07-20)
+
+
+### Features
+
+* **contracts/ceres/ceresdemo.sol && test/ceresdemo.test.js:** [MODIFIED][CONTRACTS]: MODIFIED FUNC() 'setMaxTxAmount' & [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.setMaxTxAmount(80)' ([87f1b4e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/87f1b4ea38d51a16ddae1a412dd94337de53e731))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]; REFACTORRED '_getRate' AS 'getRate()' ([69583b6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/69583b64503b8ca05205e23da2fe01bb0b58040b))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]: MODIFIED PARAMETERS '_maxTxPercent' TO 'maxTxPercent' ([cb2222a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cb2222a3595dce92dbe2a4ee2b2d30c3e0ce8f42))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]: REFACTOR '_tFeeTotal' as 'tFeeTotal' ([6349188](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6349188f1cbefb1cad77bece899595b238374b41))
+* **contracts/ceres/ceresdemo.sol:** [MODIFIED][CONTRACTS]: REFACTOR FUNC() 'setMaxTxPercent' AS 'setMaxTxAmount' ([3fa4398](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3fa43987ed3fb594d0f50146be2a0b6ca949803a))
+* **test/ceresdemo_p2.test.js:** [CREATED][NEW FILE][TEST SCRIPTS FILE]: 'test/CeresDemo_P2.test.js' ([d5611db](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d5611db686ae905f2f1b276a240a7ec4b06db701))
+
+
+### Styling
+
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS] ([7cda695](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7cda695a4053fa7aeb9b9d2d18aefa42c7a4e38e))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS] ([f6ab66b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f6ab66b03b5513376d15368610ea0a9528b8ce57))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][NO NEED TO TEST PRIVATE] ([124b34c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/124b34c2efda456583eb403b05c2c8e6fb4193d2))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([ad8f806](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ad8f8060d97e468207d8f8b1e4f42bc9ec2d8ea0))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([1513e8f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1513e8f60f82677f7d70028565ee487c88e6e3f2))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([7ebbc17](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7ebbc170443fa054c24d867b72931514a7d35667))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([f11bce1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f11bce1f45c779a3f87136a8ee43b59fa7932710))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([3f01bce](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3f01bce5dce0e095ff010d443a5b53d521688138))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([927890f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/927890f6cd2d4d5a919d1144eb961083fe3a3b8e))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([3e7d51b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3e7d51bbdea8dbd7bf5fc732ef5c96862a8cfa6a))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([fa6ad14](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fa6ad149ac7a35ab213b90ea8c6fe0d0650b7372))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([9a3f5c4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9a3f5c4da1081dad9a63bb3eb9ddc2a8ae18de7c))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([803961d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/803961d7345f97525c1c8c43a645cdfb3a27c167))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([4216f2e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4216f2e5b8053bcbb1017f3b19cdb22e494c661b))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([105f339](https://github.com/Ceres-Coin/Ceres-Protocol/commit/105f3399522745d45bdf08bc123c9e63f805acd7))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([14cc40f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/14cc40f3c282565ccfc2b796ad6474c512007501))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([4ae5c75](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4ae5c75fe2ddbb1fad0bc973ab10d2577dcdc911))
+* **contracts/ceres/ceresdemo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([b0d54e6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b0d54e6d657dda8dd1fda300862352bf37702164))
+* **test/ceresdemo.test.js:** [REFORMATTING][CODE] ([37175d3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/37175d31d918d055aff0a7c60bff480612b54721))
+
+
+### Tests
+
+* **test/ceresdemo_p2.test.js:** [ADDED][CORE][UNDERSTANDING]: UNDERSTAND THE MECHANISM OF CERESDEMO.SOL ([ad8fba6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ad8fba6697541ad30bf7f8e71e25d043aaeaf49f))
+* **test/ceresdemo_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.transfer(TEST_ACCOUNT,ONE_HUNDRED_DEC18,{from: SENDER})' ([c82293b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c82293ba377fe6ab599835326e4c5241b934effe))
+* **test/ceresdemo_p2.test.js:** [ADDED][TEST SCRIPTS]: ADDED 'tokenFromReflection()' FUNC ([1996453](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1996453e251408a9fc8d5e16438bfefd5976e9a3))
+* **test/ceresdemo_p2.test.js:** [ADDED][TEST SCRIPTS]: CHECK 'await ceresDemoInstance.totalFees.call()' ([8d31b2d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8d31b2d67602d4cf8d24b47223c30f886a1efc47))
+* **test/ceresdemo.test.js:** 'check ceresDemoInstance._isExcluded.call(account0/1/2/3/4/5/6/7),its default value should ALL be FALSE' ([ae2fb41](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ae2fb41e4b5a04b16b33e998061d129628e2f2bf))
+* **test/ceresdemo.test.js:** 'check ceresDemoInstance._isExcludedFromFee.call(account1/2/3/4/5/6/7),its default value should ALL be FALSE && account0 = true' ([6518f32](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6518f32b02a861ca217f3f3bd3d17eb0854ae3d9))
+* **test/ceresdemo.test.js:** 'check ceresDemoInstance.isExcludedFromReward.call(account0/1/2/3/4/5/6/7),its default value should ALL be FALSE' ([cf23caf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cf23caf5aa7fca09f75d6398ca3d7c52129b3552))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance._rOwned.call(account1/2/3/4/5/6/7),its default value should be ZERO, && _rOwned(account0) is gt(0)' ([f3a8f1e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f3a8f1e8444a1f6c7ec491962471c066698cd084))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance._tOwned.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO' ([f38d6a7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f38d6a7c6dc7528de0c86d50c56628fa61619f3b))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.balanceOf.call(account1/2/3/4/5/6/7),its default value should be ZERO, && balanceOf(account0) is gt(0)' ([0e6bc1a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0e6bc1ae597336475f74650d989e5ac676873b67))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.excludeFromFee.call(TEST_ACCOUNT) && ROLLBACK USING includeInFee() ([82f2853](https://github.com/Ceres-Coin/Ceres-Protocol/commit/82f2853d544ed0ed417fbb5157a6142ad00ab442))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.excludeFromReward.call(TEST_ACCOUNT)' ([ffd95ae](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ffd95ae75bfbadf7a44de5147ccd34ef28a15cd0))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.get_rOwned.call(account1/2/3/4/5/6/7),its default value should be ZERO, && get_rOwned(account0) is gt(0)' ([82ce3b3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/82ce3b3866158945844945f2e006e1a1573ff381))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.get_tOwned.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO' ([44d04b3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/44d04b38f0f5916430211d667c3d14ef1b4c6794))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.getRate.call(), its DEFAULT value is gt(0)' ([0b09182](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0b091829e680158371098f1c86ecff26427c3c58))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.setSwapAndLiquifyEnabled(false)' ([6893722](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6893722096002e27900a08cd8382643119c0c28e))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.tFeeTotal.call(), its value is equal(0)' ([3cbeaf4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3cbeaf4210eecabe47bb7c9fec15804af49bf122))
+* **test/ceresdemo.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresDemoInstance.totalFees.call(), its value is equal(0)' ([476af05](https://github.com/Ceres-Coin/Ceres-Protocol/commit/476af053f42596a34cff214a99b711fc181bbc22))
+* **test/ceresdemo.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([ccc18e3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ccc18e3bea9172caec5c0e12d30af5e214c2cf2e))
+
 ## [1.19.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.18.0...v1.19.0) (2021-07-19)
 
 

@@ -691,9 +691,9 @@ contract CeresDemo is Context, IERC20, Ownable {
     mapping (address => uint256) public _tOwned;
     mapping (address => mapping (address => uint256)) public _allowances;
 
-    mapping (address => bool) public _isExcludedFromFee;
+    mapping (address => bool) public _isExcludedFromFee; //TEST CASES DONE
 
-    mapping (address => bool) public _isExcluded;
+    mapping (address => bool) public _isExcluded; //TEST CASES DONE
     address[] public _excluded;
    
     uint256 public constant MAX = ~uint256(0); //TEST CASES DONE

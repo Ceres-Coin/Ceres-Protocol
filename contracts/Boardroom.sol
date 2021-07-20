@@ -84,7 +84,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
 
     /* ========== STATE VARIABLES ========== */
 
-    IERC20 private cash;
+    IERC20 public cash;
 
     mapping(address => Boardseat) private directors;
     BoardSnapshot[] private boardHistory;

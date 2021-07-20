@@ -228,6 +228,11 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance.isExcludedFromReward.call(account7))).to.equal((EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance.totalFees.call(), its value is equal(0)', async () => {
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await ceresDemoInstance.totalFees.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
 });

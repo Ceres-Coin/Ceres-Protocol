@@ -75,6 +75,11 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(boardroomInstance.address).to.not.be.empty;
     });
 
+    it('check boardroomInstance.withdrawLockupEpochs, its DEFAULT value is 2', async () => {
+        const EXPECTED_VALUE = new BigNumber("2");
+        expect(parseFloat(await boardroomInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
     
 
 });

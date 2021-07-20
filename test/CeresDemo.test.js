@@ -285,6 +285,20 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance._isExcludedFromFee.call(TEST_ACCOUNT))).to.equal((DEFAULT_VALUE));
     });
 
+    it('check ceresDemoInstance.setMaxTxAmount(80)', async() => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber(5000000 * 10**6 * 10**18);
+        const NEW_VALUE = new BigNumber(8000000 * 10**6 * 10**18);;
+        expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await ceresDemoInstance.setMaxTxAmount(80,{from: OWNER});
+        expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        // await ceresDemoInstance.setMaxTxAmount(50,{from: OWNER});
+        // expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
 
 
 });

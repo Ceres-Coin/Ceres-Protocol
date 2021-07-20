@@ -935,24 +935,25 @@ contract CeresDemo is Context, IERC20, Ownable {
      //to recieve ETH from uniswapV2Router when swaping
     receive() external payable {}
 
+    // NO NEED TO TEST PRIVATE
     function _reflectFee(uint256 rFee, uint256 tFee) private {
         _rTotal = _rTotal.sub(rFee);
         tFeeTotal = tFeeTotal.add(tFee);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _getValues(uint256 tAmount) private view returns (uint256, uint256, uint256, uint256, uint256, uint256) {
         (uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity) = _getTValues(tAmount);
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee) = _getRValues(tAmount, tFee, tLiquidity, getRate());
         return (rAmount, rTransferAmount, rFee, tTransferAmount, tFee, tLiquidity);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _getTValues(uint256 tAmount) private view returns (uint256, uint256, uint256) {
         uint256 tFee = calculateTaxFee(tAmount);
         uint256 tLiquidity = calculateLiquidityFee(tAmount);
         uint256 tTransferAmount = tAmount.sub(tFee).sub(tLiquidity);
         return (tTransferAmount, tFee, tLiquidity);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _getRValues(uint256 tAmount, uint256 tFee, uint256 tLiquidity, uint256 currentRate) private pure returns (uint256, uint256, uint256) {
         uint256 rAmount = tAmount.mul(currentRate);
         uint256 rFee = tFee.mul(currentRate);
@@ -965,7 +966,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         (uint256 rSupply, uint256 tSupply) = _getCurrentSupply();
         return rSupply.div(tSupply);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _getCurrentSupply() private view returns(uint256, uint256) {
         uint256 rSupply = _rTotal;
         uint256 tSupply = _tTotal;      
@@ -977,7 +978,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         if (rSupply < _rTotal.div(_tTotal)) return (_rTotal, _tTotal);
         return (rSupply, tSupply);
     }
-    
+    // NO NEED TO TEST PRIVATE
     function _takeLiquidity(uint256 tLiquidity) private {
         uint256 currentRate =  getRate();
         uint256 rLiquidity = tLiquidity.mul(currentRate);
@@ -985,19 +986,19 @@ contract CeresDemo is Context, IERC20, Ownable {
         if(_isExcluded[address(this)])
             _tOwned[address(this)] = _tOwned[address(this)].add(tLiquidity);
     }
-    
+    // NO NEED TO TEST PRIVATE
     function calculateTaxFee(uint256 _amount) private view returns (uint256) {
         return _amount.mul(taxFee).div(
             10**2
         );
     }
-
+    // NO NEED TO TEST PRIVATE
     function calculateLiquidityFee(uint256 _amount) private view returns (uint256) {
         return _amount.mul(liquidityFee).div(
             10**2
         );
     }
-    
+    // NO NEED TO TEST PRIVATE
     function removeAllFee() private {
         if(taxFee == 0 && liquidityFee == 0) return;
         
@@ -1007,7 +1008,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         taxFee = 0;
         liquidityFee = 0;
     }
-    
+    // NO NEED TO TEST PRIVATE
     function restoreAllFee() private {
         taxFee = _previousTaxFee;
         liquidityFee = _previousLiquidityFee;
@@ -1017,7 +1018,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     function isExcludedFromFee(address account) public view returns(bool) {
         return _isExcludedFromFee[account];
     } 
-
+    // NO NEED TO TEST PRIVATE
     function _approve(address owner, address spender, uint256 amount) private {
         require(owner != address(0), "ERC20: approve from the zero address");
         require(spender != address(0), "ERC20: approve to the zero address");
@@ -1025,7 +1026,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         _allowances[owner][spender] = amount;
         emit Approval(owner, spender, amount);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _transfer(
         address from,
         address to,
@@ -1071,7 +1072,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         //transfer amount, it will take tax, burn, liquidity fee
         _tokenTransfer(from,to,amount,takeFee);
     }
-
+    // NO NEED TO TEST PRIVATE
     function swapAndLiquify(uint256 contractTokenBalance) private lockTheSwap {
         // split the contract balance into halves
         uint256 half = contractTokenBalance.div(2);
@@ -1094,7 +1095,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         
         emit SwapAndLiquify(half, newBalance, otherHalf);
     }
-
+    // NO NEED TO TEST PRIVATE
     function swapTokensForEth(uint256 tokenAmount) private {
         // generate the uniswap pair path of token -> weth
         address[] memory path = new address[](2);
@@ -1112,7 +1113,7 @@ contract CeresDemo is Context, IERC20, Ownable {
             block.timestamp
         );
     }
-
+    // NO NEED TO TEST PRIVATE
     function addLiquidity(uint256 tokenAmount, uint256 ethAmount) private {
         // approve token transfer to cover all possible scenarios
         _approve(address(this), address(uniswapV2Router), tokenAmount);
@@ -1127,7 +1128,7 @@ contract CeresDemo is Context, IERC20, Ownable {
             block.timestamp
         );
     }
-
+    // NO NEED TO TEST PRIVATE
     //this method is responsible for taking all fee, if takeFee is true
     function _tokenTransfer(address sender, address recipient, uint256 amount,bool takeFee) private {
         if(!takeFee)
@@ -1148,7 +1149,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         if(!takeFee)
             restoreAllFee();
     }
-
+    // NO NEED TO TEST PRIVATE
     function _transferStandard(address sender, address recipient, uint256 tAmount) private {
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee, uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity) = _getValues(tAmount);
         _rOwned[sender] = _rOwned[sender].sub(rAmount);
@@ -1157,7 +1158,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _transferToExcluded(address sender, address recipient, uint256 tAmount) private {
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee, uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity) = _getValues(tAmount);
         _rOwned[sender] = _rOwned[sender].sub(rAmount);
@@ -1167,7 +1168,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         _reflectFee(rFee, tFee);
         emit Transfer(sender, recipient, tTransferAmount);
     }
-
+    // NO NEED TO TEST PRIVATE
     function _transferFromExcluded(address sender, address recipient, uint256 tAmount) private {
         (uint256 rAmount, uint256 rTransferAmount, uint256 rFee, uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity) = _getValues(tAmount);
         _tOwned[sender] = _tOwned[sender].sub(tAmount);

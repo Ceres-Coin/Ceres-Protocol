@@ -926,7 +926,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         );
     } 
 
-    //
+    // TEST CASES DONE
     function setSwapAndLiquifyEnabled(bool _enabled) public onlyOwner {
         swapAndLiquifyEnabled = _enabled;
         emit SwapAndLiquifyEnabledUpdated(_enabled);
@@ -961,7 +961,6 @@ contract CeresDemo is Context, IERC20, Ownable {
         return (rAmount, rTransferAmount, rFee);
     }
 
-    // TEST CASES DONE
     function _getRate() public view returns(uint256) {
         (uint256 rSupply, uint256 tSupply) = _getCurrentSupply();
         return rSupply.div(tSupply);

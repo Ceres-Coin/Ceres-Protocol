@@ -860,7 +860,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     // TEST CASES DONE
     function tokenFromReflection(uint256 rAmount) public view returns(uint256) {
         require(rAmount <= _rTotal, "Amount must be less than total reflections");
-        uint256 currentRate =  _getRate();
+        uint256 currentRate =  getRate();
         return rAmount.div(currentRate);
     }
 
@@ -942,7 +942,7 @@ contract CeresDemo is Context, IERC20, Ownable {
 
     function _getValues(uint256 tAmount) private view returns (uint256, uint256, uint256, uint256, uint256, uint256) {
         (uint256 tTransferAmount, uint256 tFee, uint256 tLiquidity) = _getTValues(tAmount);
-        (uint256 rAmount, uint256 rTransferAmount, uint256 rFee) = _getRValues(tAmount, tFee, tLiquidity, _getRate());
+        (uint256 rAmount, uint256 rTransferAmount, uint256 rFee) = _getRValues(tAmount, tFee, tLiquidity, getRate());
         return (rAmount, rTransferAmount, rFee, tTransferAmount, tFee, tLiquidity);
     }
 
@@ -961,7 +961,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         return (rAmount, rTransferAmount, rFee);
     }
 
-    function _getRate() public view returns(uint256) {
+    function getRate() public view returns(uint256) {
         (uint256 rSupply, uint256 tSupply) = _getCurrentSupply();
         return rSupply.div(tSupply);
     }
@@ -979,7 +979,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     }
     
     function _takeLiquidity(uint256 tLiquidity) private {
-        uint256 currentRate =  _getRate();
+        uint256 currentRate =  getRate();
         uint256 rLiquidity = tLiquidity.mul(currentRate);
         _rOwned[address(this)] = _rOwned[address(this)].add(rLiquidity);
         if(_isExcluded[address(this)])

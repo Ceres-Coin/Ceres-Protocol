@@ -717,7 +717,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     bool inSwapAndLiquify;
     bool public swapAndLiquifyEnabled = true; //TEST CASES DONE
     
-    uint256 public _maxTxAmount = 5000000 * 10**6 * 10**18; //TEST CASES DONE
+    uint256 public maxTxAmount = 5000000 * 10**6 * 10**18; //TEST CASES DONE
     uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**18;
     
     event MinTokensBeforeSwapUpdated(uint256 minTokensBeforeSwap);
@@ -920,8 +920,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     } 
    
     //
-    function setMaxTxPercent(uint256 maxTxPercent) external onlyOwner() {
-        _maxTxAmount = _tTotal.mul(maxTxPercent).div(
+    function setMaxTxPercent(uint256 _maxTxPercent) external onlyOwner() {
+        maxTxAmount = _tTotal.mul(_maxTxPercent).div(
             10**2
         );
     } 
@@ -1036,7 +1036,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         require(to != address(0), "ERC20: transfer to the zero address");
         require(amount > 0, "Transfer amount must be greater than zero");
         if(from != owner() && to != owner())
-            require(amount <= _maxTxAmount, "Transfer amount exceeds the maxTxAmount.");
+            require(amount <= maxTxAmount, "Transfer amount exceeds the maxTxAmount.");
 
         // is the token balance of this contract address over the min number of
         // tokens that we need to initiate a swap + liquidity lock?
@@ -1044,9 +1044,9 @@ contract CeresDemo is Context, IERC20, Ownable {
         // also, don't swap & liquify if sender is uniswap pair.
         uint256 contractTokenBalance = balanceOf(address(this));
         
-        if(contractTokenBalance >= _maxTxAmount)
+        if(contractTokenBalance >= maxTxAmount)
         {
-            contractTokenBalance = _maxTxAmount;
+            contractTokenBalance = maxTxAmount;
         }
         
         bool overMinTokenBalance = contractTokenBalance >= numTokensSellToAddToLiquidity;

@@ -59,8 +59,8 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     using Safe112 for uint112;
 
 
-    //时间锁，存入s & 提取c都有锁仓时间
-    // basisEternal 是S=72小时，C=24小时。测试环境是 S=4*3 12小时，C = 4小时
+    // timelock_Duration for DEPOSIT & WITHDRAW
+    // TIMELOCK_DURATION FOR S = 12 HOURS & C = 4 HOURS
     /* ========== PARAMETERS =============== */
     uint256 public withdrawLockupEpochs = 2;
     uint256 public rewardLockupEpochs = 2;

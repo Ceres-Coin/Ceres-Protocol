@@ -189,11 +189,11 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     }
 
     // =========== Director getters
-
+    // TEST CASES DONE
     function rewardPerShare() public view returns (uint256) {
         return getLatestSnapshot().rewardPerShare;
     }
-
+    // TEST CASES DONE
     function earned(address director) public view returns (uint256) {
         uint256 latestRPS = getLatestSnapshot().rewardPerShare;
         uint256 storedRPS = getLastSnapshotOf(director).rewardPerShare;

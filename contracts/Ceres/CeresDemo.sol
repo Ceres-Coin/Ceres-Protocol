@@ -790,7 +790,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     } 
 
     // Basic Test Cases Done
-    // TODO: [P2][LATER]: ADD TEST CASES
+    // [P2][LATER]: ADD TEST CASES
+    // TEST CASES DONE
     function transfer(address recipient, uint256 amount) public override returns (bool) {
         _transfer(_msgSender(), recipient, amount);
         return true;

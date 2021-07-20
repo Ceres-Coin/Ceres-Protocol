@@ -835,7 +835,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     function totalFees() public view returns (uint256) {
         return tFeeTotal;
     } 
-
+    // TODO: [P2][LATER]: ADD TEST CASES
     function deliver(uint256 tAmount) public {
         address sender = _msgSender();
         require(!_isExcluded[sender], "Excluded addresses cannot call this function");
@@ -845,9 +845,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         tFeeTotal = tFeeTotal.add(tAmount);
     }
 
-    // TO DO: add test scripts
-    // TO DO: add test scripts
-    // TO DO: add test scripts
+    // TODO: [P2][LATER]: ADD TEST CASES
     function reflectionFromToken(uint256 tAmount, bool deductTransferFee) public view returns(uint256) {
         require(tAmount <= _tTotal, "Amount must be less than supply");
         if (!deductTransferFee) {

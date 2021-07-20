@@ -245,6 +245,18 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance._isExcluded.call(account7))).to.equal((EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance._isExcludedFromFee.call(account1/2/3/4/5/6/7),its default value should ALL be FALSE && account0 = true', async() => {
+        const EXPECTED_VALUE = false;
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account0))).to.equal((true));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account1))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account2))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account3))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account4))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account5))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account6))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcludedFromFee.call(account7))).to.equal((EXPECTED_VALUE));
+    });
+
 
 
 });

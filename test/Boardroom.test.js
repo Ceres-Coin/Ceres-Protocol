@@ -141,6 +141,11 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.getCanClaimTime.call(TEST_ACCOUNT))).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check boardroomInstance.canWithdraw.call(TEST_ACCOUNT), its DEFAULT value is TRUE', async() => {
+        const EXPECTED_VALUE = true
+        expect((await boardroomInstance.canWithdraw.call(TEST_ACCOUNT))).to.equal((EXPECTED_VALUE));
+    });
+
 
 
 

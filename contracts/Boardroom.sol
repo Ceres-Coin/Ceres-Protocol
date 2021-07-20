@@ -179,9 +179,11 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
                     rewardLockupEpochs.mul(epochPeriod)
                 );
     }
+    // TEST CASES DONE
     function canWithdraw(address director) public view returns (bool) {
         return getCanWithdrawTime(director) <= getCurrentEpochTimestamp();
     }
+    // TEST CASES DONE
     function canClaimReward(address director) public view returns (bool) {
         return getCanClaimTime(director) <= getCurrentEpochTimestamp();
     }

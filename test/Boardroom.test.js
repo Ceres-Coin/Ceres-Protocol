@@ -146,6 +146,11 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await boardroomInstance.canWithdraw.call(TEST_ACCOUNT))).to.equal((EXPECTED_VALUE));
     });
 
+    it('check boardroomInstance.canClaimReward.call(TEST_ACCOUNT), its DEFAULT value is TRUE', async() => {
+        const EXPECTED_VALUE = true
+        expect((await boardroomInstance.canClaimReward.call(TEST_ACCOUNT))).to.equal((EXPECTED_VALUE));
+    });
+
 
 
 

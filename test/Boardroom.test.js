@@ -123,4 +123,11 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.latestSnapshotIndex.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check boardroomInstance.getCurrentEpochTimestamp.call(), its DEFAULT value is gt 0', async() => {
+        // console.log(chalk.blue(`getCurrentEpochTimestamp: ${await boardroomInstance.getCurrentEpochTimestamp.call()}`));
+        const EXPECTED_VALUE = new BigNumber("0")
+        expect(parseFloat(await boardroomInstance.getCurrentEpochTimestamp.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
+
 });

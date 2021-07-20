@@ -80,6 +80,9 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
-    
+    it('check boardroomInstance.rewardLockupEpochs, its DEFAULT value is 2', async () => {
+        const EXPECTED_VALUE = new BigNumber("2");
+        expect(parseFloat(await boardroomInstance.rewardLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
 
 });

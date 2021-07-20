@@ -17,6 +17,7 @@ const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_
 const ERC20 = artifacts.require("ERC20");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const ONE_DEC18 = new BigNumber("1e18");
+const TEN_DEC18 = new BigNumber("10e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
@@ -117,6 +118,27 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         // console.log(chalk.blue(`_tOwned.call(TEST_ACCOUNT) IN DEC18: ${new BigNumber(await ceresDemoInstance._tOwned.call(TEST_ACCOUNT)).div(BIG18)}`));
 
         
+    });
+
+    it ('check MAX & _rTotal', async() => {
+        console.log(chalk.blue(`${await ceresDemoInstance.MAX.call()}`));
+        console.log(chalk.blue(`${await ceresDemoInstance._rTotal.call()}`));
+    });
+
+    it ('check ceresDemoInstance.balanceOf(OWNER) BEFORE & AFTER', async() => {
+        const balanceOf_OWNER_BEFORE = new BigNumber(await ceresDemoInstance.balanceOf.call(OWNER)).div(BIG18);
+        console.log(chalk.blue(`balanceOf_OWNER_BEFORE: ${balanceOf_OWNER_BEFORE}`));
+
+        const balanceOf_CONTRACT_BEFORE = new BigNumber(await ceresDemoInstance.balanceOf.call(ceresDemoInstance.address)).div(BIG18);
+        console.log(chalk.blue(`balanceOf_CONTRACT_BEFORE: ${balanceOf_CONTRACT_BEFORE}`));
+
+        await ceresDemoInstance.transfer(TEST_ACCOUNT,TEN_DEC18,{from: SENDER});
+
+        const balanceOf_OWNER_AFTER = new BigNumber(await ceresDemoInstance.balanceOf.call(OWNER)).div(BIG18);
+        console.log(chalk.blue(`balanceOf_OWNER_AFTER: ${balanceOf_OWNER_AFTER}`));
+
+        const balanceOf_CONTRACT_AFTER = new BigNumber(await ceresDemoInstance.balanceOf.call(ceresDemoInstance.address)).div(BIG18);
+        console.log(chalk.blue(`balanceOf_CONTRACT_AFTER: ${balanceOf_CONTRACT_AFTER}`));
     });
 
     

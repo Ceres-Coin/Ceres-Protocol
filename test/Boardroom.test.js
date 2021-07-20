@@ -85,4 +85,9 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.rewardLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check boardroomInstance.epochAlignTimestamp, its DEFAULT value is 1608883200', async () => {
+        const EXPECTED_VALUE = new BigNumber("1608883200");
+        expect(parseFloat(await boardroomInstance.epochAlignTimestamp.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 });

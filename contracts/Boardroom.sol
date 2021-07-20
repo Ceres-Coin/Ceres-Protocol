@@ -63,10 +63,10 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     // timelock_Duration for DEPOSIT & WITHDRAW
     // TIMELOCK_DURATION FOR S = 12 HOURS & C = 4 HOURS
     /* ========== PARAMETERS =============== */
-    uint256 public withdrawLockupEpochs = 2;
-    uint256 public rewardLockupEpochs = 2;
-    uint256 public epochAlignTimestamp = 1608883200;
-    uint256 public epochPeriod = 300;
+    uint256 public withdrawLockupEpochs = 2; //TEST CASES DONE
+    uint256 public rewardLockupEpochs = 2; //TEST CASES DONE
+    uint256 public epochAlignTimestamp = 1608883200; //TEST CASES DONE
+    uint256 public epochPeriod = 300; //TEST CASES DONE
 
     /* ========== DATA STRUCTURES ========== */
 
@@ -84,14 +84,15 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
 
     /* ========== STATE VARIABLES ========== */
 
-    IERC20 public cash;
+    IERC20 public cash; //TEST CASES DONE
 
     mapping(address => Boardseat) private directors;
     BoardSnapshot[] private boardHistory;
 
     /* ========== whitelist for referral ======= */
-    address[] public referralList;
-    string[] public referralNameList;
+    // TODO: [IMPORTANT]: REMOVE REFERRAL FUNC LATER & ADD THEM TO LIBRARY
+    address[] public referralList; //TEST CASES DONE
+    string[] public referralNameList; //TEST CASES DONE
     mapping(address => uint256) public referralAmount;
     uint256 public totalReferralAmount;
 

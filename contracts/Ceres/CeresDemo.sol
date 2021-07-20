@@ -687,8 +687,8 @@ contract CeresDemo is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
-    mapping (address => uint256) public _rOwned;
-    mapping (address => uint256) public _tOwned;
+    mapping (address => uint256) public _rOwned; //TODO: ADD TEST SCRIPTS
+    mapping (address => uint256) public _tOwned; //TODO: ADD TEST SCRIPTS
     mapping (address => mapping (address => uint256)) public _allowances;
 
     mapping (address => bool) public _isExcludedFromFee; //TEST CASES DONE
@@ -706,10 +706,10 @@ contract CeresDemo is Context, IERC20, Ownable {
     uint8 private _decimals = 18; //TEST CASE DONE
     
     uint256 public taxFee = 2;  //TEST CASE DONE
-    uint256 private _previousTaxFee = taxFee;
+    uint256 private _previousTaxFee = taxFee; // NO NEED TO TEST PRIVATE
     
     uint256 public liquidityFee = 3; //TEST CASES DONE
-    uint256 private _previousLiquidityFee = liquidityFee;
+    uint256 private _previousLiquidityFee = liquidityFee; // NO NEED TO TEST PRIVATE
 
     IUniswapV2Router02 public immutable uniswapV2Router; //TEST CASES DONE
     address public immutable uniswapV2Pair; //TEST CASES DONE
@@ -718,7 +718,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     bool public swapAndLiquifyEnabled = true; //TEST CASES DONE
     
     uint256 public maxTxAmount = 5000000 * 10**6 * 10**18; //TEST CASES DONE
-    uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**18;
+    uint256 private numTokensSellToAddToLiquidity = 500000 * 10**6 * 10**18; // NO NEED TO TEST PRIVATE
     
     event MinTokensBeforeSwapUpdated(uint256 minTokensBeforeSwap);
     event SwapAndLiquifyEnabledUpdated(bool enabled);

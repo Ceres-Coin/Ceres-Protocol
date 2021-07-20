@@ -132,7 +132,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     /* ========== VIEW FUNCTIONS ========== */
 
     // =========== Snapshot getters
-
+    // TEST CASES DONE
     function latestSnapshotIndex() public view returns (uint256) {
         return boardHistory.length.sub(1);
     }

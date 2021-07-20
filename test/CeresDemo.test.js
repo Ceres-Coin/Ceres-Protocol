@@ -257,6 +257,20 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance._isExcludedFromFee.call(account7))).to.equal((EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance.excludeFromReward.call(TEST_ACCOUNT)', async() => {
+        // BEFORE
+        const DEFAULT_VALUE = false;
+        const NEW_VALUE = true;
+        expect((await ceresDemoInstance._isExcluded.call(TEST_ACCOUNT))).to.equal((DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await ceresDemoInstance.excludeFromReward(TEST_ACCOUNT,{from: OWNER});
+        expect((await ceresDemoInstance._isExcluded.call(TEST_ACCOUNT))).to.equal((NEW_VALUE));
+
+        // ROLLBACK CODE
+        await ceresDemoInstance.includeInReward(TEST_ACCOUNT,{from: OWNER});
+        expect((await ceresDemoInstance._isExcluded.call(TEST_ACCOUNT))).to.equal((DEFAULT_VALUE));
+    });
+
 
 
 });

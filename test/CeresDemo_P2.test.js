@@ -97,7 +97,8 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         console.log(chalk.yellow(`ceresDemoInstance.balanceOf(TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
         // ASSERTION
         expect(parseFloat(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT))).to.lt(parseFloat(ONE_DEC18));
-
+        expect(parseFloat(await ceresDemoInstance.totalFees.call())).to.gt(parseFloat(0));
+        console.log(chalk.blue(`totalFees IN DEC18: ${new BigNumber(await ceresDemoInstance.totalFees.call()).div(BIG18)}`));
     });
 
     

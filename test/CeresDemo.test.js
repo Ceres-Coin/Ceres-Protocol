@@ -314,6 +314,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance.swapAndLiquifyEnabled.call())).to.equal((DEFAULT_VALUE));
     });
 
-
+    it('check ceresDemoInstance.getRate.call(), its DEFAULT value is gt(0)', async () => {
+        // console.log(chalk.blue(await ceresDemoInstance.getRate.call()));
+        const EXPECTED_VALUE = new BigNumber(0);
+        expect(parseFloat(await ceresDemoInstance.getRate.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
 
 });

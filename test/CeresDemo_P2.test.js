@@ -76,11 +76,15 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
 
     it('check ceresDemoInstance.transfer(TEST_ACCOUNT,ONE_HUNDRED_DEC18,{from: SENDER})', async () => {
         // BEFORE
-        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(OWNER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(OWNER)).div(BIG18)}`));
-        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(SENDER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(SENDER)).div(BIG18)}`));
-        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        // console.log(chalk.yellow(`ceresDemoInstance.balanceOf(OWNER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(OWNER)).div(BIG18)}`));
+        // console.log(chalk.yellow(`ceresDemoInstance.balanceOf(SENDER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(SENDER)).div(BIG18)}`));
+        // console.log(chalk.yellow(`ceresDemoInstance.balanceOf(TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
         expect(parseFloat(await ceresDemoInstance.balanceOf.call(SENDER))).to.equal(parseFloat(0));
         expect(parseFloat(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(0));
+
+        console.log(chalk.blue(`BEFORE _rOwned.call(SENDER) IN DEC18: ${new BigNumber(await ceresDemoInstance._rOwned.call(SENDER)).div(BIG18)}`));
+        console.log(chalk.blue(`BEFORE _rOwned.call(TEST_ACCOUNT) IN DEC18: ${new BigNumber(await ceresDemoInstance._rOwned.call(TEST_ACCOUNT)).div(BIG18)}`));
+
 
         // PREPARE
         await ceresDemoInstance.transfer(SENDER,ONE_HUNDRED_DEC18,{from: OWNER});
@@ -99,6 +103,20 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT))).to.lt(parseFloat(ONE_DEC18));
         expect(parseFloat(await ceresDemoInstance.totalFees.call())).to.gt(parseFloat(0));
         console.log(chalk.blue(`totalFees IN DEC18: ${new BigNumber(await ceresDemoInstance.totalFees.call()).div(BIG18)}`));
+
+        // PRINT _rOwned(SENDER & TEST_ACCOUNT) 
+        console.log(chalk.blue(`AFTER _rOwned.call(SENDER) IN DEC18: ${new BigNumber(await ceresDemoInstance._rOwned.call(SENDER)).div(BIG18)}`));
+        console.log(chalk.blue(`AFTER _rOwned.call(TEST_ACCOUNT) IN DEC18: ${new BigNumber(await ceresDemoInstance._rOwned.call(TEST_ACCOUNT)).div(BIG18)}`));
+
+        const rOwned_SENDER = new BigNumber(await ceresDemoInstance._rOwned.call(SENDER));
+        const rOwned_TEST_ACCOUNT = new BigNumber(await ceresDemoInstance._rOwned.call(TEST_ACCOUNT));
+        console.log(chalk.blue(`AFTER tokenFromReflection.call(rOwned_SENDER): ${new BigNumber(await ceresDemoInstance.tokenFromReflection.call(rOwned_SENDER)).div(BIG18)}`));
+        console.log(chalk.blue(`AFTER tokenFromReflection.call(rOwned_TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.tokenFromReflection.call(rOwned_TEST_ACCOUNT)).div(BIG18)}`));
+        // PRINT _tOwned(SENDER & TEST_ACCOUNT) 
+        // console.log(chalk.blue(`_tOwned.call(SENDER) IN DEC18: ${new BigNumber(await ceresDemoInstance._tOwned.call(SENDER)).div(BIG18)}`));
+        // console.log(chalk.blue(`_tOwned.call(TEST_ACCOUNT) IN DEC18: ${new BigNumber(await ceresDemoInstance._tOwned.call(TEST_ACCOUNT)).div(BIG18)}`));
+
+        
     });
 
     

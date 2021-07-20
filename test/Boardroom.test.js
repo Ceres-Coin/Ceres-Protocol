@@ -129,5 +129,13 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.getCurrentEpochTimestamp.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check boardroomInstance.getCanWithdrawTime.call(TEST_ACCOUNT), its DEFAULT value is gt 0', async() => {
+        console.log(chalk.blue(`getCanWithdrawTime: ${await boardroomInstance.getCanWithdrawTime.call(TEST_ACCOUNT)}`));
+        const EXPECTED_VALUE = new BigNumber("0")
+        expect(parseFloat(await boardroomInstance.getCanWithdrawTime.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
+
+
 
 });

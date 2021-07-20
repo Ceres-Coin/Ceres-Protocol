@@ -157,6 +157,12 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.rewardPerShare.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check boardroomInstance.earned.call(TEST_ACCOUNT), its DEFAULT value is equal 0', async() => {
+        // console.log(chalk.blue(`boardroomInstance.earned: ${await boardroomInstance.earned.call(TEST_ACCOUNT)}`));
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await boardroomInstance.earned.call(TEST_ACCOUNT))).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
 

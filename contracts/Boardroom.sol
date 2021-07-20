@@ -52,7 +52,7 @@ contract ShareWrapper2 {
     }
 }
 
-contract Boardroom2 is ShareWrapper2, ContractGuard, IReferral {
+contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;

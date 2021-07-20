@@ -920,7 +920,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     } 
    
     //
-    function setMaxTxPercent(uint256 _maxTxPercent) external onlyOwner() {
+    function setMaxTxAmount(uint256 _maxTxPercent) external onlyOwner() {
         maxTxAmount = _tTotal.mul(_maxTxPercent).div(
             10**2
         );

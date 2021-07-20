@@ -107,6 +107,14 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(await boardroomInstance.referralNameList.call(0)).to.equal(EXPECTED_NAME);
     });
 
-    
+    it('check boardroomInstance.cash.call(), its DEFAULT value is equal to ceresInstance.address', async() => {
+        const EXPECTED_VALUE = await ceresInstance.address;
+        expect(await boardroomInstance.cash.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check boardroomInstance.share.call(), its DEFAULT value is equal to pair_addr_CERES_WETH', async() => {
+        const EXPECTED_VALUE = pair_addr_CERES_WETH;
+        expect(await boardroomInstance.share.call()).to.equal(EXPECTED_VALUE);
+    })
 
 });

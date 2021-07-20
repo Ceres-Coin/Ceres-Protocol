@@ -919,7 +919,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         liquidityFee = _liquidityFee;
     } 
    
-    //
+    //TEST CASES DONE
     function setMaxTxAmount(uint256 _maxTxPercent) external onlyOwner() {
         maxTxAmount = _tTotal.mul(_maxTxPercent).div(
             10**4

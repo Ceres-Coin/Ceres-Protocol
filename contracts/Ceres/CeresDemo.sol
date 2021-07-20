@@ -960,7 +960,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         uint256 rTransferAmount = rAmount.sub(rFee).sub(rLiquidity);
         return (rAmount, rTransferAmount, rFee);
     }
-
+    // TEST CASES DONE
     function getRate() public view returns(uint256) {
         (uint256 rSupply, uint256 tSupply) = _getCurrentSupply();
         return rSupply.div(tSupply);

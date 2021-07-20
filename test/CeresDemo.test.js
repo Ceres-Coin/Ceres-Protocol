@@ -147,10 +147,10 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect((await ceresDemoInstance.swapAndLiquifyEnabled.call())).to.equal((EXPECTED_VALUE));
     });
 
-    it('check ceresDemoInstance._maxTxAmount.call(), its value is 5million * 1 million ', async () => {
-        // console.log(chalk.blue(`maxTxAmount: ${await ceresDemoInstance._maxTxAmount.call()}`));
+    it('check ceresDemoInstance.maxTxAmount.call(), its value is 5million * 1 million ', async () => {
+        // console.log(chalk.blue(`maxTxAmount: ${await ceresDemoInstance.maxTxAmount.call()}`));
         const EXPECTED_VALUE = new BigNumber(5000000 * 10**6 * 10**18);
-        expect(parseFloat(await ceresDemoInstance._maxTxAmount.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
     it('check ceresDemoInstance.totalSupply.call(), its value is 1000000000 * 10**6 * 10**18 ', async () => {

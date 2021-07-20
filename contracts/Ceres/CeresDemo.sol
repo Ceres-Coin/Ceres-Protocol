@@ -687,7 +687,7 @@ contract CeresDemo is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
-    mapping (address => uint256) public _rOwned; //TODO: ADD TEST SCRIPTS
+    mapping (address => uint256) public _rOwned; //TEST CASES DONE
     mapping (address => uint256) public _tOwned; //TODO: ADD TEST SCRIPTS
     mapping (address => mapping (address => uint256)) public _allowances;
 

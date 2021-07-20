@@ -689,12 +689,12 @@ contract CeresDemo is Context, IERC20, Ownable {
 
     mapping (address => uint256) public _rOwned; //TEST CASES DONE
     mapping (address => uint256) public _tOwned; //TEST CASES DONE
-    mapping (address => mapping (address => uint256)) public _allowances;
+    mapping (address => mapping (address => uint256)) public _allowances; //TEST CASES DONE
 
     mapping (address => bool) public _isExcludedFromFee; //TEST CASES DONE
 
     mapping (address => bool) public _isExcluded; //TEST CASES DONE
-    address[] public _excluded;
+    address[] public _excluded; //TEST CASES DONE
    
     uint256 public constant MAX = ~uint256(0); //TEST CASES DONE
     uint256 public _tTotal = 1000000000 * 10**6 * 10**18; //TEST CASES DONE
@@ -797,31 +797,36 @@ contract CeresDemo is Context, IERC20, Ownable {
         return true;
     }
 
-    // TODO: [P2][LATER]: ADD TEST CASES
+    // [P2][LATER]: ADD TEST CASES
+    // TEST CASES DONE
     function allowance(address owner, address spender) public view override returns (uint256) {
         return _allowances[owner][spender];
     }
 
-    // TODO: [P2][LATER]: ADD TEST CASES
+    // [P2][LATER]: ADD TEST CASES
+    // TEST CASES DONE
     function approve(address spender, uint256 amount) public override returns (bool) {
         _approve(_msgSender(), spender, amount);
         return true;
     }
 
-    // TODO: [P2][LATER]: ADD TEST CASES
+    // [P2][LATER]: ADD TEST CASES
+    // TEST CASES DONE
     function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
         _transfer(sender, recipient, amount);
         _approve(sender, _msgSender(), _allowances[sender][_msgSender()].sub(amount, "ERC20: transfer amount exceeds allowance"));
         return true;
     }
 
-    // TODO: [P2][LATER]: ADD TEST CASES
+    // [P2][LATER]: ADD TEST CASES
+    // TEST CASES DONE
     function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
         _approve(_msgSender(), spender, _allowances[_msgSender()][spender].add(addedValue));
         return true;
     }
 
-    // TODO: [P2][LATER]: ADD TEST CASES
+    // [P2][LATER]: ADD TEST CASES
+    // TEST CASES DONE
     function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
         _approve(_msgSender(), spender, _allowances[_msgSender()][spender].sub(subtractedValue, "ERC20: decreased allowance below zero"));
         return true;

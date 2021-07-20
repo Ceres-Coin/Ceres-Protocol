@@ -284,7 +284,8 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         await ceresDemoInstance.includeInFee(TEST_ACCOUNT,{from: OWNER});
         expect((await ceresDemoInstance._isExcludedFromFee.call(TEST_ACCOUNT))).to.equal((DEFAULT_VALUE));
     });
-
+    // 80 = 0.8% totalSupply
+    // default value = 0.5% totalSupply
     it('check ceresDemoInstance.setMaxTxAmount(80)', async() => {
         // BEFORE
         const DEFAULT_VALUE = new BigNumber(5000000 * 10**6 * 10**18);
@@ -295,8 +296,22 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(NEW_VALUE));
 
         // ROLLBACK CODE
-        // await ceresDemoInstance.setMaxTxAmount(50,{from: OWNER});
-        // expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        await ceresDemoInstance.setMaxTxAmount(50,{from: OWNER});
+        expect(parseFloat(await ceresDemoInstance.maxTxAmount.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
+    it('check ceresDemoInstance.setSwapAndLiquifyEnabled(false)', async() => {
+        // BEFORE
+        const DEFAULT_VALUE = true;
+        const NEW_VALUE = false;
+        expect((await ceresDemoInstance.swapAndLiquifyEnabled.call())).to.equal((DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await ceresDemoInstance.setSwapAndLiquifyEnabled(NEW_VALUE,{from: OWNER});
+        expect((await ceresDemoInstance.swapAndLiquifyEnabled.call())).to.equal((NEW_VALUE));
+
+        // ROLLBACK CODE
+        await ceresDemoInstance.setSwapAndLiquifyEnabled(DEFAULT_VALUE,{from: OWNER});
+        expect((await ceresDemoInstance.swapAndLiquifyEnabled.call())).to.equal((DEFAULT_VALUE));
     });
 
 

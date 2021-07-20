@@ -857,18 +857,14 @@ contract CeresDemo is Context, IERC20, Ownable {
         }
     }
 
-    // TO DO: add test scripts
-    // TO DO: add test scripts
-    // TO DO: add test scripts
+    // TEST CASES DONE
     function tokenFromReflection(uint256 rAmount) public view returns(uint256) {
         require(rAmount <= _rTotal, "Amount must be less than total reflections");
         uint256 currentRate =  _getRate();
         return rAmount.div(currentRate);
     }
 
-    // TO DO: add test scripts
-    // TO DO: add test scripts
-    // TO DO: add test scripts
+    // TEST CASES DONE
     function excludeFromReward(address account) public onlyOwner() {
         // require(account != 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D, 'We can not exclude Uniswap router.');
         require(!_isExcluded[account], "Account is already excluded");
@@ -879,9 +875,7 @@ contract CeresDemo is Context, IERC20, Ownable {
         _excluded.push(account);
     }
 
-    // TO DO: add test scripts
-    // TO DO: add test scripts
-    // TO DO: add test scripts
+    // TEST CASES DONE
     function includeInReward(address account) external onlyOwner() {
         require(_isExcluded[account], "Account is already excluded");
         for (uint256 i = 0; i < _excluded.length; i++) {

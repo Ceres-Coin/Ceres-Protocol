@@ -5,6 +5,7 @@ const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
+const Boardroom = artifacts.require('Boardroom');
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
@@ -198,4 +199,8 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(CeresDemo,routerInstance.address,{from: OWNER}); //deploy PigToken
 	const ceresDemoInstance = await CeresDemo.deployed();
 	console.log(chalk.red.bold(`ceresDemoInstance.address: ${await ceresDemoInstance.address}`));
+
+	await deployer.deploy(Boardroom, ceresInstance.address, pair_instance_CERES_WETH.address);
+	const boardroomInstance = await Boardroom.deployed();
+	console.log(chalk.red.bold(`boardroomInstance.address: ${await boardroomInstance.address}`));
 };

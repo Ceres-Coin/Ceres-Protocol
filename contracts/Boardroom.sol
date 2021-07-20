@@ -136,11 +136,11 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     function latestSnapshotIndex() public view returns (uint256) {
         return boardHistory.length.sub(1);
     }
-
+    // TODO: ADD TEST CASES LATER
     function getLatestSnapshot() internal view returns (BoardSnapshot memory) {
         return boardHistory[latestSnapshotIndex()];
     }
-
+    // TODO: ADD TEST CASES LATER
     function getLastSnapshotIndexOf(address director)
         public
         view
@@ -148,7 +148,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     {
         return directors[director].lastSnapshotIndex;
     }
-
+    // TODO: ADD TEST CASES LATER
     function getLastSnapshotOf(address director)
         internal
         view

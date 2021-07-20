@@ -233,6 +233,18 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance.totalFees.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresDemoInstance._isExcluded.call(account0/1/2/3/4/5/6/7),its default value should ALL be FALSE', async() => {
+        const EXPECTED_VALUE = false;
+        expect((await ceresDemoInstance._isExcluded.call(account0))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account1))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account2))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account3))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account4))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account5))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account6))).to.equal((EXPECTED_VALUE));
+        expect((await ceresDemoInstance._isExcluded.call(account7))).to.equal((EXPECTED_VALUE));
+    });
+
 
 
 });

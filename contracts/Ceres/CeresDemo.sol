@@ -900,11 +900,11 @@ contract CeresDemo is Context, IERC20, Ownable {
         emit Transfer(sender, recipient, tTransferAmount);
     }
     
-    
+    // TEST CASES DONE
     function excludeFromFee(address account) public {
         _isExcludedFromFee[account] = true;
     } 
-    
+    // TEST CASES DONE
     function includeInFee(address account) public {
         _isExcludedFromFee[account] = false;
     }

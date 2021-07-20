@@ -332,4 +332,15 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await ceresDemoInstance._rOwned.call(account7))).to.equal(parseFloat(0));
     });
 
+    it('check ceresDemoInstance._tOwned.call(account0/1/2/3/4/5/6/7),its default value should be ALL ZERO', async() => {
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account0))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account1))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account2))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account3))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account4))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account5))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account6))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance._tOwned.call(account7))).to.equal(parseFloat(0));
+    });
+
 });

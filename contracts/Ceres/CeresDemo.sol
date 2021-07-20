@@ -826,12 +826,12 @@ contract CeresDemo is Context, IERC20, Ownable {
         return true;
     }
 
-    //
+    // TEST CASES DONE
     function isExcludedFromReward(address account) public view returns (bool) {
         return _isExcluded[account];
     } 
 
-    //
+    // TEST CASES DONE
     function totalFees() public view returns (uint256) {
         return tFeeTotal;
     } 

@@ -38,6 +38,8 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     const OWNER = account0;
 	const ADMIN = account1;
     const TEST_ACCOUNT = account7;
+    const SENDER = account6;
+
 
     let cssInstance;
     let ceresInstance;
@@ -70,6 +72,32 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     it('check ceresDemoInstance.address, its value is not be empty', async () => {
         console.log(chalk.blue(`ceresDemoInstance: ${await ceresDemoInstance.address}`));
         expect(ceresDemoInstance.address).to.not.be.empty;
+    });
+
+    it('check ceresDemoInstance.transfer(TEST_ACCOUNT,ONE_HUNDRED_DEC18,{from: SENDER})', async () => {
+        // BEFORE
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(OWNER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(OWNER)).div(BIG18)}`));
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(SENDER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(SENDER)).div(BIG18)}`));
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(SENDER))).to.equal(parseFloat(0));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(0));
+
+        // PREPARE
+        await ceresDemoInstance.transfer(SENDER,ONE_HUNDRED_DEC18,{from: OWNER});
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(SENDER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(SENDER)).div(BIG18)}`));
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(SENDER))).to.equal(parseFloat(ONE_HUNDRED_DEC18));
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(0));
+
+        // ACTION
+        await ceresDemoInstance.transfer(TEST_ACCOUNT,ONE_DEC18,{from: SENDER});
+        console.log(chalk.red(`=============================== SEPERATOR AFTER ============================`));
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(SENDER): ${new BigNumber(await ceresDemoInstance.balanceOf.call(SENDER)).div(BIG18)}`));
+        console.log(chalk.yellow(`ceresDemoInstance.balanceOf(TEST_ACCOUNT): ${new BigNumber(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        // ASSERTION
+        expect(parseFloat(await ceresDemoInstance.balanceOf.call(TEST_ACCOUNT))).to.lt(parseFloat(ONE_DEC18));
+
     });
 
     

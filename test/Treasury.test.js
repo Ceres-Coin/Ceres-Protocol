@@ -30,7 +30,7 @@ const BIG18 = new BigNumber("1e18");
 const Treasury = artifacts.require('Treasury');
 const SimpleFund = artifacts.require('SimpleERCFund');
 
-contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
+contract('contracts/Treasury.sol', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -83,14 +83,21 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     });
 
     it('check simpleFundInstance.address, its value is not be empty', async () => {
-        console.log(chalk.blue(`simpleFundInstance: ${await simpleFundInstance.address}`));
+        // console.log(chalk.blue(`simpleFundInstance: ${await simpleFundInstance.address}`));
         expect(simpleFundInstance.address).to.not.be.empty;
     });
 
     it('check treasuryInstance.address, its value is not be empty', async () => {
-        console.log(chalk.blue(`treasuryInstance: ${await treasuryInstance.address}`));
+        // console.log(chalk.blue(`treasuryInstance: ${await treasuryInstance.address}`));
         expect(treasuryInstance.address).to.not.be.empty;
     });
+
+    it('check treasuryInstance.migrated.call(), its DEFAULT value is false', async () => {
+        const EXPECTED_VALUE = false;
+        expect(await treasuryInstance.migrated.call()).to.equal(EXPECTED_VALUE);
+    });
+
+
 
     
 

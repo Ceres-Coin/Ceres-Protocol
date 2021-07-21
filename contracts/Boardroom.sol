@@ -205,6 +205,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     }
 
     /* ========== GOVERNANCE ================== */
+    // TEST CASES DONE
     function setLockUp(
         uint256 _withdrawLockupEpochs,
         uint256 _rewardLockupEpochs,

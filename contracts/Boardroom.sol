@@ -6,6 +6,7 @@ import './ERC20/IERC20.sol';
 import './ERC20/SafeERC20.sol';
 
 import './Math/Safe112.sol';
+// TODO: [IMPORTANT] ADD ADMIN & OPERATOR.SOL
 // import './owner/Operator.sol';
 // import './owner/Admin.sol';
 import './Utils/ContractGuard.sol';
@@ -136,11 +137,11 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     function latestSnapshotIndex() public view returns (uint256) {
         return boardHistory.length.sub(1);
     }
-    // TODO: ADD TEST CASES LATER
+    // TEST CASES DONE
     function getLatestSnapshot() internal view returns (BoardSnapshot memory) {
         return boardHistory[latestSnapshotIndex()];
     }
-    // TODO: ADD TEST CASES LATER
+    // TEST CASES DONE
     function getLastSnapshotIndexOf(address director)
         public
         view
@@ -148,7 +149,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     {
         return directors[director].lastSnapshotIndex;
     }
-    // TODO: ADD TEST CASES LATER
+    // TEST CASES DONE
     function getLastSnapshotOf(address director)
         internal
         view
@@ -276,7 +277,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
         withdraw(balanceOf(msg.sender));
         claimReward();
     }
-
+    // TEST CASES DONE
     function claimReward() public updateReward(msg.sender) {
         uint256 reward = directors[msg.sender].rewardEarned;
         if (reward > 0) {
@@ -287,7 +288,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
             emit RewardPaid(msg.sender, reward);
         }
     }
-
+    // TEST CASES DONE
     function allocateSeigniorage(uint256 amount)
         external
         onlyOneBlock
@@ -314,13 +315,13 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     }
 
     /* =============== REFERRAL ================= */
-
+    // NO NEED TO ADD TEST SCRIPTS
     function addReferral(address _referral,string memory _name) external {
         referralList.push(_referral);
         referralNameList.push(_name);
         referralAmount[_referral] = 0;
     }
-
+    // NO NEED TO ADD TEST SCRIPTS
     function _addAmountToReferral(uint256 _amount, address _referral) internal {
         if (_referral != address(0)) {
             uint isFound = 0;
@@ -335,19 +336,19 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
             totalReferralAmount = totalReferralAmount.add(_amount);
         }
     }
-
+    // NO NEED TO ADD TEST SCRIPTS
     function getReferralList() external view override returns (address[] memory) {
         return referralList;
     }
-
+    // NO NEED TO ADD TEST SCRIPTS
     function getReferralNameList() external view override returns (string[] memory) {
         return referralNameList;
     }
-
+    // NO NEED TO ADD TEST SCRIPTS
     function getReferralAmount(address _referral) external view override returns (uint256) {
         return referralAmount[_referral];
     }
-
+    // NO NEED TO ADD TEST SCRIPTS
     function getTotalReferralAmount() external view override returns (uint256) {
         return totalReferralAmount;
     }

@@ -19,6 +19,7 @@ const ERC20 = artifacts.require("ERC20");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
+const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
@@ -220,6 +221,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
 
         // STAKE ACTION
         await boardroomInstance.stake(POINT_THREE_DEC18,{from: TEST_ACCOUNT});
+        await boardroomInstance.stake(new BigNumber("0.2e18"),{from: OWNER});
 
         // ASSERTION
         console.log(chalk.blue(`balanceOf(OWNER) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
@@ -232,11 +234,26 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         await time.advanceBlock();
         await boardroomInstance.withdraw(POINT_ONE_DEC18,{from: TEST_ACCOUNT});
 
-        // ASSERTION
+        // PRINT
         console.log(chalk.blue(`balanceOf(OWNER) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
         console.log(chalk.blue(`balanceOf(TEST_ACCOUNT) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
         // ASSERTION: balanceOf(TEST_ACCOUNT) AFTER = 0.8E18 (0.7+0.1 = 0.8)
         expect(parseFloat(new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)))).to.equal(parseFloat(new BigNumber("0.8e18")));
+
+        await boardroomInstance.allocateSeigniorage(EIGHT_HUNDRED_DEC18,{from:OWNER});
+        // CLAIM REWARD ACTION
+        console.log(chalk.red(`=============================== SEPERATOR CLAIM REWARD ============================`));
+        console.log(chalk.blue(`s_balanceOf(TEST_ACCOUNT) BEFORE: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        console.log(chalk.blue(`c_balanceOf(TEST_ACCOUNT) BEFORE: ${new BigNumber(await ceresInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+
+        
+        await time.increase(86400 + 1);
+        await time.advanceBlock();
+        await boardroomInstance.claimReward({from: TEST_ACCOUNT});
+        // PRINT
+        console.log(chalk.blue(`s_balanceOf(TEST_ACCOUNT) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        console.log(chalk.blue(`c_balanceOf(TEST_ACCOUNT) AFTER: ${new BigNumber(await ceresInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        expect(parseFloat(new BigNumber(await ceresInstance.balanceOf.call(TEST_ACCOUNT)).div(BIG18))).to.equal(400);
 
     });
 

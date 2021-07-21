@@ -9,6 +9,8 @@ const Boardroom = artifacts.require('Boardroom');
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
+const Treasury = artifacts.require('Treasury');
+const SimpleFund = artifacts.require('SimpleERCFund');
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
@@ -211,23 +213,30 @@ module.exports = async function(deployer,network,accounts) {
 	await ceresInstance.approve(boardroomInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	await ceresInstance.approve(boardroomInstance.address,TWO_MILLION_DEC18,{from: TEST_ACCOUNT});
 
-	// DEPLOY TREASURY
-	const SimpleFund = artifacts.require('SimpleERCFund');
+	// DEPLOY SimpleERCFund
 	await deployer.deploy(SimpleFund,{from: OWNER});
 	const simplefundInstance = await SimpleFund.deployed();
 	console.log(chalk.red.bold(`simplefundInstance: ${simplefundInstance.address}`));
-	// await deployer.deploy(
-	//   Treasury,
-	//   cash.address,
-	//   Bond.address,
-	//   Share.address,
-	//   Oracle.address,
-	//   Oracle.address,
-	//   Boardroom.address,
-	//   Boardroom2.address,
-	//   // c_lp_Boardroom.address,
-	//   // s_lp_Boardroom.address,
-	//   SimpleFund.address,
-	//   startTime,
-	// );
+	
+	// SET STARTTIME
+	const startTime = Date.parse('2021-03-22T04:00:00Z') / 1000;
+	console.log(chalk.red.bold(`startTime: ${startTime}`));
+
+	// DEPLOY TREASURY
+	await deployer.deploy(
+	  Treasury,
+	  ceresInstance.address,
+	  ceresInstance.address,
+	  pair_instance_CERES_WETH.address,
+	  oracle_instance_CERES_WETH.address,
+	  oracle_instance_CERES_WETH.address,
+	  boardroomInstance.address,
+	  boardroomInstance.address,
+	  // c_lp_Boardroom.address,
+	  // s_lp_Boardroom.address,
+	  simplefundInstance.address,
+	  startTime,
+	);
+	const treasuryInstance = await Treasury.deployed();
+	console.log(chalk.red.bold(`treasuryInstance: ${treasuryInstance.address}`));
 };

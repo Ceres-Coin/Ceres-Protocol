@@ -232,7 +232,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
 
 
     /* ========== MUTATIVE FUNCTIONS ========== */
-
+    // TEST CASES DONE
     function stake(uint256 amount)
         public
         override
@@ -257,7 +257,7 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     //     _addAmountToReferral(amount, referral);
     //     emit Staked(msg.sender, amount);
     // }
-
+    // TEST CASES DONE
     function withdraw(uint256 amount)
         public
         override

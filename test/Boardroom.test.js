@@ -163,6 +163,45 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.earned.call(TEST_ACCOUNT))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    // PUBLIC FUNC TEST SCRIPTS
+    it('check boardroomInstance.setLockUp()', async() => {
+        // BEFORE
+        // console.log(chalk.yellow(`withdrawLockupEpochs: ${await boardroomInstance.withdrawLockupEpochs.call()}`));
+        // console.log(chalk.yellow(`rewardLockupEpochs: ${await boardroomInstance.rewardLockupEpochs.call()}`));
+        // console.log(chalk.yellow(`epochAlignTimestamp: ${await boardroomInstance.epochAlignTimestamp.call()}`));
+        // console.log(chalk.yellow(`epochPeriod: ${await boardroomInstance.epochPeriod.call()}`));
+        
+        const DEFAULT_VALUE_withdrawLockupEpochs = new BigNumber("2");
+        const DEFAULT_VALUE_rewardLockupEpochs = new BigNumber("2");
+        const DEFAULT_VALUE_epochAlignTimestamp = new BigNumber("1608883200");
+        const DEFAULT_VALUE_epochPeriod = new BigNumber("300");
+
+        expect(parseFloat(await boardroomInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_withdrawLockupEpochs));
+        expect(parseFloat(await boardroomInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_rewardLockupEpochs));
+        expect(parseFloat(await boardroomInstance.epochAlignTimestamp.call())).to.equal(parseFloat(DEFAULT_VALUE_epochAlignTimestamp));
+        expect(parseFloat(await boardroomInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE_epochPeriod));
+
+        // ACTION 
+        const NEW_VALUE_withdrawLockupEpochs = new BigNumber("4");
+        const NEW_VALUE_rewardLockupEpochs = new BigNumber("4");
+        const NEW_VALUE_epochAlignTimestamp = new BigNumber("1618883200");
+        const NEW_VALUE_epochPeriod = new BigNumber("600");
+        await boardroomInstance.setLockUp(NEW_VALUE_withdrawLockupEpochs,NEW_VALUE_rewardLockupEpochs,NEW_VALUE_epochAlignTimestamp,NEW_VALUE_epochPeriod,{from: OWNER});
+
+        // ASSERTION
+        expect(parseFloat(await boardroomInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(NEW_VALUE_withdrawLockupEpochs));
+        expect(parseFloat(await boardroomInstance.rewardLockupEpochs.call())).to.equal(parseFloat(NEW_VALUE_rewardLockupEpochs));
+        expect(parseFloat(await boardroomInstance.epochAlignTimestamp.call())).to.equal(parseFloat(NEW_VALUE_epochAlignTimestamp));
+        expect(parseFloat(await boardroomInstance.epochPeriod.call())).to.equal(parseFloat(NEW_VALUE_epochPeriod));
+
+        // ROLLBACK CODE
+        await boardroomInstance.setLockUp(DEFAULT_VALUE_withdrawLockupEpochs,DEFAULT_VALUE_rewardLockupEpochs,DEFAULT_VALUE_epochAlignTimestamp,DEFAULT_VALUE_epochPeriod,{from: OWNER});
+        expect(parseFloat(await boardroomInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_withdrawLockupEpochs));
+        expect(parseFloat(await boardroomInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_rewardLockupEpochs));
+        expect(parseFloat(await boardroomInstance.epochAlignTimestamp.call())).to.equal(parseFloat(DEFAULT_VALUE_epochAlignTimestamp));
+        expect(parseFloat(await boardroomInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE_epochPeriod));
+    });
+
 
 
 

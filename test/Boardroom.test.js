@@ -207,7 +207,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     });
 
     // TEST SCRIPTS FOR PUBLIC FUNC()
-    it('check boardroomInstance.stake()', async() => {
+    it('check boardroomInstance.stake() & withdraw()', async() => {
         // const balanceOf_OWNER = new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18);
         // const balanceOf_TEST_ACCOUNT = new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18);
         

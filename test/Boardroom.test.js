@@ -218,7 +218,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         console.log(chalk.yellow(`balanceOf(OWNER) BEFORE: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
         console.log(chalk.yellow(`balanceOf(TEST_ACCOUNT) BEFORE: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
 
-        // ACTION
+        // STAKE ACTION
         await boardroomInstance.stake(POINT_THREE_DEC18,{from: TEST_ACCOUNT});
 
         // ASSERTION
@@ -226,6 +226,17 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         console.log(chalk.blue(`balanceOf(TEST_ACCOUNT) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
         // ASSERTION: balanceOf(TEST_ACCOUNT) AFTER = 0.7E18 (1DEC18 - 0.3E18(STAKED) = 0.7E18)
         expect(parseFloat(new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)))).to.equal(parseFloat(new BigNumber("0.7e18")));
+
+        // WITHDRAW ACTION
+        await time.increase(86400 + 1);
+        await time.advanceBlock();
+        await boardroomInstance.withdraw(POINT_ONE_DEC18,{from: TEST_ACCOUNT});
+
+        // ASSERTION
+        console.log(chalk.blue(`balanceOf(OWNER) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
+        console.log(chalk.blue(`balanceOf(TEST_ACCOUNT) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        // ASSERTION: balanceOf(TEST_ACCOUNT) AFTER = 0.8E18 (0.7+0.1 = 0.8)
+        expect(parseFloat(new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)))).to.equal(parseFloat(new BigNumber("0.8e18")));
 
     });
 

@@ -22,6 +22,8 @@ const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
+const POINT_ONE_DEC18 = new BigNumber("1e17"); //0.1_dec18
+const POINT_THREE_DEC18 = new BigNumber("3e17"); //0.3_dec18
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 
@@ -47,6 +49,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
     let col_instance_USDC;
     let instanceStakingRewards_CERES_WETH;
     let pair_addr_CERES_WETH;
+    let pair_instance_CERES_WETH;
     let wethInstance;
     let uniswapFactoryInstance;
     let ceresDemoInstance;
@@ -66,6 +69,7 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
         instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
         pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
+        pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
         ceresDemoInstance = await CeresDemo.deployed();
         boardroomInstance = await Boardroom.deployed();
     });
@@ -200,6 +204,29 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_rewardLockupEpochs));
         expect(parseFloat(await boardroomInstance.epochAlignTimestamp.call())).to.equal(parseFloat(DEFAULT_VALUE_epochAlignTimestamp));
         expect(parseFloat(await boardroomInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE_epochPeriod));
+    });
+
+    // TEST SCRIPTS FOR PUBLIC FUNC()
+    it('check boardroomInstance.stake()', async() => {
+        // const balanceOf_OWNER = new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18);
+        // const balanceOf_TEST_ACCOUNT = new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18);
+        
+        // BEFORE & PREPARE
+        console.log(chalk.yellow(`balanceOf(OWNER) INITIAL: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
+        console.log(chalk.yellow(`balanceOf(TEST_ACCOUNT) INITIAL: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        await pair_instance_CERES_WETH.transfer(TEST_ACCOUNT,ONE_DEC18,{from: OWNER});
+        console.log(chalk.yellow(`balanceOf(OWNER) BEFORE: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
+        console.log(chalk.yellow(`balanceOf(TEST_ACCOUNT) BEFORE: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+
+        // ACTION
+        await boardroomInstance.stake(POINT_ONE_DEC18,{from: TEST_ACCOUNT});
+
+        // ASSERTION
+        console.log(chalk.blue(`balanceOf(OWNER) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(OWNER)).div(BIG18)}`));
+        console.log(chalk.blue(`balanceOf(TEST_ACCOUNT) AFTER: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        // ASSERTION: balanceOf(TEST_ACCOUNT) AFTER = 0.9E18 (1DEC18 - 0.1E18(STAKED) = 0.9E18)
+        expect(parseFloat(new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)))).to.equal(parseFloat(new BigNumber("9e17")));
+
     });
 
 

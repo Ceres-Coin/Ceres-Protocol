@@ -203,4 +203,6 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(Boardroom, ceresInstance.address, pair_instance_CERES_WETH.address);
 	const boardroomInstance = await Boardroom.deployed();
 	console.log(chalk.red.bold(`boardroomInstance.address: ${await boardroomInstance.address}`));
+	await pair_instance_CERES_WETH.approve(boardroomInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	await pair_instance_CERES_WETH.approve(boardroomInstance.address,TWO_MILLION_DEC18,{from: TEST_ACCOUNT});
 };

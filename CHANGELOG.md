@@ -2,6 +2,58 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.21.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.20.0...v1.21.0) (2021-07-21)
+
+
+### Features
+
+* **contracts/boardroom.sol && contracts/math/safe112.sol && contracts/utils/contractguard.sol && contracts/interfaces/ibasisasset.sol && contracts/interfaces/ireferral.sol:** [CORE][CREATED][NEW][CONTRACTS]: CREATED 'Boardroom.sol' ([0a035d7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0a035d786a3cc8b08953802e5e4bc9fe5f712720))
+* **contracts/boardroom.sol && test/boardroom.test.js:** [ADDED][CORE][TEST SCRIPTS]: BOARDROOM.allocateSeigniorage, claimReward, stake, withdraw && updates contract file ([d80af42](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d80af42b9c3ad4a7afff4e4ac85a135c372cdcfb))
+* **contracts/boardroom.sol && test/boardroom.test.js:** [ADDED][LICENSES][SPDX-License-Identifier: MIT] && [ADDED][TEST SCRIPTS]: 'check boardroomInstance.withdrawLockupEpochs, its DEFAULT value is 2' ([cc6d4aa](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cc6d4aac974766cf99618736552fbd6d8ad15fd1))
+* **contracts/boardroom.sol:** [MODIFIED][CONTRACTS]: UPDATE PARAMETERS 'cash' from 'private' to 'public' ([3f3c31a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3f3c31a2db32a62ee4d482d3c57de2598962bdd1))
+* **contracts/boardroom.sol:** [REFACTOR]: RENAME CONTRACT 'Boardroom2' to 'Boardroom' ([f14c26f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f14c26ff55a10c9d1827f9685fa8f397c8cf8944))
+* **contracts/utils/contractguard.sol && contracts/math/safe112.sol && contracts/interfaces/ireferral.sol && contracts/interfaces/ibasisasset.sol:** [ADDED][LICENSE][SPDX-License-Identifier: MIT] && [MODIFIED][SOLIDITY VERSION] TO ^0.6.12 ([ee0d8f0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ee0d8f08d8584ef5f8c63ee6f779648a1fabd2ed))
+* **migrations/3_deploy_uniswap_oracle_weth.js & migrations/2_deploy_contracts.js:** [MODIFIED][DEPLOYMENTS SCRIPTS]: ADDED APPROVE 'pair_instance_CERES_WETH.approve(boardroomInstance.address)' && [ADDED][TEST SCRIPTS]: 'check boardroomInstance.stake()' ([d25ab40](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d25ab40f59d52b4ab12811dcd3cf083f83ad84b4))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT SCRIPTS OF 'deployer.deploy(Boardroom, ceresInstance.address, pair_instance_CERES_WETH.address)' ([4164efc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4164efcfe7d7671963f1af2f12f4cf17156ee2f2))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [MODIFIED][DEPLOYMENT SCRITPS]: ADDED TRANSFER CERES TO boardroomInstance & approve code ([7c94cca](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7c94cca12429faeed0fc683223edac0f2f9930e2))
+* **test/boardroom.test.js:** [CREATD][NEW][TEST SCRIPTS FILE]: 'test/Boardroom.test.js' ([48f7e85](https://github.com/Ceres-Coin/Ceres-Protocol/commit/48f7e85442d0e8dda0504684d746cc05047b3250))
+
+
+### Tests
+
+* **test/boardroom.test.js:** 'check boardroomInstance.earned.call(TEST_ACCOUNT), its DEFAULT value is equal 0' ([ad5fc2f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ad5fc2fce79a0368d6ecf1522a7f4c553ae24b90))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.canClaimReward.call(TEST_ACCOUNT), its DEFAULT value is TRUE' ([4bbd34d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4bbd34d57ced4e9d92bc93aa626a0f87bc179344))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.canWithdraw.call(TEST_ACCOUNT), its DEFAULT value is TRUE' ([1a95202](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1a9520260d859860bb1025c59c1c315c5e369867))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.cash.call(), its DEFAULT value is equal to ceresInstance.address' && 'check boardroomInstance.share.call(), its DEFAULT value is equal to pair_addr_CERES_WETH' ([97f8a07](https://github.com/Ceres-Coin/Ceres-Protocol/commit/97f8a07fbf71f5465a48ba44014ffd0da9dac1ba))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.epochAlignTimestamp, its DEFAULT value is 1608883200' ([e77400d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e77400d6dda6636206c0de8b99ae82a86c05282d))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.epochPeriod, its DEFAULT value is "300"' ([e2396bc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e2396bce20dab044bd7dd115e907522332dfc1c8))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.getCanClaimTime.call(TEST_ACCOUNT), its DEFAULT value is gt 0' ([944fac0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/944fac0942e70f9903aac539ca7bfb8398a35d5d))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.getCanWithdrawTime.call(TEST_ACCOUNT), its DEFAULT value is gt 0' ([95f178f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/95f178fc0ec5f08be8ca3cd5554a76c98e326685))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.getCanWithdrawTime.call(TEST_ACCOUNT), its DEFAULT value is gt 0' ([624dd22](https://github.com/Ceres-Coin/Ceres-Protocol/commit/624dd22dc9f5d6fe8ace91ba09a5b1a623d63ee1))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.getCurrentEpochTimestamp.call(), its DEFAULT value is gt 0' ([859395d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/859395df982f9dc1534130b54be71dd20affaeb0))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.latestSnapshotIndex.call(), its DEFAULT value is equal to 0' ([dce8fba](https://github.com/Ceres-Coin/Ceres-Protocol/commit/dce8fba09424b9d2d213090f4c6c8f9a20455c6f))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.referralList.call(0), AFTER "addReferral(TEST_ACCOUNT,"TEST_ACCOUNT")' ([48efce5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/48efce529bbda2d6fdd88c19d5b0e188fafe0437))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.referralList.call(0), its DEFAULT value is ""' ([321e64e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/321e64e0383ec3e3ae7a242b8a54deeb089b69a5))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.rewardLockupEpochs, its DEFAULT value is 2' ([16ba74d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/16ba74d76299164ede87f41d8236c47ffac4da2d))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.rewardPerShare.call(), its DEFAULT value is equal 0' ([077ffd6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/077ffd6d0cd3fd0be09fb0d03826c4352565fdcf))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: 'check boardroomInstance.setLockUp()' ([f4d10f4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f4d10f4cb676610b76a79c42ba609b61f1185f63))
+* **test/boardroom.test.js:** [ADDED][TEST SCRIPTS]: ADDED WITHDRAW() FUNC TEST SCRIPTS ''check boardroomInstance.stake() & withdraw()'' ([32e2187](https://github.com/Ceres-Coin/Ceres-Protocol/commit/32e2187acc49f552e08d1a3948a1ada8337481c6))
+* **test/boardroom.test.js:** [MODIFIED][TEST SCRIPTS]: 'check boardroomInstance.stake() & withdraw()' ([93e4dcf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/93e4dcf1a9554f3c13909c1074db47f0a40c8fba))
+* **test/boardroom.test.js:** [MODIFIED][TEST SCRIPTS]: 'check boardroomInstance.stake()' ([c9c1141](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c9c11411044e9a8c72c63c1a7b0643fe26ba8613))
+
+
+### Styling
+
+* **contracts/boardroom.sol:** [ADDED][COMMENTS] ([0608ad7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0608ad7ca021071903d54b210edf29f7f11e0e16))
+* **contracts/boardroom.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([0b6ca38](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0b6ca3803a7974a2058965524ecd33340ab44716))
+* **contracts/boardroom.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([ee7422e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ee7422e32349e64225c5d9c87d0137ab2de95d9c))
+* **contracts/boardroom.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([2d2dbfb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2d2dbfbf8e021cfc828de2ca2b2037e48360ed4f))
+* **contracts/boardroom.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([67bde31](https://github.com/Ceres-Coin/Ceres-Protocol/commit/67bde311b3b8502b5b97b6a5e7768886d782a7ea))
+* **contracts/boardroom.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([b341616](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b341616d5cb863bff0aa7e64aa7a7ae5c6eb7811))
+* **contracts/boardroom.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([b376a76](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b376a7625f1f6f0ee680ea73f8052fecf794b2d2))
+* **contracts/boardroom.sol:** [ADDED][TODO TASKS] ([e8b41f2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e8b41f2019540b372e5f8f40a821234bde911c7c))
+* **test/boardroom.test.js:** [updates][test scripts][title] ([30dd73f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/30dd73ff801bd58a873762764eeb5cd5346f9e24))
+
 ## [1.20.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.19.0...v1.20.0) (2021-07-20)
 
 

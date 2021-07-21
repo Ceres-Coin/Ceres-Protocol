@@ -210,4 +210,24 @@ module.exports = async function(deployer,network,accounts) {
 	await ceresInstance.transfer(boardroomInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 	await ceresInstance.approve(boardroomInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	await ceresInstance.approve(boardroomInstance.address,TWO_MILLION_DEC18,{from: TEST_ACCOUNT});
+
+	// DEPLOY TREASURY
+	const SimpleFund = artifacts.require('SimpleERCFund');
+	await deployer.deploy(SimpleFund,{from: OWNER});
+	const simplefundInstance = await SimpleFund.deployed();
+	console.log(chalk.red.bold(`simplefundInstance: ${simplefundInstance.address}`));
+	// await deployer.deploy(
+	//   Treasury,
+	//   cash.address,
+	//   Bond.address,
+	//   Share.address,
+	//   Oracle.address,
+	//   Oracle.address,
+	//   Boardroom.address,
+	//   Boardroom2.address,
+	//   // c_lp_Boardroom.address,
+	//   // s_lp_Boardroom.address,
+	//   SimpleFund.address,
+	//   startTime,
+	// );
 };

@@ -314,7 +314,10 @@ contract Treasury is ContractGuard, Epoch {
             );
             emit ContributionPoolFunded(now, fundReserve);
         }
-        tmpValue = fundReserve;
+        seigniorage = seigniorage.sub(fundReserve);
+
+        uint256 boardroomReserve = seigniorage;
+        tmpValue = boardroomReserve;
     }
     // TODO: [P2][LATER]
     function allocateSeigniorage()
@@ -363,39 +366,39 @@ contract Treasury is ContractGuard, Epoch {
 
         seigniorage = seigniorage.sub(fundReserve);
 
-        // ======================= REFERRAL
-        uint256 referralReward = seigniorage.mul(referralRate).div(100);
-        if (referralReward > 0) {
-            //get all referral address
-            address[] memory referralList = IReferral(c_lpBoardroom).getReferralList();
-            //get total referral referralAmount
-            uint256 totalReferralAmount = IReferral(c_lpBoardroom).getTotalReferralAmount();
-            //loop referralList to get the amount;
-            for (uint i = 0; i < referralList.length; i++) {
-                uint256 referralAmount = IReferral(c_lpBoardroom).getReferralAmount(referralList[i]);
-                uint256 referralRewardPerAddr = referralReward.mul(referralAmount).div(totalReferralAmount);
-                IERC20(cash).safeApprove(referralList[i], referralRewardPerAddr);
-                ISimpleERCFund(referralList[i]).deposit(cash, referralRewardPerAddr, 'Treasury: Seigniorage Allocation');
-                //                emit ContributionPoolFunded(now, referralRewardPerAddr);
-            }
-        }
+        // // ======================= REFERRAL
+        // uint256 referralReward = seigniorage.mul(referralRate).div(100);
+        // if (referralReward > 0) {
+        //     //get all referral address
+        //     address[] memory referralList = IReferral(c_lpBoardroom).getReferralList();
+        //     //get total referral referralAmount
+        //     uint256 totalReferralAmount = IReferral(c_lpBoardroom).getTotalReferralAmount();
+        //     //loop referralList to get the amount;
+        //     for (uint i = 0; i < referralList.length; i++) {
+        //         uint256 referralAmount = IReferral(c_lpBoardroom).getReferralAmount(referralList[i]);
+        //         uint256 referralRewardPerAddr = referralReward.mul(referralAmount).div(totalReferralAmount);
+        //         IERC20(cash).safeApprove(referralList[i], referralRewardPerAddr);
+        //         ISimpleERCFund(referralList[i]).deposit(cash, referralRewardPerAddr, 'Treasury: Seigniorage Allocation');
+        //         //                emit ContributionPoolFunded(now, referralRewardPerAddr);
+        //     }
+        // }
 
-        seigniorage = seigniorage.sub(referralReward);
+        // seigniorage = seigniorage.sub(referralReward);
 
         // ======================== BIP-4
-        uint256 treasuryReserve = Math.min(
-            seigniorage,
-            IERC20(bond).totalSupply().sub(accumulatedSeigniorage)
-        );
-        if (treasuryReserve > 0) {
-            accumulatedSeigniorage = accumulatedSeigniorage.add(
-                treasuryReserve
-            );
-            emit TreasuryFunded(now, treasuryReserve);
-        }
+        // uint256 treasuryReserve = Math.min(
+        //     seigniorage,
+        //     IERC20(bond).totalSupply().sub(accumulatedSeigniorage)
+        // );
+        // if (treasuryReserve > 0) {
+        //     accumulatedSeigniorage = accumulatedSeigniorage.add(
+        //         treasuryReserve
+        //     );
+        //     emit TreasuryFunded(now, treasuryReserve);
+        // }
 
-        // boardroom
-        uint256 boardroomReserve = seigniorage.sub(treasuryReserve);
+        // // boardroom
+        uint256 boardroomReserve = seigniorage;
         if (boardroomReserve > 0) {
 
             uint256 c_lpBoardroomReserve_Number = boardroomReserve.mul(c_s_percentage).div(10);

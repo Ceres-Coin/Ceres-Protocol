@@ -89,8 +89,13 @@ contract('contracts/Treasury.sol', async (accounts) => {
     });
 
     it('check bondInstance.address, its value is not be empty', async () => {
-        console.log(chalk.blue(`bondInstance: ${await bondInstance.address}`));
+        // console.log(chalk.blue(`bondInstance: ${await bondInstance.address}`));
         expect(bondInstance.address).to.not.be.empty;
+    });
+
+    it('check bondInstance.name.call(), its DEFAULT value is "SCB"', async () => {
+        const EXPECTED_VALUE = "SCB";
+        expect(await bondInstance.name.call()).to.equal(EXPECTED_VALUE);
     });
 
     

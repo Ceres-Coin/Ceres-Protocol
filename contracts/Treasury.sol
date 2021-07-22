@@ -180,12 +180,12 @@ contract Treasury is ContractGuard, Epoch {
         migrated = true;
         emit Migration(target);
     }
-
+    // TEST CASES DONE
     function setFund(address newFund) public onlyOperator {
         fund = newFund;
         emit ContributionPoolChanged(msg.sender, newFund);
     }
-
+    // TEST CASES DONE
     function setFundAllocationRate(uint256 rate) public onlyOperator {
         fundAllocationRate = rate;
         emit ContributionPoolRateChanged(msg.sender, rate);

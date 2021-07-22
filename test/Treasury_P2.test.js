@@ -110,6 +110,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         await treasuryInstance.initialize({from: OWNER});
     });
 
+    // it ('check treasuryInstance.migrate()', async() => {
+    //     // ACTION
+    //     await treasuryInstance.migrate({from: OWNER});
+    // });
+
     it ('check treasuryInstance.allocateSeigniorage()', async() => {
         // BEFORE & PRINT
         console.log(chalk.yellow(`ceresInstance.balanceOf_boardroom_BEFORE: ${await ceresInstance.balanceOf(boardroomInstance.address)}`));

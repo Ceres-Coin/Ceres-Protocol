@@ -148,5 +148,18 @@ contract('contracts/Bond.sol', async (accounts) => {
         const EXPECTED_VALUE = OWNER;
         expect(await bondInstance.operator.call()).to.equal(EXPECTED_VALUE);
     });
+
+    it('check bondInstance.isOperator.call({from: account0}), its DEFAULT value is true', async () => {
+        const EXPECTED_VALUE = true;
+        const EXPECTED_VALUE2 = false;
+        expect(await bondInstance.isOperator.call({from: account0})).to.equal(EXPECTED_VALUE);
+        expect(await bondInstance.isOperator.call({from: account1})).to.equal(EXPECTED_VALUE2);
+        expect(await bondInstance.isOperator.call({from: account2})).to.equal(EXPECTED_VALUE2);
+        expect(await bondInstance.isOperator.call({from: account3})).to.equal(EXPECTED_VALUE2);
+        expect(await bondInstance.isOperator.call({from: account4})).to.equal(EXPECTED_VALUE2);
+        expect(await bondInstance.isOperator.call({from: account5})).to.equal(EXPECTED_VALUE2);
+        expect(await bondInstance.isOperator.call({from: account6})).to.equal(EXPECTED_VALUE2);
+        expect(await bondInstance.isOperator.call({from: account7})).to.equal(EXPECTED_VALUE2);
+    });
     
 });

@@ -145,7 +145,7 @@ contract Treasury is ContractGuard, Epoch {
     }
 
     /* ========== GOVERNANCE ========== */
-
+    // TODO: [P2][LATER]
     function initialize() public checkOperator {
         require(!initialized, 'Treasury: initialized');
 
@@ -158,7 +158,7 @@ contract Treasury is ContractGuard, Epoch {
         initialized = true;
         emit Initialized(msg.sender, block.number);
     }
-
+    // TODO: [P2][LATER]
     function migrate(address target) public onlyOperator checkOperator {
         require(!migrated, 'Treasury: migrated');
 
@@ -215,12 +215,12 @@ contract Treasury is ContractGuard, Epoch {
 
 
     /* ========== MUTABLE FUNCTIONS ========== */
-
+    // NO NEED FOR INTERNAL
     function _updateCashPrice() internal {
         try IOracle(bondOracle).update()  {} catch {}
         try IOracle(seigniorageOracle).update()  {} catch {}
     }
-
+    // TODO: [P2][LATER]
     function buyBonds(uint256 amount, uint256 targetPrice)
     external
     onlyOneBlock
@@ -247,7 +247,7 @@ contract Treasury is ContractGuard, Epoch {
 
         emit BoughtBonds(msg.sender, amount);
     }
-
+    // TODO: [P2][LATER]
     function redeemBonds(uint256 amount, uint256 targetPrice)
     external
     onlyOneBlock
@@ -279,7 +279,7 @@ contract Treasury is ContractGuard, Epoch {
 
         emit RedeemedBonds(msg.sender, amount);
     }
-
+    // TODO: [P2][LATER]
     function allocateSeigniorage()
     external
     onlyOneBlock

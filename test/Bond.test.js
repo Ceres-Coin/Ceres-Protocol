@@ -107,5 +107,10 @@ contract('contracts/Treasury.sol', async (accounts) => {
         const EXPECTED_VALUE = new BigNumber("18");
         expect(parseFloat(await bondInstance.decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
+
+    it('check bondInstance.totalSupply.call(), its DEFAULT value is "ONE_HUNDRED_MILLION_DEC18"', async () => {
+        const EXPECTED_VALUE = ONE_HUNDRED_MILLION_DEC18
+        expect(parseFloat(await bondInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
     
 });

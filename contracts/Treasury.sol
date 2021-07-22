@@ -58,7 +58,7 @@ contract Treasury is ContractGuard, Epoch {
     // fundAllocationRate c tax in supercash = 10%
     uint256 public fundAllocationRate = 10; // 10% //TEST CASES DONE
     uint256 public referralRate = 5; //referral percentage is 5% //TEST CASES DONE
-    // add inflationPercentCeil
+    uint256 public inflationPercent = 1; //1 = 1/10000; 100 = 1%
     uint256 public inflationPercentCeil; //DEFAULT VALUE IS 0.1E18 //TEST CASES DONE
     uint256 public seigniorageCeil; //TEST CASES DONE
 
@@ -92,7 +92,7 @@ contract Treasury is ContractGuard, Epoch {
         cashPriceCeiling = uint256(105).mul(cashPriceOne).div(10**2);
 
         // inflation at most 10% xmancash
-        inflationPercentCeil = uint256(10).mul(cashPriceOne).div(10**2);
+        inflationPercentCeil = uint256(inflationPercent).mul(cashPriceOne).div(10**4);
         seigniorageCeil = uint256(100000).mul(cashPriceOne);
         bondDepletionFloor = uint256(1000).mul(cashPriceOne);
     }

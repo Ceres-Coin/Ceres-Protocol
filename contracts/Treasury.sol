@@ -42,10 +42,10 @@ contract Treasury is ContractGuard, Epoch {
     address public bond; //TEST CASES DONE
     address public share; //TEST CASES DONE
     // address public boardroom;
-    address public c_lpBoardroom;
-    address public s_lpBoardroom;
+    address public c_lpBoardroom; //TEST CASES DONE
+    address public s_lpBoardroom; //TEST CASES DONE
     // c_s_percentage means 40% belongs to c_lp and rest belongs to s_lp.
-    uint256 public c_s_percentage = 4;
+    uint256 public c_s_percentage = 4; //TEST CASES DONE
 
     address public bondOracle;
     address public seigniorageOracle;

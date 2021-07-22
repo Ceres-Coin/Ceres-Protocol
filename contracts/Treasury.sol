@@ -121,16 +121,16 @@ contract Treasury is ContractGuard, Epoch {
 
     /* ========== VIEW FUNCTIONS ========== */
 
-    // budget
+    //TEST CASES DONE
     function getReserve() public view returns (uint256) {
         return accumulatedSeigniorage;
     }
 
-    // oracle
+    //TEST CASES DONE
     function getBondOraclePrice() public view returns (uint256) {
         return _getCashPrice(bondOracle);
     }
-
+    //TEST CASES DONE
     function getSeigniorageOraclePrice() public view returns (uint256) {
         return _getCashPrice(seigniorageOracle);
     }

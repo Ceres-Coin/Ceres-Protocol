@@ -220,7 +220,7 @@ contract Treasury is ContractGuard, Epoch {
         try IOracle(bondOracle).update()  {} catch {}
         try IOracle(seigniorageOracle).update()  {} catch {}
     }
-    // TODO: [P2][LATER]
+    // NO NEED TO DO FOR BONDS
     function buyBonds(uint256 amount, uint256 targetPrice)
     external
     onlyOneBlock
@@ -247,7 +247,7 @@ contract Treasury is ContractGuard, Epoch {
 
         emit BoughtBonds(msg.sender, amount);
     }
-    // TODO: [P2][LATER]
+    // NO NEED TO DO FOR BONDS
     function redeemBonds(uint256 amount, uint256 targetPrice)
     external
     onlyOneBlock

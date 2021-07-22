@@ -197,14 +197,14 @@ contract Treasury is ContractGuard, Epoch {
     {
         inflationPercentCeil = inflationPercentCeil_;
     }
-
+    // TEST CASES DONE
     function setSeigniorageCeil(uint256 _seigniorageCeil)
     public
     onlyOperator
     {
         seigniorageCeil = _seigniorageCeil;
     }
-
+    // TEST CASES DONE
     function setC_S_percentage(uint256 _c_s_percentage)
     public
     onlyOperator

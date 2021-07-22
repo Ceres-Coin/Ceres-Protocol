@@ -145,8 +145,8 @@ contract Treasury is ContractGuard, Epoch {
     }
 
     /* ========== GOVERNANCE ========== */
-    // TODO: [P2][LATER]
-    function initialize() public checkOperator {
+    // TEST CASES DONE
+    function initialize() public {
         require(!initialized, 'Treasury: initialized');
 
         // burn all of it's balance

@@ -150,6 +150,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(await treasuryInstance.seigniorageOracle.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check treasuryInstance.cashPriceOne.call(), its DEFAULT value is ONE_DEC18', async () => {
+        const EXPECTED_VALUE = ONE_DEC18;
+        expect(parseFloat(await treasuryInstance.cashPriceOne.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
     

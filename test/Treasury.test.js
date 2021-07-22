@@ -25,6 +25,7 @@ const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 const POINT_ONE_DEC18 = new BigNumber("0.1e18"); //0.1_dec18
+const POINT_ZERO_ZERO_ZERO_ONE_DEC18 = new BigNumber("0.0001e18");
 const POINT_THREE_DEC18 = new BigNumber("0.3e18"); //0.3_dec18
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
@@ -181,7 +182,7 @@ contract('contracts/Treasury.sol', async (accounts) => {
     });
 
     it('check treasuryInstance.inflationPercentCeil.call(), its DEFAULT value is POINT_ONE_DEC18', async () => {
-        const EXPECTED_VALUE = POINT_ONE_DEC18
+        const EXPECTED_VALUE = POINT_ZERO_ZERO_ZERO_ONE_DEC18
         expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
@@ -213,7 +214,7 @@ contract('contracts/Treasury.sol', async (accounts) => {
     // GOVERNANCE FUNC TEST SCRIPTS
     it('check treasuryInstance.setInflationPercentCeil.call(POINT_THREE_DEC18)', async () => {
         // BEFORE
-        const DEFAULT_VALUE = POINT_ONE_DEC18;
+        const DEFAULT_VALUE = POINT_ZERO_ZERO_ZERO_ONE_DEC18;
         const NEW_VALUE = POINT_THREE_DEC18;
         expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(DEFAULT_VALUE));
         // ACTION & ASSERTION

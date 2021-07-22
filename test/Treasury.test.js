@@ -92,9 +92,14 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(treasuryInstance.address).to.not.be.empty;
     });
 
-    it('check treasuryInstance.migrated.call(), its DEFAULT value is false', async () => {
+    it('check treasuryInstance.migrated.call(), its DEFAULT value is FALSE', async () => {
         const EXPECTED_VALUE = false;
         expect(await treasuryInstance.migrated.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check treasuryInstance.initialized.call(), its DEFAULT value is FALSE', async () => {
+        const EXPECTED_VALUE = false;
+        expect(await treasuryInstance.initialized.call()).to.equal(EXPECTED_VALUE);
     });
 
 

@@ -24,8 +24,8 @@ const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
-const POINT_ONE_DEC18 = new BigNumber("1e17"); //0.1_dec18
-const POINT_THREE_DEC18 = new BigNumber("3e17"); //0.3_dec18
+const POINT_ONE_DEC18 = new BigNumber("0.1e18"); //0.1_dec18
+const POINT_THREE_DEC18 = new BigNumber("0.3e18"); //0.3_dec18
 const BIG6 = new BigNumber("1e6");
 const BIG18 = new BigNumber("1e18");
 const Treasury = artifacts.require('Treasury');
@@ -208,6 +208,21 @@ contract('contracts/Treasury.sol', async (accounts) => {
         // console.log(chalk.blue(`getSeigniorageOraclePrice: ${await treasuryInstance.getSeigniorageOraclePrice.call()}`));
         const EXPECTED_VALUE = new BigNumber("1666666666666666")
         expect(parseFloat(await treasuryInstance.getSeigniorageOraclePrice.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+    // GOVERNANCE FUNC TEST SCRIPTS
+    it('check treasuryInstance.setInflationPercentCeil.call(POINT_THREE_DEC18)', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = POINT_ONE_DEC18;
+        const NEW_VALUE = POINT_THREE_DEC18;
+        expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await treasuryInstance.setInflationPercentCeil(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await treasuryInstance.setInflationPercentCeil(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
 
     

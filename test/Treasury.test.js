@@ -102,6 +102,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(await treasuryInstance.initialized.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check treasuryInstance.cash.call(), its DEFAULT value is ceresInstance.address', async () => {
+        const EXPECTED_VALUE = ceresInstance.address;
+        expect(await treasuryInstance.cash.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
 
     

@@ -180,6 +180,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.referralRate.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check treasuryInstance.inflationPercentCeil.call(), its DEFAULT value is POINT_ONE_DEC18', async () => {
+        const EXPECTED_VALUE = POINT_ONE_DEC18
+        expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
 

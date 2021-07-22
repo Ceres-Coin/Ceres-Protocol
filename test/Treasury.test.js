@@ -132,6 +132,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(await treasuryInstance.s_lpBoardroom.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check treasuryInstance.c_s_percentage.call(), its DEFAULT value is 4', async () => {
+        const EXPECTED_VALUE = new BigNumber("4");
+        expect(parseFloat(await treasuryInstance.c_s_percentage.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
     

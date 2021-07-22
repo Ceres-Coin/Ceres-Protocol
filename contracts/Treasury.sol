@@ -64,7 +64,6 @@ contract Treasury is ContractGuard, Epoch {
 
     /* ========== CONSTRUCTOR ========== */
 
-    // 设置treasury为12hours，这样每次调用treasury.allocate在12小时内只能执行一次
     constructor(
         address _cash,
         address _bond,

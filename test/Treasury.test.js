@@ -160,6 +160,12 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.cashPriceCeiling.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check treasuryInstance.bondDepletionFloor.call(), its DEFAULT value is 1000E18', async () => {
+        const EXPECTED_VALUE = new BigNumber("1000e18");
+        expect(parseFloat(await treasuryInstance.bondDepletionFloor.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+
 
 
     

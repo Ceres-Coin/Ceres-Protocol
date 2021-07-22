@@ -237,7 +237,6 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     function stake(uint256 amount)
         public
         override
-        onlyOneBlock
         updateReward(msg.sender)
     {
         require(amount > 0, 'Boardroom: Cannot stake 0');
@@ -262,7 +261,6 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     function withdraw(uint256 amount)
         public
         override
-        onlyOneBlock
         directorExists
         updateReward(msg.sender)
     {
@@ -291,7 +289,6 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
     // TEST CASES DONE
     function allocateSeigniorage(uint256 amount)
         external
-        onlyOneBlock
     {
         require(amount > 0, 'Boardroom: Cannot allocate 0');
         require(

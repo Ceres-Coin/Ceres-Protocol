@@ -318,6 +318,23 @@ contract Treasury is ContractGuard, Epoch {
 
         uint256 boardroomReserve = seigniorage;
         tmpValue = boardroomReserve;
+
+        if (boardroomReserve > 0) {
+            uint256 c_lpBoardroomReserve_Number = boardroomReserve.mul(c_s_percentage).div(10);
+            uint256 s_lpBoardroomReserve_Number = boardroomReserve.sub(c_lpBoardroomReserve_Number);
+
+
+            IERC20(cash).safeApprove(c_lpBoardroom, c_lpBoardroomReserve_Number);
+            IBoardroom(c_lpBoardroom).allocateSeigniorage(c_lpBoardroomReserve_Number);
+
+            IERC20(cash).safeApprove(s_lpBoardroom, s_lpBoardroomReserve_Number);
+            IBoardroom(s_lpBoardroom).allocateSeigniorage(s_lpBoardroomReserve_Number);
+
+
+            // IERC20(cash).safeApprove(boardroom, boardroomReserve);
+            // IBoardroom(boardroom).allocateSeigniorage(boardroomReserve);
+            emit BoardroomFunded(now, boardroomReserve);
+        }
     }
     // TODO: [P2][LATER]
     function allocateSeigniorage()

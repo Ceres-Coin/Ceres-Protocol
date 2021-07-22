@@ -185,6 +185,12 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check treasuryInstance.seigniorageCeil.call(), its DEFAULT value is 100K_DEC18', async () => {
+        const EXPECTED_VALUE = new BigNumber("100000e18")
+        expect(parseFloat(await treasuryInstance.seigniorageCeil.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+
 
 
 

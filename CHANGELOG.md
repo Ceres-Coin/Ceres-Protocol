@@ -2,6 +2,80 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.22.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.21.0...v1.22.0) (2021-07-22)
+
+
+### Features
+
+* **contracts/boardroom.sol:** [ADDED] 'import './owner/Operator.sol';' && 'import './owner/Admin.sol';' ([7756783](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7756783ffea00b7886a4f27e0fe336c80d709303))
+* **contracts/boardroom.sol:** [ADDED][CONTRACTS]: 'import './owner/Admin.sol';' ([7a49dc1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7a49dc1ab2779f32eab06b66746cf79fa24213b2))
+* **contracts/governance/accesscontrol.sol:** [ADDED][LICENSE] '// SPDX-License-Identifier: MIT' && [UPDATED][PRAGMA SOLIDITY VERSION TO '^0.6.12'] ([3a98c6e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3a98c6ea311ecd66dffa42681e037659300c5fc3))
+* **contracts/owner/admin.sol && contracts/access/ownable.sol:** [CREATED][NEW][CONTRACTS FILE]: CREATED NEW CONTRACTS FILE 'contracts/owner/admin.sol && c ([4aabb77](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4aabb77c6a0e16182e03387cb52da15b6cb0864e))
+* **contracts/owner/operator.sol:** [CREATED][NEW][CONTRACTS FILE]: 'contracts/owner/operator.sol' ([fe26bbd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fe26bbdba5d76266c4fb3392b36134349dc5dcc6))
+* **contracts/simpleercfund.sol:** [CREATED][NEW][CONTRACTS FILE]: 'contracts/SimpleERCFund.sol ([40164dc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/40164dc619c503e681fecb96656da3e97a9eb51c))
+* **contracts/treasury.sol:** [CORE][IMPORTANT][CREATED][NEW CONTRACTS FILE]: contracts/Treasury.sol ([c019777](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c0197772342dcfb2279e0cca309f3d0ca19c4198))
+* **contracts/treasury.sol:** [MODIFIED][CONTRACTS]: REMOVED PARAMETERS 'boardroom' ([b79654b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b79654bc956bddf404debadbbec15ae21c748c91))
+* **contracts/treasury.sol:** [UPDATED][CONTRACTS] && [ADDED][TEST SCRIPTS]: 'check treasuryInstance.bondDepletionFloor.call(), its DEFAULT value is 1000E18' ([8ad37f9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8ad37f9876e30fb792c9f04e431e3a57a6cd82a2))
+* **migrations/3_deploy_uniswap_oracle_weth.js && test/treasury.test.js:** [MODIFIED][DEPLOYMENT SCRIPTS] && [ADDED][TEST SCRIPTS]: 'check treasuryInstance.share.call(), its DEFAULT value is cssInstance.address' ([7b51405](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7b51405310a866d1aa3a689046a2a4cc3b58ba0c))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT SCRIPTS OF 'treasuryInstance' ([57cccbd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/57cccbd853ec5892c64dfeddf800f73b60b4a10b))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENTS OF 'SimpleERCFund' migration scripts ([295b994](https://github.com/Ceres-Coin/Ceres-Protocol/commit/295b9949541288e8c7f7f117525e3c6c07e6ffc2))
+* **test/simplefund.test.js:** [CREATED][NEW][TEST SCRIPTS FILE]: 'test/SimpleFund.test.js' ([a9179a8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a9179a80402303eabcbcf8af90d32922ee04910a))
+* **test/treasury.test.js:** [CREATED][NEW][TEST SCRIPTS FILE]: 'test/Treasury.test.js' ([bb63c4e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bb63c4e73096295f1bd0c594e0b58a5c89a5bd80))
+
+
+### Tests
+
+* **test/treasury.test.js:** 'check treasuryInstance.setFundAllocationRate.call(POINT_THREE_DEC18)' ([74bf79a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/74bf79a0ed916fd50d1da873f83ac45a1b8a4277))
+* **test/treasury.test.js:** 'check treasuryInstance.setFundAllocationRate(20), and check its NEW_VALUE' ([076dc88](https://github.com/Ceres-Coin/Ceres-Protocol/commit/076dc88d413b65a7aedaa61e63cb2ae9d47e197c))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.accumulatedSeigniorage.call(), its DEFAULT value is 0' ([019e9e4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/019e9e404f980511802475ba5e0301e14d48a450))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.bond.call(), its DEFAULT value is ceresInstance.address' ([6bc8a2a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6bc8a2a7ab3c6d2c4b9e1af0c33b1847be97265a))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.bondOracle.call(), its DEFAULT value is oracle_instance_CERES_WETH.address' ([8bc1063](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8bc10630657a7f951d0dd3bf91b124d6e90d612f))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.c_lpBoardroom.call(), its DEFAULT value is boardroomInstance.address' ([9a879ac](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9a879acf6b36566b83b0adc705b385fd48861562))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.c_s_percentage.call(), its DEFAULT value is 4' ([ccdccd8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ccdccd8f1899e3767ebd2a06635e8051abc28f1d))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.cash.call(), its DEFAULT value is ceresInstance.address' ([a435ee9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a435ee9ec83a6a6c5262908b8da9346bf7ef1be0))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.cashPriceCeiling.call(), its DEFAULT value is 1.05E18' ([768d7e1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/768d7e1597ebd583322292b93a41b61930f9a378))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.cashPriceOne.call(), its DEFAULT value is ONE_DEC18' ([9ebd1e5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9ebd1e513babd89932329423fc71c4041d5a3354))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.fund.call(), its DEFAULT value is simpleFundInstance.address' ([017bfba](https://github.com/Ceres-Coin/Ceres-Protocol/commit/017bfba4fec1376996523bdf98633ca2d2e59852))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.fundAllocationRate.call(), its DEFAULT value is 10' ([3bedc19](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3bedc19207fd074d363e570dabfd2618dca07e93))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.getBondOraclePrice.call(), its DEFAULT value is [1666666666666666]' ([8033f90](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8033f906ce7a5ea4c47cbcf11caf35ac7f2410fe))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.getReserve.call(), its DEFAULT value is 0' ([197c4ae](https://github.com/Ceres-Coin/Ceres-Protocol/commit/197c4ae9d9ace3a0828cd468a3d9d83409f33557))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.getSeigniorageOraclePrice.call(), its DEFAULT value is [1666666666666666]' ([75957ad](https://github.com/Ceres-Coin/Ceres-Protocol/commit/75957ad2ce69aa7feca5d0937bd9248e21abe0e3))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.inflationPercentCeil.call(), its DEFAULT value is POINT_ONE_DEC18' ([ac9d01b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ac9d01b018522212322370d617f6d31b03157c5c))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.initialized.call(), its DEFAULT value is FALSE' ([7443f38](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7443f38af37e81fc3c97126d00ca5c957748b07f))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.migrated.call(), its DEFAULT value is FALSE' ([d1110e9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d1110e9f9b038f2484ae95798a113ac594f9fcd6))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.referralRate.call(), its DEFAULT value is 5' ([7ba9377](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7ba93778c0f7bb860386055adc4e7f3fff0ecf73))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.s_lpBoardroom.call(), its DEFAULT value is boardroomInstance.address' ([fae355f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fae355f3dbbd943f9c1c1c0178c992cbde18528a))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.seigniorageOracle.call(), its DEFAULT value is oracle_instance_CERES_WETH.address' ([497b763](https://github.com/Ceres-Coin/Ceres-Protocol/commit/497b763aa3f54f473a10c0e7cd64aeb85a2cf7f2))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.setC_S_percentage(NEW_VALUE), and check its NEW_VALUE' ([b2c3342](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b2c3342e358a35601af7887e6c5ab7f98ea32600))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.setFund(NEW_VALUE), and check its NEW_VALUE' ([034e066](https://github.com/Ceres-Coin/Ceres-Protocol/commit/034e066f1087bf6b7dbbe36ac86205b3e048aa5e))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.setFundAllocationRate.call(POINT_THREE_DEC18)' ([5e5221e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5e5221efb022e61f76d0379961e1e539ab8ab3b8))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.setInflationPercentCeil.call(POINT_THREE_DEC18)' ([14319e3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/14319e37be25ea7418beacfe7da80eb1d0797eae))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.setLockUp()' ([76bdfa4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/76bdfa4a78e65d821e7c332e473112c479b05d2f))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.setSeigniorageCeil(NEW_VALUE), and check its NEW_VALUE' ([ac8764d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ac8764dd00483e10c8104492f1e95aa993c26078))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.share.call(), its DEFAULT value is pair_instance_CERES_WETH.address' ([076f337](https://github.com/Ceres-Coin/Ceres-Protocol/commit/076f337c5d580b2af6d119e9ecbc6e6f2f833425))
+* **test/treasury.test.js:** [ADDED][TEST SCRIPTS]: ('check treasuryInstance.seigniorageCeil.call(), its DEFAULT value is 100K_DEC18' ([fd07e3f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fd07e3f5c5dba589c3665a3693f1cfc3885270bc))
+* **test/treasury.test.js:** [MODIFIED][TESTS CRIPTS][TITLE] ([84263b0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/84263b0593c46d2c032b79afac84b4ff0ca886c7))
+
+
+### Styling
+
+* **contracts/simpleercfund.sol:** [ADDED][LICENSE]: 'SPDX-License-Identifier: MIT' ([071af30](https://github.com/Ceres-Coin/Ceres-Protocol/commit/071af30249c17378d98607f6da586c4606c87808))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([5682823](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5682823504c966b21dc609b2803f2518518f2eb0))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([0ee27c2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0ee27c21fd2c16f84fc8a9163d3ae65c308b9eaa))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([53972e8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/53972e8bb34e07e25d54d2fbfcb90fa1489fd3b2))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([8d305db](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8d305dbcf155de6d0eae199a7be2c05538f3843b))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([4499798](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4499798f7b647229401457dd0eaf4f1c2502714a))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([58d15c8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/58d15c86b713ee439aa86990ee1a0f686f3816d8))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([43fc583](https://github.com/Ceres-Coin/Ceres-Protocol/commit/43fc583a37bf6f848f64c69e51079c0093a29c7a))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([e8c84a4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e8c84a45a77513e7609080c22acf83718ce0bd89))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([3052829](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3052829aa110efa01f78bf37becf49b130759d22))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([6855655](https://github.com/Ceres-Coin/Ceres-Protocol/commit/685565556cfad39762fd96543af3574499ffaec9))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([5b070c3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5b070c3db9dafa0c872780b496b5275e70d27418))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([2896f5a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2896f5ab4c11a49e4804b7cfd7426cd8eb866d3c))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TODO TASKS] ([739d557](https://github.com/Ceres-Coin/Ceres-Protocol/commit/739d557c3607d4207d54f88b983df36868d7ce36))
+* **contracts/treasury.sol:** [ADDED]COMMENTS]: 'NO NEED TO TEST PRIVATE FUNC' ([bd992f8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bd992f85825f9c1b52acb6e28b11f74e49016f22))
+* **test/treasury.test.js && contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] && [PUBLIC FUNCS TEST SCRIPTS] ([3aff85e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3aff85e5c4f1318e076e21c65934c93bb2991b54))
+
 ## [1.21.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.20.0...v1.21.0) (2021-07-21)
 
 

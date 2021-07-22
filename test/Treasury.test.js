@@ -225,20 +225,20 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.inflationPercentCeil.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
 
-        // GOVERNANCE FUNC TEST SCRIPTS
-        it('check treasuryInstance.setFundAllocationRate.call(POINT_THREE_DEC18)', async () => {
-            // BEFORE
-            const DEFAULT_VALUE = new BigNumber("10");
-            const NEW_VALUE = new BigNumber("20");;
-            expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
-            // ACTION & ASSERTION
-            await treasuryInstance.setFundAllocationRate(NEW_VALUE,{from: OWNER});
-            expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(NEW_VALUE));
-    
-            // ROLLBACK CODE
-            await treasuryInstance.setFundAllocationRate(DEFAULT_VALUE,{from: OWNER});
-            expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
-        });
+    // GOVERNANCE FUNC TEST SCRIPTS
+    it('check treasuryInstance.setFundAllocationRate.call(POINT_THREE_DEC18)', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("10");
+        const NEW_VALUE = new BigNumber("20");;
+        expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await treasuryInstance.setFundAllocationRate(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await treasuryInstance.setFundAllocationRate(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
 
     
 

@@ -102,5 +102,10 @@ contract('contracts/Treasury.sol', async (accounts) => {
         const EXPECTED_VALUE = "CSB";
         expect(await bondInstance.symbol.call()).to.equal(EXPECTED_VALUE);
     });
+
+    it('check bondInstance.decimals.call(), its DEFAULT value is "18"', async () => {
+        const EXPECTED_VALUE = new BigNumber("18");
+        expect(parseFloat(await bondInstance.decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
     
 });

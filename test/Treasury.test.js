@@ -145,6 +145,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(await treasuryInstance.bondOracle.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check treasuryInstance.seigniorageOracle.call(), its DEFAULT value is oracle_instance_CERES_WETH.address', async () => {
+        const EXPECTED_VALUE = oracle_instance_CERES_WETH.address;
+        expect(await treasuryInstance.seigniorageOracle.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
 
     

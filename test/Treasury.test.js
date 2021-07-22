@@ -127,6 +127,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(await treasuryInstance.c_lpBoardroom.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check treasuryInstance.s_lpBoardroom.call(), its DEFAULT value is boardroomInstance.address', async () => {
+        const EXPECTED_VALUE = boardroomInstance.address;
+        expect(await treasuryInstance.s_lpBoardroom.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
 
     

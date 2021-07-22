@@ -279,14 +279,14 @@ contract Treasury is ContractGuard, Epoch {
 
         emit RedeemedBonds(msg.sender, amount);
     }
-
-    function tmpFunc() external returns (uint256) {
+    uint256 public tmpValue;
+    function tmpFunc() external {
         _updateCashPrice();
         uint256 cashPrice = _getCashPrice(seigniorageOracle);
         uint256 cashPrice_e18 = cashPrice.mul(1e3); // convert cashPrice to decimals 18
 
         if (cashPrice_e18 <= cashPriceCeiling) {
-            return 0; // just advance epoch instead revert
+            return ; // just advance epoch instead revert
         }
 
         // circulating supply
@@ -302,7 +302,19 @@ contract Treasury is ContractGuard, Epoch {
         seigniorage = Math.min(seigniorage,seigniorageCeil);
 
         IBasisAsset(cash).mint(address(this), seigniorage);
-        return seigniorage;
+
+        // ABOVE IS DONE
+        uint256 fundReserve = seigniorage.mul(fundAllocationRate).div(100);
+        if (fundReserve > 0) {
+            IERC20(cash).safeApprove(fund, fundReserve);
+            ISimpleERCFund(fund).deposit(
+                cash,
+                fundReserve,
+                'Treasury: Seigniorage Allocation'
+            );
+            emit ContributionPoolFunded(now, fundReserve);
+        }
+        tmpValue = fundReserve;
     }
     // TODO: [P2][LATER]
     function allocateSeigniorage()

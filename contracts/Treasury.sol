@@ -339,11 +339,6 @@ contract Treasury is ContractGuard, Epoch {
     // TODO: [P2][LATER]
     function allocateSeigniorage()
     external
-    onlyOneBlock
-    checkMigration
-    checkStartTime
-    checkEpoch
-    checkOperator
     {
 
         _updateCashPrice();

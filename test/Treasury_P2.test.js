@@ -90,19 +90,31 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(treasuryInstance.address).to.not.be.empty;
     });
 
-    it ('check treasuryInstance.tmpFunc()', async() => {
+    // it ('check treasuryInstance.tmpFunc()', async() => {
+    //     // BEFORE & PRINT
+    //     console.log(chalk.yellow(`ceresInstance.balanceOf_treasury_BEFORE: ${await ceresInstance.balanceOf(treasuryInstance.address)}`));
+    //     console.log(chalk.yellow(`ceresInstance.balanceOf_boardroom_BEFORE: ${await ceresInstance.balanceOf(boardroomInstance.address)}`));
+    //     await boardroomInstance.stake(POINT_THREE_DEC18,{from: OWNER});
+
+    //     // ACTION
+    //     await treasuryInstance.tmpFunc({from: OWNER});
+    //     console.log(chalk.yellow(`tmpValue(): ${await treasuryInstance.tmpValue.call()}`));
+
+    //     // AFTER & PRINT
+    //     console.log(chalk.blue(`ceresInstance.balanceOf_treasury_AFTER: ${await ceresInstance.balanceOf(treasuryInstance.address)}`));
+    //     console.log(chalk.yellow(`ceresInstance.balanceOf_boardroom_AFTER: ${await ceresInstance.balanceOf(boardroomInstance.address)}`));
+    // });
+    it ('check treasuryInstance.allocateSeigniorage()', async() => {
         // BEFORE & PRINT
         console.log(chalk.yellow(`ceresInstance.balanceOf_treasury_BEFORE: ${await ceresInstance.balanceOf(treasuryInstance.address)}`));
         console.log(chalk.yellow(`ceresInstance.balanceOf_boardroom_BEFORE: ${await ceresInstance.balanceOf(boardroomInstance.address)}`));
         await boardroomInstance.stake(POINT_THREE_DEC18,{from: OWNER});
 
         // ACTION
-        await treasuryInstance.tmpFunc({from: OWNER});
-        console.log(chalk.yellow(`tmpValue(): ${await treasuryInstance.tmpValue.call()}`));
+        await treasuryInstance.allocateSeigniorage({from: OWNER});
 
         // AFTER & PRINT
         console.log(chalk.blue(`ceresInstance.balanceOf_treasury_AFTER: ${await ceresInstance.balanceOf(treasuryInstance.address)}`));
         console.log(chalk.yellow(`ceresInstance.balanceOf_boardroom_AFTER: ${await ceresInstance.balanceOf(boardroomInstance.address)}`));
-
-    })
+    });
 });

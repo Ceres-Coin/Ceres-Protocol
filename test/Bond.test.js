@@ -32,7 +32,7 @@ const BIG18 = new BigNumber("1e18");
 const Treasury = artifacts.require('Treasury');
 const SimpleFund = artifacts.require('SimpleERCFund');
 
-contract('contracts/Treasury.sol', async (accounts) => {
+contract('contracts/Bond.sol', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -142,6 +142,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         // ROLLBACK CODE
         await bondInstance.transferOwnership(DEFAULT_VALUE,{from: NEW_VALUE});
         expect(await bondInstance.owner.call()).to.equal(DEFAULT_VALUE);
+    });
+
+    it('check bondInstance.operator.call(), its DEFAULT value is OWNER', async () => {
+        const EXPECTED_VALUE = OWNER;
+        expect(await bondInstance.operator.call()).to.equal(EXPECTED_VALUE);
     });
     
 });

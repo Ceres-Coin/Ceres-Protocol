@@ -60,7 +60,7 @@ contract Treasury is ContractGuard, Epoch {
     uint256 public referralRate = 5; //referral percentage is 5% //TEST CASES DONE
     // add inflationPercentCeil
     uint256 public inflationPercentCeil; //DEFAULT VALUE IS 0.1E18 //TEST CASES DONE
-    uint256 public seigniorageCeil;
+    uint256 public seigniorageCeil; //TEST CASES DONE
 
     /* ========== CONSTRUCTOR ========== */
 

@@ -270,6 +270,21 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.seigniorageCeil.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
 
+    // GOVERNANCE FUNC TEST SCRIPTS
+    it('check treasuryInstance.setC_S_percentage(NEW_VALUE), and check its NEW_VALUE', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("4");
+        const NEW_VALUE = new BigNumber("8");
+        expect(parseFloat(await treasuryInstance.c_s_percentage.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await treasuryInstance.setC_S_percentage(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.c_s_percentage.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await treasuryInstance.setC_S_percentage(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.c_s_percentage.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
     
 
 

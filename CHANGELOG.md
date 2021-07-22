@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.23.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.22.0...v1.23.0) (2021-07-22)
+
+
+### Features
+
+* **contracts/treasury.sol && contracts/boardroom.sol:** [MODIFIED][FUNC]: tmpFunc() & [ADDED][TEST SCRIPTS] ([ca488e6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ca488e6d01aec498158d674708092c40bb272ca2))
+* **contracts/treasury.sol && test/treasury_p2.test.js:** [MODIFIED][CONTRACTS][FILE] && [ADDED][TEST SCRIPTS]: 'check treasuryInstance.allocateSeigniorage()' ([0f7a300](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0f7a3006d59f115d72a4afd0b7a9aca179ffa3fd))
+* **contracts/treasury.sol && test/treasury_p2.test.js:** [MODIFIED][FUNC]: Treasury.initialize() && [ADDED][TEST SCRIPTS]: 'check treasuryInstance.initialize()' ([203458c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/203458cf8c696a5169bc2083535ca01bd7b8c064))
+* **contracts/treasury.sol:** [MODIFIED][CONTRACT FILE] & [TUNING][TREASURY CONTRACT][CODE] ([96c36b0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/96c36b0ad323301e2cf01a595853c03fdad251b3))
+* **contracts/treasury.sol:** [MODIFIED][CONTRACTS]: ADDED PARAMETERS 'inflationPercent' ([764a257](https://github.com/Ceres-Coin/Ceres-Protocol/commit/764a257ea49d49e32b5da82ef69b1a6c36b338cd))
+* **contracts/treasury.sol:** [MODIFIED][CONTRACTS][FUNC]: function 'tmpFunc()' ([a658ab8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a658ab8cfda6607a2c5061dc43b52a1ac1d631d6))
+* **contracts/treasury.sol:** [MODIFIED][FUNC]: 'function tmpFunc() external ([edb35cc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/edb35ccbed312e8bff83d6814253083990906660))
+* **test/treasury_p2.test.js:** [CREATED][NEW][TEST SCRIPTS FILE]: test/Treasury_P2.test.js ([2c7eb49](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2c7eb49bb75ff42c8be81b86b6e218eb818a262f))
+
+
+### Styling
+
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([d5eac06](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d5eac065e24c462f948f924a540248ecb73450de))
+* **contracts/treasury.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([ad81117](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ad81117fcc710be5b9389625f67a576ab901ff73))
+
+
+### Tests
+
+* **test/treasury_p2.test.js:** [ADDED][TEST SCRIPTS]: 'check treasuryInstance.migrate()' ([b4d3508](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b4d350851e65b538f81a1f999d1a60f41f5e65d2))
+* **test/treasury.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([87df7b3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/87df7b326fa25448c5b1b7af425f170334e3439f))
+
 ## [1.22.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.21.0...v1.22.0) (2021-07-22)
 
 

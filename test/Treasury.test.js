@@ -175,6 +175,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check treasuryInstance.referralRate.call(), its DEFAULT value is 5', async () => {
+        const EXPECTED_VALUE = new BigNumber("5");
+        expect(parseFloat(await treasuryInstance.referralRate.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
 

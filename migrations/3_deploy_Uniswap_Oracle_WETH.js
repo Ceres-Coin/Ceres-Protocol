@@ -227,7 +227,7 @@ module.exports = async function(deployer,network,accounts) {
 	  Treasury,
 	  ceresInstance.address,
 	  ceresInstance.address,
-	  pair_instance_CERES_WETH.address,
+	  cssInstance.address,
 	  oracle_instance_CERES_WETH.address,
 	  oracle_instance_CERES_WETH.address,
 	  boardroomInstance.address,

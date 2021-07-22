@@ -201,6 +201,13 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.getBondOraclePrice.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+
+    it('check treasuryInstance.getSeigniorageOraclePrice.call(), its DEFAULT value is [1666666666666666]', async () => {
+        // console.log(chalk.blue(`getSeigniorageOraclePrice: ${await treasuryInstance.getSeigniorageOraclePrice.call()}`));
+        const EXPECTED_VALUE = new BigNumber("1666666666666666")
+        expect(parseFloat(await treasuryInstance.getSeigniorageOraclePrice.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
     
 
 

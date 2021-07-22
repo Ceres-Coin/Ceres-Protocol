@@ -377,7 +377,7 @@ contract Treasury is ContractGuard, Epoch {
             emit BoardroomFunded(now, boardroomReserve);
         }
     }
-
+    // TEST CASES DONE
     function setLockUp(
         uint256 _withdrawLockupEpochs,
         uint256 _rewardLockupEpochs,

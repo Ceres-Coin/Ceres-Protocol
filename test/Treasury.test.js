@@ -240,6 +240,21 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await treasuryInstance.fundAllocationRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
 
+    // GOVERNANCE FUNC TEST SCRIPTS
+    it('check treasuryInstance.setFund(NEW_VALUE), and check its NEW_VALUE', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = simpleFundInstance.address;
+        const NEW_VALUE = TEST_ACCOUNT;
+        expect(parseFloat(await treasuryInstance.fund.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await treasuryInstance.setFund(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.fund.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await treasuryInstance.setFund(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await treasuryInstance.fund.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
     
 
 

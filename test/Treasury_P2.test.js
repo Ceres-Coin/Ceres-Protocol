@@ -90,4 +90,16 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(treasuryInstance.address).to.not.be.empty;
     });
 
+    it ('check treasuryInstance.tmpFunc()', async() => {
+        // BEFORE & PRINT
+        console.log(chalk.yellow(`ceresInstance.balanceOf_BEFORE: ${await ceresInstance.balanceOf(treasuryInstance.address)}`));
+        
+        // ACTION
+        console.log(chalk.yellow(`tmpFunc(): ${await treasuryInstance.tmpFunc({from: OWNER})}`));
+        await ceresInstance.mint(treasuryInstance.address,POINT_THREE_DEC18,{from: OWNER});
+
+        // AFTER & PRINT
+        console.log(chalk.blue(`ceresInstance.balanceOf_AFTER: ${await ceresInstance.balanceOf(treasuryInstance.address)}`));
+
+    })
 });

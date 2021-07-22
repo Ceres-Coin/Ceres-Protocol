@@ -239,4 +239,6 @@ module.exports = async function(deployer,network,accounts) {
 	);
 	const treasuryInstance = await Treasury.deployed();
 	console.log(chalk.red.bold(`treasuryInstance: ${treasuryInstance.address}`));
+
+	await ceresInstance.approve(treasuryInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 };

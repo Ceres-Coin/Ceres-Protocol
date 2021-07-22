@@ -297,6 +297,17 @@ contract CEREStable is ERC20Custom, AccessControl {
             eth_usd_price() 
         );
     }
+    // TODO: ADD RESTRICTED ONLY BY OWNER OR OPERATOR OR CONTROLLER
+    function mint(address recipient_, uint256 amount_)
+        external
+        returns (bool)
+    {
+        uint256 balanceBefore = balanceOf(recipient_);
+        _mint(recipient_, amount_);
+        uint256 balanceAfter = balanceOf(recipient_);
+
+        return balanceAfter > balanceBefore;
+    }
 
     /* ========== EVENTS ========== */
 

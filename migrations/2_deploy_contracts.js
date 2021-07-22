@@ -2,6 +2,7 @@ const ConvertLib = artifacts.require("ConvertLib");
 const BigNumber = require('bignumber.js');
 const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
+const BOND = artifacts.require("Bond");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const CeresPoolLibrary = artifacts.require("Ceres/Pools/CERESPoolLibrary");
@@ -58,6 +59,10 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(CEREShares, "CERES Share", "CSS", OWNER, OWNER,OWNER,{from: OWNER});
 	const cssInstance = await CEREShares.deployed();
 	console.log(chalk.red.bold(`cssInstance: ${await cssInstance.address}`));
+
+	await deployer.deploy(BOND,{from: OWNER});
+	const bondInstance = await BOND.deployed();
+	console.log(chalk.red.bold(`bondInstance: ${await bondInstance.address}`));
 
 	await deployer.deploy(CeresPoolLibrary);
     await deployer.link(CeresPoolLibrary, [Pool_USDC]);

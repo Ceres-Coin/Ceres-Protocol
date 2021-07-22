@@ -226,7 +226,7 @@ contract('contracts/Treasury.sol', async (accounts) => {
     });
 
     // GOVERNANCE FUNC TEST SCRIPTS
-    it('check treasuryInstance.setFundAllocationRate.call(POINT_THREE_DEC18)', async () => {
+    it('check treasuryInstance.setFundAllocationRate(20), and check its NEW_VALUE', async () => {
         // BEFORE
         const DEFAULT_VALUE = new BigNumber("10");
         const NEW_VALUE = new BigNumber("20");;

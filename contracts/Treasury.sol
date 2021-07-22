@@ -33,8 +33,8 @@ contract Treasury is ContractGuard, Epoch {
     /* ========== STATE VARIABLES ========== */
 
     // ========== FLAGS
-    bool public migrated = false;
-    bool public initialized = false;
+    bool public migrated = false; //TEST CASES DONE
+    bool public initialized = false; //TEST CASES DONE
 
     // ========== CORE
     address public fund;

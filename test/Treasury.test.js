@@ -15,6 +15,7 @@ const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
 const UniswapV2Pair = artifacts.require("Uniswap/UniswapV2Pair");
 const Boardroom = artifacts.require('Boardroom');
 const UniswapV2Router02_Modified = artifacts.require("Uniswap/UniswapV2Router02_Modified");
+const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapPairOracle_CERES_WETH");
 const ERC20 = artifacts.require("ERC20");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const ONE_DEC18 = new BigNumber("1e18");
@@ -60,6 +61,7 @@ contract('contracts/Treasury.sol', async (accounts) => {
     let boardroomInstance;
     let treasuryInstance;
     let simpleFundInstance;
+    let oracle_instance_CERES_WETH;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -77,6 +79,7 @@ contract('contracts/Treasury.sol', async (accounts) => {
         pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
         ceresDemoInstance = await CeresDemo.deployed();
         boardroomInstance = await Boardroom.deployed();
+        oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
 
         simpleFundInstance = await SimpleFund.deployed();
         treasuryInstance = await Treasury.deployed();
@@ -135,6 +138,11 @@ contract('contracts/Treasury.sol', async (accounts) => {
     it('check treasuryInstance.c_s_percentage.call(), its DEFAULT value is 4', async () => {
         const EXPECTED_VALUE = new BigNumber("4");
         expect(parseFloat(await treasuryInstance.c_s_percentage.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check treasuryInstance.bondOracle.call(), its DEFAULT value is oracle_instance_CERES_WETH.address', async () => {
+        const EXPECTED_VALUE = oracle_instance_CERES_WETH.address;
+        expect(await treasuryInstance.bondOracle.call()).to.equal(EXPECTED_VALUE);
     });
 
 

@@ -336,7 +336,7 @@ contract Treasury is ContractGuard, Epoch {
             emit BoardroomFunded(now, boardroomReserve);
         }
     }
-    // TODO: [P2][LATER]
+    // TEST CASES DONE
     function allocateSeigniorage()
     external
     {

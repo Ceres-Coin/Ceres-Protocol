@@ -37,7 +37,7 @@ contract Treasury is ContractGuard, Epoch {
     bool public initialized = false; //TEST CASES DONE
 
     // ========== CORE
-    address public fund;
+    address public fund; //TEST CASES DONE
     address public cash; //TEST CASES DONE
     address public bond; //TEST CASES DONE
     address public share; //TEST CASES DONE

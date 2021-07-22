@@ -190,7 +190,7 @@ contract Treasury is ContractGuard, Epoch {
         fundAllocationRate = rate;
         emit ContributionPoolRateChanged(msg.sender, rate);
     }
-
+    // TEST CASES DONE
     function setInflationPercentCeil(uint256 inflationPercentCeil_)
     public
     onlyOperator

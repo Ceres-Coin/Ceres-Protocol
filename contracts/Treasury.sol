@@ -53,10 +53,10 @@ contract Treasury is ContractGuard, Epoch {
     // ========== PARAMS
     uint256 public cashPriceOne; //TEST CASES DONE
     uint256 public cashPriceCeiling; //TEST CASES DONE
-    uint256 public bondDepletionFloor;
-    uint256 public accumulatedSeigniorage = 0;
+    uint256 public bondDepletionFloor; //TEST CASES DONE
+    uint256 public accumulatedSeigniorage = 0; //TEST CASES DONE
     // fundAllocationRate c tax in supercash = 10%
-    uint256 public fundAllocationRate = 10; // %
+    uint256 public fundAllocationRate = 10; // 10% //TEST CASES DONE
     uint256 public referralRate = 5; //referral percentage is 5%
     // add inflationPercentCeil
     uint256 public inflationPercentCeil;

@@ -123,7 +123,25 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(parseFloat(await bondInstance.balanceOf.call(account5))).to.equal(parseFloat(0));
         expect(parseFloat(await bondInstance.balanceOf.call(account6))).to.equal(parseFloat(0));
         expect(parseFloat(await bondInstance.balanceOf.call(account7))).to.equal(parseFloat(0));
+    });
 
+    it('check bondInstance.owner.call(), its DEFAULT value is OWNER', async () => {
+        const EXPECTED_VALUE = OWNER;
+        expect(await bondInstance.owner.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check bondInstance.transferOwnership(TEST_ACCOUNT,{from: OWNER})', async () => {
+        const DEFAULT_VALUE = OWNER;
+        const NEW_VALUE = TEST_ACCOUNT;
+        // BEFORE
+        expect(await bondInstance.owner.call()).to.equal(DEFAULT_VALUE);
+        // ACTION && ASSERTION
+        await bondInstance.transferOwnership(NEW_VALUE,{from: DEFAULT_VALUE});
+        expect(await bondInstance.owner.call()).to.equal(NEW_VALUE);
+
+        // ROLLBACK CODE
+        await bondInstance.transferOwnership(DEFAULT_VALUE,{from: NEW_VALUE});
+        expect(await bondInstance.owner.call()).to.equal(DEFAULT_VALUE);
     });
     
 });

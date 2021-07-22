@@ -93,8 +93,8 @@ contract('contracts/Treasury.sol', async (accounts) => {
         expect(bondInstance.address).to.not.be.empty;
     });
 
-    it('check bondInstance.name.call(), its DEFAULT value is "SCB"', async () => {
-        const EXPECTED_VALUE = "SCB";
+    it('check bondInstance.name.call(), its DEFAULT value is "CERES BOND"', async () => {
+        const EXPECTED_VALUE = "CERES BOND";
         expect(await bondInstance.name.call()).to.equal(EXPECTED_VALUE);
     });
 

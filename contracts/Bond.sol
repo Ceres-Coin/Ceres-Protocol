@@ -8,7 +8,7 @@ contract Bond is ERC20, Ownable, Operator {
     /**
      * @notice Constructs the Basis Bond ERC-20 contract.
      */
-    constructor() public ERC20('SCB', 'SCB') {
+    constructor() public ERC20('CERES BOND', 'CSB') {
     }
 
     /**

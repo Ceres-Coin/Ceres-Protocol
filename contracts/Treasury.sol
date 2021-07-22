@@ -135,6 +135,7 @@ contract Treasury is ContractGuard, Epoch {
         return _getCashPrice(seigniorageOracle);
     }
 
+    // NO NEED TO TEST PRIVATE
     function _getCashPrice(address oracle) internal view returns (uint256) {
         try IOracle(oracle).consult(cash, 1e18) returns (uint256 price) {
             return price;

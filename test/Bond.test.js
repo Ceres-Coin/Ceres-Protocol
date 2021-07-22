@@ -112,5 +112,18 @@ contract('contracts/Treasury.sol', async (accounts) => {
         const EXPECTED_VALUE = ONE_HUNDRED_MILLION_DEC18
         expect(parseFloat(await bondInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
+
+    it('check bondInstance.balanceOf.call(account0/1/2/3/4/5/6/7), its value of account0 is "ONE_HUNDRED_MILLION_DEC18"', async () => {
+        const EXPECTED_VALUE = ONE_HUNDRED_MILLION_DEC18
+        expect(parseFloat(await bondInstance.balanceOf.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await bondInstance.balanceOf.call(account1))).to.equal(parseFloat(0));
+        expect(parseFloat(await bondInstance.balanceOf.call(account2))).to.equal(parseFloat(0));
+        expect(parseFloat(await bondInstance.balanceOf.call(account3))).to.equal(parseFloat(0));
+        expect(parseFloat(await bondInstance.balanceOf.call(account4))).to.equal(parseFloat(0));
+        expect(parseFloat(await bondInstance.balanceOf.call(account5))).to.equal(parseFloat(0));
+        expect(parseFloat(await bondInstance.balanceOf.call(account6))).to.equal(parseFloat(0));
+        expect(parseFloat(await bondInstance.balanceOf.call(account7))).to.equal(parseFloat(0));
+
+    });
     
 });

@@ -63,7 +63,7 @@ contract Treasury is ContractGuard, Epoch {
     uint256 public seigniorageCeil; //TEST CASES DONE
 
     /* ========== CONSTRUCTOR ========== */
-
+    //TEST CASES DONE
     constructor(
         address _cash,
         address _bond,
@@ -92,10 +92,8 @@ contract Treasury is ContractGuard, Epoch {
         cashPriceCeiling = uint256(105).mul(cashPriceOne).div(10**2);
 
         // inflation at most 10% xmancash
-        // inflationPercentCeil 12小时通胀设置，每次10%
         inflationPercentCeil = uint256(10).mul(cashPriceOne).div(10**2);
         seigniorageCeil = uint256(100000).mul(cashPriceOne);
-
         bondDepletionFloor = uint256(1000).mul(cashPriceOne);
     }
 

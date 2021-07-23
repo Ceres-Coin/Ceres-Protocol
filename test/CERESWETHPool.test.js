@@ -101,6 +101,11 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(await ceresWethPoolInstance.ceres.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check ceresWethPoolInstance.DURATION.call(), its DEFAULT value is 5 * 86400', async () => {
+        const EXPECTED_VALUE = new BigNumber(5 * 86400); // 5 DAYS
+        expect(parseFloat(await ceresWethPoolInstance.DURATION.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
     
     
 });

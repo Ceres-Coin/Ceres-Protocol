@@ -19,20 +19,21 @@ contract WETHWrapper {
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
 
+    //TEST CASES DONE
     function totalSupply() public virtual view returns (uint256) {
         return _totalSupply;
     }
-
+    //TEST CASES DONE
     function balanceOf(address account) public virtual view returns (uint256) {
         return _balances[account];
     }
-
+    //TEST CASES DONE
     function stake(uint256 amount) public virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
         weth.safeTransferFrom(msg.sender, address(this), amount);
     }
-
+    //TEST CASES DONE
     function withdraw(uint256 amount) public virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);

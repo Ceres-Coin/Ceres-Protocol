@@ -161,5 +161,19 @@ contract('contracts/Bond.sol', async (accounts) => {
         expect(await bondInstance.isOperator.call({from: account6})).to.equal(EXPECTED_VALUE2);
         expect(await bondInstance.isOperator.call({from: account7})).to.equal(EXPECTED_VALUE2);
     });
+
+    it('check bondInstance.transferOperator(TEST_ACCOUNT,{from: OWNER})', async () => {
+        const DEFAULT_VALUE = OWNER;
+        const NEW_VALUE = TEST_ACCOUNT;
+        // BEFORE
+        expect(await bondInstance.operator.call()).to.equal(DEFAULT_VALUE);
+        // ACTION && ASSERTION
+        await bondInstance.transferOperator(NEW_VALUE,{from: DEFAULT_VALUE});
+        expect(await bondInstance.operator.call()).to.equal(NEW_VALUE);
+
+        // // ROLLBACK CODE
+        await bondInstance.transferOperator(DEFAULT_VALUE,{from: DEFAULT_VALUE});
+        expect(await bondInstance.operator.call()).to.equal(DEFAULT_VALUE);
+    });
     
 });

@@ -131,6 +131,12 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(await ceresWethPoolInstance.weth.call()).to.equal(EXPECTED_VALUE);
     });
 
+    it('check ceresWethPoolInstance.totalSupply.call(), its DEFAULT value is [TBD]', async () => {
+        // console.log(parseFloat(await ceresWethPoolInstance.totalSupply.call()));
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await ceresWethPoolInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
     

@@ -126,6 +126,11 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(parseFloat(await ceresWethPoolInstance.rewardPerTokenStored.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresWethPoolInstance.weth.call(), its DEFAULT value is wethInstance.address', async () => {
+        const EXPECTED_VALUE = wethInstance.address;
+        expect(await ceresWethPoolInstance.weth.call()).to.equal(EXPECTED_VALUE);
+    });
+
 
     
     

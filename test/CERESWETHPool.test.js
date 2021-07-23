@@ -241,7 +241,11 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`AFTER: ceresInstance.balanceOf.call(OWNER): ${await ceresInstance.balanceOf.call(OWNER)}`));
     });
 
+    it('check ceresWethPoolInstance.exit({from: OWNER})', async () => {
+        console.log(chalk.blue(`BEFORE: ceresInstance.balanceOf.call(OWNER): ${await ceresInstance.balanceOf.call(OWNER)}`));
+        await ceresWethPoolInstance.exit({from: OWNER});
+        
+        console.log(chalk.blue(`AFTER: ceresInstance.balanceOf.call(OWNER): ${await ceresInstance.balanceOf.call(OWNER)}`));
+    });
 
-    
-    
 });

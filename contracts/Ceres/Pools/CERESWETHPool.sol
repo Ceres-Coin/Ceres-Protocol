@@ -160,7 +160,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
-
+    // TEST CASES DONE
     function exit() external {
         withdraw(balanceOf(msg.sender));
         getReward();

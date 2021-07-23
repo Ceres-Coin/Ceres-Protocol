@@ -84,7 +84,11 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         }
         _;
     }
-
+    
+    function setRewardRate(uint256 _rewardRate) public onlyOperator {
+        rewardRate = _rewardRate;
+    }
+    // TEST CASES DONE
     function lastTimeRewardApplicable() public view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }

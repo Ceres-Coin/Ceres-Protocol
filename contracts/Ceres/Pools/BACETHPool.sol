@@ -9,7 +9,7 @@ import '../../Utils/Address.sol';
 import '../../ERC20/SafeERC20.sol';
 import '../../Interfaces/IRewardDistributionRecipient.sol';
 
-contract yCRVWrapper {
+contract WETHWrapper {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
@@ -39,7 +39,7 @@ contract yCRVWrapper {
     }
 }
 
-contract BACETHPool is yCRVWrapper, IRewardDistributionRecipient {
+contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
     IERC20 public basisCash;
     uint256 public DURATION = 5 days;
 

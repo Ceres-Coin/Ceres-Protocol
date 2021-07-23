@@ -84,13 +84,24 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         }
         _;
     }
-    
+    // TEST CASES DONE
     function setRewardRate(uint256 _rewardRate) public onlyOperator {
         rewardRate = _rewardRate;
+        if (block.timestamp > startime) {
+            lastUpdateTime = block.timestamp;
+            periodFinish = block.timestamp.add(DURATION);
+        } else {
+            lastUpdateTime = startime;
+            periodFinish = startime.add(DURATION);
+        }
     }
     // TEST CASES DONE
     function lastTimeRewardApplicable() public view returns (uint256) {
-        return Math.min(block.timestamp, periodFinish);
+        // return Math.min(block.timestamp, periodFinish);
+        if (periodFinish>0) 
+            return periodFinish;
+        else 
+            return block.timestamp;
     }
 
     function rewardPerToken() public view returns (uint256) {
@@ -105,6 +116,11 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
                     .mul(1e18)
                     .div(totalSupply())
             );
+    }
+
+    function tmpValue() public view returns(uint256) {
+        return lastTimeRewardApplicable()
+                    .sub(lastUpdateTime);
     }
 
     function earned(address account) public view returns (uint256) {

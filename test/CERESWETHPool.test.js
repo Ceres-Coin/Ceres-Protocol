@@ -169,9 +169,9 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
 
     });
 
-    it('check ceresWethPoolInstance.lastTimeRewardApplicable.call(), its DEFAULT value is [0]', async () => {
+    it('check ceresWethPoolInstance.lastTimeRewardApplicable.call(), its DEFAULT value is gt [0]', async () => {
         const EXPECTED_VALUE = new BigNumber("0");
-        expect(parseFloat(await ceresWethPoolInstance.lastTimeRewardApplicable.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await ceresWethPoolInstance.lastTimeRewardApplicable.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
     it('check ceresWethPoolInstance.rewardPerToken.call(), its DEFAULT value is [0]', async () => {
@@ -193,6 +193,23 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         // // ROLLBACK CODE
         await ceresWethPoolInstance.setRewardRate(DEFAULT_VALUE,{from: OWNER});
         expect(parseFloat(await ceresWethPoolInstance.rewardRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
+    it('check ceresWethPoolInstance.rewardPerToken.call(), AFTER SETREWARDRATE()', async () => {
+        console.log(chalk.yellow(`rewardPerToken_BEFORE: ${await ceresWethPoolInstance.rewardPerToken.call()}`));
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await ceresWethPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
+
+        console.log(chalk.yellow(`lastUpdateTime: ${await ceresWethPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.yellow(`periodFinish: ${await ceresWethPoolInstance.periodFinish.call()}`));
+
+        const NEW_VALUE =  ONE_DEC18;
+        await ceresWethPoolInstance.setRewardRate(NEW_VALUE,{from: OWNER});
+        console.log(chalk.blue(`lastUpdateTime_AFTER: ${await ceresWethPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.blue(`periodFinish_AFTER: ${await ceresWethPoolInstance.periodFinish.call()}`));
+
+        console.log(chalk.blue(`rewardPerToken_AFTER: ${new BigNumber(await ceresWethPoolInstance.rewardPerToken.call()).div(BIG18)}`));
+        console.log(chalk.blue(`tmpValue: ${await ceresWethPoolInstance.tmpValue.call()}`));
     });
 
 

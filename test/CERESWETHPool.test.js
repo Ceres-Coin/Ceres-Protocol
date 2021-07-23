@@ -212,6 +212,13 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`tmpValue: ${await ceresWethPoolInstance.tmpValue.call()}`));
     });
 
+    it('check ceresWethPoolInstance.rewardPerToken.call() 2, AFTER SETREWARDRATE()', async () => {
+        const NEW_VALUE =  1;
+        await ceresWethPoolInstance.setRewardRate(NEW_VALUE,{from: OWNER});
+        const EXPECTED_VALUE = new BigNumber("480000");
+        expect(parseFloat(await ceresWethPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
     

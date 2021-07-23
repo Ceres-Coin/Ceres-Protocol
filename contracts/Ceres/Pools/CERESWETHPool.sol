@@ -58,7 +58,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
     event Staked(address indexed user, uint256 amount);
     event Withdrawn(address indexed user, uint256 amount);
     event RewardPaid(address indexed user, uint256 reward);
-
+    // TEST CASES DONE
     constructor(
         address _ceres,
         address _weth,

@@ -96,6 +96,11 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(ceresWethPoolInstance.address).to.not.be.empty;
     });
 
+    it('check ceresWethPoolInstance.ceres.call(), its DEFAULT value is ceresInstance.address', async () => {
+        const EXPECTED_VALUE = ceresInstance.address;
+        expect(await ceresWethPoolInstance.ceres.call()).to.equal(EXPECTED_VALUE);
+    });
+
     
     
 });

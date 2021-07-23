@@ -6,7 +6,7 @@ import '../Access/Ownable.sol';
 abstract contract IRewardDistributionRecipient is Ownable {
     address public rewardDistribution;
 
-    function notifyRewardAmount(uint256 reward) external virtual;
+    // function notifyRewardAmount(uint256 reward) external virtual;
 
     modifier onlyRewardDistribution() {
         require(

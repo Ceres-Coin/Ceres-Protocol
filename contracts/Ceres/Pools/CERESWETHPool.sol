@@ -165,7 +165,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         withdraw(balanceOf(msg.sender));
         getReward();
     }
-
+    // TEST CASES DONE
     function getReward() public updateReward(msg.sender) checkStart {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
@@ -175,28 +175,28 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         }
     }
 
-    function notifyRewardAmount(uint256 reward)
-        external
-        override
-        onlyRewardDistribution
-        updateReward(address(0))
-    {
-        if (block.timestamp > startime) {
-            if (block.timestamp >= periodFinish) {
-                rewardRate = reward.div(DURATION);
-            } else {
-                uint256 remaining = periodFinish.sub(block.timestamp);
-                uint256 leftover = remaining.mul(rewardRate);
-                rewardRate = reward.add(leftover).div(DURATION);
-            }
-            lastUpdateTime = block.timestamp;
-            periodFinish = block.timestamp.add(DURATION);
-            emit RewardAdded(reward);
-        } else {
-            rewardRate = reward.div(DURATION);
-            lastUpdateTime = startime;
-            periodFinish = startime.add(DURATION);
-            emit RewardAdded(reward);
-        }
-    }
+    // function notifyRewardAmount(uint256 reward)
+    //     external
+    //     override
+    //     onlyRewardDistribution
+    //     updateReward(address(0))
+    // {
+    //     if (block.timestamp > startime) {
+    //         if (block.timestamp >= periodFinish) {
+    //             rewardRate = reward.div(DURATION);
+    //         } else {
+    //             uint256 remaining = periodFinish.sub(block.timestamp);
+    //             uint256 leftover = remaining.mul(rewardRate);
+    //             rewardRate = reward.add(leftover).div(DURATION);
+    //         }
+    //         lastUpdateTime = block.timestamp;
+    //         periodFinish = block.timestamp.add(DURATION);
+    //         emit RewardAdded(reward);
+    //     } else {
+    //         rewardRate = reward.div(DURATION);
+    //         lastUpdateTime = startime;
+    //         periodFinish = startime.add(DURATION);
+    //         emit RewardAdded(reward);
+    //     }
+    // }
 }

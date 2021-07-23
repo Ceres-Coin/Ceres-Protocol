@@ -249,5 +249,6 @@ module.exports = async function(deployer,network,accounts) {
 
 	await wethInstance.approve(ceresWethPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	await ceresInstance.approve(ceresWethPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	ceresInstance.transfer(ceresWethPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 
 };

@@ -122,7 +122,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         return lastTimeRewardApplicable()
                     .sub(lastUpdateTime);
     }
-
+    // TEST CASES DONE
     function earned(address account) public view returns (uint256) {
         return
             balanceOf(account)
@@ -130,7 +130,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
                 .div(1e18)
                 .add(rewards[account]);
     }
-
+    // TEST CASES DONE
     // stake visibility is public as overriding LPTokenWrapper's stake() function
     function stake(uint256 amount)
         public
@@ -148,7 +148,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
-
+    // TEST CASES DONE
     function withdraw(uint256 amount)
         public
         override

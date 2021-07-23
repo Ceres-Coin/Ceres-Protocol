@@ -10,6 +10,7 @@ const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const Treasury = artifacts.require('Treasury');
+const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool')
 const SimpleFund = artifacts.require('SimpleERCFund');
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
@@ -241,4 +242,10 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`treasuryInstance: ${treasuryInstance.address}`));
 
 	await ceresInstance.approve(treasuryInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+
+	await deployer.deploy(CERESWETHPool,ceresInstance.address,wethInstance.address,startTime,{from: OWNER});
+	const ceresWethPoolInstance = await CERESWETHPool.deployed();
+	console.log(chalk.red.bold(`ceresWethPoolInstance: ${ceresWethPoolInstance.address}`));
+
+
 };

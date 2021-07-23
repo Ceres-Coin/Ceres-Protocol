@@ -149,6 +149,20 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(parseFloat(await ceresWethPoolInstance.balanceOf.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresWethPoolInstance.stake(one_dec18,{from: owner})', async() => {
+        // BEFORE
+        console.log(chalk.yellow(`BEFORE: wethInstance.balanceOf.call(OWNER): ${await wethInstance.balanceOf.call(OWNER)}`))
+        console.log(chalk.yellow(`BEFORE: wethInstance.balanceOf.call(ceresWethPoolInstance): ${await wethInstance.balanceOf.call(ceresWethPoolInstance.address)}`));
+
+        // ACTION
+        await ceresWethPoolInstance.stake(ONE_DEC18,{from: OWNER});
+
+        // AFTER
+        console.log(chalk.yellow(`AFTER: wethInstance.balanceOf.call(OWNER): ${await wethInstance.balanceOf.call(OWNER)}`))
+        console.log(chalk.yellow(`AFTER: wethInstance.balanceOf.call(ceresWethPoolInstance): ${await wethInstance.balanceOf.call(ceresWethPoolInstance.address)}`));
+
+    });
+
 
     
     

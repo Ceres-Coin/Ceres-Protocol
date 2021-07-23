@@ -41,14 +41,14 @@ contract WETHWrapper {
 }
 
 contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
-    IERC20 public ceres;
-    uint256 public DURATION = 5 days;
+    IERC20 public ceres; //TEST CASES DONE
+    uint256 public DURATION = 5 days; //TEST CASES DONE
 
-    uint256 public startime;
-    uint256 public periodFinish = 0;
-    uint256 public rewardRate = 0;
-    uint256 public lastUpdateTime;
-    uint256 public rewardPerTokenStored;
+    uint256 public startime; //TEST CASES DONE
+    uint256 public periodFinish = 0; //TEST CASES DONE
+    uint256 public rewardRate = 0; //TEST CASES DONE
+    uint256 public lastUpdateTime; //TEST CASES DONE
+    uint256 public rewardPerTokenStored; //TEST CASES DONE
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
     mapping(address => uint256) public deposits;

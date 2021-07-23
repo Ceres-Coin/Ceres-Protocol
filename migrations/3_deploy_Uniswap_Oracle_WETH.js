@@ -247,5 +247,7 @@ module.exports = async function(deployer,network,accounts) {
 	const ceresWethPoolInstance = await CERESWETHPool.deployed();
 	console.log(chalk.red.bold(`ceresWethPoolInstance: ${ceresWethPoolInstance.address}`));
 
+	await wethInstance.approve(ceresWethPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	await ceresInstance.approve(ceresWethPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 
 };

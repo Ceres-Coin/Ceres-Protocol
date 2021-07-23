@@ -174,6 +174,13 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(parseFloat(await ceresWethPoolInstance.lastTimeRewardApplicable.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresWethPoolInstance.rewardPerToken.call(), its DEFAULT value is [0]', async () => {
+        console.log(chalk.blue(`rewardPerToken: ${await ceresWethPoolInstance.rewardPerToken.call()}`));
+        console.log(chalk.blue(`totalSupply: ${new BigNumber(await ceresWethPoolInstance.totalSupply.call()).div(BIG18)}`));
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await ceresWethPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
     

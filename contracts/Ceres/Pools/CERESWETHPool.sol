@@ -9,6 +9,7 @@ import '../../ERC20/IERC20.sol';
 import '../../Utils/Address.sol';
 import '../../ERC20/SafeERC20.sol';
 import '../../Interfaces/IRewardDistributionRecipient.sol';
+import '../../owner/Operator.sol';
 
 contract WETHWrapper {
     using SafeMath for uint256;
@@ -41,7 +42,7 @@ contract WETHWrapper {
     }
 }
 
-contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
+contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
     IERC20 public ceres; //TEST CASES DONE
     uint256 public DURATION = 5 days; //TEST CASES DONE
 

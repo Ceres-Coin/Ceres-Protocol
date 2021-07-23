@@ -181,6 +181,20 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(parseFloat(await ceresWethPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check ceresWethPoolInstance.setRewardRate(NEW_VALUE,{from: OWNER})', async () => {
+        const DEFAULT_VALUE = new BigNumber("0");
+        const NEW_VALUE =  new BigNumber("10");;
+        // BEFORE
+        expect(parseFloat(await ceresWethPoolInstance.rewardRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION && ASSERTION
+        await ceresWethPoolInstance.setRewardRate(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await ceresWethPoolInstance.rewardRate.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // // ROLLBACK CODE
+        await ceresWethPoolInstance.setRewardRate(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await ceresWethPoolInstance.rewardRate.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
 
     
     

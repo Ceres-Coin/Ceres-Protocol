@@ -10,7 +10,7 @@ const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const Treasury = artifacts.require('Treasury');
-const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool')
+const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool');
 const SimpleFund = artifacts.require('SimpleERCFund');
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");

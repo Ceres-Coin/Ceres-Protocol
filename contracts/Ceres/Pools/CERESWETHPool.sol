@@ -14,7 +14,7 @@ contract WETHWrapper {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
-    IERC20 public ycrv;
+    IERC20 public weth;
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
@@ -30,21 +30,21 @@ contract WETHWrapper {
     function stake(uint256 amount) public virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
-        ycrv.safeTransferFrom(msg.sender, address(this), amount);
+        weth.safeTransferFrom(msg.sender, address(this), amount);
     }
 
     function withdraw(uint256 amount) public virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        ycrv.safeTransfer(msg.sender, amount);
+        weth.safeTransfer(msg.sender, amount);
     }
 }
 
 contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
-    IERC20 public basisCash;
+    IERC20 public ceres;
     uint256 public DURATION = 5 days;
 
-    uint256 public starttime;
+    uint256 public startime;
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -59,17 +59,17 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
     event RewardPaid(address indexed user, uint256 reward);
 
     constructor(
-        address basisCash_,
-        address ycrv_,
-        uint256 starttime_
+        address _ceres,
+        address _weth,
+        uint256 _startime
     ) public {
-        basisCash = IERC20(basisCash_);
-        ycrv = IERC20(ycrv_);
-        starttime = starttime_;
+        ceres = IERC20(_ceres);
+        weth = IERC20(_weth);
+        startime = _startime;
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'BACyCRVPool: not start');
+        require(block.timestamp >= startime, 'BACyCRVPool: not start');
         _;
     }
 
@@ -116,11 +116,11 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
         updateReward(msg.sender)
         checkStart
     {
-        require(amount > 0, 'BACyCRVPool: Cannot stake 0');
+        require(amount > 0, 'Cannot stake 0');
         uint256 newDeposit = deposits[msg.sender].add(amount);
         require(
             newDeposit <= 20000e18,
-            'BACyCRVPool: deposit amount exceeds maximum 20000'
+            'deposit amount exceeds maximum 20000'
         );
         deposits[msg.sender] = newDeposit;
         super.stake(amount);
@@ -133,7 +133,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
         updateReward(msg.sender)
         checkStart
     {
-        require(amount > 0, 'BACyCRVPool: Cannot withdraw 0');
+        require(amount > 0, 'Cannot withdraw 0');
         deposits[msg.sender] = deposits[msg.sender].sub(amount);
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
@@ -148,7 +148,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            basisCash.safeTransfer(msg.sender, reward);
+            ceres.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
     }
@@ -159,7 +159,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
         onlyRewardDistribution
         updateReward(address(0))
     {
-        if (block.timestamp > starttime) {
+        if (block.timestamp > startime) {
             if (block.timestamp >= periodFinish) {
                 rewardRate = reward.div(DURATION);
             } else {
@@ -172,8 +172,8 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient {
             emit RewardAdded(reward);
         } else {
             rewardRate = reward.div(DURATION);
-            lastUpdateTime = starttime;
-            periodFinish = starttime.add(DURATION);
+            lastUpdateTime = startime;
+            periodFinish = startime.add(DURATION);
             emit RewardAdded(reward);
         }
     }

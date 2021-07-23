@@ -149,17 +149,23 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(parseFloat(await ceresWethPoolInstance.balanceOf.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check ceresWethPoolInstance.stake(one_dec18,{from: owner})', async() => {
+    it('check ceresWethPoolInstance.stake(one_dec18,{from: owner}) & withdraw()', async() => {
         // BEFORE
         console.log(chalk.yellow(`BEFORE: wethInstance.balanceOf.call(OWNER): ${await wethInstance.balanceOf.call(OWNER)}`))
-        console.log(chalk.yellow(`BEFORE: wethInstance.balanceOf.call(ceresWethPoolInstance): ${await wethInstance.balanceOf.call(ceresWethPoolInstance.address)}`));
+        console.log(chalk.yellow(`BEFORE: wethInstance.balanceOf.call(ceresWethPoolInstance): ${new BigNumber(await wethInstance.balanceOf.call(ceresWethPoolInstance.address)).div(BIG18)}`));
 
         // ACTION
         await ceresWethPoolInstance.stake(ONE_DEC18,{from: OWNER});
 
         // AFTER
         console.log(chalk.yellow(`AFTER: wethInstance.balanceOf.call(OWNER): ${await wethInstance.balanceOf.call(OWNER)}`))
-        console.log(chalk.yellow(`AFTER: wethInstance.balanceOf.call(ceresWethPoolInstance): ${await wethInstance.balanceOf.call(ceresWethPoolInstance.address)}`));
+        console.log(chalk.yellow(`AFTER: wethInstance.balanceOf.call(ceresWethPoolInstance): ${new BigNumber(await wethInstance.balanceOf.call(ceresWethPoolInstance.address)).div(BIG18)}`));
+
+        await ceresWethPoolInstance.withdraw(POINT_ONE_DEC18,{from: OWNER});
+
+        // AFTER && AFTER
+        console.log(chalk.yellow(`AFTER && AFTER: wethInstance.balanceOf.call(OWNER): ${await wethInstance.balanceOf.call(OWNER)}`))
+        console.log(chalk.yellow(`AFTER && AFTER: wethInstance.balanceOf.call(ceresWethPoolInstance): ${new BigNumber(await wethInstance.balanceOf.call(ceresWethPoolInstance.address)).div(BIG18)}`));
 
     });
 

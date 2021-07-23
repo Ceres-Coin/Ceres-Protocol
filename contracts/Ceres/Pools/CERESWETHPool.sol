@@ -103,7 +103,7 @@ contract CERESWETHPool is WETHWrapper, IRewardDistributionRecipient, Operator {
         else 
             return block.timestamp;
     }
-
+    // TEST CASES DONE
     function rewardPerToken() public view returns (uint256) {
         if (totalSupply() == 0) {
             return rewardPerTokenStored;

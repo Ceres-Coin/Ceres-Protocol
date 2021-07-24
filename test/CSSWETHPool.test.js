@@ -226,6 +226,15 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.rewardPerToken.call(), check its default value is gt(0) AFTER setRewardRate(1) & stake(one_dec18)', async () => {
+        await cssWETHPoolInstance.stake(ONE_DEC18,{from: OWNER});
+        await cssWETHPoolInstance.setRewardRate(1,{from: OWNER});
+
+        // console.log(chalk.blue(await cssWETHPoolInstance.rewardPerToken.call()));
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
     
 
 

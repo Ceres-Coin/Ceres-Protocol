@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.25.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.24.0...v1.25.0) (2021-07-24)
+
+
+### Features
+
+* **contracts/ceres/pools/cereswethpool.sol:** [REMOVED][FUNCS]: 'notifyRewardAmount' & [ADDED][TEST SCRIPTS]: 'check ceresWethPoolInstance.getReward({from: OWNER})' && [ADDED][DEPLOYMENTS SCRIPTS]: 'ceresInstance.transfer(ceresWethPoolInstance.address)' ([b72e06d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b72e06db3d0a7fe114de24932c7e703e8345852e))
+* **contracts/ceres/pools/cereswethpool.sol:** [UPDATED][FUNC]: 'rewardPerToken' & 'tmpValue' & 'lastTimeRewardApplicable' ([077526c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/077526c3370074bdee9e2738b4f94c672672f302))
+* **contracts/ceres/pools/csswethpool.sol && test/csswethpool.test.js:** [ADDED][COMMENTS][TEST CASES DONE] && [ADDED][TEST SCRIPTS]: STAKE & WITHDRAW FUNC() ([4be63b0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4be63b040533d7ac6b759f880ba698e62d8c937f))
+* **contracts/ceres/pools/csswethpool.sol && test/csswethpool.test.js:** [MODIFIED][CONTRACTS] && [TUNING][FAILED TEST CASES] ([e163062](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e163062baf37c8a1044c723ceb0b495de2552e3b))
+* **contracts/ceres/pools/csswethpool.sol:** [ADDED][NEW][FUNC]: 'setRewardRate()' FUNC ([4ee8bd6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4ee8bd6f422c924dd9f534225f822c27b9059408))
+* **contracts/ceres/pools/csswethpool.sol:** [MODIFIED][CONTRACTS]: MODIFIED PARAMETER 'STARTTIME' TO 'STARTIME' ([ce46fda](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ce46fdace1f05fe3af4d1e5b55f8c908b85c23fa))
+* **contracts/ceres/pools/csswethpool.sol:** [RENAMED][CONTRACT FILE]: FROM DAIBACLPTokenCashPool.sol ([e40d8cf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e40d8cfdda52a80d4cb5790f2f7db931ba97000c))
+* **contracts/ceres/pools/csswethpool.sol:** [UPDATED][CONTRACTS][FUNC]: UPDATES FUNC() 'lastTimeRewardApplicable' ([a534dd5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a534dd5e8a950b971c4479079ef0f347a1fe0f60))
+* **contracts/ceres/pools/daibaclptokencashpool.sol:** [CREATED][NEW][CONTRACTS FILE]: 'contracts/Ceres/Pools/DAIBACLPTokenCashPool.sol' ([ba1a60a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ba1a60a90ae50dc26b434165bc308827f7a4fe62))
+* **contracts/ceres/pools/daibaclptokencashpool.sol:** [MODIDFIED][CONTRACTS FILE]: RENAME PARMETERS 'CSS' ([006f67a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/006f67a15841af09f5d283ca5ecf393782b8773a))
+* **contracts/ceres/pools/daibaclptokencashpool.sol:** [MODIFIED][CONTRACTS FILE]: RENAME CONTRACT NAME 'DAIBACLPTokenCashPool' TO 'CSSWETHPool' ([62ae24a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/62ae24a71ec1028343ff6ea14575268377cd5ee5))
+* **contracts/erc20/lptokenwrapper.sol:** [CREATED][NEW][CONTRACTS FILE]: contracts/ERC20/LPTokenWrapper.sol ([9d08703](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9d08703906639f4408b37a62720f5fdba8d4a99f))
+* **migrations/3_deploy_uniswap_oracle_weth.js && test/csswethpool.test.js:** [MODIFIED][DEPLOYMENTS SCRIPTS] && [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.lpt.call(), its DEFAULT value is pair_instance_CERES_WETH.address' ([42abe59](https://github.com/Ceres-Coin/Ceres-Protocol/commit/42abe59c78b0be8d47c83ce0beb6b92ac963dda0))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT OF 'CSSWETHPool' & APPROVE CODE & TRANSFER CSSINSTANCE ([250e282](https://github.com/Ceres-Coin/Ceres-Protocol/commit/250e2821090992b083e8c47dbdb5f750ad82f1e1))
+* **test/csswethpool.test.js:** [CREATED][NEW][TEST SCRITPS FILE]: 'test/CSSWETHPool.test.js" && [UPDATED][NPM RUN SCRIPTS]: "truffle test test/CSSWETHPool.test.js" ([7b6cf60](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7b6cf60c9cd58b0116b892bb3c3009c3a79ec9d1))
+
+
+### Styling
+
+* **contracts/ceres/pools/cereswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([86500cd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/86500cd5041a7b8194ed6fcc5a879d0024d6e305))
+* **contracts/ceres/pools/cereswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([50372d6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/50372d6ac261613229d9eb5b2cc10dfb7c0cb336))
+* **contracts/ceres/pools/cereswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([6b1e42a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6b1e42a6b42ba8564b58f1b2834a6cd900afdb5a))
+* **contracts/ceres/pools/csswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([a670a32](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a670a32007e17362459d6d1c5db66ab28d6e4b1c))
+* **contracts/ceres/pools/csswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([8a724ce](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8a724ce18e2b8a3876b149c8b3aac460c204c53c))
+* **contracts/ceres/pools/csswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([01aecb8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/01aecb86cca98aceb8b332540bf9490fc86f4a4a))
+* **contracts/ceres/pools/csswethpool.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([faec1c9](https://github.com/Ceres-Coin/Ceres-Protocol/commit/faec1c90e77fd9cd97645696c3f5c9112011eef8))
+* **contracts/ceres/pools/csswethpool.sol:** [ADDED][COMMMENTS][TEST CASES DONE] ([d2d6536](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d2d6536b4b96b0ecf856f2cec494287ef270bc90))
+* **contracts/erc20/lptokenwrapper.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([a099707](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a099707eabb4aed400cfa9945849b6285ac1e67e))
+
+
+### Tests
+
+* **test/cereswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresWethPoolInstance.earned.call(OWNER), its value is gt(0) & call(account1/2/3/4/5/6/7) = 0' ([d08e055](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d08e05561ac28e89b3de99fdc9309091d2d1e761))
+* **test/cereswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresWethPoolInstance.exit({from: OWNER})' ([4161908](https://github.com/Ceres-Coin/Ceres-Protocol/commit/416190852a9653017cde68b3297efdaff05f0bc1))
+* **test/cereswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check ceresWethPoolInstance.rewardPerToken.call() 2, AFTER SETREWARDRATE()' ([a8f586f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a8f586f06c9f68bf4dd6f0490eac87802f9c58d6))
+* **test/css.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING TEST CASES ([e637418](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e637418e7bda045407364ca760a1d6abfeed7ccc))
+* **test/csswethpool.test.js:** 'check cssWETHPoolInstance.rewardPerTokenStored.call(), its DEFAULT value is 0' ([f6826fe](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f6826fe55606942e37d938231ed5372470b835e6))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS] ([908412b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/908412b1caa997ba2c536cb6447faac752d39ea4))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.balanceOf.call(account0/1/2/3/4/5/6/7), check its default value is [0]' ([79ef70b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/79ef70b73e870e742b775c4f16ad5a0cbbcd1bea))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.basAllocationPercentage.call(), its DEFAULT value is 1' ([4c9cae7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/4c9cae71c8b9622158336a29d3727b37a7569505))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.DURATION.call(), its DEFAULT value is 5 * 86400' ([23f72ba](https://github.com/Ceres-Coin/Ceres-Protocol/commit/23f72ba08df80d1ec1b5e7f5e9c7073caada5763))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.earned.call(account1/2/3/4/5/6/7), check its default value is [0]' ([11d5842](https://github.com/Ceres-Coin/Ceres-Protocol/commit/11d5842214b8c11031397da3158d9de55009654c))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.foundationA.call(), its DEFAULT value is simpleFundInstance.address' ([eda24a7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/eda24a7fea2df93cb16c0810396a57652a422b8f))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.getReward({from: OWNER})' ([c5f8217](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c5f8217bf0e3060147716585895186c3296800e1))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.lastTimeRewardApplicable.call(), check its default value is GT(0)' ([62342d7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/62342d72427b592df2d7a0df6e1646d08842098f))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.lastUpdateTime.call(), its DEFAULT value is 0' ([cb09a63](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cb09a63ef410f47e82288d1c43fc6c61071303f3))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.lpt.call(), its DEFAULT value is wethInstance.address' ([aa35dd6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/aa35dd6f1b3ed74ca8dee34a26610a20f730cf05))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.periodFinish.call(), its DEFAULT value is 0' ([6501171](https://github.com/Ceres-Coin/Ceres-Protocol/commit/65011715d4e337c9c5b5e0f01eefb5cf03d40cde))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewardPerToken.call(), check its default value is equal(0) AFTER setRewardRate(1)' ([131bd57](https://github.com/Ceres-Coin/Ceres-Protocol/commit/131bd57be7e619d8f96faf6b41f14552f1955aa2))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewardPerToken.call(), check its default value is equal(0) BEFORE STAKE' ([bf1f986](https://github.com/Ceres-Coin/Ceres-Protocol/commit/bf1f986d35baf310bdc4420d1e29c8d7d3f96f76))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewardPerToken.call(), check its default value is equal(0) BEFORE STAKE' ([ef18a24](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef18a241c3c274691b8c0163b198c646097e3055))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewardPerToken.call(), check its default value is gt(0) AFTER setRewardRate(1) & stake(one_dec18)' ([ea4c303](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ea4c303adc90c212037d22ec5ca5d89591a23ada))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewardPerToken.call(), check its default value is gt(0) AFTER setRewardRate(1) & stake(one_dec18)' ([c0a00a2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c0a00a279787a7c2e62ba368ee76e96bea89e3e6))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewardRate.call(), its DEFAULT value is 0' ([3b80e29](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3b80e290760fe007df3a07294f616203967d630c))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.rewards.call(account0/1/2/3/4/5/6/7), its DEFAULT value is 0' ([5682ac5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5682ac5d807f95f7ed956ddf65426b1da9e9a49c))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.totalSupply.call(), check its default value is [0]' ([03caa4b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/03caa4b78ae490652828f537667485b8c0f5467c))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHPoolInstance.userRewardPerTokenPaid.call(account0/1/2/3/4/5/6/7), its DEFAULT value is 0' ([49d912c](https://github.com/Ceres-Coin/Ceres-Protocol/commit/49d912c4295523b9a7a1756c47b5ffe59c23e4ce))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: ('check cssWETHPoolInstance.lastUpdateTime.call() & periodFinish.call() ([09e0dcf](https://github.com/Ceres-Coin/Ceres-Protocol/commit/09e0dcfef087aaa1ff377a4611dfc9416a01952a))
+* **test/csswethpool.test.js:** [ADDED][TEST SCRIPTS]: ADDED EXIT() TEST SCRIPTS ([8faf394](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8faf3945e9337d521d0389cf9c1cc2ea52e58109))
+* **test/csswethpool.test.js:** [tuning][failed test cases] ([414d6fc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/414d6fc4450f9b30bfbab544930c06bd837d5072))
+* **test/csswethpool.test.js:** [UPDATED][TEST SCRIPTS TITLE] ([0d47dec](https://github.com/Ceres-Coin/Ceres-Protocol/commit/0d47decf92d24736781e4c4ece2048f4b5022b7c))
+
 ## [1.24.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.23.0...v1.24.0) (2021-07-23)
 
 

@@ -73,7 +73,7 @@ contract CSSWETHPool is
         else 
             return block.timestamp;
     }
-
+    // TEST CASES DONE
     function setRewardRate(uint256 _rewardRate) public onlyOperator {
         rewardRate = _rewardRate;
         if (block.timestamp > startime) {
@@ -84,7 +84,7 @@ contract CSSWETHPool is
             periodFinish = startime.add(DURATION);
         }
     }
-
+    // TEST CASES DONE
     function rewardPerToken() public view returns (uint256) {
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
@@ -108,6 +108,7 @@ contract CSSWETHPool is
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
+    // TEST CASES DONE
     function stake(uint256 amount)
         public
         override
@@ -116,10 +117,11 @@ contract CSSWETHPool is
     {
         require(amount > 0, 'DAIBACLPTokenCashPool: Cannot stake 0');
         super.stake(amount);
-        setLockTime();
+        // TODO: ADD CODE FOR SETLOCKTIME()
+        // setLockTime();
         emit Staked(msg.sender, amount);
     }
-
+    // TEST CASES DONE
     function withdraw(uint256 amount)
         public
         override
@@ -127,8 +129,9 @@ contract CSSWETHPool is
         checkStart
     {
         require(amount > 0, 'DAIBACLPTokenCashPool: Cannot withdraw 0');
-        require(canWithdraw(msg.sender), "BACWOKT: still in withdraw lockup");
-        setLockTime();
+        // TODO: ADD CODE FOR LOCKUP
+        // require(canWithdraw(msg.sender), "BACWOKT: still in withdraw lockup");
+        // setLockTime();
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }

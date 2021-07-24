@@ -233,6 +233,10 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`AFTER*2 lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
 
         await cssWETHPoolInstance.stake(ONE_DEC18,{from: OWNER});
+        
+        // await time.increase(86400 + 1);
+        // await time.advanceBlock();
+        await cssWETHPoolInstance.withdraw(POINT_ONE_DEC18,{from: OWNER});
 
         console.log(chalk.blue(`AFTER*3 lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
         console.log(chalk.blue(`AFTER*3 periodFinish: ${await cssWETHPoolInstance.periodFinish.call()}`));

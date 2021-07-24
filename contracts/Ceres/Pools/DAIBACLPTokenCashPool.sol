@@ -15,7 +15,7 @@ contract DAIBACLPTokenCashPool is
     IRewardDistributionRecipient,
     PoolLock
 {
-    IERC20 public basisShare;
+    IERC20 public CSS;
     address public foundationA;
     uint256 public basAllocationPercentage = 1;
     uint256 public DURATION = 5 days;
@@ -34,12 +34,12 @@ contract DAIBACLPTokenCashPool is
     event RewardPaid(address indexed user, uint256 reward);
 
     constructor(
-        address basisShare_,
+        address _css,
         address lptoken_,
         address foundationA_,
         uint256 starttime_
     ) public {
-        basisShare = IERC20(basisShare_);
+        CSS = IERC20(_css);
         lpt = IERC20(lptoken_);
         foundationA = foundationA_;
         starttime = starttime_;
@@ -126,9 +126,9 @@ contract DAIBACLPTokenCashPool is
             require(canWithdraw(msg.sender), "BACWOKT: still in reward lockup");
             setLockTime();
             rewards[msg.sender] = 0;
-            basisShare.safeTransfer(msg.sender, reward.mul(100-basAllocationPercentage).div(100));
+            CSS.safeTransfer(msg.sender, reward.mul(100-basAllocationPercentage).div(100));
             uint256 totalFee = reward.mul(basAllocationPercentage).div(100);
-            basisShare.safeTransfer(foundationA, totalFee);
+            CSS.safeTransfer(foundationA, totalFee);
             
             emit RewardPaid(msg.sender, reward);
         }

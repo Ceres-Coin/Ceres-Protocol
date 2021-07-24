@@ -109,6 +109,11 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.cssAllocationPercentage.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.DURATION.call(), its DEFAULT value is 30 * 86400', async () => {
+        const EXPECTED_VALUE = new BigNumber(30 * 86400); // 30 DAYS
+        expect(parseFloat(await cssWETHLPPoolInstance.DURATION.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
     
 
 });

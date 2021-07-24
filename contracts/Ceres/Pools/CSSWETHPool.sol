@@ -98,7 +98,7 @@ contract CSSWETHPool is
                     .div(totalSupply())
             );
     }
-
+    // TEST CASES DONE
     function earned(address account) public view returns (uint256) {
         return
             balanceOf(account)

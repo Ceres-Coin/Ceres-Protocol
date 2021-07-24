@@ -17,8 +17,8 @@ contract CSSWETHPool is
 {
     IERC20 public CSS;
     address public foundationA;
-    uint256 public basAllocationPercentage = 1;
-    uint256 public DURATION = 5 days;
+    uint256 public basAllocationPercentage = 1; // TEST CASES DONE
+    uint256 public DURATION = 5 days; // TEST CASES DONE
 
     uint256 public starttime;
     uint256 public periodFinish = 0;

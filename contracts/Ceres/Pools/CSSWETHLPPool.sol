@@ -31,8 +31,8 @@ contract CSSWETHLPPool is
     uint256 public rewardRate = 0; // TEST CASES DONE
     uint256 public lastUpdateTime; // TEST CASES DONE
     uint256 public rewardPerTokenStored; // TEST CASES DONE
-    mapping(address => uint256) public userRewardPerTokenPaid;
-    mapping(address => uint256) public rewards;
+    mapping(address => uint256) public userRewardPerTokenPaid; // TEST CASES DONE
+    mapping(address => uint256) public rewards; // TEST CASES DONE
 
     event RewardAdded(uint256 reward);
     event Staked(address indexed user, uint256 amount);

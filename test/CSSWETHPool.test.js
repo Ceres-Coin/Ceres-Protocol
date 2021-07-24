@@ -129,5 +129,10 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.periodFinish.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.rewardRate.call(), its DEFAULT value is 0', async () => {
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHPoolInstance.rewardRate.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

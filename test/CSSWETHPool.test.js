@@ -119,8 +119,7 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect((await cssWETHPoolInstance.foundationA.call())).to.equal((EXPECTED_VALUE));
     });
 
-    it('check cssWETHPoolInstance.startime.call(), its DEFAULT value is 1', async () => {
-        // console.log(chalk.blue(`startime: ${await cssWETHPoolInstance.startime.call()}`));
+    it('check cssWETHPoolInstance.startime.call(), its DEFAULT value is 1616385600', async () => {
         const EXPECTED_VALUE = new BigNumber("1616385600"); 
         expect(parseFloat(await cssWETHPoolInstance.startime.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });

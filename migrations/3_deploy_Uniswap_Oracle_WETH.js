@@ -243,7 +243,7 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`treasuryInstance: ${treasuryInstance.address}`));
 
 	await ceresInstance.approve(treasuryInstance.address,TWO_MILLION_DEC18,{from: OWNER});
-
+	// deploy ceres_wethPool
 	await deployer.deploy(CERESWETHPool,ceresInstance.address,wethInstance.address,startTime,{from: OWNER});
 	const ceresWethPoolInstance = await CERESWETHPool.deployed();
 	console.log(chalk.red.bold(`ceresWethPoolInstance: ${ceresWethPoolInstance.address}`));
@@ -252,11 +252,12 @@ module.exports = async function(deployer,network,accounts) {
 	await ceresInstance.approve(ceresWethPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	ceresInstance.transfer(ceresWethPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 
-	await deployer.deploy(CSSWETHPool, cssInstance.address, wethInstance.address, simplefundInstance.address,startTime,{from: OWNER});
+	// deploy css_wethLPPool
+	await deployer.deploy(CSSWETHPool, cssInstance.address, pair_instance_CERES_WETH.address, simplefundInstance.address,startTime,{from: OWNER});
 	const cssWETHPoolInstance = await CSSWETHPool.deployed();
 	console.log(chalk.red.bold(`cssWETHPoolInstance: ${cssWETHPoolInstance.address}`));
 
-	await wethInstance.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	await pair_instance_CERES_WETH.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	await cssInstance.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	cssInstance.transfer(cssWETHPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 };

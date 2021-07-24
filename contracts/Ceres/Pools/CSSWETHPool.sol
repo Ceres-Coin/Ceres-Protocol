@@ -140,7 +140,7 @@ contract CSSWETHPool is
         withdraw(balanceOf(msg.sender));
         getReward();
     }
-
+    // TEST CASES DONE
     function getReward() public updateReward(msg.sender) checkStart {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {

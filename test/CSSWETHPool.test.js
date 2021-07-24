@@ -261,6 +261,13 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.earned.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.getReward({from: OWNER})', async () => {
+        console.log(chalk.blue(`BEFORE: cssInstance.balanceOf.call(OWNER): ${await cssInstance.balanceOf.call(OWNER)}`));
+
+        await cssWETHPoolInstance.getReward({from: OWNER});
+        console.log(chalk.blue(`AFTER: cssInstance.balanceOf.call(OWNER): ${await cssInstance.balanceOf.call(OWNER)}`));
+    });
+
     
 
 

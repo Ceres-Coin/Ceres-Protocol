@@ -64,7 +64,11 @@ contract CSSWETHPool is
     }
 
     function lastTimeRewardApplicable() public view returns (uint256) {
-        return Math.min(block.timestamp, periodFinish);
+        // return Math.min(block.timestamp, periodFinish);
+        if (periodFinish>0) 
+            return periodFinish;
+        else 
+            return block.timestamp;
     }
 
     function rewardPerToken() public view returns (uint256) {

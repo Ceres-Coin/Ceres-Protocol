@@ -139,6 +139,11 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.lastUpdateTime.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.rewardPerTokenStored.call(), its DEFAULT value is "0"', async () => {
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardPerTokenStored.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
     
 
 });

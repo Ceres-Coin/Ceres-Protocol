@@ -173,10 +173,22 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect((await cssWETHPoolInstance.lpt.call())).to.equal((EXPECTED_VALUE));
     });
 
-    it('check cssWETHPoolInstance.totalSupply.call(), check its default value is [tbd]', async () => {
+    it('check cssWETHPoolInstance.totalSupply.call(), check its default value is [0]', async () => {
         // console.log(chalk.blue(`totalSupply: ${await cssWETHPoolInstance.totalSupply.call()}`));
         const EXPECTED_VALUE = new BigNumber("0")
         expect(parseFloat(await cssWETHPoolInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check cssWETHPoolInstance.balanceOf.call(account0/1/2/3/4/5/6/7), check its default value is [0]', async () => {
+        const EXPECTED_VALUE = new BigNumber("0")
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account1))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account2))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account3))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account4))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account5))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account6))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
 

@@ -16,12 +16,12 @@ contract CSSWETHLPPool is
     IRewardDistributionRecipient,
     PoolLock
 {
-    IERC20 public basisShare;
+    IERC20 public css;
     
     // add address FoundationA
     address public foundationA;
-    // tax = basAllocationPercentage = 10% in super cash
-    uint256 public basAllocationPercentage = 10;
+    // tax = cssAllocationPercentage = 10% in super cash
+    uint256 public cssAllocationPercentage = 10;
 
     uint256 public constant DURATION = 30 days;
 
@@ -40,12 +40,12 @@ contract CSSWETHLPPool is
     event RewardPaid(address indexed user, uint256 reward);
 
     constructor(
-        address basisShare_,
+        address _css,
         address lptoken_,
         address foundationA_,
         uint256 starttime_
     ) public {
-        basisShare = IERC20(basisShare_);
+        css = IERC20(_css);
         lpt = IERC20(lptoken_);
         foundationA = foundationA_;
         starttime = starttime_;
@@ -126,9 +126,9 @@ contract CSSWETHLPPool is
             require(canWithdraw(msg.sender), "BACWOKT: still in reward lockup");
             setLockTime();
             rewards[msg.sender] = 0;
-            basisShare.safeTransfer(msg.sender, reward.mul(100-basAllocationPercentage).div(100));
-            uint256 totalFee = reward.mul(basAllocationPercentage).div(100);
-            basisShare.safeTransfer(foundationA, totalFee);
+            css.safeTransfer(msg.sender, reward.mul(100-cssAllocationPercentage).div(100));
+            uint256 totalFee = reward.mul(cssAllocationPercentage).div(100);
+            css.safeTransfer(foundationA, totalFee);
             emit RewardPaid(msg.sender, reward);
         }
     }

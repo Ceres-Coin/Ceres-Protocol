@@ -16,13 +16,13 @@ contract CSSWETHPool is
     PoolLock
 {
     IERC20 public CSS;
-    address public foundationA;
+    address public foundationA; //TEST CASES DONE
     uint256 public basAllocationPercentage = 1; // TEST CASES DONE
     uint256 public DURATION = 5 days; // TEST CASES DONE
 
-    uint256 public startime;
-    uint256 public periodFinish = 0;
-    uint256 public rewardRate = 0;
+    uint256 public startime; //TEST CASES DONE 
+    uint256 public periodFinish = 0; //TEST CASES DONE
+    uint256 public rewardRate = 0; //TEST CASES DONE
     uint256 public lastUpdateTime;
     uint256 public rewardPerTokenStored;
     mapping(address => uint256) public userRewardPerTokenPaid;

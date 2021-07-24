@@ -168,5 +168,10 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.rewards.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.lpt.call(), its DEFAULT value is wethInstance.address', async () => {
+        const EXPECTED_VALUE = wethInstance.address 
+        expect((await cssWETHPoolInstance.lpt.call())).to.equal((EXPECTED_VALUE));
+    });
+
 
 });

@@ -268,6 +268,15 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`AFTER: cssInstance.balanceOf.call(OWNER): ${await cssInstance.balanceOf.call(OWNER)}`));
     });
 
+    // it('check cssWETHPoolInstance.exit({from: OWNER})', async () => {
+    //     console.log(chalk.blue(`BEFORE: cssInstance.balanceOf.call(OWNER): ${await cssInstance.balanceOf.call(OWNER)}`));
+    //     console.log(chalk.blue(`BEFORE: pair_instance_CERES_WETH.balanceOf.call(OWNER): ${await pair_instance_CERES_WETH.balanceOf.call(OWNER)}`));
+
+    //     await cssWETHPoolInstance.exit({from: OWNER});
+    //     console.log(chalk.blue(`AFTER: cssInstance.balanceOf.call(OWNER): ${await cssInstance.balanceOf.call(OWNER)}`));
+    //     console.log(chalk.blue(`BEFORE: pair_instance_CERES_WETH.balanceOf.call(OWNER): ${await pair_instance_CERES_WETH.balanceOf.call(OWNER)}`));
+    // });
+
     
 
 

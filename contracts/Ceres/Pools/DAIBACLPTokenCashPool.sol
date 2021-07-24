@@ -10,7 +10,7 @@ import '../../Interfaces/IRewardDistributionRecipient.sol';
 import '../../ERC20/LPTokenWrapper.sol';
 import '../../Utils/PoolLock.sol';
 
-contract DAIBACLPTokenCashPool is
+contract CSSWETHPool is
     LPTokenWrapper,
     IRewardDistributionRecipient,
     PoolLock

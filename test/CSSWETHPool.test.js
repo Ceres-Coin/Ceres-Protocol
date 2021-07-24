@@ -203,5 +203,24 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.lastUpdateTime.call() & periodFinish.call() ', async () => {
+        console.log(chalk.yellow(`rewardRate: ${await cssWETHPoolInstance.rewardRate.call()}`));
+        console.log(chalk.yellow(`lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.yellow(`periodFinish: ${await cssWETHPoolInstance.periodFinish.call()}`));
+        
+        await cssWETHPoolInstance.setRewardRate(1,{from: OWNER});
+
+        console.log(chalk.blue(`rewardRate: ${await cssWETHPoolInstance.rewardRate.call()}`));
+        console.log(chalk.blue(`lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.blue(`periodFinish: ${await cssWETHPoolInstance.periodFinish.call()}`));
+
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await cssWETHPoolInstance.rewardRate.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.lastUpdateTime.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.periodFinish.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
+    
+
 
 });

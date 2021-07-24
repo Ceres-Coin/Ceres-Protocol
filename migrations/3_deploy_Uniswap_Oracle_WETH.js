@@ -12,6 +12,7 @@ const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const Treasury = artifacts.require('Treasury');
 const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool');
 const CSSWETHPool = artifacts.require('Ceres/Pools/CSSWETHPool');
+const CSSWETHLPPool = artifacts.require('Ceres/Pools/CSSWETHLPPool');
 const SimpleFund = artifacts.require('SimpleERCFund');
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
@@ -260,4 +261,6 @@ module.exports = async function(deployer,network,accounts) {
 	await pair_instance_CERES_WETH.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	await cssInstance.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	cssInstance.transfer(cssWETHPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
+
+	// DEPLOY CSSWETHLPPool;
 };

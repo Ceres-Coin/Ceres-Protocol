@@ -99,11 +99,6 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(cssWETHPoolInstance.address).to.not.be.empty;
     });
 
-    // it('check ceresWethPoolInstance.CSS(), its DEFAULT value is cssInstance.address', async () => {
-    //     const EXPECTED_VALUE = cssInstance.address;
-    //     expect(await ceresWethPoolInstance.CSS()).to.equal(EXPECTED_VALUE);
-    // });
-
     it('check cssWETHPoolInstance.DURATION.call(), its DEFAULT value is 5 * 86400', async () => {
         const EXPECTED_VALUE = new BigNumber(5 * 86400); // 5 DAYS
         expect(parseFloat(await cssWETHPoolInstance.DURATION.call())).to.equal(parseFloat(EXPECTED_VALUE));
@@ -220,11 +215,11 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.periodFinish.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
-    // it('check cssWETHPoolInstance.rewardPerToken.call(), check its default value is equal(0) AFTER setRewardRate(1)', async () => {
-    //     await cssWETHPoolInstance.setRewardRate(1,{from: OWNER});
-    //     const EXPECTED_VALUE = new BigNumber("0");
-    //     expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
-    // });
+    it('check cssWETHPoolInstance.rewardPerToken.call(), check its default value is equal(0) AFTER setRewardRate(1)', async () => {
+        await cssWETHPoolInstance.setRewardRate(1,{from: OWNER});
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
 
     it('check cssWETHPoolInstance.rewardPerToken.call(), check its default value is gt(0) AFTER setRewardRate(1) & stake(one_dec18)', async () => {
         console.log(chalk.blue(`AFTER lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
@@ -244,9 +239,9 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`AFTER*3 lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
 
 
-        // console.log(chalk.blue(await cssWETHPoolInstance.rewardPerToken.call()));
-        // const EXPECTED_VALUE = new BigNumber("0");
-        // expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.gt(parseFloat(EXPECTED_VALUE));
+        console.log(chalk.blue(await cssWETHPoolInstance.rewardPerToken.call()));
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await cssWETHPoolInstance.rewardPerToken.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
     

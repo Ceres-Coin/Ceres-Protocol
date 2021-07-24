@@ -227,12 +227,6 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
     // });
 
     it('check cssWETHPoolInstance.rewardPerToken.call(), check its default value is gt(0) AFTER setRewardRate(1) & stake(one_dec18)', async () => {
-        
-        // console.log(chalk.blue(`BEFORE lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
-        // console.log(chalk.blue(`BEFORE lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
-        
-        // await cssWETHPoolInstance.stake(ONE_DEC18,{from: OWNER});
-        
         console.log(chalk.blue(`AFTER lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
         console.log(chalk.blue(`AFTER periodFinish: ${await cssWETHPoolInstance.periodFinish.call()}`));
         console.log(chalk.blue(`AFTER lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
@@ -242,6 +236,13 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`AFTER*2 lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
         console.log(chalk.blue(`AFTER*2 periodFinish: ${await cssWETHPoolInstance.periodFinish.call()}`));
         console.log(chalk.blue(`AFTER*2 lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
+
+        await cssWETHPoolInstance.stake(ONE_DEC18,{from: OWNER});
+
+        console.log(chalk.blue(`AFTER*3 lastUpdateTime: ${await cssWETHPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.blue(`AFTER*3 periodFinish: ${await cssWETHPoolInstance.periodFinish.call()}`));
+        console.log(chalk.blue(`AFTER*3 lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
+
 
         // console.log(chalk.blue(await cssWETHPoolInstance.rewardPerToken.call()));
         // const EXPECTED_VALUE = new BigNumber("0");

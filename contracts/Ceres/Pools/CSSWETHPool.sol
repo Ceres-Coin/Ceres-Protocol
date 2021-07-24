@@ -56,7 +56,8 @@ contract CSSWETHPool is
 
     modifier updateReward(address account) {
         rewardPerTokenStored = rewardPerToken();
-        lastUpdateTime = lastTimeRewardApplicable();
+        // TODO: [IMPORTANT][ADDED CODE] TO TUNING THE LASTUPDATETIME MECHANISM
+        // lastUpdateTime = lastTimeRewardApplicable();
         if (account != address(0)) {
             rewards[account] = earned(account);
             userRewardPerTokenPaid[account] = rewardPerTokenStored;
@@ -65,6 +66,7 @@ contract CSSWETHPool is
     }
     // TEST CASES DONE
     function lastTimeRewardApplicable() public view returns (uint256) {
+        // TODO: [IMPORTANT][ADDED CODE] TO TUNING THE LASTUPDATETIME MECHANISM
         // return Math.min(block.timestamp, periodFinish);
         if (periodFinish>0) 
             return periodFinish;

@@ -61,6 +61,14 @@ contract CSSWETHLPPool is
         _;
     }
 
+    function getBlockTimestamp() public view returns (uint256) {
+        return block.timestamp;
+    }
+
+    function getPeriodFinish() public view returns (uint256) {
+        return periodFinish;
+    }
+    // TEST CASES DONE
     function lastTimeRewardApplicable() public view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }

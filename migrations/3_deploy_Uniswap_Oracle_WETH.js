@@ -263,4 +263,11 @@ module.exports = async function(deployer,network,accounts) {
 	cssInstance.transfer(cssWETHPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 
 	// DEPLOY CSSWETHLPPool;
+	await deployer.deploy(CSSWETHLPPool, cssInstance.address, pair_instance_CERES_WETH.address, simplefundInstance.address,startTime,{from: OWNER});
+	const cssWETHLPPoolInstance = await CSSWETHLPPool.deployed();
+	console.log(chalk.red.bold(`cssWETHLPPoolInstance: ${cssWETHLPPoolInstance.address}`));
+
+	await pair_instance_CERES_WETH.approve(cssWETHLPPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	await cssInstance.approve(cssWETHLPPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	cssInstance.transfer(cssWETHLPPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 };

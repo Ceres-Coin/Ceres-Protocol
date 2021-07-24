@@ -27,7 +27,7 @@ contract CSSWETHLPPool is
 
     uint256 public initreward = 70000 * 10**18; // 70,000 Shares // TEST CASES DONE
     uint256 public startime; // TEST CASES DONE
-    uint256 public periodFinish = 0;
+    uint256 public periodFinish = 0; // TEST CASES DONE
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
     uint256 public rewardPerTokenStored;

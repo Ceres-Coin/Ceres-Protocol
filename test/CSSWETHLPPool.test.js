@@ -34,7 +34,7 @@ const Treasury = artifacts.require('Treasury');
 const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool');
 const SimpleFund = artifacts.require('SimpleERCFund');
 
-contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
+contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -132,6 +132,11 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
     it('check cssWETHLPPoolInstance.rewardRate.call(), its DEFAULT value is "0"', async () => {
         const EXPECTED_VALUE = new BigNumber("0"); 
         expect(parseFloat(await cssWETHLPPoolInstance.rewardRate.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check cssWETHLPPoolInstance.lastUpdateTime.call(), its DEFAULT value is "0"', async () => {
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.lastUpdateTime.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
     

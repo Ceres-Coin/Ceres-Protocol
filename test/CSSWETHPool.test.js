@@ -144,5 +144,17 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.rewardPerTokenStored.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.userRewardPerTokenPaid.call(account0/1/2/3/4/5/6/7), its DEFAULT value is 0', async () => {
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account1))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account2))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account3))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account4))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account5))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account6))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHPoolInstance.userRewardPerTokenPaid.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

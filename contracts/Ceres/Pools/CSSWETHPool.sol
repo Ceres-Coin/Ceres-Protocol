@@ -23,8 +23,8 @@ contract CSSWETHPool is
     uint256 public startime; //TEST CASES DONE 
     uint256 public periodFinish = 0; //TEST CASES DONE
     uint256 public rewardRate = 0; //TEST CASES DONE
-    uint256 public lastUpdateTime;
-    uint256 public rewardPerTokenStored;
+    uint256 public lastUpdateTime; //TEST CASES DONE
+    uint256 public rewardPerTokenStored; //TEST CASES DONE
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
 

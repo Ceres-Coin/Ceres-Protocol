@@ -11,6 +11,7 @@ const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHU
 const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const Treasury = artifacts.require('Treasury');
 const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool');
+const CSSWETHPool = artifacts.require('Ceres/Pools/CSSWETHPool');
 const SimpleFund = artifacts.require('SimpleERCFund');
 
 const UniswapV2Factory = artifacts.require("Uniswap/UniswapV2Factory");
@@ -251,4 +252,11 @@ module.exports = async function(deployer,network,accounts) {
 	await ceresInstance.approve(ceresWethPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	ceresInstance.transfer(ceresWethPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 
+	await deployer.deploy(CSSWETHPool, cssInstance.address, wethInstance.address, simplefundInstance.address,startTime,{from: OWNER});
+	const cssWETHPoolInstance = await CSSWETHPool.deployed();
+	console.log(chalk.red.bold(`cssWETHPoolInstance: ${cssWETHPoolInstance.address}`));
+
+	await wethInstance.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	await cssInstance.approve(cssWETHPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	cssInstance.transfer(cssWETHPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 };

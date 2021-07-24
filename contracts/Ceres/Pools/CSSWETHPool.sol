@@ -9,6 +9,7 @@ import '../../ERC20/SafeERC20.sol';
 import '../../Interfaces/IRewardDistributionRecipient.sol';
 import '../../ERC20/LPTokenWrapper.sol';
 import '../../Utils/PoolLock.sol';
+import '../../owner/Operator.sol';
 
 contract CSSWETHPool is
     LPTokenWrapper,
@@ -62,13 +63,24 @@ contract CSSWETHPool is
         }
         _;
     }
-
+    // TEST CASES DONE
     function lastTimeRewardApplicable() public view returns (uint256) {
         // return Math.min(block.timestamp, periodFinish);
         if (periodFinish>0) 
             return periodFinish;
         else 
             return block.timestamp;
+    }
+
+    function setRewardRate(uint256 _rewardRate) public onlyOperator {
+        rewardRate = _rewardRate;
+        if (block.timestamp > startime) {
+            lastUpdateTime = block.timestamp;
+            periodFinish = block.timestamp.add(DURATION);
+        } else {
+            lastUpdateTime = startime;
+            periodFinish = startime.add(DURATION);
+        }
     }
 
     function rewardPerToken() public view returns (uint256) {

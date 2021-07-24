@@ -20,7 +20,7 @@ contract CSSWETHPool is
     uint256 public basAllocationPercentage = 1; // TEST CASES DONE
     uint256 public DURATION = 5 days; // TEST CASES DONE
 
-    uint256 public starttime;
+    uint256 public startime;
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -37,17 +37,17 @@ contract CSSWETHPool is
         address _css,
         address lptoken_,
         address foundationA_,
-        uint256 starttime_
+        uint256 _startime
     ) public {
         CSS = IERC20(_css);
         lpt = IERC20(lptoken_);
         foundationA = foundationA_;
-        starttime = starttime_;
+        startime = _startime;
     }
 
     modifier checkStart() {
         require(
-            block.timestamp >= starttime,
+            block.timestamp >= startime,
             'DAIBACLPTokenCashPool: not start'
         );
         _;
@@ -140,7 +140,7 @@ contract CSSWETHPool is
     //     onlyRewardDistribution
     //     updateReward(address(0))
     // {
-    //     if (block.timestamp > starttime) {
+    //     if (block.timestamp > startime) {
     //         if (block.timestamp >= periodFinish) {
     //             rewardRate = reward.div(DURATION);
     //         } else {
@@ -153,8 +153,8 @@ contract CSSWETHPool is
     //         emit RewardAdded(reward);
     //     } else {
     //         rewardRate = reward.div(DURATION);
-    //         lastUpdateTime = starttime;
-    //         periodFinish = starttime.add(DURATION);
+    //         lastUpdateTime = startime;
+    //         periodFinish = startime.add(DURATION);
     //         emit RewardAdded(reward);
     //     }
     // }

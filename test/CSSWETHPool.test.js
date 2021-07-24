@@ -173,5 +173,11 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect((await cssWETHPoolInstance.lpt.call())).to.equal((EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.totalSupply.call(), check its default value is [tbd]', async () => {
+        // console.log(chalk.blue(`totalSupply: ${await cssWETHPoolInstance.totalSupply.call()}`));
+        const EXPECTED_VALUE = new BigNumber("0")
+        expect(parseFloat(await cssWETHPoolInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

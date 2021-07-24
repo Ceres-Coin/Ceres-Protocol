@@ -26,7 +26,7 @@ contract CSSWETHLPPool is
     uint256 public constant DURATION = 30 days;
 
     uint256 public initreward = 70000 * 10**18; // 70,000 Shares
-    uint256 public starttime; // starttime TBD
+    uint256 public startime; // startime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -43,12 +43,12 @@ contract CSSWETHLPPool is
         address _css,
         address lptoken_,
         address foundationA_,
-        uint256 starttime_
+        uint256 _startime
     ) public {
         css = IERC20(_css);
         lpt = IERC20(lptoken_);
         foundationA = foundationA_;
-        starttime = starttime_;
+        startime = _startime;
     }
 
     modifier updateReward(address account) {
@@ -145,7 +145,7 @@ contract CSSWETHLPPool is
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'not start');
+        require(block.timestamp >= startime, 'not start');
         _;
     }
 
@@ -155,7 +155,7 @@ contract CSSWETHLPPool is
     //     onlyRewardDistribution
     //     updateReward(address(0))
     // {
-    //     if (block.timestamp > starttime) {
+    //     if (block.timestamp > startime) {
     //         if (block.timestamp >= periodFinish) {
     //             rewardRate = reward.div(DURATION);
     //         } else {
@@ -168,8 +168,8 @@ contract CSSWETHLPPool is
     //         emit RewardAdded(reward);
     //     } else {
     //         rewardRate = initreward.div(DURATION);
-    //         lastUpdateTime = starttime;
-    //         periodFinish = starttime.add(DURATION);
+    //         lastUpdateTime = startime;
+    //         periodFinish = startime.add(DURATION);
     //         emit RewardAdded(reward);
     //     }
     // }

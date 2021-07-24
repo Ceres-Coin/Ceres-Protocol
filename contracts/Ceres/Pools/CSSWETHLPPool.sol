@@ -19,14 +19,14 @@ contract CSSWETHLPPool is
     IERC20 public css;
     
     // add address FoundationA
-    address public foundationA;
+    address public foundationA; // TEST CASES DONE
     // tax = cssAllocationPercentage = 10% in super cash
-    uint256 public cssAllocationPercentage = 10;
+    uint256 public cssAllocationPercentage = 10; // TEST CASES DONE
 
-    uint256 public constant DURATION = 30 days;
+    uint256 public constant DURATION = 30 days; // TEST CASES DONE
 
-    uint256 public initreward = 70000 * 10**18; // 70,000 Shares
-    uint256 public startime; // startime TBD
+    uint256 public initreward = 70000 * 10**18; // 70,000 Shares // TEST CASES DONE
+    uint256 public startime; // TEST CASES DONE
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;

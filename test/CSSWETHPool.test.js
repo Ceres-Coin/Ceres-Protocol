@@ -191,5 +191,11 @@ contract('contracts/Ceres/Pools/CSSWETHPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHPoolInstance.balanceOf.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHPoolInstance.lastTimeRewardApplicable.call(), check its default value is GT(0)', async () => {
+        console.log(chalk.blue(`lastTimeRewardApplicable: ${await cssWETHPoolInstance.lastTimeRewardApplicable.call()}`));
+        const EXPECTED_VALUE = new BigNumber("0")
+        expect(parseFloat(await cssWETHPoolInstance.lastTimeRewardApplicable.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

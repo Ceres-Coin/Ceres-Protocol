@@ -246,13 +246,15 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         console.log(chalk.blue(`lastUpdateTime: ${await cssWETHLPPoolInstance.lastUpdateTime.call()}`));
         console.log(chalk.blue(`periodFinish: ${await cssWETHLPPoolInstance.periodFinish.call()}`));
         console.log(chalk.blue(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
-
-
-        
-
     });
 
-    
+    it('check cssWETHLPPoolInstance.withdrawLockupEpochs.call(), its DEFAULT value is equal(0)', async () => {
+        console.log(chalk.blue(`withdrawLockupEpochs: ${await cssWETHLPPoolInstance.withdrawLockupEpochs.call()}`));
+        const EXPECTED_VALUE = new BigNumber("2"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+
 
 
 

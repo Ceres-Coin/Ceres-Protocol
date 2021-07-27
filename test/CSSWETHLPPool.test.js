@@ -248,10 +248,15 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         console.log(chalk.blue(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
     });
 
-    it('check cssWETHLPPoolInstance.withdrawLockupEpochs.call(), its DEFAULT value is equal(0)', async () => {
+    it('check cssWETHLPPoolInstance.withdrawLockupEpochs.call(), its DEFAULT value is equal(2)', async () => {
         console.log(chalk.blue(`withdrawLockupEpochs: ${await cssWETHLPPoolInstance.withdrawLockupEpochs.call()}`));
         const EXPECTED_VALUE = new BigNumber("2"); 
         expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check cssWETHLPPoolInstance.rewardLockupEpochs.call(), its DEFAULT value is equal(2)', async () => {
+        const EXPECTED_VALUE = new BigNumber("2"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
 

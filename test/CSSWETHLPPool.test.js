@@ -361,6 +361,12 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE_3));
     });
 
+    it('check cssWETHLPPoolInstance.getCurrentEpochTimestamp.call(), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.blue(`getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call())).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
 

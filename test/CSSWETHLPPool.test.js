@@ -330,6 +330,37 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.setLockUp()', async () => {
+        // BEFORE
+        const DEFAULT_VALUE_0 = new BigNumber("2"); 
+        const DEFAULT_VALUE_1 = new BigNumber("2"); 
+        const DEFAULT_VALUE_2 = new BigNumber("1608883200"); 
+        const DEFAULT_VALUE_3 = new BigNumber("180"); 
+        
+        const NEW_VALUE_0 = new BigNumber("4"); 
+        const NEW_VALUE_1 = new BigNumber("4"); 
+        const NEW_VALUE_2 = new BigNumber("1608983200"); 
+        const NEW_VALUE_3 = new BigNumber("360"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_0));
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_1));
+        expect(parseFloat(await cssWETHLPPoolInstance.epochAlignTimestamp.call())).to.equal(parseFloat(DEFAULT_VALUE_2));
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE_3));
+        
+        // ACTION & ASSERTION
+        await cssWETHLPPoolInstance.setLockUp(NEW_VALUE_0,NEW_VALUE_1,NEW_VALUE_2,NEW_VALUE_3,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(NEW_VALUE_0));
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(NEW_VALUE_1));
+        expect(parseFloat(await cssWETHLPPoolInstance.epochAlignTimestamp.call())).to.equal(parseFloat(NEW_VALUE_2));
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(NEW_VALUE_3));
+
+        // ROLLBACK CODE
+        await cssWETHLPPoolInstance.setLockUp(DEFAULT_VALUE_0,DEFAULT_VALUE_1,DEFAULT_VALUE_2,DEFAULT_VALUE_3,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_0));
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE_1));
+        expect(parseFloat(await cssWETHLPPoolInstance.epochAlignTimestamp.call())).to.equal(parseFloat(DEFAULT_VALUE_2));
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE_3));
+    });
+
 
 
 

@@ -86,7 +86,7 @@ contract CSSWETHLPPool is
                     .div(totalSupply())
             );
     }
-
+    // TEST CASES DONE
     function earned(address account) public view returns (uint256) {
         return
             balanceOf(account)
@@ -96,6 +96,7 @@ contract CSSWETHLPPool is
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
+    // TODO: [LATER] ADD TEST CASES
     function stake(uint256 amount)
         public
         override
@@ -108,7 +109,7 @@ contract CSSWETHLPPool is
         setLockTime();
         emit Staked(msg.sender, amount);
     }
-
+    // TODO: [LATER] ADD TEST CASES
     function withdraw(uint256 amount)
         public
         override
@@ -122,7 +123,7 @@ contract CSSWETHLPPool is
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
-
+    // TODO: [LATER] ADD TEST CASES
     function exit() external {
         withdraw(balanceOf(msg.sender));
         getReward();

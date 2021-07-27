@@ -315,6 +315,22 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.epochAlignTimestamp.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.updateEpochPeriod()', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("180"); 
+        const NEW_VALUE = new BigNumber("360"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        
+        // ACTION & ASSERTION
+        await cssWETHLPPoolInstance.updateEpochPeriod(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await cssWETHLPPoolInstance.updateEpochPeriod(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
+
 
 
 

@@ -100,7 +100,36 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol P2', async (accounts) => {
         expect(cssWETHLPPoolInstance.address).to.not.be.empty;
     });
 
-    
+    it('check cssWETHLPPoolInstance.WITHDRAW(TEST_ACCOUNT) FUNC', async () => {
+        await pair_instance_CERES_WETH.transfer(TEST_ACCOUNT,POINT_THREE_DEC18,{from: OWNER});
+        
+        console.log(chalk.yellow(`pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT) in BIG18: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+        await cssWETHLPPoolInstance.stake(POINT_ONE_DEC18,{from: TEST_ACCOUNT});
+        console.log(chalk.blue(`pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT) IN BIG18: ${new BigNumber(await pair_instance_CERES_WETH.balanceOf.call(TEST_ACCOUNT)).div(BIG18)}`));
+
+        console.log(chalk.blue(`AFTER getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account0)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account1)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account2)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account3)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account4)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account5)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account6)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account7)}`));
+
+        await time.increase(86400);
+        console.log(chalk.red(`=============================== SEPERATOR =============================`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account0)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account1)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account2)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account3)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account4)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account5)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account6)}`));
+        console.log(chalk.blue(`AFTER canWithdraw: ${await cssWETHLPPoolInstance.canWithdraw.call(account7)}`));
+
+        await cssWETHLPPoolInstance.withdraw(POINT_ONE_DEC18,{from: TEST_ACCOUNT});
+    });
 
 
 

@@ -270,6 +270,7 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`cssWETHLPPoolInstance: ${cssWETHLPPoolInstance.address}`));
 
 	await pair_instance_CERES_WETH.approve(cssWETHLPPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
+	await pair_instance_CERES_WETH.approve(cssWETHLPPoolInstance.address,TWO_MILLION_DEC18,{from: TEST_ACCOUNT});
 	await cssInstance.approve(cssWETHLPPoolInstance.address,TWO_MILLION_DEC18,{from: OWNER});
 	cssInstance.transfer(cssWETHLPPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 };

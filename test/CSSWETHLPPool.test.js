@@ -190,5 +190,13 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.getPeriodFinish.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.rewardPerToken.call(), its DEFAULT value is equal(0)', async () => {
+        console.log(chalk.blue(`rewardPerToken: ${await cssWETHLPPoolInstance.rewardPerToken.call()}`));
+        console.log(chalk.blue(`rewardPerTokenStored: ${await cssWETHLPPoolInstance.rewardPerTokenStored.call()}`));
+        console.log(chalk.blue(`totalSupply: ${await cssWETHLPPoolInstance.totalSupply.call()}`));
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardPerToken.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

@@ -81,7 +81,7 @@ contract CSSWETHLPPool is
     function lastTimeRewardApplicable() public view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }
-    // TODO: ADD TEST CASES FOR TOTALSUPPLY != 0 (STAKE SOME LPS)
+    // TEST CASES DONE
     function rewardPerToken() public view returns (uint256) {
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
@@ -105,7 +105,7 @@ contract CSSWETHLPPool is
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
-    // TODO: [LATER] ADD TEST CASES
+    // TEST CASES DONE
     function stake(uint256 amount)
         public
         override
@@ -118,7 +118,7 @@ contract CSSWETHLPPool is
         setLockTime();
         emit Staked(msg.sender, amount);
     }
-    // TODO: [LATER] ADD TEST CASES
+    // TEST CASES DONE
     function withdraw(uint256 amount)
         public
         override
@@ -137,7 +137,7 @@ contract CSSWETHLPPool is
         withdraw(balanceOf(msg.sender));
         getReward();
     }
-    // TODO: [LATER] ADD TEST CASES
+    // TEST CASES DONE
     function getReward() public updateReward(msg.sender) checkhalve checkStart {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {

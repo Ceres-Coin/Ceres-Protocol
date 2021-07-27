@@ -285,6 +285,22 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
     });
 
 
+    it('check cssWETHLPPoolInstance.updateRewardLockupEpochs()', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("2"); 
+        const NEW_VALUE = new BigNumber("4"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        
+        // ACTION & ASSERTION
+        await cssWETHLPPoolInstance.updateRewardLockupEpochs(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await cssWETHLPPoolInstance.updateRewardLockupEpochs(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
+
 
 
 

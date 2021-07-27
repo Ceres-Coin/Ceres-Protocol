@@ -83,13 +83,13 @@ contract PoolLock is Operator {
     function getCurrentEpochTimestamp() public view returns(uint256) {
         return block.timestamp;
     }
-
+    // TEST CASES DONE
     function getCanWithdrawTime(address director) public view returns(uint256) {
         return directors[director].epochTimerStart.add(
             withdrawLockupEpochs.mul(epochPeriod)
         );
     }
-
+    // TEST CASES DONE
     function getCanClaimTime(address director) public view returns(uint256) {
         return directors[director].epochTimerStart.add(
             rewardLockupEpochs.mul(epochPeriod)

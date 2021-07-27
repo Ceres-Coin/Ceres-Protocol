@@ -374,6 +374,7 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
     });
 
     it('check cssWETHLPPoolInstance.getCanWithdrawTime.call(account1/2/3/4/5/6/7), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account0)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account1)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account2)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account3)}`));
@@ -381,9 +382,24 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account5)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account6)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account7)}`));
-        
+
         const EXPECTED_VALUE = new BigNumber("0"); 
         expect(parseFloat(await cssWETHLPPoolInstance.getCanWithdrawTime.call(account1))).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check cssWETHLPPoolInstance.getCanClaimTime.call(account1/2/3/4/5/6/7), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account0)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account1)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account2)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account3)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account4)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account5)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account6)}`));
+        console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account7)}`));
+        
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account0))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account1))).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
 

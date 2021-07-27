@@ -184,7 +184,7 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.getBlockTimestamp.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.getPeriodFinish.call(), its DEFAULT value is gt(0)', async () => {
+    it('check cssWETHLPPoolInstance.getPeriodFinish.call(), its DEFAULT value is equal(0)', async () => {
         console.log(chalk.blue(`getPeriodFinish: ${await cssWETHLPPoolInstance.getPeriodFinish.call()}`));
         const EXPECTED_VALUE = new BigNumber("0"); 
         expect(parseFloat(await cssWETHLPPoolInstance.getPeriodFinish.call())).to.equal(parseFloat(EXPECTED_VALUE));

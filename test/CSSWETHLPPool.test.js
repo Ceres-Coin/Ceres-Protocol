@@ -259,6 +259,10 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.rewardLockupEpochs.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.epochAlignTimestamp.call(), its DEFAULT value is equal(1608883200)', async () => {
+        const EXPECTED_VALUE = new BigNumber("1608883200"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.epochAlignTimestamp.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
 
 
 

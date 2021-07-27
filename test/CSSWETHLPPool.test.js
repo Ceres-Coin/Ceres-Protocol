@@ -373,6 +373,19 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.getCanWithdrawTime.call(account0))).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.getCanWithdrawTime.call(account1/2/3/4/5/6/7), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account1)}`));
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account2)}`));
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account3)}`));
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account4)}`));
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account5)}`));
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account6)}`));
+        console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account7)}`));
+        
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanWithdrawTime.call(account1))).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
 

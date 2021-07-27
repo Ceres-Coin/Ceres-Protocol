@@ -128,7 +128,7 @@ contract CSSWETHLPPool is
         withdraw(balanceOf(msg.sender));
         getReward();
     }
-
+    // TODO: [LATER] ADD TEST CASES
     function getReward() public updateReward(msg.sender) checkhalve checkStart {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {

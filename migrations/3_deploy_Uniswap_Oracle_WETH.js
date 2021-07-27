@@ -100,6 +100,8 @@ module.exports = async function(deployer,network,accounts) {
 	const pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
 	const pair_addr_CSS_WETH = await uniswapFactoryInstance.getPair(cssInstance.address, wethInstance.address, { from: OWNER });
 	const pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
+	console.log(chalk.red.bold(`pair_instance_CERES_WETH: ${await pair_instance_CERES_WETH.address}`));
+
 	const pair_instance_CSS_WETH = await UniswapV2Pair.at(pair_addr_CSS_WETH);
 
 	await Promise.all([

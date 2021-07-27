@@ -24,6 +24,7 @@ const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
 const ONE_MILLION_DEC18 = new BigNumber("1000000e18");
+const TWO_MILLION_DEC18 = new BigNumber("2000000e18");
 const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 const POINT_ONE_DEC18 = new BigNumber("0.1e18"); //0.1_dec18
@@ -374,6 +375,7 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
     });
 
     it('check cssWETHLPPoolInstance.getCanWithdrawTime.call(account1/2/3/4/5/6/7), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.blue(`getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account0)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account1)}`));
         console.log(chalk.blue(`getCanWithdrawTime: ${await cssWETHLPPoolInstance.getCanWithdrawTime.call(account2)}`));
@@ -388,6 +390,7 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
     });
 
     it('check cssWETHLPPoolInstance.getCanClaimTime.call(account1/2/3/4/5/6/7), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.blue(`getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
         console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account0)}`));
         console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account1)}`));
         console.log(chalk.blue(`getCanClaimTime: ${await cssWETHLPPoolInstance.getCanClaimTime.call(account2)}`));
@@ -400,6 +403,67 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         const EXPECTED_VALUE = new BigNumber("0"); 
         expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account0))).to.gt(parseFloat(EXPECTED_VALUE));
         expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account1))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account2))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account3))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account4))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account5))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account6))).to.gt(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account7))).to.gt(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check cssWETHLPPoolInstance.canClaimReward.call(account1/2/3/4/5/6/7), its DEFAULT value is gt(0)', async () => {
+        console.log(chalk.yellow(`getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account0)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account1)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account2)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account3)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account4)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account5)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account6)}`));
+        console.log(chalk.yellow(`canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account7)}`));
+
+        await time.increase(86400);
+
+        console.log(chalk.blue(`AFTER getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account0)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account1)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account2)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account3)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account4)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account5)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account6)}`));
+        console.log(chalk.blue(`AFTER canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account7)}`));
+
+        console.log(chalk.red(`pair_instance_CERES_WETH.balanceOf.call(OWNER): ${await pair_instance_CERES_WETH.balanceOf.call(OWNER)}`));
+        await pair_instance_CERES_WETH.approve(OWNER, TWO_MILLION_DEC18, { from: OWNER });
+        await pair_instance_CERES_WETH.approve(account1, TWO_MILLION_DEC18, { from: OWNER });
+        await pair_instance_CERES_WETH.approve(cssWETHLPPoolInstance.address, TWO_MILLION_DEC18, { from: OWNER });
+        
+        await cssInstance.transfer(account1,POINT_THREE_DEC18,{from: OWNER});
+        // await pair_instance_CERES_WETH.transfer(account1,POINT_THREE_DEC18,{from: OWNER});
+        // await cssWETHLPPoolInstance.stake(POINT_ONE_DEC18,{from: account1});
+
+        console.log(chalk.green(`AFTER*2 getCurrentEpochTimestamp: ${await cssWETHLPPoolInstance.getCurrentEpochTimestamp.call()}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account0)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account1)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account2)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account3)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account4)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account5)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account6)}`));
+        console.log(chalk.green(`AFTER*2 canClaimReward: ${await cssWETHLPPoolInstance.canClaimReward.call(account7)}`));
+
+        
+        
+        // const EXPECTED_VALUE = new BigNumber("0"); 
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account0))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account1))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account2))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account3))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account4))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account5))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account6))).to.gt(parseFloat(EXPECTED_VALUE));
+        // expect(parseFloat(await cssWETHLPPoolInstance.getCanClaimTime.call(account7))).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
 

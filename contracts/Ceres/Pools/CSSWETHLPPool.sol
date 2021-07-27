@@ -141,6 +141,17 @@ contract CSSWETHLPPool is
             emit RewardPaid(msg.sender, reward);
         }
     }
+    // TODO: ADD TEST CASES DONE
+    function setRewardRate(uint256 _rewardRate) public onlyOperator {
+        rewardRate = _rewardRate;
+        if (block.timestamp > startime) {
+            lastUpdateTime = block.timestamp;
+            periodFinish = block.timestamp.add(DURATION);
+        } else {
+            lastUpdateTime = startime;
+            periodFinish = startime.add(DURATION);
+        }
+    }
 
     modifier checkhalve() {
         if (block.timestamp >= periodFinish) {

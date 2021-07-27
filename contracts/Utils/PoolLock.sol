@@ -11,11 +11,11 @@ contract PoolLock is Operator {
     // uint256 rewardLockupEpochs;
     // uint256 epochAlignTimestamp;
     // uint256 epochPeriod;
-
-    uint256 public withdrawLockupEpochs = 2;
-    uint256 public rewardLockupEpochs = 2;
-    uint256 public epochAlignTimestamp = 1608883200;
-    uint256 public epochPeriod = 180;
+    
+    uint256 public withdrawLockupEpochs = 2; // TEST CASES DONE
+    uint256 public rewardLockupEpochs = 2; // TEST CASES DONE
+    uint256 public epochAlignTimestamp = 1608883200; // TEST CASES DONE
+    uint256 public epochPeriod = 180; // TEST CASES DONE
 
     struct Lockup {
         uint256 epochTimerStart;
@@ -26,27 +26,27 @@ contract PoolLock is Operator {
     event changeLockProperties(address indexed, string propertyName, uint256 propertyValue);
 
     /* ========== GOVERNANCE ================== */
-
+    // TEST CASES DONE
     function updateWithdrawLockupEpochs(uint256 _withdrawLockupEpochs) public onlyOperator {
         emit changeLockProperties(msg.sender, "withdrawLockupEpochs", _withdrawLockupEpochs);
         withdrawLockupEpochs = _withdrawLockupEpochs;
     }
-
+    // TEST CASES DONE
     function updateRewardLockupEpochs(uint256 _rewardLockupEpochs) public onlyOperator {
         emit changeLockProperties(msg.sender, "rewardLockupEpochs", _rewardLockupEpochs);
         rewardLockupEpochs = _rewardLockupEpochs;
     }
-
+    // TEST CASES DONE
     function updateEpochAlignTimestamp(uint256 _epochAlignTimestamp) public onlyOperator {
         emit changeLockProperties(msg.sender, "epochAlignTimestamp", _epochAlignTimestamp);
         epochAlignTimestamp = _epochAlignTimestamp;
     }
-
+    // TEST CASES DONE
     function updateEpochPeriod(uint256 _epochPeriod) public onlyOperator {
         emit changeLockProperties(msg.sender, "epochPeriod", _epochPeriod);
         epochPeriod = _epochPeriod;
     }
-
+    // TEST CASES DONE
     function setLockUp(
         uint256 _withdrawLockupEpochs,
         uint256 _rewardLockupEpochs,
@@ -79,6 +79,7 @@ contract PoolLock is Operator {
     }
 
     /* ========== Check Lock ================== */
+    // TEST CASES DONE
     function getCurrentEpochTimestamp() public view returns(uint256) {
         return block.timestamp;
     }

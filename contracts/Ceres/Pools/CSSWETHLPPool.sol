@@ -25,7 +25,7 @@ contract CSSWETHLPPool is
 
     uint256 public constant DURATION = 30 days; // TEST CASES DONE
 
-    uint256 public initreward = 70000 * 10**18; // 70,000 Shares // TEST CASES DONE
+    uint256 public initreward = 100 * 10**18; // 100 CSS // TEST CASES DONE
     uint256 public startime; // TEST CASES DONE
     uint256 public periodFinish = 0; // TEST CASES DONE
     uint256 public rewardRate = 0; // TEST CASES DONE
@@ -49,6 +49,15 @@ contract CSSWETHLPPool is
         lpt = IERC20(lptoken_);
         foundationA = foundationA_;
         startime = _startime;
+
+        rewardRate = initreward.div(DURATION);
+        if (block.timestamp > startime) {
+            lastUpdateTime = block.timestamp;
+            periodFinish = block.timestamp.add(DURATION);
+        } else {
+            lastUpdateTime = startime;
+            periodFinish = startime.add(DURATION);
+        }
     }
 
     modifier updateReward(address account) {
@@ -142,16 +151,16 @@ contract CSSWETHLPPool is
         }
     }
     // TEST CASES DONE
-    function setRewardRate(uint256 _rewardRate) public onlyOperator {
-        rewardRate = _rewardRate;
-        if (block.timestamp > startime) {
-            lastUpdateTime = block.timestamp;
-            periodFinish = block.timestamp.add(DURATION);
-        } else {
-            lastUpdateTime = startime;
-            periodFinish = startime.add(DURATION);
-        }
-    }
+    // function setRewardRate(uint256 _rewardRate) public onlyOperator {
+    //     rewardRate = _rewardRate;
+    //     if (block.timestamp > startime) {
+    //         lastUpdateTime = block.timestamp;
+    //         periodFinish = block.timestamp.add(DURATION);
+    //     } else {
+    //         lastUpdateTime = startime;
+    //         periodFinish = startime.add(DURATION);
+    //     }
+    // }
 
     modifier checkhalve() {
         if (block.timestamp >= periodFinish) {

@@ -264,6 +264,27 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.epochAlignTimestamp.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check cssWETHLPPoolInstance.epochPeriod.call(), its DEFAULT value is equal("180")', async () => {
+        const EXPECTED_VALUE = new BigNumber("180"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.epochPeriod.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+    it('check cssWETHLPPoolInstance.updateWithdrawLockupEpochs()', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("2"); 
+        const NEW_VALUE = new BigNumber("4"); 
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        
+        // ACTION & ASSERTION
+        await cssWETHLPPoolInstance.updateWithdrawLockupEpochs(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await cssWETHLPPoolInstance.updateWithdrawLockupEpochs(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await cssWETHLPPoolInstance.withdrawLockupEpochs.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
+
+
 
 
 

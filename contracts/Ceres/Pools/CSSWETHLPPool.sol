@@ -72,7 +72,7 @@ contract CSSWETHLPPool is
     function lastTimeRewardApplicable() public view returns (uint256) {
         return Math.min(block.timestamp, periodFinish);
     }
-
+    // TODO: ADD TEST CASES FOR TOTALSUPPLY != 0 (STAKE SOME LPS)
     function rewardPerToken() public view returns (uint256) {
         if (totalSupply() == 0) {
             return rewardPerTokenStored;

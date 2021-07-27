@@ -230,7 +230,29 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         console.log(chalk.blue(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
 
         // ROLLBACK CODE
-    })
+    });
+
+    it('check cssWETHPoolInstance.stake(ONE_DEC18,{from: OWNER})', async () => {        
+        console.log(chalk.yellow(`getBlockTimestamp: ${await cssWETHLPPoolInstance.getBlockTimestamp.call()}`));
+        console.log(chalk.yellow(`startime: ${await cssWETHLPPoolInstance.startime.call()}`));
+        console.log(chalk.yellow(`lastUpdateTime: ${await cssWETHLPPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.yellow(`periodFinish: ${await cssWETHLPPoolInstance.periodFinish.call()}`));
+        console.log(chalk.yellow(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
+
+        await cssWETHLPPoolInstance.stake(ONE_DEC18,{from: OWNER});
+
+        console.log(chalk.blue(`getBlockTimestamp: ${await cssWETHLPPoolInstance.getBlockTimestamp.call()}`));
+        console.log(chalk.blue(`startime: ${await cssWETHLPPoolInstance.startime.call()}`));
+        console.log(chalk.blue(`lastUpdateTime: ${await cssWETHLPPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.blue(`periodFinish: ${await cssWETHLPPoolInstance.periodFinish.call()}`));
+        console.log(chalk.blue(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
+
+
+        
+
+    });
+
+    
 
 
 

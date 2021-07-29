@@ -230,11 +230,34 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol P2', async (accounts) => {
         console.log(chalk.blue(`getBlockTimestamp: ${await cssWETHLPPoolInstance.getBlockTimestamp.call()}`));
         console.log(chalk.blue(`getPeriodFinish: ${await cssWETHLPPoolInstance.getPeriodFinish.call()}`));
         console.log(chalk.blue(`lastUpdateTime: ${await cssWETHLPPoolInstance.lastUpdateTime.call()}`));
-
         console.log(chalk.blue(`earned: ${await cssWETHLPPoolInstance.earned.call(TEST_ACCOUNT)}`));
 
-
         await cssWETHLPPoolInstance.exit({from: TEST_ACCOUNT});
+
+        console.log(chalk.red(`=============================== SEPERATOR =============================`));
+        console.log(chalk.blue(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
+        console.log(chalk.blue(`rewardPerTokenStored: ${await cssWETHLPPoolInstance.rewardPerTokenStored.call()}`));
+        console.log(chalk.blue(`rewardPerToken: ${await cssWETHLPPoolInstance.rewardPerToken.call()}`));
+        console.log(chalk.blue(`totalSupply: ${await cssWETHLPPoolInstance.totalSupply.call()}`));
+        console.log(chalk.blue(`lastTimeRewardApplicable: ${await cssWETHLPPoolInstance.lastTimeRewardApplicable.call()}`));
+        console.log(chalk.blue(`getBlockTimestamp: ${await cssWETHLPPoolInstance.getBlockTimestamp.call()}`));
+        console.log(chalk.blue(`getPeriodFinish: ${await cssWETHLPPoolInstance.getPeriodFinish.call()}`));
+        console.log(chalk.blue(`lastUpdateTime: ${await cssWETHLPPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.blue(`earned: ${await cssWETHLPPoolInstance.earned.call(TEST_ACCOUNT)}`));
+
+        await time.increase(86400); //1 days
+        await cssWETHLPPoolInstance.getReward({from: TEST_ACCOUNT});
+
+        console.log(chalk.red(`=============================== SEPERATOR =============================`));
+        console.log(chalk.blue(`rewardRate: ${await cssWETHLPPoolInstance.rewardRate.call()}`));
+        console.log(chalk.blue(`rewardPerTokenStored: ${await cssWETHLPPoolInstance.rewardPerTokenStored.call()}`));
+        console.log(chalk.blue(`rewardPerToken: ${await cssWETHLPPoolInstance.rewardPerToken.call()}`));
+        console.log(chalk.blue(`totalSupply: ${await cssWETHLPPoolInstance.totalSupply.call()}`));
+        console.log(chalk.blue(`lastTimeRewardApplicable: ${await cssWETHLPPoolInstance.lastTimeRewardApplicable.call()}`));
+        console.log(chalk.blue(`getBlockTimestamp: ${await cssWETHLPPoolInstance.getBlockTimestamp.call()}`));
+        console.log(chalk.blue(`getPeriodFinish: ${await cssWETHLPPoolInstance.getPeriodFinish.call()}`));
+        console.log(chalk.blue(`lastUpdateTime: ${await cssWETHLPPoolInstance.lastUpdateTime.call()}`));
+        console.log(chalk.blue(`earned: ${await cssWETHLPPoolInstance.earned.call(TEST_ACCOUNT)}`));
     });
 
     it ('check ceresInstance.transfer(test_account,one_dec18,{from: owner})', async() => {

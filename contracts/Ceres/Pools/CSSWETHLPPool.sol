@@ -132,11 +132,13 @@ contract CSSWETHLPPool is
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
-    // TODO: [LATER] ADD TEST CASES
+    // EXIT() = withdraw(balanceOf(msg.sender));
+    // TEST CASES DONE
     function exit() external {
-        // withdraw(balanceOf(msg.sender));
-        getReward();
+        withdraw(balanceOf(msg.sender));
+        // getReward();
     }
+    
     // TEST CASES DONE
     function getReward() public updateReward(msg.sender) checkhalve checkStart {
         uint256 reward = earned(msg.sender);

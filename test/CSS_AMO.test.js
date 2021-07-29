@@ -104,85 +104,96 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         pool_instance_USDC = await Pool_USDC.deployed();
     });
 
-    it('check css_AMOInstance.address, its value is not be empty', async () => {
-        console.log(chalk.blue(`css_AMOInstance: ${await css_AMOInstance.address}`));
-        expect(css_AMOInstance.address).to.not.be.empty;
-    });
+    // it('check css_AMOInstance.address, its value is not be empty', async () => {
+    //     console.log(chalk.blue(`css_AMOInstance: ${await css_AMOInstance.address}`));
+    //     expect(css_AMOInstance.address).to.not.be.empty;
+    // });
 
-    it('check css_AMOInstance.owner_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
-        const EXPECTED_VALUE = OWNER;
-        expect((await css_AMOInstance.owner_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.owner_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
+    //     const EXPECTED_VALUE = OWNER;
+    //     expect((await css_AMOInstance.owner_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.timelock_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
-        const EXPECTED_VALUE = OWNER;
-        expect((await css_AMOInstance.timelock_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.timelock_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
+    //     const EXPECTED_VALUE = OWNER;
+    //     expect((await css_AMOInstance.timelock_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.custodian_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
-        const EXPECTED_VALUE = OWNER;
-        expect((await css_AMOInstance.custodian_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.custodian_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
+    //     const EXPECTED_VALUE = OWNER;
+    //     expect((await css_AMOInstance.custodian_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.ceres_address.call(), its DEFAULT value is to equal "ceresInstance" ', async () => {
-        const EXPECTED_VALUE = ceresInstance.address;
-        expect((await css_AMOInstance.ceres_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.ceres_address.call(), its DEFAULT value is to equal "ceresInstance" ', async () => {
+    //     const EXPECTED_VALUE = ceresInstance.address;
+    //     expect((await css_AMOInstance.ceres_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.css_address.call(), its DEFAULT value is to equal "cssInstance" ', async () => {
-        const EXPECTED_VALUE = cssInstance.address;
-        expect((await css_AMOInstance.css_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.css_address.call(), its DEFAULT value is to equal "cssInstance" ', async () => {
+    //     const EXPECTED_VALUE = cssInstance.address;
+    //     expect((await css_AMOInstance.css_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.collateral_address.call(), its DEFAULT value is to equal "col_instance_USDC" ', async () => {
-        const EXPECTED_VALUE = col_instance_USDC.address;
-        expect((await css_AMOInstance.collateral_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.collateral_address.call(), its DEFAULT value is to equal "col_instance_USDC" ', async () => {
+    //     const EXPECTED_VALUE = col_instance_USDC.address;
+    //     expect((await css_AMOInstance.collateral_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.pool_address.call(), its DEFAULT value is to equal "pool_instance_USDC" ', async () => {
-        const EXPECTED_VALUE = pool_instance_USDC.address;
-        expect((await css_AMOInstance.pool_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.pool_address.call(), its DEFAULT value is to equal "pool_instance_USDC" ', async () => {
+    //     const EXPECTED_VALUE = pool_instance_USDC.address;
+    //     expect((await css_AMOInstance.pool_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.investor_amo_address.call(), its DEFAULT value is to equal "[ceresPoolInvestorForV2Instance]" ', async () => {
-        // console.log(chalk.blue(`investor_amo_address: ${await css_AMOInstance.investor_amo_address.call()}`));
-        const EXPECTED_VALUE = ceresPoolInvestorForV2Instance.address;
-        expect((await css_AMOInstance.investor_amo_address.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.investor_amo_address.call(), its DEFAULT value is to equal "[ceresPoolInvestorForV2Instance]" ', async () => {
+    //     // console.log(chalk.blue(`investor_amo_address: ${await css_AMOInstance.investor_amo_address.call()}`));
+    //     const EXPECTED_VALUE = ceresPoolInvestorForV2Instance.address;
+    //     expect((await css_AMOInstance.investor_amo_address.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.missing_decimals.call(), its DEFAULT value is to equal "[0]" ', async () => {
-        const EXPECTED_VALUE = new BigNumber("0");
-        expect(parseFloat(await css_AMOInstance.missing_decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.missing_decimals.call(), its DEFAULT value is to equal "[0]" ', async () => {
+    //     const EXPECTED_VALUE = new BigNumber("0");
+    //     expect(parseFloat(await css_AMOInstance.missing_decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.min_cr.call(), its DEFAULT value is to equal "[850000]" ', async () => {
-        const EXPECTED_VALUE = new BigNumber("850000");
-        expect(parseFloat(await css_AMOInstance.min_cr.call())).to.equal(parseFloat(EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.min_cr.call(), its DEFAULT value is to equal "[850000]" ', async () => {
+    //     const EXPECTED_VALUE = new BigNumber("850000");
+    //     expect(parseFloat(await css_AMOInstance.min_cr.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.minted_sum_historical.call(), its DEFAULT value is to equal "[0]" ', async () => {
-        const EXPECTED_VALUE = new BigNumber("0");
-        expect(parseFloat(await css_AMOInstance.minted_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.minted_sum_historical.call(), its DEFAULT value is to equal "[0]" ', async () => {
+    //     const EXPECTED_VALUE = new BigNumber("0");
+    //     expect(parseFloat(await css_AMOInstance.minted_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.burned_sum_historical.call(), its DEFAULT value is to equal "[0]" ', async () => {
-        const EXPECTED_VALUE = new BigNumber("0");
-        expect(parseFloat(await css_AMOInstance.burned_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.burned_sum_historical.call(), its DEFAULT value is to equal "[0]" ', async () => {
+    //     const EXPECTED_VALUE = new BigNumber("0");
+    //     expect(parseFloat(await css_AMOInstance.burned_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.max_slippage.call(), its DEFAULT value is to equal "[200000]" ', async () => {
-        const EXPECTED_VALUE = new BigNumber("200000");
-        expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.max_slippage.call(), its DEFAULT value is to equal "[200000]" ', async () => {
+    //     const EXPECTED_VALUE = new BigNumber("200000");
+    //     expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.is_override_amo_profits.call(), its DEFAULT value is to equal "[false]" ', async () => {
-        const EXPECTED_VALUE = false
-        expect((await css_AMOInstance.is_override_amo_profits.call())).to.equal((EXPECTED_VALUE));
-    });
+    // it('check css_AMOInstance.is_override_amo_profits.call(), its DEFAULT value is to equal "[false]" ', async () => {
+    //     const EXPECTED_VALUE = false
+    //     expect((await css_AMOInstance.is_override_amo_profits.call())).to.equal((EXPECTED_VALUE));
+    // });
 
-    it('check css_AMOInstance.overridden_amo_profit.call(), its DEFAULT value is to equal "[0]" ', async () => {
-        const EXPECTED_VALUE = new BigNumber("0");
-        expect(parseFloat(await css_AMOInstance.overridden_amo_profit.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // it('check css_AMOInstance.overridden_amo_profit.call(), its DEFAULT value is to equal "[0]" ', async () => {
+    //     const EXPECTED_VALUE = new BigNumber("0");
+    //     expect(parseFloat(await css_AMOInstance.overridden_amo_profit.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    // });
+
+    // TEST CASES FOR PUBLIC FUNC()
+    it('check css_AMOInstance.getTmpValue.call()', async () => {
+        const getTmpValue_0 = (await css_AMOInstance.getTmpValue())[0];
+        const getTmpValue_1 = (await css_AMOInstance.getTmpValue())[1];
+        const getTmpValue_2 = (await css_AMOInstance.getTmpValue())[2];
+        console.log(chalk.blue(`getTmpValue_0: ${getTmpValue_0}`));
+        console.log(chalk.blue(`getTmpValue_1: ${getTmpValue_1}`));
+        console.log(chalk.blue(`getTmpValue_2: ${getTmpValue_2}`));
+        
     });
 
 

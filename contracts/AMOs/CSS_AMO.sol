@@ -95,7 +95,7 @@ contract CSS_AMO is AccessControl {
     }
 
     /* ========== VIEWS ========== */
-
+    // TODO: [LATER] ADD TESET CASES
     function unspentInvestorAMOProfit_E18() public view returns (uint256 unspent_profit_e18) {
         if (is_override_amo_profits){
             unspent_profit_e18 = overridden_amo_profit;
@@ -106,6 +106,16 @@ contract CSS_AMO is AccessControl {
             unspent_profit_e18 = (allocations[4]).sub(borrowed_USDC);
             unspent_profit_e18 = unspent_profit_e18.mul(10 ** missing_decimals);
         }
+    }
+
+    function getTmpValue() public view returns (uint256 , uint256 ,uint256 ) 
+    {
+        uint256 _global_collateral_ratio = CERES.global_collateral_ratio();
+        uint256 _ceres_total_supply = CERES.totalSupply();
+        // TODO: TUNING THE FAILED CODE
+        // uint256 _global_collat_value = (CERES.globalCollateralValue()).add(unspentInvestorAMOProfit_E18());
+        uint256 _global_collat_value = (CERES.globalCollateralValue());
+        return (_global_collateral_ratio,_ceres_total_supply,_global_collat_value);
     }
 
     function cr_info() public view returns (
@@ -131,6 +141,12 @@ contract CSS_AMO is AccessControl {
             excess_collateral_e18 = 0;
             frax_mintable = 0;
         }
+        return (
+            effective_collateral_ratio,
+            global_collateral_ratio,
+            excess_collateral_e18,
+            frax_mintable
+        );
     }
 
     /* ========== PUBLIC FUNCTIONS ========== */

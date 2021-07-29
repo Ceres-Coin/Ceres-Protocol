@@ -5,6 +5,7 @@ node_modules/
 [Oo]bj/
 [Bb]in/
 build/*
+.secret
 
 # Other files and folders
 .settings/

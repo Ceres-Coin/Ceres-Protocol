@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "rm -rf build & truffle compile --all",
     "migration": "truffle migrate --network development --skip-dry-run --reset",
+    "migration_bsc": "truffle migrate --network testnet --skip-dry-run --reset",
     "clean_build_migrate_all": "rm -rf build & truffle compile --all & truffle migrate --network development --skip-dry-run --reset",
     "testSingleFile": "truffle test test/CSSWETHLPPool.test.js",
     "testSingleFileP2": "truffle test test/CSSWETHLPPool_P2.js",
@@ -33,6 +34,8 @@
     }
   },
   "dependencies": {
+    "@truffle/hdwallet-provider": "^1.4.2",
+    "fs": "0.0.1-security",
     "truffle": "^5.3.14"
   }
 }

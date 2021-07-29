@@ -1,0 +1,591 @@
+{
+  "contractName": "IBoardroom",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocateSeigniorage",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_withdrawLockupEpochs",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_rewardLockupEpochs",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_epochAlignTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_epochPeriod",
+          "type": "uint256"
+        }
+      ],
+      "name": "setLockUp",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"allocateSeigniorage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_withdrawLockupEpochs\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_rewardLockupEpochs\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_epochAlignTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_epochPeriod\",\"type\":\"uint256\"}],\"name\":\"setLockUp\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Interfaces/IBoardroom.sol\":\"IBoardroom\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000},\"remappings\":[]},\"sources\":{\"project:/contracts/Interfaces/IBoardroom.sol\":{\"keccak256\":\"0x62b9e62c0818925f7745eeaae08853421d69a8333911f065640af9861766b71f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ef655b879a4c0fd83198e5397cd590418285cb76001b0c2888b9d3daf5d3cb2f\",\"dweb:/ipfs/QmaniuTM1v2w4RFe5vfJBLjKKH5X2hjR21xsNu1ZTsUCAb\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.6.12;\n\ninterface IBoardroom {\n    function allocateSeigniorage(uint256 amount) external;\n    function setLockUp(\n        uint256 _withdrawLockupEpochs,\n        uint256 _rewardLockupEpochs,\n        uint256 _epochAlignTimestamp,\n        uint256 _epochPeriod\n    ) external;\n}\n",
+  "sourcePath": "/Users/cooper/GitHub/Prigogine/Ceres-Protocol/contracts/Interfaces/IBoardroom.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Interfaces/IBoardroom.sol",
+    "exportedSymbols": {
+      "IBoardroom": [
+        3635
+      ]
+    },
+    "id": 3636,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3618,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:12"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 3635,
+        "linearizedBaseContracts": [
+          3635
+        ],
+        "name": "IBoardroom",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "97ffe1d7",
+            "id": 3623,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "allocateSeigniorage",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3621,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3620,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3623,
+                  "src": "114:14:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3619,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "114:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "113:16:12"
+            },
+            "returnParameters": {
+              "id": 3622,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "138:0:12"
+            },
+            "scope": 3635,
+            "src": "85:54:12",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "d2a6fbc1",
+            "id": 3634,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setLockUp",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 3632,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3625,
+                  "mutability": "mutable",
+                  "name": "_withdrawLockupEpochs",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3634,
+                  "src": "172:29:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3624,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "172:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3627,
+                  "mutability": "mutable",
+                  "name": "_rewardLockupEpochs",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3634,
+                  "src": "211:27:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3626,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "211:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3629,
+                  "mutability": "mutable",
+                  "name": "_epochAlignTimestamp",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3634,
+                  "src": "248:28:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3628,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "248:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3631,
+                  "mutability": "mutable",
+                  "name": "_epochPeriod",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 3634,
+                  "src": "286:20:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3630,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "286:7:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "162:150:12"
+            },
+            "returnParameters": {
+              "id": 3633,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "321:0:12"
+            },
+            "scope": 3635,
+            "src": "144:178:12",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3636,
+        "src": "58:266:12"
+      }
+    ],
+    "src": "32:293:12"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Interfaces/IBoardroom.sol",
+      "exportedSymbols": {
+        "IBoardroom": [
+          3635
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".12"
+          ]
+        },
+        "id": 3618,
+        "name": "PragmaDirective",
+        "src": "32:24:12"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            3635
+          ],
+          "name": "IBoardroom",
+          "scope": 3636
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "97ffe1d7",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "allocateSeigniorage",
+              "overrides": null,
+              "scope": 3635,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 3623,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3619,
+                        "name": "ElementaryTypeName",
+                        "src": "114:7:12"
+                      }
+                    ],
+                    "id": 3620,
+                    "name": "VariableDeclaration",
+                    "src": "114:14:12"
+                  }
+                ],
+                "id": 3621,
+                "name": "ParameterList",
+                "src": "113:16:12"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3622,
+                "name": "ParameterList",
+                "src": "138:0:12"
+              }
+            ],
+            "id": 3623,
+            "name": "FunctionDefinition",
+            "src": "85:54:12"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "d2a6fbc1",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setLockUp",
+              "overrides": null,
+              "scope": 3635,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_withdrawLockupEpochs",
+                      "overrides": null,
+                      "scope": 3634,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3624,
+                        "name": "ElementaryTypeName",
+                        "src": "172:7:12"
+                      }
+                    ],
+                    "id": 3625,
+                    "name": "VariableDeclaration",
+                    "src": "172:29:12"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_rewardLockupEpochs",
+                      "overrides": null,
+                      "scope": 3634,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3626,
+                        "name": "ElementaryTypeName",
+                        "src": "211:7:12"
+                      }
+                    ],
+                    "id": 3627,
+                    "name": "VariableDeclaration",
+                    "src": "211:27:12"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_epochAlignTimestamp",
+                      "overrides": null,
+                      "scope": 3634,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3628,
+                        "name": "ElementaryTypeName",
+                        "src": "248:7:12"
+                      }
+                    ],
+                    "id": 3629,
+                    "name": "VariableDeclaration",
+                    "src": "248:28:12"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_epochPeriod",
+                      "overrides": null,
+                      "scope": 3634,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3630,
+                        "name": "ElementaryTypeName",
+                        "src": "286:7:12"
+                      }
+                    ],
+                    "id": 3631,
+                    "name": "VariableDeclaration",
+                    "src": "286:20:12"
+                  }
+                ],
+                "id": 3632,
+                "name": "ParameterList",
+                "src": "162:150:12"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3633,
+                "name": "ParameterList",
+                "src": "321:0:12"
+              }
+            ],
+            "id": 3634,
+            "name": "FunctionDefinition",
+            "src": "144:178:12"
+          }
+        ],
+        "id": 3635,
+        "name": "ContractDefinition",
+        "src": "58:266:12"
+      }
+    ],
+    "id": 3636,
+    "name": "SourceUnit",
+    "src": "32:293:12"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-29T03:33:35.715Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

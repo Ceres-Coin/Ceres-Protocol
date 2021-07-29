@@ -1,0 +1,818 @@
+{
+  "contractName": "BlockMiner",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "blocksMined",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "mine",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "blockTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"blockTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"blocksMined\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"mine\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Utils/BlockMiner.sol\":\"BlockMiner\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000},\"remappings\":[]},\"sources\":{\"project:/contracts/Utils/BlockMiner.sol\":{\"keccak256\":\"0x2a882f4226dc3de857d4d0c8f1790cd2922487caac21c01aaabdadfcd82620e5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fa3289e0c32b3cfefc96049df1f12be2ffb53a2f9dd9e826628d3e7e3c8994a7\",\"dweb:/ipfs/QmRPPJNDsZhzFGNyay7jwdAyL1uXqa4wnfnGmoQeipGhsN\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506000805560b2806100236000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c806348b151661460415780638c4afaf614605957806399f4b25114605f575b600080fd5b60476067565b60408051918252519081900360200190f35b6047606b565b60656071565b005b4290565b60005481565b60008054600101905556fea2646970667358221220efaabb0e472533d7e3f1c6e1da0aac138da3f9559d48dadb45cad93a22b1730664736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c806348b151661460415780638c4afaf614605957806399f4b25114605f575b600080fd5b60476067565b60408051918252519081900360200190f35b6047606b565b60656071565b005b4290565b60005481565b60008054600101905556fea2646970667358221220efaabb0e472533d7e3f1c6e1da0aac138da3f9559d48dadb45cad93a22b1730664736f6c634300060c0033",
+  "immutableReferences": {},
+  "sourceMap": "126:273:69:-:0;;;185:54;;;;;;;;;-1:-1:-1;231:1:69;217:15;;126:273;;;;;;",
+  "deployedSourceMap": "126:273:69:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;306:91;;;:::i;:::-;;;;;;;;;;;;;;;;152:26;;;:::i;245:55::-;;;:::i;:::-;;306:91;375:15;306:91;:::o;152:26::-;;;;:::o;245:55::-;277:11;:16;;292:1;277:16;;;245:55::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.6.12;\n// file: BlockMinder.sol\n\n// used to \"waste\" blocks for truffle tests\ncontract BlockMiner {\n    uint256 public blocksMined;\n\n    constructor () public {\n        blocksMined = 0;\n    }\n\n    function mine() public {\n       blocksMined += 1;\n    }\n\n    function blockTime() external view returns (uint256) {\n       return block.timestamp;\n    }\n}",
+  "sourcePath": "/Users/cooper/GitHub/Prigogine/Ceres-Protocol/contracts/Utils/BlockMiner.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Utils/BlockMiner.sol",
+    "exportedSymbols": {
+      "BlockMiner": [
+        22335
+      ]
+    },
+    "id": 22336,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 22307,
+        "literals": [
+          "solidity",
+          "0.6",
+          ".12"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:69"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 22335,
+        "linearizedBaseContracts": [
+          22335
+        ],
+        "name": "BlockMiner",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "8c4afaf6",
+            "id": 22309,
+            "mutability": "mutable",
+            "name": "blocksMined",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 22335,
+            "src": "152:26:69",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 22308,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "152:7:69",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 22316,
+              "nodeType": "Block",
+              "src": "207:32:69",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 22314,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 22312,
+                      "name": "blocksMined",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 22309,
+                      "src": "217:11:69",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 22313,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "231:1:69",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "217:15:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 22315,
+                  "nodeType": "ExpressionStatement",
+                  "src": "217:15:69"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 22317,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 22310,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "197:2:69"
+            },
+            "returnParameters": {
+              "id": 22311,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "207:0:69"
+            },
+            "scope": 22335,
+            "src": "185:54:69",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 22324,
+              "nodeType": "Block",
+              "src": "268:32:69",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 22322,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 22320,
+                      "name": "blocksMined",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 22309,
+                      "src": "277:11:69",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "+=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "31",
+                      "id": 22321,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "292:1:69",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_1",
+                        "typeString": "int_const 1"
+                      },
+                      "value": "1"
+                    },
+                    "src": "277:16:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 22323,
+                  "nodeType": "ExpressionStatement",
+                  "src": "277:16:69"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "99f4b251",
+            "id": 22325,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "mine",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 22318,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "258:2:69"
+            },
+            "returnParameters": {
+              "id": 22319,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "268:0:69"
+            },
+            "scope": 22335,
+            "src": "245:55:69",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 22333,
+              "nodeType": "Block",
+              "src": "359:38:69",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 22330,
+                      "name": "block",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -4,
+                      "src": "375:5:69",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_block",
+                        "typeString": "block"
+                      }
+                    },
+                    "id": 22331,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "timestamp",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "375:15:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 22329,
+                  "id": 22332,
+                  "nodeType": "Return",
+                  "src": "368:22:69"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "48b15166",
+            "id": 22334,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "blockTime",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 22326,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "324:2:69"
+            },
+            "returnParameters": {
+              "id": 22329,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 22328,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 22334,
+                  "src": "350:7:69",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 22327,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "350:7:69",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "349:9:69"
+            },
+            "scope": 22335,
+            "src": "306:91:69",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 22336,
+        "src": "126:273:69"
+      }
+    ],
+    "src": "32:367:69"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Utils/BlockMiner.sol",
+      "exportedSymbols": {
+        "BlockMiner": [
+          22335
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.6",
+            ".12"
+          ]
+        },
+        "id": 22307,
+        "name": "PragmaDirective",
+        "src": "32:23:69"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            22335
+          ],
+          "name": "BlockMiner",
+          "scope": 22336
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "8c4afaf6",
+              "mutability": "mutable",
+              "name": "blocksMined",
+              "overrides": null,
+              "scope": 22335,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 22308,
+                "name": "ElementaryTypeName",
+                "src": "152:7:69"
+              }
+            ],
+            "id": 22309,
+            "name": "VariableDeclaration",
+            "src": "152:26:69"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 22335,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 22310,
+                "name": "ParameterList",
+                "src": "197:2:69"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 22311,
+                "name": "ParameterList",
+                "src": "207:0:69"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 22309,
+                              "type": "uint256",
+                              "value": "blocksMined"
+                            },
+                            "id": 22312,
+                            "name": "Identifier",
+                            "src": "217:11:69"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 22313,
+                            "name": "Literal",
+                            "src": "231:1:69"
+                          }
+                        ],
+                        "id": 22314,
+                        "name": "Assignment",
+                        "src": "217:15:69"
+                      }
+                    ],
+                    "id": 22315,
+                    "name": "ExpressionStatement",
+                    "src": "217:15:69"
+                  }
+                ],
+                "id": 22316,
+                "name": "Block",
+                "src": "207:32:69"
+              }
+            ],
+            "id": 22317,
+            "name": "FunctionDefinition",
+            "src": "185:54:69"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "99f4b251",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "mine",
+              "overrides": null,
+              "scope": 22335,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 22318,
+                "name": "ParameterList",
+                "src": "258:2:69"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 22319,
+                "name": "ParameterList",
+                "src": "268:0:69"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "+=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 22309,
+                              "type": "uint256",
+                              "value": "blocksMined"
+                            },
+                            "id": 22320,
+                            "name": "Identifier",
+                            "src": "277:11:69"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "31",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 1",
+                              "value": "1"
+                            },
+                            "id": 22321,
+                            "name": "Literal",
+                            "src": "292:1:69"
+                          }
+                        ],
+                        "id": 22322,
+                        "name": "Assignment",
+                        "src": "277:16:69"
+                      }
+                    ],
+                    "id": 22323,
+                    "name": "ExpressionStatement",
+                    "src": "277:16:69"
+                  }
+                ],
+                "id": 22324,
+                "name": "Block",
+                "src": "268:32:69"
+              }
+            ],
+            "id": 22325,
+            "name": "FunctionDefinition",
+            "src": "245:55:69"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "48b15166",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "blockTime",
+              "overrides": null,
+              "scope": 22335,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 22326,
+                "name": "ParameterList",
+                "src": "324:2:69"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 22334,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 22327,
+                        "name": "ElementaryTypeName",
+                        "src": "350:7:69"
+                      }
+                    ],
+                    "id": 22328,
+                    "name": "VariableDeclaration",
+                    "src": "350:7:69"
+                  }
+                ],
+                "id": 22329,
+                "name": "ParameterList",
+                "src": "349:9:69"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 22329
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "timestamp",
+                          "referencedDeclaration": null,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": -4,
+                              "type": "block",
+                              "value": "block"
+                            },
+                            "id": 22330,
+                            "name": "Identifier",
+                            "src": "375:5:69"
+                          }
+                        ],
+                        "id": 22331,
+                        "name": "MemberAccess",
+                        "src": "375:15:69"
+                      }
+                    ],
+                    "id": 22332,
+                    "name": "Return",
+                    "src": "368:22:69"
+                  }
+                ],
+                "id": 22333,
+                "name": "Block",
+                "src": "359:38:69"
+              }
+            ],
+            "id": 22334,
+            "name": "FunctionDefinition",
+            "src": "306:91:69"
+          }
+        ],
+        "id": 22335,
+        "name": "ContractDefinition",
+        "src": "126:273:69"
+      }
+    ],
+    "id": 22336,
+    "name": "SourceUnit",
+    "src": "32:367:69"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-29T03:32:44.863Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -28,6 +28,7 @@ const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERE
 const StringHelpers = artifacts.require("Utils/StringHelpers");
 
 const CeresPoolInvestorForV2 = artifacts.require("AMOs/CeresPoolInvestorForV2");
+const CSS_AMO = artifacts.require("AMOs/CSS_AMO");
 
 
 const DUMP_ADDRESS = constants.ZERO_ADDRESS;
@@ -281,5 +282,10 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(CeresPoolInvestorForV2,ceresInstance.address,cssInstance.address,pool_instance_USDC.address,col_instance_USDC.address,OWNER,OWNER,OWNER,{from: OWNER});
 	const ceresPoolInvestorForV2Instance = await CeresPoolInvestorForV2.deployed();
 	console.log(chalk.red.bold(`ceresPoolInvestorForV2Instance: ${ceresPoolInvestorForV2Instance.address}`));
+
+	// DEPLOY CSS_AMO
+	await deployer.deploy(CSS_AMO,ceresInstance.address,cssInstance.address,pool_instance_USDC.address,col_instance_USDC.address,OWNER,OWNER,OWNER,ceresPoolInvestorForV2Instance.address,{from: OWNER});
+	const css_AMOInstance = await CSS_AMO.deployed();
+	console.log(chalk.red.bold(`css_AMOInstance: ${css_AMOInstance.address}`));
 	
 };

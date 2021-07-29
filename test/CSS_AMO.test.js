@@ -35,8 +35,9 @@ const Treasury = artifacts.require('Treasury');
 const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool');
 const SimpleFund = artifacts.require('SimpleERCFund');
 const CeresPoolInvestorForV2 = artifacts.require("AMOs/CeresPoolInvestorForV2");
+const CSS_AMO = artifacts.require("AMOs/CSS_AMO");
 
-contract('contracts/AMOs/CERESPoolInvestorForV2.sol', async (accounts) => {
+contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
     // set the deploy address
 	const account0 = accounts[0];
 	const account1 = accounts[1];
@@ -71,6 +72,7 @@ contract('contracts/AMOs/CERESPoolInvestorForV2.sol', async (accounts) => {
     let ceresWethPoolInstance;
     let cssWETHLPPoolInstance;
     let ceresPoolInvestorForV2Instance;
+    let css_AMOInstance;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -97,11 +99,12 @@ contract('contracts/AMOs/CERESPoolInvestorForV2.sol', async (accounts) => {
         cssWETHLPPoolInstance = await CSSWETHLPPool.deployed();
 
         ceresPoolInvestorForV2Instance = await CeresPoolInvestorForV2.deployed();
+        css_AMOInstance = await CSS_AMO.deployed();
     });
 
-    it('check ceresPoolInvestorForV2Instance.address, its value is not be empty', async () => {
-        console.log(chalk.blue(`ceresPoolInvestorForV2Instance: ${await ceresPoolInvestorForV2Instance.address}`));
-        expect(ceresPoolInvestorForV2Instance.address).to.not.be.empty;
+    it('check css_AMOInstance.address, its value is not be empty', async () => {
+        console.log(chalk.blue(`css_AMOInstance: ${await css_AMOInstance.address}`));
+        expect(css_AMOInstance.address).to.not.be.empty;
     });
 
     

@@ -28,8 +28,8 @@ contract CSS_AMO is AccessControl {
     address public owner_address; //TEST CASES DONE
     address public timelock_address; //TEST CASES DONE
     address public custodian_address; //TEST CASES DONE
-    address public ceres_address;
-    address public css_address;
+    address public ceres_address; //TEST CASES DONE
+    address public css_address; //TEST CASES DONE
     address payable public UNISWAP_ROUTER_ADDRESS = payable(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
     address public investor_amo_address = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
 

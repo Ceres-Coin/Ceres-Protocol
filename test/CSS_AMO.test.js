@@ -175,6 +175,16 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.override_amo_profits.call(), its DEFAULT value is to equal "[false]" ', async () => {
+        const EXPECTED_VALUE = false
+        expect((await css_AMOInstance.override_amo_profits.call())).to.equal((EXPECTED_VALUE));
+    });
+
+    it('check css_AMOInstance.overridden_amo_profit.call(), its DEFAULT value is to equal "[0]" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await css_AMOInstance.overridden_amo_profit.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 
     

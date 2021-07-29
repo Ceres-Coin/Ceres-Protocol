@@ -226,6 +226,7 @@ contract CSS_AMO is AccessControl {
 
 
     // Burn unneeded or excess CERES
+    // TODO: [P2][LATER]: ADDED TEST CASES IN P2
     function mintSwapBurn(uint256 override_USDC_amount, bool use_override) public onlyByOwnerOrGovernance {
         uint256 mintable_frax;
         if (use_override){
@@ -240,12 +241,14 @@ contract CSS_AMO is AccessControl {
     }
 
     // Burn unneeded or excess CERES
+    // TODO: [P2][LATER]: ADDED TEST CASES IN P2
     function burnFRAX(uint256 frax_amount) public onlyByOwnerOrGovernance {
         CERES.burn(frax_amount);
         burned_sum_historical = burned_sum_historical.add(frax_amount);
     }
 
     // Burn unneeded CSS
+    // TODO: [P2][LATER]: ADDED TEST CASES IN P2
     function burnFXS(uint256 amount) public onlyByOwnerOrGovernance {
         CSS.approve(address(this), amount);
         CSS.pool_burn_from(address(this), amount);

@@ -190,9 +190,11 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         const getTmpValue_0 = (await css_AMOInstance.getTmpValue())[0];
         const getTmpValue_1 = (await css_AMOInstance.getTmpValue())[1];
         const getTmpValue_2 = (await css_AMOInstance.getTmpValue())[2];
+        const getTmpValue_3 = (await css_AMOInstance.getTmpValue())[3];
         console.log(chalk.blue(`getTmpValue_0: ${getTmpValue_0}`));
         console.log(chalk.blue(`getTmpValue_1: ${getTmpValue_1}`));
         console.log(chalk.blue(`getTmpValue_2: ${getTmpValue_2}`));
+        console.log(chalk.blue(`getTmpValue_3: ${getTmpValue_3}`));
         
     });
 

@@ -108,7 +108,7 @@ contract CSS_AMO is AccessControl {
         }
     }
 
-    function getTmpValue() public view returns (uint256 , uint256 ,uint256) 
+    function getTmpValue() public view returns (uint256 , uint256 ,uint256,uint256) 
     {
         uint256 global_collateral_ratio = CERES.global_collateral_ratio();
         uint256 _ceres_total_supply = CERES.totalSupply();
@@ -118,9 +118,25 @@ contract CSS_AMO is AccessControl {
         uint256 effective_collateral_ratio = _global_collat_value.mul(1e6).div(_ceres_total_supply); //returns it in 1e6
 
         if (global_collateral_ratio > COLLATERAL_RATIO_PRECISION) global_collateral_ratio = COLLATERAL_RATIO_PRECISION; // Handles an overcollateralized contract with CR > 1
-        uint256 required_collat_dollar_value_d18 = (_ceres_total_supply.mul(global_collateral_ratio)).div(COLLATERAL_RATIO_PRECISION); // Calculates collateral needed to back each 1 CERES with $1 of collateral at current collat ratio
+        uint256 _required_collat_dollar_value_d18 = (_ceres_total_supply.mul(global_collateral_ratio)).div(COLLATERAL_RATIO_PRECISION); // Calculates collateral needed to back each 1 CERES with $1 of collateral at current collat ratio
+        uint256 excess_collateral_e18;
+        uint256 ceres_mintable;
+        if (_global_collat_value > _required_collat_dollar_value_d18) {
+            excess_collateral_e18 = _global_collat_value.sub(_required_collat_dollar_value_d18);
+            ceres_mintable = excess_collateral_e18.mul(COLLATERAL_RATIO_PRECISION).div(global_collateral_ratio);
+        }
+        else {
+            excess_collateral_e18 = 0;
+            ceres_mintable = 0;
+        }
 
-        return (global_collateral_ratio,effective_collateral_ratio,required_collat_dollar_value_d18);
+
+        return (
+            global_collateral_ratio,
+            effective_collateral_ratio,
+            excess_collateral_e18,
+            ceres_mintable
+        );
     }
 
     function cr_info() public view returns (

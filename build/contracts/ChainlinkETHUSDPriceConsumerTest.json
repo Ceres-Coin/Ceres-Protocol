@@ -17,8 +17,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -31,56 +30,55 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"getDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLatestPrice\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"constructor\":\"Network: Mainnet Aggregator: ETH/USD Address: 0x8A753747A1Fa494EC906cE90E9f37563A8AF630e\",\"getLatestPrice()\":{\"notice\":\"Returns the latest price\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Oracle/ChainlinkETHUSDPriceConsumerTest.sol\":\"ChainlinkETHUSDPriceConsumerTest\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000},\"remappings\":[]},\"sources\":{\"project:/contracts/Oracle/AggregatorV3Interface.sol\":{\"keccak256\":\"0x37438ade3204c6073563bf7238abd24ef48cba2c6e46f85da7b3287f74331ef0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed264ec5bbcb24318d675414f405210ebdb8f3075d7b6100768e75cfdd77067d\",\"dweb:/ipfs/Qma92AbX44nwsuAou6wq9eERTVBLsT2xo5SHLeWJ4CQu5W\"]},\"project:/contracts/Oracle/ChainlinkETHUSDPriceConsumerTest.sol\":{\"keccak256\":\"0x91983d8ecb4fdd0861d363b42c6ffbf7c800aade5ee5f779859500ed3130c730\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://35ee52d62e6bd7a2fe6d42a41dfa67c210149ca205a667032b5e90ad460a8a4e\",\"dweb:/ipfs/Qmf2koMBKB3Ro78vJkrWyikGL3gLkHegDyvnNVWjj3SMTk\"]}},\"version\":1}",
   "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b031916738a753747a1fa494ec906ce90e9f37563a8af630e17905560bd806100456000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80638e15f473146037578063f0141d84146051575b600080fd5b603d6062565b604051604891906070565b60405180910390f35b6057606b565b604051604891906079565b64315043860090565b600890565b90815260200190565b60ff9190911681526020019056fea26469706673582212203f6249711f0caf1e6ce9e9a2a8eafedc78c8a4c25bc465247038589ddd79c6d164736f6c634300060c0033",
   "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80638e15f473146037578063f0141d84146051575b600080fd5b603d6062565b604051604891906070565b60405180910390f35b6057606b565b604051604891906079565b64315043860090565b600890565b90815260200190565b60ff9190911681526020019056fea26469706673582212203f6249711f0caf1e6ce9e9a2a8eafedc78c8a4c25bc465247038589ddd79c6d164736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "771:4059:41:-:0;;;1866:787;;;;;;;;;-1:-1:-1;2569:9:41;:77;;-1:-1:-1;;;;;;2569:77:41;2603:42;2569:77;;;771:4059;;;;;;",
-  "deployedSourceMap": "771:4059:41:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2707:1327;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;4040:788;;;:::i;:::-;;;;;;;:::i;2707:1327::-;4015:12;2707:1327;:::o;4040:788::-;4820:1;4040:788;:::o;236:218:-1:-;74:36;;;361:2;346:18;;332:122::o;461:214::-;831:4;820:16;;;;189:35;;584:2;569:18;;555:120::o",
+  "sourceMap": "771:4059:42:-:0;;;1866:787;;;;;;;;;-1:-1:-1;2569:9:42;:77;;-1:-1:-1;;;;;;2569:77:42;2603:42;2569:77;;;771:4059;;;;;;",
+  "deployedSourceMap": "771:4059:42:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2707:1327;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;4040:788;;;:::i;:::-;;;;;;;:::i;2707:1327::-;4015:12;2707:1327;:::o;4040:788::-;4820:1;4040:788;:::o;236:218:-1:-;74:36;;;361:2;346:18;;332:122::o;461:214::-;831:4;820:16;;;;189:35;;584:2;569:18;;555:120::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.6.12;\npragma experimental ABIEncoderV2;\n\nimport \"./AggregatorV3Interface.sol\";\n\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// VERY IMPORTANT: UNCOMMENT THIS LATER\n// import \"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\";\n\ncontract ChainlinkETHUSDPriceConsumerTest {\n\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    // VERY IMPORTANT: UNCOMMENT THIS LATER\n    AggregatorV3Interface internal priceFeed;\n\n    /**\n     * Network: Kovan\n     * Aggregator: ETH/USD\n     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\n     */\n    /**\n     * Network: Mainnet\n     * Aggregator: ETH/USD\n     * Address: 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419\n     */\n    /**\n     * Network: Mainnet\n     * Aggregator: ETH/USD\n     * Address: 0x8A753747A1Fa494EC906cE90E9f37563A8AF630e\n     */\n\n     \n    constructor() public {\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        priceFeed = AggregatorV3Interface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);\n    }\n\n    /**\n     * Returns the latest price\n     */\n    function getLatestPrice() public view returns (int) {\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // (\n        //     uint80 roundID, \n        //     int price,\n        //     uint startedAt,\n        //     uint timeStamp,\n        //     uint80 answeredInRound\n        // ) = priceFeed.latestRoundData();\n        // If the round is not complete yet, timestamp is 0\n        // require(timeStamp > 0, \"Round not complete\");\n\n        // This will return something like 32063000000\n        // Divide this by getDecimals to get the \"true\" price\n        // You can can multiply the \"true\" price by 1e6 to get the ceres ecosystem 'price'\n        // return price;\n\n        return 211800000000;\n    }\n\n    function getDecimals() public view returns (uint8) {\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // VERY IMPORTANT: UNCOMMENT THIS LATER\n        // return priceFeed.decimals();\n        return 8;\n    }\n}",
   "sourcePath": "/Users/cooper/GitHub/Prigogine/Ceres-Protocol/contracts/Oracle/ChainlinkETHUSDPriceConsumerTest.sol",
   "ast": {
     "absolutePath": "project:/contracts/Oracle/ChainlinkETHUSDPriceConsumerTest.sol",
     "exportedSymbols": {
       "ChainlinkETHUSDPriceConsumerTest": [
-        12952
+        12950
       ]
     },
-    "id": 12953,
+    "id": 12951,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 12919,
+        "id": 12917,
         "literals": [
           "solidity",
           "0.6",
           ".12"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:41"
+        "src": "32:23:42"
       },
       {
-        "id": 12920,
+        "id": 12918,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "56:33:41"
+        "src": "56:33:42"
       },
       {
         "absolutePath": "project:/contracts/Oracle/AggregatorV3Interface.sol",
         "file": "./AggregatorV3Interface.sol",
-        "id": 12921,
+        "id": 12919,
         "nodeType": "ImportDirective",
-        "scope": 12953,
-        "sourceUnit": 12876,
-        "src": "91:37:41",
+        "scope": 12951,
+        "sourceUnit": 12874,
+        "src": "91:37:42",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -91,37 +89,37 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 12952,
+        "id": 12950,
         "linearizedBaseContracts": [
-          12952
+          12950
         ],
         "name": "ChainlinkETHUSDPriceConsumerTest",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 12923,
+            "id": 12921,
             "mutability": "mutable",
             "name": "priceFeed",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 12952,
-            "src": "1436:40:41",
+            "scope": 12950,
+            "src": "1436:40:42",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_AggregatorV3Interface_$12875",
+              "typeIdentifier": "t_contract$_AggregatorV3Interface_$12873",
               "typeString": "contract AggregatorV3Interface"
             },
             "typeName": {
               "contractScope": null,
-              "id": 12922,
+              "id": 12920,
               "name": "AggregatorV3Interface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 12875,
-              "src": "1436:21:41",
+              "referencedDeclaration": 12873,
+              "src": "1436:21:42",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AggregatorV3Interface_$12875",
+                "typeIdentifier": "t_contract$_AggregatorV3Interface_$12873",
                 "typeString": "contract AggregatorV3Interface"
               }
             },
@@ -130,28 +128,28 @@
           },
           {
             "body": {
-              "id": 12933,
+              "id": 12931,
               "nodeType": "Block",
-              "src": "1887:766:41",
+              "src": "1887:766:42",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 12931,
+                    "id": 12929,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 12927,
+                      "id": 12925,
                       "name": "priceFeed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 12923,
-                      "src": "2569:9:41",
+                      "referencedDeclaration": 12921,
+                      "src": "2569:9:42",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$12875",
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$12873",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
@@ -163,14 +161,14 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "307838413735333734374131466134393445433930366345393045396633373536334138414636333065",
-                          "id": 12929,
+                          "id": 12927,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "2603:42:41",
+                          "src": "2603:42:42",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
@@ -186,18 +184,18 @@
                             "typeString": "address payable"
                           }
                         ],
-                        "id": 12928,
+                        "id": 12926,
                         "name": "AggregatorV3Interface",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 12875,
-                        "src": "2581:21:41",
+                        "referencedDeclaration": 12873,
+                        "src": "2581:21:42",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$12875_$",
+                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$12873_$",
                           "typeString": "type(contract AggregatorV3Interface)"
                         }
                       },
-                      "id": 12930,
+                      "id": 12928,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -205,32 +203,32 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "2581:65:41",
+                      "src": "2581:65:42",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$12875",
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$12873",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
-                    "src": "2569:77:41",
+                    "src": "2569:77:42",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$12875",
+                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$12873",
                       "typeString": "contract AggregatorV3Interface"
                     }
                   },
-                  "id": 12932,
+                  "id": 12930,
                   "nodeType": "ExpressionStatement",
-                  "src": "2569:77:41"
+                  "src": "2569:77:42"
                 }
               ]
             },
             "documentation": {
-              "id": 12924,
+              "id": 12922,
               "nodeType": "StructuredDocumentation",
-              "src": "1733:121:41",
+              "src": "1733:121:42",
               "text": " Network: Mainnet\n Aggregator: ETH/USD\n Address: 0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
             },
-            "id": 12934,
+            "id": 12932,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
@@ -238,41 +236,41 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 12925,
+              "id": 12923,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1877:2:41"
+              "src": "1877:2:42"
             },
             "returnParameters": {
-              "id": 12926,
+              "id": 12924,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1887:0:41"
+              "src": "1887:0:42"
             },
-            "scope": 12952,
-            "src": "1866:787:41",
+            "scope": 12950,
+            "src": "1866:787:42",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 12942,
+              "id": 12940,
               "nodeType": "Block",
-              "src": "2759:1275:41",
+              "src": "2759:1275:42",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "323131383030303030303030",
-                    "id": 12940,
+                    "id": 12938,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "number",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "4015:12:41",
+                    "src": "4015:12:42",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_rational_211800000000_by_1",
@@ -280,21 +278,21 @@
                     },
                     "value": "211800000000"
                   },
-                  "functionReturnParameters": 12939,
-                  "id": 12941,
+                  "functionReturnParameters": 12937,
+                  "id": 12939,
                   "nodeType": "Return",
-                  "src": "4008:19:41"
+                  "src": "4008:19:42"
                 }
               ]
             },
             "documentation": {
-              "id": 12935,
+              "id": 12933,
               "nodeType": "StructuredDocumentation",
-              "src": "2659:43:41",
+              "src": "2659:43:42",
               "text": " Returns the latest price"
             },
             "functionSelector": "8e15f473",
-            "id": 12943,
+            "id": 12941,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -302,24 +300,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 12936,
+              "id": 12934,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2730:2:41"
+              "src": "2730:2:42"
             },
             "returnParameters": {
-              "id": 12939,
+              "id": 12937,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 12938,
+                  "id": 12936,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 12943,
-                  "src": "2754:3:41",
+                  "scope": 12941,
+                  "src": "2754:3:42",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -327,10 +325,10 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 12937,
+                    "id": 12935,
                     "name": "int",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2754:3:41",
+                    "src": "2754:3:42",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -340,32 +338,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2753:5:41"
+              "src": "2753:5:42"
             },
-            "scope": 12952,
-            "src": "2707:1327:41",
+            "scope": 12950,
+            "src": "2707:1327:42",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 12950,
+              "id": 12948,
               "nodeType": "Block",
-              "src": "4091:737:41",
+              "src": "4091:737:42",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "38",
-                    "id": 12948,
+                    "id": 12946,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "number",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "4820:1:41",
+                    "src": "4820:1:42",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_rational_8_by_1",
@@ -373,16 +371,16 @@
                     },
                     "value": "8"
                   },
-                  "functionReturnParameters": 12947,
-                  "id": 12949,
+                  "functionReturnParameters": 12945,
+                  "id": 12947,
                   "nodeType": "Return",
-                  "src": "4813:8:41"
+                  "src": "4813:8:42"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "f0141d84",
-            "id": 12951,
+            "id": 12949,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -390,24 +388,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 12944,
+              "id": 12942,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4060:2:41"
+              "src": "4060:2:42"
             },
             "returnParameters": {
-              "id": 12947,
+              "id": 12945,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 12946,
+                  "id": 12944,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 12951,
-                  "src": "4084:5:41",
+                  "scope": 12949,
+                  "src": "4084:5:42",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -415,10 +413,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 12945,
+                    "id": 12943,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4084:5:41",
+                    "src": "4084:5:42",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -428,27 +426,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4083:7:41"
+              "src": "4083:7:42"
             },
-            "scope": 12952,
-            "src": "4040:788:41",
+            "scope": 12950,
+            "src": "4040:788:42",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 12953,
-        "src": "771:4059:41"
+        "scope": 12951,
+        "src": "771:4059:42"
       }
     ],
-    "src": "32:4798:41"
+    "src": "32:4798:42"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/Oracle/ChainlinkETHUSDPriceConsumerTest.sol",
       "exportedSymbols": {
         "ChainlinkETHUSDPriceConsumerTest": [
-          12952
+          12950
         ]
       },
       "license": "MIT"
@@ -462,9 +460,9 @@
             ".12"
           ]
         },
-        "id": 12919,
+        "id": 12917,
         "name": "PragmaDirective",
-        "src": "32:23:41"
+        "src": "32:23:42"
       },
       {
         "attributes": {
@@ -473,24 +471,24 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 12920,
+        "id": 12918,
         "name": "PragmaDirective",
-        "src": "56:33:41"
+        "src": "56:33:42"
       },
       {
         "attributes": {
-          "SourceUnit": 12876,
+          "SourceUnit": 12874,
           "absolutePath": "project:/contracts/Oracle/AggregatorV3Interface.sol",
           "file": "./AggregatorV3Interface.sol",
-          "scope": 12953,
+          "scope": 12951,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 12921,
+        "id": 12919,
         "name": "ImportDirective",
-        "src": "91:37:41"
+        "src": "91:37:42"
       },
       {
         "attributes": {
@@ -505,10 +503,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            12952
+            12950
           ],
           "name": "ChainlinkETHUSDPriceConsumerTest",
-          "scope": 12953
+          "scope": 12951
         },
         "children": [
           {
@@ -517,7 +515,7 @@
               "mutability": "mutable",
               "name": "priceFeed",
               "overrides": null,
-              "scope": 12952,
+              "scope": 12950,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract AggregatorV3Interface",
@@ -529,17 +527,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AggregatorV3Interface",
-                  "referencedDeclaration": 12875,
+                  "referencedDeclaration": 12873,
                   "type": "contract AggregatorV3Interface"
                 },
-                "id": 12922,
+                "id": 12920,
                 "name": "UserDefinedTypeName",
-                "src": "1436:21:41"
+                "src": "1436:21:42"
               }
             ],
-            "id": 12923,
+            "id": 12921,
             "name": "VariableDeclaration",
-            "src": "1436:40:41"
+            "src": "1436:40:42"
           },
           {
             "attributes": {
@@ -551,7 +549,7 @@
               ],
               "name": "",
               "overrides": null,
-              "scope": 12952,
+              "scope": 12950,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -561,9 +559,9 @@
                 "attributes": {
                   "text": " Network: Mainnet\n Aggregator: ETH/USD\n Address: 0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
                 },
-                "id": 12924,
+                "id": 12922,
                 "name": "StructuredDocumentation",
-                "src": "1733:121:41"
+                "src": "1733:121:42"
               },
               {
                 "attributes": {
@@ -572,9 +570,9 @@
                   ]
                 },
                 "children": [],
-                "id": 12925,
+                "id": 12923,
                 "name": "ParameterList",
-                "src": "1877:2:41"
+                "src": "1877:2:42"
               },
               {
                 "attributes": {
@@ -583,9 +581,9 @@
                   ]
                 },
                 "children": [],
-                "id": 12926,
+                "id": 12924,
                 "name": "ParameterList",
-                "src": "1887:0:41"
+                "src": "1887:0:42"
               },
               {
                 "children": [
@@ -608,13 +606,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 12923,
+                              "referencedDeclaration": 12921,
                               "type": "contract AggregatorV3Interface",
                               "value": "priceFeed"
                             },
-                            "id": 12927,
+                            "id": 12925,
                             "name": "Identifier",
-                            "src": "2569:9:41"
+                            "src": "2569:9:42"
                           },
                           {
                             "attributes": {
@@ -643,13 +641,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 12875,
+                                  "referencedDeclaration": 12873,
                                   "type": "type(contract AggregatorV3Interface)",
                                   "value": "AggregatorV3Interface"
                                 },
-                                "id": 12928,
+                                "id": 12926,
                                 "name": "Identifier",
-                                "src": "2581:21:41"
+                                "src": "2581:21:42"
                               },
                               {
                                 "attributes": {
@@ -664,34 +662,34 @@
                                   "type": "address payable",
                                   "value": "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
                                 },
-                                "id": 12929,
+                                "id": 12927,
                                 "name": "Literal",
-                                "src": "2603:42:41"
+                                "src": "2603:42:42"
                               }
                             ],
-                            "id": 12930,
+                            "id": 12928,
                             "name": "FunctionCall",
-                            "src": "2581:65:41"
+                            "src": "2581:65:42"
                           }
                         ],
-                        "id": 12931,
+                        "id": 12929,
                         "name": "Assignment",
-                        "src": "2569:77:41"
+                        "src": "2569:77:42"
                       }
                     ],
-                    "id": 12932,
+                    "id": 12930,
                     "name": "ExpressionStatement",
-                    "src": "2569:77:41"
+                    "src": "2569:77:42"
                   }
                 ],
-                "id": 12933,
+                "id": 12931,
                 "name": "Block",
-                "src": "1887:766:41"
+                "src": "1887:766:42"
               }
             ],
-            "id": 12934,
+            "id": 12932,
             "name": "FunctionDefinition",
-            "src": "1866:787:41"
+            "src": "1866:787:42"
           },
           {
             "attributes": {
@@ -704,7 +702,7 @@
               ],
               "name": "getLatestPrice",
               "overrides": null,
-              "scope": 12952,
+              "scope": 12950,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "public"
@@ -714,9 +712,9 @@
                 "attributes": {
                   "text": " Returns the latest price"
                 },
-                "id": 12935,
+                "id": 12933,
                 "name": "StructuredDocumentation",
-                "src": "2659:43:41"
+                "src": "2659:43:42"
               },
               {
                 "attributes": {
@@ -725,9 +723,9 @@
                   ]
                 },
                 "children": [],
-                "id": 12936,
+                "id": 12934,
                 "name": "ParameterList",
-                "src": "2730:2:41"
+                "src": "2730:2:42"
               },
               {
                 "children": [
@@ -737,7 +735,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 12943,
+                      "scope": 12941,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "int256",
@@ -750,25 +748,25 @@
                           "name": "int",
                           "type": "int256"
                         },
-                        "id": 12937,
+                        "id": 12935,
                         "name": "ElementaryTypeName",
-                        "src": "2754:3:41"
+                        "src": "2754:3:42"
                       }
                     ],
-                    "id": 12938,
+                    "id": 12936,
                     "name": "VariableDeclaration",
-                    "src": "2754:3:41"
+                    "src": "2754:3:42"
                   }
                 ],
-                "id": 12939,
+                "id": 12937,
                 "name": "ParameterList",
-                "src": "2753:5:41"
+                "src": "2753:5:42"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 12939
+                      "functionReturnParameters": 12937
                     },
                     "children": [
                       {
@@ -784,24 +782,24 @@
                           "type": "int_const 211800000000",
                           "value": "211800000000"
                         },
-                        "id": 12940,
+                        "id": 12938,
                         "name": "Literal",
-                        "src": "4015:12:41"
+                        "src": "4015:12:42"
                       }
                     ],
-                    "id": 12941,
+                    "id": 12939,
                     "name": "Return",
-                    "src": "4008:19:41"
+                    "src": "4008:19:42"
                   }
                 ],
-                "id": 12942,
+                "id": 12940,
                 "name": "Block",
-                "src": "2759:1275:41"
+                "src": "2759:1275:42"
               }
             ],
-            "id": 12943,
+            "id": 12941,
             "name": "FunctionDefinition",
-            "src": "2707:1327:41"
+            "src": "2707:1327:42"
           },
           {
             "attributes": {
@@ -815,7 +813,7 @@
               ],
               "name": "getDecimals",
               "overrides": null,
-              "scope": 12952,
+              "scope": 12950,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "public"
@@ -828,9 +826,9 @@
                   ]
                 },
                 "children": [],
-                "id": 12944,
+                "id": 12942,
                 "name": "ParameterList",
-                "src": "4060:2:41"
+                "src": "4060:2:42"
               },
               {
                 "children": [
@@ -840,7 +838,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 12951,
+                      "scope": 12949,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint8",
@@ -853,25 +851,25 @@
                           "name": "uint8",
                           "type": "uint8"
                         },
-                        "id": 12945,
+                        "id": 12943,
                         "name": "ElementaryTypeName",
-                        "src": "4084:5:41"
+                        "src": "4084:5:42"
                       }
                     ],
-                    "id": 12946,
+                    "id": 12944,
                     "name": "VariableDeclaration",
-                    "src": "4084:5:41"
+                    "src": "4084:5:42"
                   }
                 ],
-                "id": 12947,
+                "id": 12945,
                 "name": "ParameterList",
-                "src": "4083:7:41"
+                "src": "4083:7:42"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 12947
+                      "functionReturnParameters": 12945
                     },
                     "children": [
                       {
@@ -887,50 +885,42 @@
                           "type": "int_const 8",
                           "value": "8"
                         },
-                        "id": 12948,
+                        "id": 12946,
                         "name": "Literal",
-                        "src": "4820:1:41"
+                        "src": "4820:1:42"
                       }
                     ],
-                    "id": 12949,
+                    "id": 12947,
                     "name": "Return",
-                    "src": "4813:8:41"
+                    "src": "4813:8:42"
                   }
                 ],
-                "id": 12950,
+                "id": 12948,
                 "name": "Block",
-                "src": "4091:737:41"
+                "src": "4091:737:42"
               }
             ],
-            "id": 12951,
+            "id": 12949,
             "name": "FunctionDefinition",
-            "src": "4040:788:41"
+            "src": "4040:788:42"
           }
         ],
-        "id": 12952,
+        "id": 12950,
         "name": "ContractDefinition",
-        "src": "771:4059:41"
+        "src": "771:4059:42"
       }
     ],
-    "id": 12953,
+    "id": 12951,
     "name": "SourceUnit",
-    "src": "32:4798:41"
+    "src": "32:4798:42"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
-  "networks": {
-    "97": {
-      "events": {},
-      "links": {},
-      "address": "0x5A0F17b659F1864b9519161C0166f9179313E7FF",
-      "transactionHash": "0xd09627613baa1ffba4dcb078e8ea3348999b9a1c26db0dbc6267b91babbfc6db"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-29T03:47:51.247Z",
-  "networkType": "ethereum",
+  "updatedAt": "2021-07-29T07:51:31.516Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

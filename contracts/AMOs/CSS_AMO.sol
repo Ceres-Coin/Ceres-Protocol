@@ -23,8 +23,8 @@ contract CSS_AMO is AccessControl {
     CeresPool private pool;
     IUniswapV2Router02 private UniRouterV2 = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
     
-    address public collateral_address;
-    address public pool_address;
+    address public collateral_address; //TEST CASES DONE
+    address public pool_address; //TEST CASES DONE
     address public owner_address; //TEST CASES DONE
     address public timelock_address; //TEST CASES DONE
     address public custodian_address; //TEST CASES DONE

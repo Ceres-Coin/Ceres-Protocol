@@ -127,6 +127,11 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect((await css_AMOInstance.ceres_address.call())).to.equal((EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.css_address.call(), its DEFAULT value is to equal "cssInstance" ', async () => {
+        const EXPECTED_VALUE = cssInstance.address;
+        expect((await css_AMOInstance.css_address.call())).to.equal((EXPECTED_VALUE));
+    });
+
     
 
 

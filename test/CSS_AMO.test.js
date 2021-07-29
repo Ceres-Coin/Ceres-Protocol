@@ -215,6 +215,22 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect(parseFloat(await css_AMOInstance.collatDollarBalance.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    // TEST CASES FOR PUBLIC FUNC()
+    it('check css_AMOInstance.setTimelock() ', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = OWNER;
+        const NEW_VALUE = TEST_ACCOUNT;
+        expect((await css_AMOInstance.timelock_address.call())).to.equal((DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await css_AMOInstance.setTimelock(NEW_VALUE,{from: DEFAULT_VALUE});
+        expect((await css_AMOInstance.timelock_address.call())).to.equal((NEW_VALUE));
+
+        // ROLLBACK CODE
+        await css_AMOInstance.setTimelock(DEFAULT_VALUE,{from: DEFAULT_VALUE});
+        expect((await css_AMOInstance.timelock_address.call())).to.equal((DEFAULT_VALUE));
+    });
+
+
 
 
     

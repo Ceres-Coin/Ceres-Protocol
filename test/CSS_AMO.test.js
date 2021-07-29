@@ -230,6 +230,22 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect((await css_AMOInstance.timelock_address.call())).to.equal((DEFAULT_VALUE));
     });
 
+    // TEST CASES FOR PUBLIC FUNC()
+    it('check css_AMOInstance.setOwner(), SET its value from DEFAULT_VALUE TO NEW_VALUE', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = OWNER;
+        const NEW_VALUE = TEST_ACCOUNT;
+        expect((await css_AMOInstance.owner_address.call())).to.equal((DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await css_AMOInstance.setOwner(NEW_VALUE,{from: DEFAULT_VALUE});
+        expect((await css_AMOInstance.owner_address.call())).to.equal((NEW_VALUE));
+
+        // ROLLBACK CODE
+        await css_AMOInstance.setOwner(DEFAULT_VALUE,{from: DEFAULT_VALUE});
+        expect((await css_AMOInstance.owner_address.call())).to.equal((DEFAULT_VALUE));
+    });
+    
+
 
 
 

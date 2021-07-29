@@ -150,6 +150,11 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect((await css_AMOInstance.investor_amo_address.call())).to.equal((EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.missing_decimals.call(), its DEFAULT value is to equal "[0]" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await css_AMOInstance.missing_decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
 

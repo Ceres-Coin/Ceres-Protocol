@@ -28,8 +28,8 @@ contract CSS_AMO is AccessControl {
     address public owner_address; //TEST CASES DONE
     address public timelock_address; //TEST CASES DONE
     address public custodian_address; //TEST CASES DONE
-    address public frax_address;
-    address public fxs_address;
+    address public ceres_address;
+    address public css_address;
     address payable public UNISWAP_ROUTER_ADDRESS = payable(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
     address public investor_amo_address = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
 
@@ -54,8 +54,8 @@ contract CSS_AMO is AccessControl {
     /* ========== CONSTRUCTOR ========== */
     
     constructor(
-        address _frax_contract_address,
-        address _fxs_contract_address,
+        address _ceres_contract_address,
+        address _css_contract_address,
         address _pool_address,
         address _collateral_address,
         address _owner_address,
@@ -63,10 +63,10 @@ contract CSS_AMO is AccessControl {
         address _timelock_address,
         address _investor_amo_address
     ) public {
-        frax_address = _frax_contract_address;
-        CERES = CEREStable(_frax_contract_address);
-        fxs_address = _fxs_contract_address;
-        CSS = CEREShares(_fxs_contract_address);
+        ceres_address = _ceres_contract_address;
+        CERES = CEREStable(_ceres_contract_address);
+        css_address = _css_contract_address;
+        CSS = CEREShares(_css_contract_address);
         pool_address = _pool_address;
         pool = CeresPool(_pool_address);
         collateral_address = _collateral_address;
@@ -168,8 +168,8 @@ contract CSS_AMO is AccessControl {
         CERES.approve(UNISWAP_ROUTER_ADDRESS, frax_amount);
 
         address[] memory FRAX_FXS_PATH = new address[](2);
-        FRAX_FXS_PATH[0] = frax_address;
-        FRAX_FXS_PATH[1] = fxs_address;
+        FRAX_FXS_PATH[0] = ceres_address;
+        FRAX_FXS_PATH[1] = css_address;
 
         uint256 min_fxs_out = frax_amount.mul(PRICE_PRECISION).div(fxs_price);
         min_fxs_out = min_fxs_out.sub(min_fxs_out.mul(max_slippage).div(PRICE_PRECISION));

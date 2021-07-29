@@ -155,6 +155,11 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect(parseFloat(await css_AMOInstance.missing_decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.min_cr.call(), its DEFAULT value is to equal "[850000]" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("850000");
+        expect(parseFloat(await css_AMOInstance.min_cr.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
 

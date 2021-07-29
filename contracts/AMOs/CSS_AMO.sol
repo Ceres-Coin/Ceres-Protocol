@@ -277,7 +277,7 @@ contract CSS_AMO is AccessControl {
     function setMaxSlippage(uint256 _max_slippage) external onlyByOwnerOrGovernance {
         max_slippage = _max_slippage;
     }
-    // TODO: ADD
+    // TEST CASES DONE
     function setAMOProfits(uint256 _overridden_amo_profit_e18, bool _is_override_amo_profits) external onlyByOwnerOrGovernance {
         overridden_amo_profit = _overridden_amo_profit_e18; // E18
         is_override_amo_profits = _is_override_amo_profits;

@@ -272,6 +272,25 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         await css_AMOInstance.setMaxSlippage(DEFAULT_VALUE,{from: OWNER});
         expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
+
+    it('check css_AMOInstance.setAMOProfits(), SET its value from "0" TO "10"', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("0");
+        const DEFAULT_VALUE2 = false
+        const NEW_VALUE = new BigNumber("10");
+        const NEW_VALUE2 = true;
+        expect(parseFloat(await css_AMOInstance.overridden_amo_profit.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        expect((await css_AMOInstance.is_override_amo_profits.call())).to.equal((DEFAULT_VALUE2));
+        // ACTION & ASSERTION
+        await css_AMOInstance.setAMOProfits(NEW_VALUE,NEW_VALUE2,{from: OWNER});
+        expect(parseFloat(await css_AMOInstance.overridden_amo_profit.call())).to.equal(parseFloat(NEW_VALUE));
+        expect((await css_AMOInstance.is_override_amo_profits.call())).to.equal((NEW_VALUE2));
+
+        // ROLLBACK CODE
+        await css_AMOInstance.setAMOProfits(DEFAULT_VALUE,DEFAULT_VALUE2,{from: OWNER});
+        expect(parseFloat(await css_AMOInstance.overridden_amo_profit.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        expect((await css_AMOInstance.is_override_amo_profits.call())).to.equal((DEFAULT_VALUE2));
+    });
     
 
 

@@ -255,44 +255,44 @@ contract CSS_AMO is AccessControl {
     }
 
     /* ========== RESTRICTED GOVERNANCE FUNCTIONS ========== */
-
+    // TEST CASES DONE
     function setTimelock(address new_timelock) external onlyByOwnerOrGovernance {
         require(new_timelock != address(0), "Timelock address cannot be 0");
         timelock_address = new_timelock;
     }
-
+    // TEST CASES DONE
     function setOwner(address _owner_address) external onlyByOwnerOrGovernance {
         owner_address = _owner_address;
     }
-
+    // NO NEED TO DO
     function setPool(address _pool_address) external onlyByOwnerOrGovernance {
         pool_address = _pool_address;
         pool = CeresPool(_pool_address);
     }
-
+    // TEST CASES DONE
     function setMinimumCollateralRatio(uint256 _min_cr) external onlyByOwnerOrGovernance {
         min_cr = _min_cr;
     }
-
+    // TEST CASES DONE
     function setMaxSlippage(uint256 _max_slippage) external onlyByOwnerOrGovernance {
         max_slippage = _max_slippage;
     }
-
+    // TODO: ADD
     function setAMOProfits(uint256 _overridden_amo_profit_e18, bool _is_override_amo_profits) external onlyByOwnerOrGovernance {
         overridden_amo_profit = _overridden_amo_profit_e18; // E18
         is_override_amo_profits = _is_override_amo_profits;
     }
-
+    // NO NEED TO DO
     function setRouter(address payable _router_address) external onlyByOwnerOrGovernance {
         UNISWAP_ROUTER_ADDRESS = _router_address;
         UniRouterV2 = IUniswapV2Router02(_router_address);
     }
-
+    // NO NEED TO DO
     function setInvestorAMO(address _investor_amo_address) external onlyByOwnerOrGovernance {
         investor_amo_address = _investor_amo_address;
         InvestorAMO = CeresPoolInvestorForV2(_investor_amo_address);
     }
-
+    // NO NEED TO DO
     function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyByOwnerOrGovernance {
         // Can only be triggered by owner or governance, not custodian
         // Tokens are sent to the custodian, as a sort of safeguard

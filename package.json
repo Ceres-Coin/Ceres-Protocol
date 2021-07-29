@@ -4,12 +4,10 @@
   "description": "Ceres-Protocol",
   "main": "index.js",
   "scripts": {
-    "compile": "truffle compile --all",
-    "compile_with_rm" : "rm -rf build & truffle compile --all",
+    "compile" : "rm -rf build & truffle compile --all",
     "migration": "truffle migrate --network development --skip-dry-run --reset",
     "migration_bsc": "truffle migrate --network testnet --skip-dry-run --reset",
     "clean_build_migrate_all": "rm -rf build & truffle compile --all & truffle migrate --network development --skip-dry-run --reset",
-    "testSingleFile": "truffle test test/CSSWETHLPPool.test.js",
     "testSingleFileP2": "truffle test test/CSSWETHLPPool_P2.js",
     "test": "truffle test",
     "git add": "git add . & git cz",

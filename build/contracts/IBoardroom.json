@@ -55,15 +55,15 @@
     "absolutePath": "project:/contracts/interfaces/IBoardroom.sol",
     "exportedSymbols": {
       "IBoardroom": [
-        24350
+        26211
       ]
     },
-    "id": 24351,
+    "id": 26212,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 24333,
+        "id": 26194,
         "literals": [
           "solidity",
           "^",
@@ -71,7 +71,7 @@
           ".12"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:24:79"
+        "src": "32:24:81"
       },
       {
         "abstract": false,
@@ -80,9 +80,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 24350,
+        "id": 26211,
         "linearizedBaseContracts": [
-          24350
+          26211
         ],
         "name": "IBoardroom",
         "nodeType": "ContractDefinition",
@@ -91,7 +91,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "97ffe1d7",
-            "id": 24338,
+            "id": 26199,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -99,18 +99,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 24336,
+              "id": 26197,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 24335,
+                  "id": 26196,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 24338,
-                  "src": "114:14:79",
+                  "scope": 26199,
+                  "src": "114:14:81",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -118,10 +118,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 24334,
+                    "id": 26195,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "114:7:79",
+                    "src": "114:7:81",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -131,16 +131,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "113:16:79"
+              "src": "113:16:81"
             },
             "returnParameters": {
-              "id": 24337,
+              "id": 26198,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "138:0:79"
+              "src": "138:0:81"
             },
-            "scope": 24350,
-            "src": "85:54:79",
+            "scope": 26211,
+            "src": "85:54:81",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -149,7 +149,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "d2a6fbc1",
-            "id": 24349,
+            "id": 26210,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -157,18 +157,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 24347,
+              "id": 26208,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 24340,
+                  "id": 26201,
                   "mutability": "mutable",
                   "name": "_withdrawLockupEpochs",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 24349,
-                  "src": "172:29:79",
+                  "scope": 26210,
+                  "src": "172:29:81",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -176,10 +176,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 24339,
+                    "id": 26200,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "172:7:79",
+                    "src": "172:7:81",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -190,13 +190,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 24342,
+                  "id": 26203,
                   "mutability": "mutable",
                   "name": "_rewardLockupEpochs",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 24349,
-                  "src": "211:27:79",
+                  "scope": 26210,
+                  "src": "211:27:81",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -204,10 +204,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 24341,
+                    "id": 26202,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "211:7:79",
+                    "src": "211:7:81",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -218,13 +218,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 24344,
+                  "id": 26205,
                   "mutability": "mutable",
                   "name": "_epochAlignTimestamp",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 24349,
-                  "src": "248:28:79",
+                  "scope": 26210,
+                  "src": "248:28:81",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -232,10 +232,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 24343,
+                    "id": 26204,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "248:7:79",
+                    "src": "248:7:81",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -246,13 +246,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 24346,
+                  "id": 26207,
                   "mutability": "mutable",
                   "name": "_epochPeriod",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 24349,
-                  "src": "286:20:79",
+                  "scope": 26210,
+                  "src": "286:20:81",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -260,10 +260,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 24345,
+                    "id": 26206,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "286:7:79",
+                    "src": "286:7:81",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -273,33 +273,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "162:150:79"
+              "src": "162:150:81"
             },
             "returnParameters": {
-              "id": 24348,
+              "id": 26209,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "321:0:79"
+              "src": "321:0:81"
             },
-            "scope": 24350,
-            "src": "144:178:79",
+            "scope": 26211,
+            "src": "144:178:81",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 24351,
-        "src": "58:266:79"
+        "scope": 26212,
+        "src": "58:266:81"
       }
     ],
-    "src": "32:293:79"
+    "src": "32:293:81"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/interfaces/IBoardroom.sol",
       "exportedSymbols": {
         "IBoardroom": [
-          24350
+          26211
         ]
       },
       "license": "MIT"
@@ -314,9 +314,9 @@
             ".12"
           ]
         },
-        "id": 24333,
+        "id": 26194,
         "name": "PragmaDirective",
-        "src": "32:24:79"
+        "src": "32:24:81"
       },
       {
         "attributes": {
@@ -331,10 +331,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            24350
+            26211
           ],
           "name": "IBoardroom",
-          "scope": 24351
+          "scope": 26212
         },
         "children": [
           {
@@ -350,7 +350,7 @@
               ],
               "name": "allocateSeigniorage",
               "overrides": null,
-              "scope": 24350,
+              "scope": 26211,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -364,7 +364,7 @@
                       "mutability": "mutable",
                       "name": "amount",
                       "overrides": null,
-                      "scope": 24338,
+                      "scope": 26199,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -377,19 +377,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 24334,
+                        "id": 26195,
                         "name": "ElementaryTypeName",
-                        "src": "114:7:79"
+                        "src": "114:7:81"
                       }
                     ],
-                    "id": 24335,
+                    "id": 26196,
                     "name": "VariableDeclaration",
-                    "src": "114:14:79"
+                    "src": "114:14:81"
                   }
                 ],
-                "id": 24336,
+                "id": 26197,
                 "name": "ParameterList",
-                "src": "113:16:79"
+                "src": "113:16:81"
               },
               {
                 "attributes": {
@@ -398,14 +398,14 @@
                   ]
                 },
                 "children": [],
-                "id": 24337,
+                "id": 26198,
                 "name": "ParameterList",
-                "src": "138:0:79"
+                "src": "138:0:81"
               }
             ],
-            "id": 24338,
+            "id": 26199,
             "name": "FunctionDefinition",
-            "src": "85:54:79"
+            "src": "85:54:81"
           },
           {
             "attributes": {
@@ -420,7 +420,7 @@
               ],
               "name": "setLockUp",
               "overrides": null,
-              "scope": 24350,
+              "scope": 26211,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -434,7 +434,7 @@
                       "mutability": "mutable",
                       "name": "_withdrawLockupEpochs",
                       "overrides": null,
-                      "scope": 24349,
+                      "scope": 26210,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -447,14 +447,14 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 24339,
+                        "id": 26200,
                         "name": "ElementaryTypeName",
-                        "src": "172:7:79"
+                        "src": "172:7:81"
                       }
                     ],
-                    "id": 24340,
+                    "id": 26201,
                     "name": "VariableDeclaration",
-                    "src": "172:29:79"
+                    "src": "172:29:81"
                   },
                   {
                     "attributes": {
@@ -462,7 +462,7 @@
                       "mutability": "mutable",
                       "name": "_rewardLockupEpochs",
                       "overrides": null,
-                      "scope": 24349,
+                      "scope": 26210,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -475,14 +475,14 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 24341,
+                        "id": 26202,
                         "name": "ElementaryTypeName",
-                        "src": "211:7:79"
+                        "src": "211:7:81"
                       }
                     ],
-                    "id": 24342,
+                    "id": 26203,
                     "name": "VariableDeclaration",
-                    "src": "211:27:79"
+                    "src": "211:27:81"
                   },
                   {
                     "attributes": {
@@ -490,7 +490,7 @@
                       "mutability": "mutable",
                       "name": "_epochAlignTimestamp",
                       "overrides": null,
-                      "scope": 24349,
+                      "scope": 26210,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -503,14 +503,14 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 24343,
+                        "id": 26204,
                         "name": "ElementaryTypeName",
-                        "src": "248:7:79"
+                        "src": "248:7:81"
                       }
                     ],
-                    "id": 24344,
+                    "id": 26205,
                     "name": "VariableDeclaration",
-                    "src": "248:28:79"
+                    "src": "248:28:81"
                   },
                   {
                     "attributes": {
@@ -518,7 +518,7 @@
                       "mutability": "mutable",
                       "name": "_epochPeriod",
                       "overrides": null,
-                      "scope": 24349,
+                      "scope": 26210,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -531,19 +531,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 24345,
+                        "id": 26206,
                         "name": "ElementaryTypeName",
-                        "src": "286:7:79"
+                        "src": "286:7:81"
                       }
                     ],
-                    "id": 24346,
+                    "id": 26207,
                     "name": "VariableDeclaration",
-                    "src": "286:20:79"
+                    "src": "286:20:81"
                   }
                 ],
-                "id": 24347,
+                "id": 26208,
                 "name": "ParameterList",
-                "src": "162:150:79"
+                "src": "162:150:81"
               },
               {
                 "attributes": {
@@ -552,24 +552,24 @@
                   ]
                 },
                 "children": [],
-                "id": 24348,
+                "id": 26209,
                 "name": "ParameterList",
-                "src": "321:0:79"
+                "src": "321:0:81"
               }
             ],
-            "id": 24349,
+            "id": 26210,
             "name": "FunctionDefinition",
-            "src": "144:178:79"
+            "src": "144:178:81"
           }
         ],
-        "id": 24350,
+        "id": 26211,
         "name": "ContractDefinition",
-        "src": "58:266:79"
+        "src": "58:266:81"
       }
     ],
-    "id": 24351,
+    "id": 26212,
     "name": "SourceUnit",
-    "src": "32:293:79"
+    "src": "32:293:81"
   },
   "compiler": {
     "name": "solc",
@@ -577,7 +577,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-29T07:51:31.503Z",
+  "updatedAt": "2021-07-29T08:29:13.081Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -4,7 +4,7 @@ bin-release/
 node_modules/
 [Oo]bj/
 [Bb]in/
-# build/*
+build/*
 .secret
 
 # Other files and folders

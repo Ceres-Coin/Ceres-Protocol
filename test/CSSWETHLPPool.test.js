@@ -115,8 +115,8 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.DURATION.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.initreward.call(), its DEFAULT value is 70000e18', async () => {
-        const EXPECTED_VALUE = new BigNumber("70000e18");
+    it('check cssWETHLPPoolInstance.initreward.call(), its DEFAULT value is 100e18', async () => {
+        const EXPECTED_VALUE = new BigNumber("100e18");
         expect(parseFloat(await cssWETHLPPoolInstance.initreward.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
@@ -125,19 +125,19 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.startime.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.periodFinish.call(), its DEFAULT value is "0"', async () => {
+    it('check cssWETHLPPoolInstance.periodFinish.call(), its DEFAULT value is gt "0"', async () => {
         const EXPECTED_VALUE = new BigNumber("0"); 
-        expect(parseFloat(await cssWETHLPPoolInstance.periodFinish.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.periodFinish.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.rewardRate.call(), its DEFAULT value is "0"', async () => {
+    it('check cssWETHLPPoolInstance.rewardRate.call(), its DEFAULT value is gt "0"', async () => {
         const EXPECTED_VALUE = new BigNumber("0"); 
-        expect(parseFloat(await cssWETHLPPoolInstance.rewardRate.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.rewardRate.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.lastUpdateTime.call(), its DEFAULT value is "0"', async () => {
+    it('check cssWETHLPPoolInstance.lastUpdateTime.call(), its DEFAULT value is gt "0"', async () => {
         const EXPECTED_VALUE = new BigNumber("0"); 
-        expect(parseFloat(await cssWETHLPPoolInstance.lastUpdateTime.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.lastUpdateTime.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
     it('check cssWETHLPPoolInstance.rewardPerTokenStored.call(), its DEFAULT value is "0"', async () => {
@@ -174,9 +174,9 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect((await cssWETHLPPoolInstance.lpt.call())).to.equal((EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.lastTimeRewardApplicable.call(), its DEFAULT value is "0"', async () => {
+    it('check cssWETHLPPoolInstance.lastTimeRewardApplicable.call(), its DEFAULT value is gt "0"', async () => {
         const EXPECTED_VALUE = new BigNumber("0"); 
-        expect(parseFloat(await cssWETHLPPoolInstance.lastTimeRewardApplicable.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.lastTimeRewardApplicable.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
     it('check cssWETHLPPoolInstance.getBlockTimestamp.call(), its DEFAULT value is gt(0)', async () => {
@@ -185,10 +185,10 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         expect(parseFloat(await cssWETHLPPoolInstance.getBlockTimestamp.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check cssWETHLPPoolInstance.getPeriodFinish.call(), its DEFAULT value is equal(0)', async () => {
+    it('check cssWETHLPPoolInstance.getPeriodFinish.call(), its DEFAULT value is gt(0)', async () => {
         console.log(chalk.blue(`getPeriodFinish: ${await cssWETHLPPoolInstance.getPeriodFinish.call()}`));
         const EXPECTED_VALUE = new BigNumber("0"); 
-        expect(parseFloat(await cssWETHLPPoolInstance.getPeriodFinish.call())).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await cssWETHLPPoolInstance.getPeriodFinish.call())).to.gt(parseFloat(EXPECTED_VALUE));
     });
 
     it('check cssWETHLPPoolInstance.rewardPerToken.call(), its DEFAULT value is equal(0)', async () => {

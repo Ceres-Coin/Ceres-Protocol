@@ -107,12 +107,11 @@ contract CSS_AMO is AccessControl {
             unspent_profit_e18 = unspent_profit_e18.mul(10 ** missing_decimals);
         }
     }
-
+    //TEST CASES DONE
     function getTmpValue() public view returns (uint256 , uint256 ,uint256,uint256) 
     {
         uint256 global_collateral_ratio = CERES.global_collateral_ratio();
         uint256 _ceres_total_supply = CERES.totalSupply();
-        // TODO: TUNING THE FAILED CODE
         // uint256 _global_collat_value = (CERES.globalCollateralValue()).add(unspentInvestorAMOProfit_E18());
         uint256 _global_collat_value = (CERES.globalCollateralValue());
         uint256 effective_collateral_ratio = _global_collat_value.mul(1e6).div(_ceres_total_supply); //returns it in 1e6
@@ -138,7 +137,7 @@ contract CSS_AMO is AccessControl {
             ceres_mintable
         );
     }
-
+    //TEST CASES DONE
     function cr_info() public view returns (
             uint256 effective_collateral_ratio, 
             uint256 global_collateral_ratio, 

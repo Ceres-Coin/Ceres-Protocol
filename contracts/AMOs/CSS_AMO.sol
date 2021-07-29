@@ -49,7 +49,7 @@ contract CSS_AMO is AccessControl {
     uint256 public max_slippage = 200000; // 20%
 
     // AMO profits
-    bool public override_amo_profits = false;
+    bool public is_override_amo_profits = false;
     uint256 public overridden_amo_profit = 0;
 
     /* ========== CONSTRUCTOR ========== */
@@ -97,7 +97,7 @@ contract CSS_AMO is AccessControl {
     /* ========== VIEWS ========== */
 
     function unspentInvestorAMOProfit_E18() public view returns (uint256 unspent_profit_e18) {
-        if (override_amo_profits){
+        if (is_override_amo_profits){
             unspent_profit_e18 = overridden_amo_profit;
         }
         else {
@@ -237,9 +237,9 @@ contract CSS_AMO is AccessControl {
         max_slippage = _max_slippage;
     }
 
-    function setAMOProfits(uint256 _overridden_amo_profit_e18, bool _override_amo_profits) external onlyByOwnerOrGovernance {
+    function setAMOProfits(uint256 _overridden_amo_profit_e18, bool _is_override_amo_profits) external onlyByOwnerOrGovernance {
         overridden_amo_profit = _overridden_amo_profit_e18; // E18
-        override_amo_profits = _override_amo_profits;
+        is_override_amo_profits = _is_override_amo_profits;
     }
 
     function setRouter(address payable _router_address) external onlyByOwnerOrGovernance {

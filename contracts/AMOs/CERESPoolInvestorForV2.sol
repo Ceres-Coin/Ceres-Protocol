@@ -19,7 +19,7 @@ import "../Staking/Owned.sol";
 // Lower APY: yearn, AAVE, Compound
 // Higher APY: KeeperDAO, BZX, Harvest
 
-contract FraxPoolInvestorForV2 is AccessControl, Owned {
+contract CeresPoolInvestorForV2 is AccessControl, Owned {
     using SafeMath for uint256;
 
     /* ========== STATE VARIABLES ========== */

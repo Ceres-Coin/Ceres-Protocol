@@ -116,7 +116,11 @@ contract CSS_AMO is AccessControl {
         // uint256 _global_collat_value = (CERES.globalCollateralValue()).add(unspentInvestorAMOProfit_E18());
         uint256 _global_collat_value = (CERES.globalCollateralValue());
         uint256 effective_collateral_ratio = _global_collat_value.mul(1e6).div(_ceres_total_supply); //returns it in 1e6
-        return (global_collateral_ratio,effective_collateral_ratio,effective_collateral_ratio);
+
+        if (global_collateral_ratio > COLLATERAL_RATIO_PRECISION) global_collateral_ratio = COLLATERAL_RATIO_PRECISION; // Handles an overcollateralized contract with CR > 1
+        uint256 required_collat_dollar_value_d18 = (_ceres_total_supply.mul(global_collateral_ratio)).div(COLLATERAL_RATIO_PRECISION); // Calculates collateral needed to back each 1 CERES with $1 of collateral at current collat ratio
+
+        return (global_collateral_ratio,effective_collateral_ratio,required_collat_dollar_value_d18);
     }
 
     function cr_info() public view returns (

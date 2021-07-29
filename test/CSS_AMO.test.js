@@ -73,6 +73,7 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
     let cssWETHLPPoolInstance;
     let ceresPoolInvestorForV2Instance;
     let css_AMOInstance;
+    let pool_instance_USDC;
     beforeEach(async() => {
         cssInstance = await CEREShares.deployed();
         ceresInstance = await CEREStable.deployed();
@@ -100,6 +101,7 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
 
         ceresPoolInvestorForV2Instance = await CeresPoolInvestorForV2.deployed();
         css_AMOInstance = await CSS_AMO.deployed();
+        pool_instance_USDC = await Pool_USDC.deployed();
     });
 
     it('check css_AMOInstance.address, its value is not be empty', async () => {
@@ -130,6 +132,16 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
     it('check css_AMOInstance.css_address.call(), its DEFAULT value is to equal "cssInstance" ', async () => {
         const EXPECTED_VALUE = cssInstance.address;
         expect((await css_AMOInstance.css_address.call())).to.equal((EXPECTED_VALUE));
+    });
+
+    it('check css_AMOInstance.collateral_address.call(), its DEFAULT value is to equal "col_instance_USDC" ', async () => {
+        const EXPECTED_VALUE = col_instance_USDC.address;
+        expect((await css_AMOInstance.collateral_address.call())).to.equal((EXPECTED_VALUE));
+    });
+
+    it('check css_AMOInstance.pool_address.call(), its DEFAULT value is to equal "pool_instance_USDC" ', async () => {
+        const EXPECTED_VALUE = pool_instance_USDC.address;
+        expect((await css_AMOInstance.pool_address.call())).to.equal((EXPECTED_VALUE));
     });
 
     

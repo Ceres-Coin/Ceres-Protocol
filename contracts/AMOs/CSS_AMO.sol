@@ -42,15 +42,15 @@ contract CSS_AMO is AccessControl {
     uint256 public min_cr = 850000; //TEST CASES DONE
 
     // Amount the contract borrowed
-    uint256 public minted_sum_historical = 0;
-    uint256 public burned_sum_historical = 0;
+    uint256 public minted_sum_historical = 0; //TEST CASES DONE
+    uint256 public burned_sum_historical = 0; //TEST CASES DONE
 
     // CERES -> CSS max slippage
-    uint256 public max_slippage = 200000; // 20%
+    uint256 public max_slippage = 200000; // 20% //TEST CASES DONE
 
-    // AMO profits
-    bool public is_override_amo_profits = false;
-    uint256 public overridden_amo_profit = 0;
+    // AMO profits 
+    bool public is_override_amo_profits = false; //TEST CASES DONE
+    uint256 public overridden_amo_profit = 0; //TEST CASES DONE
 
     /* ========== CONSTRUCTOR ========== */
     

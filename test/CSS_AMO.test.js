@@ -170,6 +170,12 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect(parseFloat(await css_AMOInstance.burned_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.max_slippage.call(), its DEFAULT value is to equal "[200000]" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("200000");
+        expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
+
 
     
 

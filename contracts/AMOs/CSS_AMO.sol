@@ -25,9 +25,9 @@ contract CSS_AMO is AccessControl {
     
     address public collateral_address;
     address public pool_address;
-    address public owner_address;
-    address public timelock_address;
-    address public custodian_address;
+    address public owner_address; //TEST CASES DONE
+    address public timelock_address; //TEST CASES DONE
+    address public custodian_address; //TEST CASES DONE
     address public frax_address;
     address public fxs_address;
     address payable public UNISWAP_ROUTER_ADDRESS = payable(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);

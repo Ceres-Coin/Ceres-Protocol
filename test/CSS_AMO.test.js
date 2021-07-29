@@ -258,6 +258,20 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         await css_AMOInstance.setMinimumCollateralRatio(DEFAULT_VALUE,{from: OWNER});
         expect(parseFloat(await css_AMOInstance.min_cr.call())).to.equal(parseFloat(DEFAULT_VALUE));
     });
+
+    it('check css_AMOInstance.setMaxSlippage(), SET its value from "200000" TO "250000"', async () => {
+        // BEFORE
+        const DEFAULT_VALUE = new BigNumber("200000");
+        const NEW_VALUE = new BigNumber("250000");
+        expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(DEFAULT_VALUE));
+        // ACTION & ASSERTION
+        await css_AMOInstance.setMaxSlippage(NEW_VALUE,{from: OWNER});
+        expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(NEW_VALUE));
+
+        // ROLLBACK CODE
+        await css_AMOInstance.setMaxSlippage(DEFAULT_VALUE,{from: OWNER});
+        expect(parseFloat(await css_AMOInstance.max_slippage.call())).to.equal(parseFloat(DEFAULT_VALUE));
+    });
     
 
 

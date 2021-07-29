@@ -198,6 +198,18 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         
     });
 
+    it('check css_AMOInstance.cr_info.call()', async () => {
+        const cr_info_0 = (await css_AMOInstance.cr_info())[0];
+        const cr_info_1 = (await css_AMOInstance.cr_info())[1];
+        const cr_info_2 = (await css_AMOInstance.cr_info())[2];
+        const cr_info_3 = (await css_AMOInstance.cr_info())[3];
+        console.log(chalk.blue(`cr_info_0: ${cr_info_0}`));
+        console.log(chalk.blue(`cr_info_1: ${cr_info_1}`));
+        console.log(chalk.blue(`cr_info_2: ${cr_info_2}`));
+        console.log(chalk.blue(`cr_info_3: ${cr_info_3}`));
+        
+    });
+
 
 
     

@@ -148,7 +148,9 @@ contract CSS_AMO is AccessControl {
         global_collateral_ratio = CERES.global_collateral_ratio();
 
         uint256 frax_total_supply = CERES.totalSupply();
-        uint256 global_collat_value = (CERES.globalCollateralValue()).add(unspentInvestorAMOProfit_E18());
+        // TODO: ADD TEST CASES FOR unspentInvestorAMOProfit_E18()
+        // uint256 global_collat_value = (CERES.globalCollateralValue()).add(unspentInvestorAMOProfit_E18());
+        uint256 global_collat_value = (CERES.globalCollateralValue());
         effective_collateral_ratio = global_collat_value.mul(1e6).div(frax_total_supply); //returns it in 1e6
 
         // Same as availableExcessCollatDV() in FraxPool

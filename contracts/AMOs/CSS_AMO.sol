@@ -34,12 +34,12 @@ contract CSS_AMO is AccessControl {
     // address public investor_amo_address = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
     address public investor_amo_address;
 
-    uint256 public immutable missing_decimals;
-    uint256 private constant PRICE_PRECISION = 1e6;
-    uint256 private constant COLLATERAL_RATIO_PRECISION = 1e6;
+    uint256 public immutable missing_decimals; //TEST CASES DONE
+    uint256 private constant PRICE_PRECISION = 1e6; //NO NEED FOR PRIVATE
+    uint256 private constant COLLATERAL_RATIO_PRECISION = 1e6; //NO NEED FOR PRIVATE
 
     // Minimum collateral ratio needed for new CERES minting
-    uint256 public min_cr = 850000;
+    uint256 public min_cr = 850000; //TEST CASES DONE
 
     // Amount the contract borrowed
     uint256 public minted_sum_historical = 0;

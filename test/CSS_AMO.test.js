@@ -165,6 +165,11 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect(parseFloat(await css_AMOInstance.minted_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.burned_sum_historical.call(), its DEFAULT value is to equal "[0]" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("0");
+        expect(parseFloat(await css_AMOInstance.burned_sum_historical.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
     
 

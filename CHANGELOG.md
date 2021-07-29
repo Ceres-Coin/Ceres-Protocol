@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.27.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.26.0...v1.27.0) (2021-07-29)
+
+
+### Features
+
+* [ADDED][DEPLOYED][JSON FILE]: ADDED ./build/contracts/*.json ([a4b0273](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a4b02733e1dd05586ce1e357b55af56a0f777275))
+* **contracts/ceres/pools/csswethlppool.sol:** [MODIFIED][CONTRACTS FUNC]: 'function exit() external' ([e39f5e5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/e39f5e57db2d3e81a0a490884ec6b360c4347c54))
+* **contracts/ceres/pools/csswethlppool.sol:** [MODIFIED][CONTRACTS]: MODIFIED ITS CONSTRUCTOR FUNC TO PASS THE WITHDRAW() & GETREWARDS() ([6327534](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6327534fa805f594d25bc22005955c022dcf28e2))
+* **log/log_bsc.log:** [ADDED][DEPLOYMENT][LOG]: ON BSC_TESTNET ([163730f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/163730ff2eab36ffe2364f7ef584f2cfeec79cb9))
+* **test/csswethlppool_p2.js:** [CREATED][NEW][TEST SCRIPTS FILE]: test/CSSWETHLPPool_P2.js ([a9c5bf1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a9c5bf18b2fe5c7a10037743f22a3e8e15a70566))
+* **test/csswethlppool_p2.js:** [MODIFIED][CONTRACTS]: TUNING FAILED TEST CASES & INTEGRATION TESTING WITH FRONT-END TEAM ([dbcb731](https://github.com/Ceres-Coin/Ceres-Protocol/commit/dbcb731529c66b1fca3458108a78a08706609a9a))
+* **truffle-config.js:** [ADDED][DEPLOYMENT SCRIPTS TO BSC_TESTNET] ([6de5591](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6de5591b01af9bf37b30d8625cf512ce11859dce))
+
+
+### Tests
+
+* **contracts/ceres/pools/csswethlppool.sol:** [ADDED][TEST SCRIPTS]: UPDATES COMMENTS ([fe5b237](https://github.com/Ceres-Coin/Ceres-Protocol/commit/fe5b237dffae492cd241ac44883e353009bbfefa))
+* **test/csswethlppool_p2.js:** [ADDED][TEST SCRIPTS]: 'check cssWETHLPPoolInstance.WITHDRAW(TEST_ACCOUNT) FUNC' ([b724c94](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b724c9413c5e5d8ca428bbe7275aadaa67431548))
+* **test/csswethlppool.test.js:** [MODIFIED][TEST SCRIPTS]: TUNING FAILED TEST CASES ([22ace54](https://github.com/Ceres-Coin/Ceres-Protocol/commit/22ace5458b3a7a676bae342a19325dbc693fdff7))
+
 ## [1.26.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.25.0...v1.26.0) (2021-07-27)
 
 

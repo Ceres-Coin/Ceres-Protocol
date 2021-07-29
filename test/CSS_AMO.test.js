@@ -107,6 +107,11 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect(css_AMOInstance.address).to.not.be.empty;
     });
 
+    it('check css_AMOInstance.owner_address.call(), its DEFAULT value is to equal "OWNER" ', async () => {
+        const EXPECTED_VALUE = OWNER;
+        expect((await css_AMOInstance.owner_address.call())).to.equal((EXPECTED_VALUE));
+    });
+
     
 
 

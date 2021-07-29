@@ -144,6 +144,13 @@ contract('contracts/AMOs/CSS_AMO.sol', async (accounts) => {
         expect((await css_AMOInstance.pool_address.call())).to.equal((EXPECTED_VALUE));
     });
 
+    it('check css_AMOInstance.investor_amo_address.call(), its DEFAULT value is to equal "[ceresPoolInvestorForV2Instance]" ', async () => {
+        // console.log(chalk.blue(`investor_amo_address: ${await css_AMOInstance.investor_amo_address.call()}`));
+        const EXPECTED_VALUE = ceresPoolInvestorForV2Instance.address;
+        expect((await css_AMOInstance.investor_amo_address.call())).to.equal((EXPECTED_VALUE));
+    });
+
+
     
 
 

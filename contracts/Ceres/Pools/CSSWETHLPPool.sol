@@ -134,7 +134,7 @@ contract CSSWETHLPPool is
     }
     // TODO: [LATER] ADD TEST CASES
     function exit() external {
-        withdraw(balanceOf(msg.sender));
+        // withdraw(balanceOf(msg.sender));
         getReward();
     }
     // TEST CASES DONE

@@ -161,5 +161,19 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
         expect(parseFloat(await compInstance.balanceOf.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check compInstance.transfer(TEST_ACCOUNT,ONE_DEC18,{from: OWNER})', async() => {
+        console.log(chalk.yellow(`BEFORE: balanceOf.call(account0): ${await compInstance.balanceOf.call(OWNER)}`));
+        console.log(chalk.yellow(`BEFORE: balanceOf.call(account1): ${await compInstance.balanceOf.call(TEST_ACCOUNT)}`));
+
+        await compInstance.transfer(TEST_ACCOUNT,ONE_DEC18,{from: OWNER});
+
+        console.log(chalk.blue(`AFTER: balanceOf.call(account0): ${await compInstance.balanceOf.call(OWNER)}`));
+        console.log(chalk.blue(`AFTER: balanceOf.call(account1): ${await compInstance.balanceOf.call(TEST_ACCOUNT)}`));
+
+        const EXPECTED_VALUE2 = new BigNumber("10000000e18"); 
+        expect(parseFloat(await compInstance.balanceOf.call(OWNER))).to.lt(parseFloat(EXPECTED_VALUE2));
+        expect(parseFloat(await compInstance.balanceOf.call(TEST_ACCOUNT))).to.equal(parseFloat(ONE_DEC18));
+    })
+
 
 });

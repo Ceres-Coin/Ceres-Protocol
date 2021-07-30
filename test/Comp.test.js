@@ -132,5 +132,19 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
         expect(parseFloat(await compInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check compInstance.delegates.call(account0/1/2/3/4/5/6/7), its DEFAULT value is to equal "0" ', async () => {
+        console.log(chalk.blue(`delegates.call(account0): ${await compInstance.delegates.call(account0)}`));
+
+        const EXPECTED_VALUE = new BigNumber("0"); 
+        expect(parseFloat(await compInstance.delegates.call(account0))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account1))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account2))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account3))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account4))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account5))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account6))).to.equal(parseFloat(EXPECTED_VALUE));
+        expect(parseFloat(await compInstance.delegates.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

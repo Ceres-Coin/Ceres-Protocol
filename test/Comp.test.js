@@ -122,5 +122,10 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
         expect((await compInstance.symbol.call())).to.equal((EXPECTED_VALUE));
     });
 
+    it('check compInstance.decimals.call(), its DEFAULT value is to equal "18" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("18");
+        expect(parseFloat(await compInstance.decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

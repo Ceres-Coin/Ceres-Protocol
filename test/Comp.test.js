@@ -201,6 +201,10 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
 
         console.log(chalk.blue(`balanceOf.call(OWNER): ${await compInstance.balanceOf.call(OWNER)}`));
         console.log(chalk.blue(`balanceOf.call(TEST_ACCOUNT): ${await compInstance.balanceOf.call(TEST_ACCOUNT)}`));
+    });
+
+    it ('check compInstance._moveDelegates()', async() => {
+        await compInstance._moveDelegates(constants.ZERO_ADDRESS,TEST_ACCOUNT,await compInstance.balanceOf.call(OWNER));
     })
 
 

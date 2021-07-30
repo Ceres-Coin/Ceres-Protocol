@@ -127,5 +127,10 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
         expect(parseFloat(await compInstance.decimals.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check compInstance.totalSupply.call(), its DEFAULT value is to equal "10000000e18" ', async () => {
+        const EXPECTED_VALUE = new BigNumber("10000000e18"); //10 MILLION
+        expect(parseFloat(await compInstance.totalSupply.call())).to.equal(parseFloat(EXPECTED_VALUE));
+    });
+
 
 });

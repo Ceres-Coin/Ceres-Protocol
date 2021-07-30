@@ -440,7 +440,8 @@ contract StakingRewards is IStakingRewards, RewardsDistributionRecipient, Reentr
         unlockedStakes = !unlockedStakes;
     }
     // TEST CASES DONE
-    function setRewardRate(uint256 _new_rate) external onlyByOwnerOrGovernance {
+    // TODO: ADD onlyOperator after developing
+    function setRewardRate(uint256 _new_rate) external {
         rewardRate = _new_rate;
     }
     // TEST CASES DONE

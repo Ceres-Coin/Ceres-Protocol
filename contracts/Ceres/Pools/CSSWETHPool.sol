@@ -74,7 +74,8 @@ contract CSSWETHPool is
             return block.timestamp;
     }
     // TEST CASES DONE
-    function setRewardRate(uint256 _rewardRate) public onlyOperator {
+    // TODO: ADD onlyOperator after developing
+    function setRewardRate(uint256 _rewardRate) public {
         rewardRate = _rewardRate;
         if (block.timestamp > startime) {
             lastUpdateTime = block.timestamp;

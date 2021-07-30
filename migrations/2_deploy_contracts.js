@@ -3,6 +3,7 @@ const BigNumber = require('bignumber.js');
 const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const BOND = artifacts.require("Bond");
+const COMP = artifacts.require("ERC20/Variants/Comp")
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const CeresPoolLibrary = artifacts.require("Ceres/Pools/CERESPoolLibrary");
@@ -82,5 +83,11 @@ module.exports = async function(deployer,network,accounts) {
 	await deployer.deploy(Pool_USDC, ceresInstance.address, cssInstance.address, col_instance_USDC.address, OWNER, OWNER, FIVE_MILLION_DEC18);
 	const pool_instance_USDC = await Pool_USDC.deployed();
 	console.log(chalk.red.bold(`pool_instance_USDC: ${await pool_instance_USDC.address}`));
+
+	// DEPLOY COMP
+	await deployer.deploy(COMP,OWNER,{from: OWNER});
+	const compInstance = await COMP.deployed();
+	console.log(chalk.red.bold(`compInstance: ${await compInstance.address}`));
+	
 	
 };

@@ -2,6 +2,82 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.28.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.27.0...v1.28.0) (2021-07-30)
+
+
+### Features
+
+* **contracts/amos/css_amo.sol && contracts/amos/cerespoolinvestorforv2.sol:** [CREATED][NEW][CONTRACTS FILE]: [CORE] : FIRST AMO CONTRACTS FILE: 'contracts/AMOs/CSS_AMO.sol' ([55be301](https://github.com/Ceres-Coin/Ceres-Protocol/commit/55be3019b5f86f0d04a14e06eeb68575b80e7e0d))
+* **contracts/amos/css_amo.sol:** [CREATED][NEW][CONTRACTS FILE]: contracts/AMOs/CSS_AMO.sol ([8a950d8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8a950d86253abf32f9f5aa8b3b70acae43b9940d))
+* **contracts/amos/css_amo.sol:** [FINISHED][NEW FUNC]: 'getTmpValue()' ([d7e63dc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/d7e63dc8306005b1aa52922921de9d9a3be110b2))
+* **contracts/amos/css_amo.sol:** [MODIDIFED][CONTRACTS][PARAMETERS]: 'is_override_amo_profits' && [TUNING][FAILED TEST CASES]: 'check css_AMOInstance.is_override_amo_profits.call(), its DEFAULT value is to equal "[false]" ' ([5c4aafd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5c4aafd2ebfbadeebbb66978b98f7905dc871a14))
+* **contracts/amos/css_amo.sol:** [MODIFIED][CONTRACTS][FILE]: RENAME PARAMETERS NAME 'ceres_address' & 'css_address' ([c88f03d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c88f03d87c4611b0acb4df5e45cebdbf3404ab25))
+* **contracts/amos/css_amo.sol:** [MODIFIED][CONTRACTS][PARAMETERS]: 'investor_amo_address' ([a2f5a4b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a2f5a4b36e85792770162b2d6559c2c15f2374a1))
+* **contracts/amos/css_amo.sol:** [MODIFIED][FUNC]: ([924af55](https://github.com/Ceres-Coin/Ceres-Protocol/commit/924af557ab261b4af4448e1bde9d5a2cd7d63e3c))
+* **contracts/amos/css_amo.sol:** [MODIFIED][FUNC]: 'CR_INFO()' ([85a8b30](https://github.com/Ceres-Coin/Ceres-Protocol/commit/85a8b30073edca0da25c360292c592410db4f103))
+* **contracts/amos/css_amo.sol:** [MODIFIED][FUNC]: 'GETTMPVALUE()' ([cfd912a](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cfd912adaea69f7cc9fc8da96d1f95c41ce24b44))
+* **contracts/amos/css_amo.sol:** [TUNING][FUNC]: getTmpValue() && cr_info() ([9581ca8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/9581ca81d354fa05b7a7ff660285daab624cd33f))
+* **contracts/erc20/variants/comp.sol & contracts/amos/cerespoolinvestorforv2.sol:** [CREATED][NEW][AMO][CONTRACTS FILE]: contracts/AMOs/CERESPoolInvestorForV2.sol && contracts/ERC20/Variants/Comp.sol ([1a6afa6](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1a6afa6e6e5ce49ac6feb75357f88d1c921ddafc))
+* **contracts/erc20/variants/comp.sol:** [ADDED][TEST CASES] ([54829e0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/54829e008768a01e25def28b8907791129c6b8b7))
+* **migrations/2_deploy_contracts.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT SCRIPTS OF "COMP CONTRACT" ([abd6db2](https://github.com/Ceres-Coin/Ceres-Protocol/commit/abd6db29e2a1dbccb831710edebf7bb6c872e5a2))
+* **migrations/3_deploy_uniswap_oracle_weth.js && test/css_amo.test.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT SCRIPTS OF 'CSS_AMO' && [CREATED][NEW][TEST SCRIPTS FILE]: 'test/CSS_AMO.test.js' ([7ba33cd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/7ba33cd024360f9d2f7cdf7c262bfbd39d72b008))
+* **migrations/3_deploy_uniswap_oracle_weth.js:** [ADDED][DEPLOYMENT SCRIPTS]: ADDED DEPLOYMENT OF CONTRACTS 'CeresPoolInvestorForV2' ([f2afc6f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f2afc6f1ca6fcf6146ffce7cd1721d239ab173a7))
+* **test/cerespoolinvestorforv2.test.js && package.json:** [CREATED][NEW][TEST SCRIPTS FILE]: 'test/CeresPoolInvestorForV2.test.js' ([6df4d81](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6df4d81129664e24724d587943a81ab6104eed1a))
+* **test/comp.test.js:** [CREATED][NEW][TEST SCRIPTS FILE]: test/Comp.test.js ([269ffe8](https://github.com/Ceres-Coin/Ceres-Protocol/commit/269ffe8e927c2ba071e26c06c4b03ae266caaf5f))
+
+
+### Build System
+
+* **.gitignore:** [MODIFIED][GIT IGNORE] ([f212765](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f2127656f3eabd420072aef3092ac9fbefe325d5))
+* **package.json:** [UPDATED][PACKAGE.JSON]: UPDATED NPM SCRIPTS ([517b5fb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/517b5fbc5269a956801805a7369821b5bcdd7cfe))
+
+
+### Styling
+
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([021f341](https://github.com/Ceres-Coin/Ceres-Protocol/commit/021f341f7ca8be07308c780f04b97183d29436a9))
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([ff0a111](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ff0a1116ca62673daea2585b62b9b195a1854d66))
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([1f2941b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1f2941b0982f68073be61acbcb285c18106ea045))
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([07d90cc](https://github.com/Ceres-Coin/Ceres-Protocol/commit/07d90cc08fa2dcd82b6b3a5c359739a8ad80f01c))
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([8928759](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8928759b5a50f9e317e0aab3ed7ed4e74cc84a4b))
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([6310cdd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6310cdd5d18a730c6de9f997fa5c7369b5177fa7))
+* **contracts/amos/css_amo.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([5ba8aa3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5ba8aa3f34f4e4a2f2368a3b6329c895bb4ddf90))
+* **contracts/amos/css_amo.sol:** [FINISHED][TEST SCRIPTS]: IN FUNC() 'CONSTRUCTOR()' ([5c8fa13](https://github.com/Ceres-Coin/Ceres-Protocol/commit/5c8fa1319662f828c85c3a0bbbab80be27300bcf))
+* **contracts/amos/css_amo.sol:** [UPDATED][COMMENTS][TEST CASES DONE && NO NEED TO TEST] ([b2ecab7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b2ecab7ee0827814272ed369452dd4960f2702f1))
+* **contracts/erc20/variants/comp.sol:** [ADDED][COMMENTS]: UPDATED "TEST CASES DONE" COMMENTS && "NO NEED" COMMENTS ([ed2f276](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ed2f276047d74f80a809c6bbab4b96d05107cda5))
+* **contracts/erc20/variants/comp.sol:** [ADDED][COMMENTS][TEST CASES DONE] ([2979427](https://github.com/Ceres-Coin/Ceres-Protocol/commit/29794273ae80a836194e93820860980b1c762112))
+
+
+### Tests
+
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance._moveDelegates()' ([6d9dab5](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6d9dab585f6be6412f1294318d4ca6ae6cbff9ef))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.balanceOf.call(account/1/2/3/4/5/6/7), its DEFAULT value is to equal "0" && balanceOf(account0) is gt(0)' ([3da5997](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3da59971d064d989ae8dea8fcf726be1d9c13542))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.decimals.call(), its DEFAULT value is to equal "18" ' ([f851ebb](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f851ebbb05e6761511d37f8b36763a6f499a59a4))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.delegates.call(account0/1/2/3/4/5/6/7), its DEFAULT value is to equal "0" ' ([790e169](https://github.com/Ceres-Coin/Ceres-Protocol/commit/790e169acc0a4cccd4b5160b9c3ad317029367de))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.getCurrentVotes.call(account0/1/2/3/4/5/6/7), its default value is ALL equal to 0 ' ([64ec146](https://github.com/Ceres-Coin/Ceres-Protocol/commit/64ec1462c5323fc8084191b7e9758387f0d42c33))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.name.call(), its DEFAULT value is to equal "Compound" ' ([01249da](https://github.com/Ceres-Coin/Ceres-Protocol/commit/01249da16058de496a07d86f02cdc2ab3cfc0b8a))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.symbol.call(), its DEFAULT value is to equal "COMP" ' ([2e34aab](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2e34aab059f959d3a9cf5efc2789cf877c5bfbf8))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: 'check compInstance.totalSupply.call(), its DEFAULT value is to equal "10000000e18" ' ([390e9fd](https://github.com/Ceres-Coin/Ceres-Protocol/commit/390e9fd47c09b457f18864fd28edc414981b8936))
+* **test/comp.test.js:** [ADDED][TEST SCRIPTS]: ('check compInstance.transfer(TEST_ACCOUNT,ONE_DEC18,{from: OWNER})' ([c96c485](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c96c485cf5b3bf4f98ece75961dac6bb6ad15600))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.burned_sum_historical.call(), its DEFAULT value is to equal "[0]" ' ([2bcd311](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2bcd3118c54eade2b053fe1f2fce49f527fc9aad))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.ceres_address.call(), its DEFAULT value is to equal "ceresInstance" ' ([2bf05c0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/2bf05c00348cc33086104517b38c0469d89ff005))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.collatDollarBalance.call(), its DEFAULT value is to equal "[1e18]" ' ([a9cb89f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/a9cb89f6747e1586316906c8bebb4d43e5c157a6))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.collateral_address.call(), its DEFAULT value is to equal "col_instance_USDC" ' && 'check css_AMOInstance.pool_address.call(), its DEFAULT value is to equal "pool_instance_USDC" ' ([ef8d1f4](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef8d1f4c3c30c64236669326d5cd74b412924e90))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.css_address.call(), its DEFAULT value is to equal "cssInstance" ' ([ef0e74f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef0e74f256b58e568eb672998b0ebd53343175ea))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.custodian_address.call(), its DEFAULT value is to equal "OWNER" ' ([f89fb08](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f89fb0879f7efc07c631b9a05e7ecdaebfeeb97d))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.investor_amo_address.call(), its DEFAULT value is to equal "[ceresPoolInvestorForV2Instance]" ' ([05bd7df](https://github.com/Ceres-Coin/Ceres-Protocol/commit/05bd7df8f5a44222fc652865272abf1abdce8caf))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.max_slippage.call(), its DEFAULT value is to equal "[200000]" ' ([28aa2f1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/28aa2f13269317aea6e58be910050284bd605266))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.min_cr.call(), its DEFAULT value is to equal "[850000]" ' ([21c8a2e](https://github.com/Ceres-Coin/Ceres-Protocol/commit/21c8a2e43e50114b226e0de3eca06fc7b9fdb157))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.minted_sum_historical.call(), its DEFAULT value is to equal "[0]" ' ([c8876c1](https://github.com/Ceres-Coin/Ceres-Protocol/commit/c8876c16af8a2578ed1b16d7ac75739c64df0a5a))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.missing_decimals.call(), its DEFAULT value is to equal "[0]" ' ([72dcd73](https://github.com/Ceres-Coin/Ceres-Protocol/commit/72dcd735e4334808e1ff90b96e39cb8708d4db6c))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.override_amo_profits.call(), its DEFAULT value is to equal "[false]" ' && 'check css_AMOInstance.overridden_amo_profit.call(), its DEFAULT value is to equal "[0]" ' ([10e4f7b](https://github.com/Ceres-Coin/Ceres-Protocol/commit/10e4f7b8334a717d8be1410c9f02279a90448ef7))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.owner_address.call(), its DEFAULT value is to equal "OWNER" ' ([b73b937](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b73b93718559031254fa4b2354ed6752e9793312))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.setAMOProfits(), SET its value from "0" TO "10"' ([cb215f0](https://github.com/Ceres-Coin/Ceres-Protocol/commit/cb215f0fb24be860e198bc2f4a759991e7e3b070))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.setMaxSlippage(), SET its value from "200000" TO "250000"' ([3b47989](https://github.com/Ceres-Coin/Ceres-Protocol/commit/3b47989671d29327530c01bf493890e7f127194b))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.setMinimumCollateralRatio(), SET its value from "850000" TO "950000"' ([63fb1e3](https://github.com/Ceres-Coin/Ceres-Protocol/commit/63fb1e3d04dd4996f95d9358c851f4512cab0da0))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.setOwner(), SET its value from DEFAULT_VALUE TO NEW_VALUE' ([b8fab39](https://github.com/Ceres-Coin/Ceres-Protocol/commit/b8fab39c4805a285612e1c184605eedd8f0c7550))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.setTimelock() ' ([f273b31](https://github.com/Ceres-Coin/Ceres-Protocol/commit/f273b31ef4dd653958194eaddf7bbb774207cbeb))
+* **test/css_amo.test.js:** [ADDED][TEST SCRIPTS]: 'check css_AMOInstance.timelock_address.call(), its DEFAULT value is to equal "OWNER" ' ([8a81d63](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8a81d636b6f626690e8f8b504e3d15dbe4f9c926))
+
 ## [1.27.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.26.0...v1.27.0) (2021-07-29)
 
 

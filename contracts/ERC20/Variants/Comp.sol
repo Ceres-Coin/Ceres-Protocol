@@ -63,6 +63,7 @@ contract Comp {
      * @notice Construct a new Comp token
      * @param account The initial account to grant all the tokens
      */
+    //  TEST CASES DONE
     constructor(address account) public {
         balances[account] = uint96(totalSupply);
         emit Transfer(address(0), account, totalSupply);
@@ -74,6 +75,7 @@ contract Comp {
      * @param spender The address of the account spending the funds
      * @return The number of tokens approved
      */
+    // NO NEED
     function allowance(address account, address spender) external view returns (uint) {
         return allowances[account][spender];
     }
@@ -86,6 +88,7 @@ contract Comp {
      * @param rawAmount The number of tokens that are approved (2^256-1 means infinite)
      * @return Whether or not the approval succeeded
      */
+    // NO NEED
     function approve(address spender, uint rawAmount) external returns (bool) {
         uint96 amount;
         if (rawAmount == type(uint).max) {
@@ -105,6 +108,7 @@ contract Comp {
      * @param account The address of the account to get the balance of
      * @return The number of tokens held
      */
+    // TEST CASES DONE
     function balanceOf(address account) external view returns (uint) {
         return balances[account];
     }
@@ -148,6 +152,7 @@ contract Comp {
      * @notice Delegate votes from `msg.sender` to `delegatee`
      * @param delegatee The address to delegate votes to
      */
+    // TODO: [IMPORTANT][NEXT]
     function delegate(address delegatee) public {
         return _delegate(msg.sender, delegatee);
     }
@@ -161,6 +166,7 @@ contract Comp {
      * @param r Half of the ECDSA signature pair
      * @param s Half of the ECDSA signature pair
      */
+    // TODO: [IMPORANT][LATER]
     function delegateBySig(address delegatee, uint nonce, uint expiry, uint8 v, bytes32 r, bytes32 s) public {
         bytes32 domainSeparator = keccak256(abi.encode(DOMAIN_TYPEHASH, keccak256(bytes(name)), getChainId(), address(this)));
         bytes32 structHash = keccak256(abi.encode(DELEGATION_TYPEHASH, delegatee, nonce, expiry));
@@ -177,6 +183,7 @@ contract Comp {
      * @param account The address to get votes balance
      * @return The number of current votes for `account`
      */
+    //  TEST CASES DONE
     function getCurrentVotes(address account) external view returns (uint96) {
         uint32 nCheckpoints = numCheckpoints[account];
         return nCheckpoints > 0 ? checkpoints[account][nCheckpoints - 1].votes : 0;
@@ -189,6 +196,7 @@ contract Comp {
      * @param blockNumber The block number to get the vote balance at
      * @return The number of votes the account had as of the given block
      */
+    // TODO: [IMPORTANT][LATER]
     function getPriorVotes(address account, uint blockNumber) public view returns (uint96) {
         require(blockNumber < block.number, "Comp::getPriorVotes: not yet determined");
 
@@ -222,7 +230,7 @@ contract Comp {
         }
         return checkpoints[account][lower].votes;
     }
-
+    // NO NEED FOR PRIVATE
     function _delegate(address delegator, address delegatee) internal {
         address currentDelegate = delegates[delegator];
         uint96 delegatorBalance = balances[delegator];
@@ -232,7 +240,7 @@ contract Comp {
 
         _moveDelegates(currentDelegate, delegatee, delegatorBalance);
     }
-
+    // NO NEED FOR PRIVATE
     function _transferTokens(address src, address dst, uint96 amount) internal {
         require(src != address(0), "Comp::_transferTokens: cannot transfer from the zero address");
         require(dst != address(0), "Comp::_transferTokens: cannot transfer to the zero address");
@@ -243,7 +251,7 @@ contract Comp {
 
         _moveDelegates(delegates[src], delegates[dst], amount);
     }
-
+    // NO NEED FOR PRIVATE
     function _moveDelegates(address srcRep, address dstRep, uint96 amount) internal {
         if (srcRep != dstRep && amount > 0) {
             if (srcRep != address(0)) {
@@ -261,7 +269,7 @@ contract Comp {
             }
         }
     }
-
+    // NO NEED FOR PRIVATE
     function _writeCheckpoint(address delegatee, uint32 nCheckpoints, uint96 oldVotes, uint96 newVotes) internal {
       uint32 blockNumber = safe32(block.number, "Comp::_writeCheckpoint: block number exceeds 32 bits");
 
@@ -274,28 +282,28 @@ contract Comp {
 
       emit DelegateVotesChanged(delegatee, oldVotes, newVotes);
     }
-
+    // NO NEED FOR PRIVATE
     function safe32(uint n, string memory errorMessage) internal pure returns (uint32) {
         require(n < 2**32, errorMessage);
         return uint32(n);
     }
-
+    // NO NEED FOR PRIVATE
     function safe96(uint n, string memory errorMessage) internal pure returns (uint96) {
         require(n < 2**96, errorMessage);
         return uint96(n);
     }
-
+    // NO NEED FOR PRIVATE
     function add96(uint96 a, uint96 b, string memory errorMessage) internal pure returns (uint96) {
         uint96 c = a + b;
         require(c >= a, errorMessage);
         return c;
     }
-
+    // NO NEED FOR PRIVATE
     function sub96(uint96 a, uint96 b, string memory errorMessage) internal pure returns (uint96) {
         require(b <= a, errorMessage);
         return a - b;
     }
-
+    // NO NEED FOR PRIVATE
     function getChainId() internal view returns (uint) {
         uint256 chainId;
         assembly { chainId := chainid() }

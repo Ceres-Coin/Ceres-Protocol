@@ -6,22 +6,22 @@ pragma solidity >=0.6.12;
 
 contract Comp {
     // EIP-20 token name for this token
-    string public constant name = "Compound";
+    string public constant name = "Compound"; //TEST CASES DONE
 
     // EIP-20 token symbol for this token
-    string public constant symbol = "COMP";
+    string public constant symbol = "COMP"; //TEST CASES DONE
 
     // EIP-20 token decimals for this token
-    uint8 public constant decimals = 18;
+    uint8 public constant decimals = 18; //TEST CASES DONE
 
     // Total number of tokens in circulation
-    uint public constant totalSupply = 10000000e18; // 10 million Comp
+    uint public constant totalSupply = 10000000e18; // 10 million Comp //TEST CASES DONE
 
     // Allowance amounts on behalf of others
-    mapping (address => mapping (address => uint96)) internal allowances;
+    mapping (address => mapping (address => uint96)) internal allowances; //NO NEED FOR PRIVATE
 
     // Official record of token balances for each account
-    mapping (address => uint96) internal balances;
+    mapping (address => uint96) internal balances; //NO NEED FOR PRIVATE
 
     // A record of each accounts delegate
     mapping (address => address) public delegates;

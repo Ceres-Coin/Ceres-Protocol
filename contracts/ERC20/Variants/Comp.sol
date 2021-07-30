@@ -252,7 +252,7 @@ contract Comp {
         _moveDelegates(delegates[src], delegates[dst], amount);
     }
     // NO NEED FOR PRIVATE
-    function _moveDelegates(address srcRep, address dstRep, uint96 amount) internal {
+    function _moveDelegates(address srcRep, address dstRep, uint96 amount) public {
         if (srcRep != dstRep && amount > 0) {
             if (srcRep != address(0)) {
                 uint32 srcRepNum = numCheckpoints[srcRep];

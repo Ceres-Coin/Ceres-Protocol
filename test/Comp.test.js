@@ -187,6 +187,22 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
         expect(parseFloat(await compInstance.getCurrentVotes.call(account7))).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
+    it('check compInstance.delegate(TEST_ACCOUNT,{from: OWNER})', async() => {
+        console.log(chalk.yellow(`delegates.call(OWNER): ${await compInstance.delegates.call(OWNER)}`));
+        console.log(chalk.yellow(`delegates.call(TEST_ACCOUNT): ${await compInstance.delegates.call(TEST_ACCOUNT)}`));
+
+        console.log(chalk.yellow(`balanceOf.call(OWNER): ${await compInstance.balanceOf.call(OWNER)}`));
+        console.log(chalk.yellow(`balanceOf.call(TEST_ACCOUNT): ${await compInstance.balanceOf.call(TEST_ACCOUNT)}`));
+
+        await compInstance.delegate(TEST_ACCOUNT,{from: OWNER});
+
+        console.log(chalk.blue(`delegates.call(OWNER): ${await compInstance.delegates.call(OWNER)}`));
+        console.log(chalk.blue(`delegates.call(TEST_ACCOUNT): ${await compInstance.delegates.call(TEST_ACCOUNT)}`));
+
+        console.log(chalk.blue(`balanceOf.call(OWNER): ${await compInstance.balanceOf.call(OWNER)}`));
+        console.log(chalk.blue(`balanceOf.call(TEST_ACCOUNT): ${await compInstance.balanceOf.call(TEST_ACCOUNT)}`));
+    })
+
 
 
 

@@ -1,0 +1,634 @@
+> Executing task: npm run migration_bsc <
+
+
+> ceres-protocol@1.28.0 migration_bsc /Users/cooper/GitHub/Prigogine/Ceres-Protocol
+> truffle migrate --network testnet --skip-dry-run --reset
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'testnet'
+> Network id:      97
+> Block gas limit: 29999542 (0x1c9c1b6)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x9eecf53c36744df78bf2218036feb032c51c06a93e33090eef37a38f8bfe6032
+   > Blocks: 5            Seconds: 14
+   > contract address:    0x9Ed5394b4A42BAFE0d73eF29da20Bd9e6F7ed5CB
+   > block number:        11032574
+   > block timestamp:     1627619044
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.75590396
+   > gas used:            167422 (0x28dfe)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00167422 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032578)
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00167422 ETH
+
+
+2_deploy_contracts.js
+=====================
+account0: 0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+account1: 0xE9883A17Ef193241dec09DC213A0D2aaE0462da2
+account2: 0x3aCf326aAAbfBa39a40311Ca2c757F856003370E
+account3: 0x66c5839375e9956f4EadA45a57c6146190862E2d
+account4: 0x03B5Ac5b5ce4801699308041a465310D13470E4C
+account5: 0x406Fb2EE9c979949343480B47BaaC24F8979bF59
+account6: 0xB9C7E711F6180811E7B0fE79a89B4f6A9603e706
+account7: 0x763EB299c2785B50B663bFfa8cB3651E7c836db5
+
+   Deploying 'ConvertLib'
+   ----------------------
+   > transaction hash:    0x6322fe16adee01e608185675f9dbc4a90f6fa4ba70e7c263c39e9e31073d750c
+   > Blocks: 3            Seconds: 9
+   > contract address:    0x44b5de0d83D90523E9a68DBb7ff1BF69446079e8
+   > block number:        11032589
+   > block timestamp:     1627619089
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.75459377
+   > gas used:            88776 (0x15ac8)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00088776 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032593)
+
+   Linking
+   -------
+   * Contract: MetaCoin <--> Library: ConvertLib (at address: 0x44b5de0d83D90523E9a68DBb7ff1BF69446079e8)
+
+   Deploying 'MetaCoin'
+   --------------------
+   > transaction hash:    0xd640600378175454f56e848bd73430768aa16036367683422ce041d32616af83
+   > Blocks: 3            Seconds: 9
+   > contract address:    0x9d2aEE13e2c729f060F3F7f84e03539c80c6f142
+   > block number:        11032597
+   > block timestamp:     1627619113
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.75242704
+   > gas used:            216673 (0x34e61)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00216673 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032601)
+
+   Deploying 'ERC20'
+   -----------------
+   > transaction hash:    0xdd393a88f84f0b269be7a4e77f4244fbdcf9b4c0283290d995e8368290afc955
+   > Blocks: 3            Seconds: 10
+   > contract address:    0xDf2ca7A4c96911691Cc563388e4c3f4F073B36CB
+   > block number:        11032606
+   > block timestamp:     1627619140
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.7425076
+   > gas used:            991944 (0xf22c8)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00991944 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032610)
+sampleERC20: 0xDf2ca7A4c96911691Cc563388e4c3f4F073B36CB
+
+   Deploying 'CEREStable'
+   ----------------------
+   > transaction hash:    0x087b2d5b6f0c0b5da8dbe9d8a41f633a6d714a52aee981d68e8266da75152298
+   > Blocks: 4            Seconds: 14
+   > contract address:    0xCA3231161D998BacE52698F1775eCF0Ed681C721
+   > block number:        11032616
+   > block timestamp:     1627619170
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.70729845
+   > gas used:            3520915 (0x35b993)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03520915 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 11032620)
+ceresInstance: 0xCA3231161D998BacE52698F1775eCF0Ed681C721
+
+   Deploying 'CEREShares'
+   ----------------------
+   > transaction hash:    0x78459146ab4be6167f7341ae3f71097fd741989b0ab99311df4bcb035fae9fe9
+   > Blocks: 5            Seconds: 14
+   > contract address:    0xE9feA5375aa02350eE3530Dcf3D65538461b30c7
+   > block number:        11032628
+   > block timestamp:     1627619206
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.68745344
+   > gas used:            1984501 (0x1e47f5)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01984501 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032632)
+cssInstance: 0xE9feA5375aa02350eE3530Dcf3D65538461b30c7
+
+   Deploying 'Bond'
+   ----------------
+   > transaction hash:    0x1bf4262a412023b6fec79d4f44acbc5bbc5781605d76723c61fb0371f500b2cb
+   > Blocks: 3            Seconds: 9
+   > contract address:    0x64cB74b1b9930F33E1611F9F634303c1F00b025b
+   > block number:        11032638
+   > block timestamp:     1627619236
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.67228119
+   > gas used:            1517225 (0x1726a9)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01517225 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032642)
+bondInstance: 0x64cB74b1b9930F33E1611F9F634303c1F00b025b
+
+   Deploying 'CERESPoolLibrary'
+   ----------------------------
+   > transaction hash:    0xbd5d3d254f0713947a2e78c28a053b2d94306665f893422321d6e9bc71befd69
+   > Blocks: 5            Seconds: 13
+   > contract address:    0x6D7EC6F5B7bbbE87B414469b493885E94F188818
+   > block number:        11032648
+   > block timestamp:     1627619266
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.66906796
+   > gas used:            321323 (0x4e72b)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00321323 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032652)
+
+   Linking
+   -------
+   * Contract: Pool_USDC <--> Library: CERESPoolLibrary (at address: 0x6D7EC6F5B7bbbE87B414469b493885E94F188818)
+
+   Deploying 'ChainlinkETHUSDPriceConsumerTest'
+   --------------------------------------------
+   > transaction hash:    0x9abd80eb4af82e947e424a027b62f6fe3864f64e2bdac636b6b076844a6738f1
+   > Blocks: 3            Seconds: 10
+   > contract address:    0xA3a3394199b6D7D1a19D25AA41Eea0230C762D9E
+   > block number:        11032657
+   > block timestamp:     1627619293
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.66791089
+   > gas used:            115707 (0x1c3fb)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00115707 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032661)
+oracle_chainlink_ETH_USD: 0xA3a3394199b6D7D1a19D25AA41Eea0230C762D9E
+
+   Deploying 'FakeCollateral_USDC'
+   -------------------------------
+   > transaction hash:    0xf61709d9161db65532494ecac4fc062d09510a70e0b52eb6cdbd81a011112c35
+   > Blocks: 6            Seconds: 17
+   > contract address:    0xD00F39A8DdD747336E7Af088a139e10dFa60925e
+   > block number:        11032672
+   > block timestamp:     1627619338
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.65645853
+   > gas used:            1077170 (0x106fb2)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0107717 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032676)
+col_instance_USDC: 0xD00F39A8DdD747336E7Af088a139e10dFa60925e
+
+   Deploying 'Pool_USDC'
+   ---------------------
+   > transaction hash:    0x52d6f4451521e6032d492716a43b7c9927085030faca0130b5293efbab09799d
+   > Blocks: 5            Seconds: 17
+   > contract address:    0x136522581E1B9A6c7eb6750c92AA5412E2DC8756
+   > block number:        11032684
+   > block timestamp:     1627619374
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.60580415
+   > gas used:            5065438 (0x4d4ade)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.05065438 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 11032688)
+pool_instance_USDC: 0x136522581E1B9A6c7eb6750c92AA5412E2DC8756
+
+   Deploying 'Comp'
+   ----------------
+   > transaction hash:    0x81eeac21bb25f1dfe3fc53c9eed4421b426950e3a2310c014c57ac05484bf736
+   > Blocks: 3            Seconds: 10
+   > contract address:    0x1586b1623e3cDBA6ea599163a9950023cf40155d
+   > block number:        11032694
+   > block timestamp:     1627619404
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.58775278
+   > gas used:            1805137 (0x1b8b51)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01805137 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032698)
+compInstance: 0x1586b1623e3cDBA6ea599163a9950023cf40155d
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.16704809 ETH
+
+
+3_deploy_Uniswap_Oracle_WETH.js
+===============================
+
+   Deploying 'WETH'
+   ----------------
+   > transaction hash:    0x2115aa477e27edfdf084b98086486a0ce271eefd91ea127cc84e565d8e88543d
+   > Blocks: 4            Seconds: 13
+   > contract address:    0xee8204D4A722F0dF7FCB625C347292D890e62885
+   > block number:        11032712
+   > block timestamp:     1627619458
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.58162754
+   > gas used:            585281 (0x8ee41)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00585281 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032716)
+wethInstance: 0xee8204D4A722F0dF7FCB625C347292D890e62885
+
+   Deploying 'UniswapV2Factory'
+   ----------------------------
+   > transaction hash:    0x25c1e06dd884074a4dc628f3b0cef3e5855bdea68973815cf0a60a2c9ec2e531
+   > Blocks: 7            Seconds: 22
+   > contract address:    0xa91676565C20f55A4052d3a2083AfdB0e6C23Bbf
+   > block number:        11032724
+   > block timestamp:     1627619494
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.55212211
+   > gas used:            2950543 (0x2d058f)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02950543 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032729)
+uniswapFactoryInstance: 0xa91676565C20f55A4052d3a2083AfdB0e6C23Bbf
+
+   Deploying 'UniswapV2Router02_Modified'
+   --------------------------------------
+   > transaction hash:    0xfe209b9a1884985b42e88572f39117fac44d79baceb256d1105f3a2d880ef201
+   > Blocks: 5            Seconds: 18
+   > contract address:    0x6d0047C01bb12e92ee46890F620651e8cbd9e2A4
+   > block number:        11032736
+   > block timestamp:     1627619530
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.51349805
+   > gas used:            3862406 (0x3aef86)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03862406 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032741)
+routerInstance: 0x6d0047C01bb12e92ee46890F620651e8cbd9e2A4
+
+   Deploying 'SwapToPrice'
+   -----------------------
+   > transaction hash:    0x33853a43a0ba6b7cbc67c0f96c94ec732a9e9af147deacd0370e7e903065f4ac
+   > Blocks: 3            Seconds: 9
+   > contract address:    0x8E0a92bef48ebCa4E1FF9DcE8603Fc0ea2BCf641
+   > block number:        11032746
+   > block timestamp:     1627619560
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.5043808
+   > gas used:            911725 (0xde96d)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00911725 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032750)
+pair_instance_CERES_WETH: 0xe9d275aCF6e8feA9e7f48eAfA354036cb0f8a8Ba
+
+   Deploying 'UniswapPairOracle_CERES_WETH'
+   ----------------------------------------
+   > transaction hash:    0x4e49282c060c6e1e7548d6d0044cd3126534110782d6756950341f09a338428c
+   > Blocks: 4            Seconds: 14
+   > contract address:    0x54d50E4391035F14f08C744b6a86A9ED96eb28a9
+   > block number:        11032796
+   > block timestamp:     1627619710
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.40455115
+   > gas used:            1377268 (0x1503f4)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01377268 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032800)
+
+   Deploying 'UniswapPairOracle_CSS_WETH'
+   --------------------------------------
+   > transaction hash:    0xeb64d1f4eff9827bd3844d76da8a3c3c0335337e8b4aca10a4484b5797f9ac49
+   > Blocks: 5            Seconds: 14
+   > contract address:    0x8e042a060a8AA2CCC8dD6003dB17d763041CFEa7
+   > block number:        11032806
+   > block timestamp:     1627619740
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.39077835
+   > gas used:            1377280 (0x150400)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0137728 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032810)
+
+   Deploying 'UniswapPairOracle_USDC_WETH'
+   ---------------------------------------
+   > transaction hash:    0x2f14af13d77b57f77e0bae3230912a035b4881a5baaeac5e26480df2286026e5
+   > Blocks: 5            Seconds: 13
+   > contract address:    0x5efFb91e180Ffd3031197A1b2857831B750936B1
+   > block number:        11032816
+   > block timestamp:     1627619770
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.37700555
+   > gas used:            1377280 (0x150400)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0137728 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032820)
+
+   Deploying 'StringHelpers'
+   -------------------------
+   > transaction hash:    0x11d824cc57003d3e19a2c6b44bdc76aa1dcdb639a2098dfedec59d8af4aca33f
+   > Blocks: 4            Seconds: 14
+   > contract address:    0xAA289296C95cab57c5010438E8923fb6bdeEb28e
+   > block number:        11032850
+   > block timestamp:     1627619872
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.36846648
+   > gas used:            71933 (0x118fd)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00071933 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032854)
+
+   Deploying 'Stake_CERES_WETH'
+   ----------------------------
+   > transaction hash:    0xc802b8a94f63329a91aeec556be2f330744abcd240d34789de7706f5992d462c
+   > Blocks: 4            Seconds: 13
+   > contract address:    0x3f81FD281E2a5673D269456CB0a92fbFC325dfE0
+   > block number:        11032861
+   > block timestamp:     1627619905
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.32972926
+   > gas used:            3873722 (0x3b1bba)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03873722 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032865)
+instanceStakingRewards_CERES_WETH: 0x3f81FD281E2a5673D269456CB0a92fbFC325dfE0
+
+   Deploying 'CeresDemo'
+   ---------------------
+   > transaction hash:    0xf4fe23482c2cd4387e1414043b68e549c10135f334156fef8f4a00fafcab3db1
+   > Blocks: 6            Seconds: 17
+   > contract address:    0x6F76EBb6aB9b63dA00766a03De44fAB417A2a91C
+   > block number:        11032881
+   > block timestamp:     1627619965
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.26898029
+   > gas used:            5979633 (0x5b3df1)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.05979633 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032885)
+ceresDemoInstance.address: 0x6F76EBb6aB9b63dA00766a03De44fAB417A2a91C
+
+   Deploying 'Boardroom'
+   ---------------------
+   > transaction hash:    0x7ba6b89bf51a65f737afb4f128b090ed321ec5f9313141c146ed0847318d7da6
+   > Blocks: 4            Seconds: 13
+   > contract address:    0xFfa79C01B6d25F4c05D80f7F9CA9cf0B5ED741f3
+   > block number:        11032892
+   > block timestamp:     1627619998
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.24924918
+   > gas used:            1973111 (0x1e1b77)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01973111 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032896)
+boardroomInstance.address: 0xFfa79C01B6d25F4c05D80f7F9CA9cf0B5ED741f3
+
+   Deploying 'SimpleERCFund'
+   -------------------------
+   > transaction hash:    0x8974887e13be1736041b9e88610455883764d59996dcebf61a6222b64bed24e3
+   > Blocks: 3            Seconds: 9
+   > contract address:    0x6Bf52d7330b073601417601Bc8fA0334D84e800d
+   > block number:        11032922
+   > block timestamp:     1627620088
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.2388263
+   > gas used:            902692 (0xdc624)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00902692 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032926)
+simplefundInstance: 0x6Bf52d7330b073601417601Bc8fA0334D84e800d
+startTime: 1616385600
+
+   Deploying 'Treasury'
+   --------------------
+   > transaction hash:    0xe49b47157b27f06ae8659723038551bfb89690ef69b80c56930702a47e45a53d
+   > Blocks: 4            Seconds: 14
+   > contract address:    0x8f8a09236E61874320Aef3D1619f56682b2A0908
+   > block number:        11032932
+   > block timestamp:     1627620118
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.19687648
+   > gas used:            4194982 (0x4002a6)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.04194982 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032936)
+treasuryInstance: 0x8f8a09236E61874320Aef3D1619f56682b2A0908
+
+   Deploying 'CERESWETHPool'
+   -------------------------
+   > transaction hash:    0xbc4e41095327aaa87d5c0cc7492faf3cdeb254b5dc6d7157acfd253b3f89f3d8
+   > Blocks: 3            Seconds: 10
+   > contract address:    0x68a557aDd0292fDaF20f07Fcca4922A63B0D5324
+   > block number:        11032946
+   > block timestamp:     1627620160
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.18032018
+   > gas used:            1611364 (0x189664)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01611364 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032950)
+ceresWethPoolInstance: 0x68a557aDd0292fDaF20f07Fcca4922A63B0D5324
+
+   Deploying 'CSSWETHPool'
+   -----------------------
+   > transaction hash:    0x97fdf5c085d71d7a500ff9ca935a90904fe9aa299cbb444a6296b581cd2d0905
+   > Blocks: 4            Seconds: 13
+   > contract address:    0x9Df95DA6a8e7139faFC9f77EFEFe540d4c460233
+   > block number:        11032962
+   > block timestamp:     1627620208
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.15667809
+   > gas used:            2224656 (0x21f210)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02224656 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032966)
+cssWETHPoolInstance: 0x9Df95DA6a8e7139faFC9f77EFEFe540d4c460233
+
+   Deploying 'CSSWETHLPPool'
+   -------------------------
+   > transaction hash:    0x71e8bdf165efaa20b9e861bebe510b76851bb903311ee767e0fe44d4e6db4db1
+   > Blocks: 4            Seconds: 13
+   > contract address:    0x69ffcD740EbFaF7dA57baC96D61000cFEc8687c2
+   > block number:        11032980
+   > block timestamp:     1627620262
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.13133447
+   > gas used:            2394832 (0x248ad0)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02394832 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11032984)
+cssWETHLPPoolInstance: 0x69ffcD740EbFaF7dA57baC96D61000cFEc8687c2
+
+   Deploying 'CeresPoolInvestorForV2'
+   ----------------------------------
+   > transaction hash:    0x035d3cec6e0a4dc056fd71493629f1f64a724843dc33a58306ef20007d6355ab
+   > Blocks: 4            Seconds: 13
+   > contract address:    0x61D9346b65580f97c62b802F229DD184C4A431fD
+   > block number:        11033009
+   > block timestamp:     1627620349
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.09529543
+   > gas used:            3464410 (0x34dcda)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0346441 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11033013)
+ceresPoolInvestorForV2Instance: 0x61D9346b65580f97c62b802F229DD184C4A431fD
+
+   Deploying 'CSS_AMO'
+   -------------------
+   > transaction hash:    0xe4f473c9a826e28be2f7462201ef7b61818599d7804cae726411a0c09f4651d9
+   > Blocks: 4            Seconds: 13
+   > contract address:    0x434E607519C6595010c5B68f35FE07459C830820
+   > block number:        11033020
+   > block timestamp:     1627620382
+   > account:             0x603666f69a88c21F9D56AB09876e835F5eE59dA5
+   > balance:             38.06512001
+   > gas used:            3017542 (0x2e0b46)
+   > gas price:           10 gwei
+   > value sent:          0 ETH
+   > total cost:          0.03017542 ETH
+
+   Pausing for 1 confirmations...
+   ------------------------------
+   > confirmation number: 2 (block: 11033024)
+css_AMOInstance: 0x434E607519C6595010c5B68f35FE07459C830820
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.4215066 ETH
+
+
+Summary
+=======
+> Total deployments:   30
+> Final cost:          0.59022891 ETH
+
+
+
+Terminal will be reused by tasks, press any key to close it.

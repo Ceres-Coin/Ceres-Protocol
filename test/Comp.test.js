@@ -112,5 +112,10 @@ contract('contracts/ERC20/Variants/Comp.sol', async (accounts) => {
         expect(compInstance.address).to.not.be.empty;
     });
 
+    it('check compInstance.name.call(), its DEFAULT value is to equal "Compound" ', async () => {
+        const EXPECTED_VALUE = "Compound";
+        expect((await compInstance.name.call())).to.equal((EXPECTED_VALUE));
+    });
+
 
 });

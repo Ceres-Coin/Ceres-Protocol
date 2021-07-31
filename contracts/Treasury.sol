@@ -16,7 +16,7 @@ import './Math/Safe112.sol';
 import './owner/Operator.sol';
 import './Utils/Epoch.sol';
 import './Utils/ContractGuard.sol';
-import './interfaces/IReferral.sol';
+// import './interfaces/IReferral.sol';
 
 /**
  * @title Basis Cash Treasury contract

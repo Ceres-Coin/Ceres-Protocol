@@ -11,7 +11,7 @@ import './owner/Operator.sol';
 import './owner/Admin.sol';
 import './Utils/ContractGuard.sol';
 import './Interfaces/IBasisAsset.sol';
-import './Interfaces/IReferral.sol';
+// import './Interfaces/IReferral.sol';
 
 contract ShareWrapper2 {
     using SafeMath for uint256;

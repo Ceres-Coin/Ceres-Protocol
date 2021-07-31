@@ -93,10 +93,10 @@ contract Boardroom is ShareWrapper2, ContractGuard {
 
     /* ========== whitelist for referral ======= */
     // TODO: [IMPORTANT]: REMOVE REFERRAL FUNC LATER & ADD THEM TO LIBRARY
-    address[] public referralList; //TEST CASES DONE
-    string[] public referralNameList; //TEST CASES DONE
-    mapping(address => uint256) public referralAmount;
-    uint256 public totalReferralAmount;
+    // address[] public referralList; //TEST CASES DONE
+    // string[] public referralNameList; //TEST CASES DONE
+    // mapping(address => uint256) public referralAmount;
+    // uint256 public totalReferralAmount;
 
     /* ========== CONSTRUCTOR ========== */
 
@@ -314,26 +314,26 @@ contract Boardroom is ShareWrapper2, ContractGuard {
 
     /* =============== REFERRAL ================= */
     // NO NEED TO ADD TEST SCRIPTS
-    function addReferral(address _referral,string memory _name) external {
-        referralList.push(_referral);
-        referralNameList.push(_name);
-        referralAmount[_referral] = 0;
-    }
+    // function addReferral(address _referral,string memory _name) external {
+    //     referralList.push(_referral);
+    //     referralNameList.push(_name);
+    //     referralAmount[_referral] = 0;
+    // }
     // NO NEED TO ADD TEST SCRIPTS
-    function _addAmountToReferral(uint256 _amount, address _referral) internal {
-        if (_referral != address(0)) {
-            uint isFound = 0;
-            for (uint i = 0; i < referralList.length; i++) {
-                if (referralList[i] == _referral) {
-                    isFound = 1;
-                    break;
-                }
-            }
-            require(isFound > 0, "The referral address is not correct");
-            referralAmount[_referral] = referralAmount[_referral].add(_amount);
-            totalReferralAmount = totalReferralAmount.add(_amount);
-        }
-    }
+    // function _addAmountToReferral(uint256 _amount, address _referral) internal {
+    //     if (_referral != address(0)) {
+    //         uint isFound = 0;
+    //         for (uint i = 0; i < referralList.length; i++) {
+    //             if (referralList[i] == _referral) {
+    //                 isFound = 1;
+    //                 break;
+    //             }
+    //         }
+    //         require(isFound > 0, "The referral address is not correct");
+    //         referralAmount[_referral] = referralAmount[_referral].add(_amount);
+    //         totalReferralAmount = totalReferralAmount.add(_amount);
+    //     }
+    // }
     // NO NEED TO ADD TEST SCRIPTS
     // function getReferralList() external view override returns (address[] memory) {
     //     return referralList;

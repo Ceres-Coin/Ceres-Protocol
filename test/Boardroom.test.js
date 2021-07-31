@@ -100,17 +100,17 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         expect(parseFloat(await boardroomInstance.epochPeriod.call())).to.equal(parseFloat(EXPECTED_VALUE));
     });
 
-    it('check boardroomInstance.referralList.call(0), AFTER "addReferral(TEST_ACCOUNT,"TEST_ACCOUNT")', async () => {
-        await boardroomInstance.addReferral(TEST_ACCOUNT,"TEST_ACCOUNT");
-        // const tmp = await boardroomInstance.referralList.call(0);
-        // console.log(chalk.blue(tmp));
+    // it('check boardroomInstance.referralList.call(0), AFTER "addReferral(TEST_ACCOUNT,"TEST_ACCOUNT")', async () => {
+    //     await boardroomInstance.addReferral(TEST_ACCOUNT,"TEST_ACCOUNT");
+    //     // const tmp = await boardroomInstance.referralList.call(0);
+    //     // console.log(chalk.blue(tmp));
 
-        // ASSERTION FOR referralList.call(0) & referralNameList.call(0);
-        const EXPECTED_ADDRESS = TEST_ACCOUNT;
-        const EXPECTED_NAME = "TEST_ACCOUNT";
-        expect(await boardroomInstance.referralList.call(0)).to.equal(EXPECTED_ADDRESS);
-        expect(await boardroomInstance.referralNameList.call(0)).to.equal(EXPECTED_NAME);
-    });
+    //     // ASSERTION FOR referralList.call(0) & referralNameList.call(0);
+    //     const EXPECTED_ADDRESS = TEST_ACCOUNT;
+    //     const EXPECTED_NAME = "TEST_ACCOUNT";
+    //     expect(await boardroomInstance.referralList.call(0)).to.equal(EXPECTED_ADDRESS);
+    //     expect(await boardroomInstance.referralNameList.call(0)).to.equal(EXPECTED_NAME);
+    // });
 
     it('check boardroomInstance.cash.call(), its DEFAULT value is equal to ceresInstance.address', async() => {
         const EXPECTED_VALUE = await ceresInstance.address;

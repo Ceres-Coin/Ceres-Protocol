@@ -54,7 +54,8 @@ contract ShareWrapper2 {
     }
 }
 
-contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
+// contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
+contract Boardroom is ShareWrapper2, ContractGuard {
     using SafeERC20 for IERC20;
     using Address for address;
     using SafeMath for uint256;
@@ -334,21 +335,21 @@ contract Boardroom is ShareWrapper2, ContractGuard, IReferral {
         }
     }
     // NO NEED TO ADD TEST SCRIPTS
-    function getReferralList() external view override returns (address[] memory) {
-        return referralList;
-    }
+    // function getReferralList() external view override returns (address[] memory) {
+    //     return referralList;
+    // }
     // NO NEED TO ADD TEST SCRIPTS
-    function getReferralNameList() external view override returns (string[] memory) {
-        return referralNameList;
-    }
+    // function getReferralNameList() external view override returns (string[] memory) {
+    //     return referralNameList;
+    // }
     // NO NEED TO ADD TEST SCRIPTS
-    function getReferralAmount(address _referral) external view override returns (uint256) {
-        return referralAmount[_referral];
-    }
+    // function getReferralAmount(address _referral) external view override returns (uint256) {
+    //     return referralAmount[_referral];
+    // }
     // NO NEED TO ADD TEST SCRIPTS
-    function getTotalReferralAmount() external view override returns (uint256) {
-        return totalReferralAmount;
-    }
+    // function getTotalReferralAmount() external view override returns (uint256) {
+    //     return totalReferralAmount;
+    // }
 
     /* ========== EVENTS ========== */
 

@@ -8,7 +8,7 @@ const CEREShares = artifacts.require("CSS/CEREShares");
 const Boardroom = artifacts.require('Boardroom');
 const Pool_USDC = artifacts.require("Ceres/Pools/Pool_USDC");
 const ChainlinkETHUSDPriceConsumerTest = artifacts.require("Oracle/ChainlinkETHUSDPriceConsumerTest");
-const CeresDemo = artifacts.require("Ceres/CeresDemo");
+// const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const Treasury = artifacts.require('Treasury');
 const CERESWETHPool = artifacts.require('Ceres/Pools/CERESWETHPool');
 const CSSWETHPool = artifacts.require('Ceres/Pools/CSSWETHPool');
@@ -206,9 +206,9 @@ module.exports = async function(deployer,network,accounts) {
 	await pair_instance_CERES_WETH.approve(instanceStakingRewards_CERES_WETH.address, TWO_MILLION_DEC18, { from: OWNER });
 	await cssInstance.transfer(instanceStakingRewards_CERES_WETH.address,FIVE_MILLION_DEC18,{from: OWNER});
 
-	await deployer.deploy(CeresDemo,routerInstance.address,{from: OWNER}); //deploy PigToken
-	const ceresDemoInstance = await CeresDemo.deployed();
-	console.log(chalk.red.bold(`ceresDemoInstance.address: ${await ceresDemoInstance.address}`));
+	// await deployer.deploy(CeresDemo,routerInstance.address,{from: OWNER}); //deploy PigToken
+	// const ceresDemoInstance = await CeresDemo.deployed();
+	// console.log(chalk.red.bold(`ceresDemoInstance.address: ${await ceresDemoInstance.address}`));
 
 	await deployer.deploy(Boardroom, ceresInstance.address, pair_instance_CERES_WETH.address);
 	const boardroomInstance = await Boardroom.deployed();

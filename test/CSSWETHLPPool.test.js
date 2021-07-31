@@ -19,7 +19,7 @@ const UniswapPairOracle_CERES_WETH = artifacts.require("Oracle/Variants/UniswapP
 const CSSWETHLPPool = artifacts.require('Ceres/Pools/CSSWETHLPPool');
 const ERC20 = artifacts.require("ERC20");
 const BOND = artifacts.require("Bond");
-const CeresDemo = artifacts.require("Ceres/CeresDemo");
+// const CeresDemo = artifacts.require("Ceres/CeresDemo");
 const ONE_DEC18 = new BigNumber("1e18");
 const ONE_HUNDRED_DEC18 = new BigNumber("100e18");
 const EIGHT_HUNDRED_DEC18 = new BigNumber("800e18");
@@ -85,7 +85,7 @@ contract('contracts/Ceres/Pools/CSSWETHLPPool.sol', async (accounts) => {
         instanceStakingRewards_CERES_WETH = await StakingRewards_CERES_WETH.deployed();
         pair_addr_CERES_WETH = await uniswapFactoryInstance.getPair(ceresInstance.address, wethInstance.address, { from: OWNER });
         pair_instance_CERES_WETH = await UniswapV2Pair.at(pair_addr_CERES_WETH);
-        ceresDemoInstance = await CeresDemo.deployed();
+        // ceresDemoInstance = await CeresDemo.deployed();
         boardroomInstance = await Boardroom.deployed();
         oracle_instance_CERES_WETH = await UniswapPairOracle_CERES_WETH.deployed();
 

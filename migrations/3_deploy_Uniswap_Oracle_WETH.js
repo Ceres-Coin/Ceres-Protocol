@@ -1,7 +1,7 @@
-const ConvertLib = artifacts.require("ConvertLib");
+// const ConvertLib = artifacts.require("ConvertLib");
 const { expectEvent, send, shouldFail, time, constants, balance} = require('@openzeppelin/test-helpers');
 const BigNumber = require('bignumber.js');
-const MetaCoin = artifacts.require("MetaCoin");
+// const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");

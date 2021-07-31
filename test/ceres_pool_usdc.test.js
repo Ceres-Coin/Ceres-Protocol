@@ -37,7 +37,7 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
     let instance_Pool_USDC;
     let instance_Pool_USDC_collateral_token;
     beforeEach(async() => {
-        instanceSampleERC20 = await ERC20.deployed();
+        // instanceSampleERC20 = await ERC20.deployed();
         instanceCSS = await CEREShares.deployed();
         instanceCERES = await CEREStable.deployed();
         instance_Pool_USDC = await Pool_USDC.deployed();
@@ -48,10 +48,10 @@ contract('contracts/Ceres/Pools/CeresPool.sol', async (accounts) => {
         col_instance_USDC = await FakeCollateral_USDC.deployed(); 
     });
 
-    it('check instance_Pool_USDC.USDC_address is col_instance_USDC.address" ', async () => {
-        // console.log(chalk.yellow(`USDC_address: ${await instance_Pool_USDC.USDC_address.call()}`));
-        expect(await instance_Pool_USDC.USDC_address.call()).to.equal(col_instance_USDC.address);
-    });
+    // it('check instance_Pool_USDC.USDC_address is col_instance_USDC.address" ', async () => {
+    //     // console.log(chalk.yellow(`USDC_address: ${await instance_Pool_USDC.USDC_address.call()}`));
+    //     // expect(await instance_Pool_USDC.USDC_address.call()).to.equal(col_instance_USDC.address);
+    // });
 
     it('check instance_Pool_USDC.ceres_contract_address is instanceCERES.address" ', async () => {
         expect(await instance_Pool_USDC.ceres_contract_address.call()).to.equal(instanceCERES.address);

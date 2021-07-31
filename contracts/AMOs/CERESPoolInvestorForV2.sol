@@ -5,7 +5,7 @@ import "../Math/SafeMath.sol";
 import "../CSS/CSS.sol";
 import "../Ceres/Ceres.sol";
 import "../ERC20/ERC20.sol";
-import "../ERC20/Variants/Comp.sol";
+// import "../ERC20/Variants/Comp.sol";
 import "../Oracle/UniswapPairOracle.sol";
 import "../Governance/AccessControl.sol";
 import "../Ceres/Pools/CeresPool.sol";
@@ -40,7 +40,7 @@ contract CeresPoolInvestorForV2 is AccessControl, Owned {
     // IcUSDC_Partial private cUSDC = IcUSDC_Partial(0x39AA39c021dfbaE8faC545936693aC917d5E7563);
 
     // Reward Tokens
-    Comp private COMP = Comp(0xc00e94Cb662C3520282E6f5717214004A7f26888);
+    // Comp private COMP = Comp(0xc00e94Cb662C3520282E6f5717214004A7f26888);
     // ICompComptrollerPartial private CompController = ICompComptrollerPartial(0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B);
 
     address public collateral_address;
@@ -128,7 +128,7 @@ contract CeresPoolInvestorForV2 is AccessControl, Owned {
     function showRewards() external view returns (uint256[1] memory rewards) {
         // IMPORTANT
         // Should ONLY be used externally, because it may fail if COMP.balanceOf() fails
-        rewards[0] = COMP.balanceOf(address(this)); // COMP
+        // rewards[0] = COMP.balanceOf(address(this)); // COMP
     }
 
     /* ========== PUBLIC FUNCTIONS ========== */
@@ -247,7 +247,7 @@ contract CeresPoolInvestorForV2 is AccessControl, Owned {
     /* ========== Custodian ========== */
 
     function withdrawRewards() public onlyCustodian {
-        COMP.transfer(custodian_address, COMP.balanceOf(address(this)));
+        // COMP.transfer(custodian_address, COMP.balanceOf(address(this)));
     }
 
     /* ========== RESTRICTED FUNCTIONS ========== */

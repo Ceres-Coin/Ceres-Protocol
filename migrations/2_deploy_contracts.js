@@ -1,9 +1,9 @@
-const ConvertLib = artifacts.require("ConvertLib");
+// const ConvertLib = artifacts.require("ConvertLib");
 const BigNumber = require('bignumber.js');
-const MetaCoin = artifacts.require("MetaCoin");
+// const MetaCoin = artifacts.require("MetaCoin");
 const ERC20 = artifacts.require("ERC20");
 const BOND = artifacts.require("Bond");
-const COMP = artifacts.require("ERC20/Variants/Comp");
+// const COMP = artifacts.require("ERC20/Variants/Comp");
 const CEREStable = artifacts.require("Ceres/CEREStable");
 const CEREShares = artifacts.require("CSS/CEREShares");
 const CeresPoolLibrary = artifacts.require("Ceres/Pools/CERESPoolLibrary");
@@ -45,13 +45,13 @@ module.exports = async function(deployer,network,accounts) {
 	const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
 	const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 
-	deployer.deploy(ConvertLib);
-	deployer.link(ConvertLib, MetaCoin);
-	deployer.deploy(MetaCoin);
+	// deployer.deploy(ConvertLib);
+	// deployer.link(ConvertLib, MetaCoin);
+	// deployer.deploy(MetaCoin);
 
-	await deployer.deploy(ERC20,"sample","sample");
-	const sampleERC20 = await ERC20.deployed();
-	console.log(chalk.red.bold(`sampleERC20: ${await sampleERC20.address}`));
+	// await deployer.deploy(ERC20,"sample","sample");
+	// const sampleERC20 = await ERC20.deployed();
+	// console.log(chalk.red.bold(`sampleERC20: ${await sampleERC20.address}`));
 	
 	await deployer.deploy(CEREStable, "CERES", "CERES", OWNER, OWNER,{from: OWNER});
 	const ceresInstance = await CEREStable.deployed();
@@ -85,9 +85,9 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`pool_instance_USDC: ${await pool_instance_USDC.address}`));
 
 	// DEPLOY COMP
-	await deployer.deploy(COMP,OWNER,{from: OWNER});
-	const compInstance = await COMP.deployed();
-	console.log(chalk.red.bold(`compInstance: ${await compInstance.address}`));
+	// await deployer.deploy(COMP,OWNER,{from: OWNER});
+	// const compInstance = await COMP.deployed();
+	// console.log(chalk.red.bold(`compInstance: ${await compInstance.address}`));
 	
 	
 };

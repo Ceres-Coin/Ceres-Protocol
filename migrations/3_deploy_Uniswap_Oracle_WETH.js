@@ -27,8 +27,8 @@ const FakeCollateral_USDC = artifacts.require("FakeCollateral/FakeCollateral_USD
 const StakingRewards_CERES_WETH = artifacts.require("Staking/Variants/Stake_CERES_WETH.sol");
 const StringHelpers = artifacts.require("Utils/StringHelpers");
 
-const CeresPoolInvestorForV2 = artifacts.require("AMOs/CeresPoolInvestorForV2");
-const CSS_AMO = artifacts.require("AMOs/CSS_AMO");
+// const CeresPoolInvestorForV2 = artifacts.require("AMOs/CeresPoolInvestorForV2");
+// const CSS_AMO = artifacts.require("AMOs/CSS_AMO");
 
 
 const DUMP_ADDRESS = constants.ZERO_ADDRESS;
@@ -278,14 +278,14 @@ module.exports = async function(deployer,network,accounts) {
 	await cssInstance.approve(cssWETHLPPoolInstance.address,TWO_MILLION_DEC18,{from: TEST_ACCOUNT});
 	cssInstance.transfer(cssWETHLPPoolInstance.address,EIGHT_HUNDRED_DEC18,{from: OWNER});
 
-	// DEPLOY CeresPoolInvestorForV2
-	await deployer.deploy(CeresPoolInvestorForV2,ceresInstance.address,cssInstance.address,pool_instance_USDC.address,col_instance_USDC.address,OWNER,OWNER,OWNER,{from: OWNER});
-	const ceresPoolInvestorForV2Instance = await CeresPoolInvestorForV2.deployed();
-	console.log(chalk.red.bold(`ceresPoolInvestorForV2Instance: ${ceresPoolInvestorForV2Instance.address}`));
+	// // DEPLOY CeresPoolInvestorForV2
+	// await deployer.deploy(CeresPoolInvestorForV2,ceresInstance.address,cssInstance.address,pool_instance_USDC.address,col_instance_USDC.address,OWNER,OWNER,OWNER,{from: OWNER});
+	// const ceresPoolInvestorForV2Instance = await CeresPoolInvestorForV2.deployed();
+	// console.log(chalk.red.bold(`ceresPoolInvestorForV2Instance: ${ceresPoolInvestorForV2Instance.address}`));
 
-	// DEPLOY CSS_AMO
-	await deployer.deploy(CSS_AMO,ceresInstance.address,cssInstance.address,pool_instance_USDC.address,col_instance_USDC.address,OWNER,OWNER,OWNER,ceresPoolInvestorForV2Instance.address,{from: OWNER});
-	const css_AMOInstance = await CSS_AMO.deployed();
-	console.log(chalk.red.bold(`css_AMOInstance: ${css_AMOInstance.address}`));
+	// // DEPLOY CSS_AMO
+	// await deployer.deploy(CSS_AMO,ceresInstance.address,cssInstance.address,pool_instance_USDC.address,col_instance_USDC.address,OWNER,OWNER,OWNER,ceresPoolInvestorForV2Instance.address,{from: OWNER});
+	// const css_AMOInstance = await CSS_AMO.deployed();
+	// console.log(chalk.red.bold(`css_AMOInstance: ${css_AMOInstance.address}`));
 	
 };

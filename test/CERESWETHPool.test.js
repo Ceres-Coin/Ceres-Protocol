@@ -209,7 +209,7 @@ contract('contracts/Ceres/Pools/CERESWETHPool.sol', async (accounts) => {
         console.log(chalk.blue(`periodFinish_AFTER: ${await ceresWethPoolInstance.periodFinish.call()}`));
 
         console.log(chalk.blue(`rewardPerToken_AFTER: ${new BigNumber(await ceresWethPoolInstance.rewardPerToken.call()).div(BIG18)}`));
-        console.log(chalk.blue(`tmpValue: ${await ceresWethPoolInstance.tmpValue.call()}`));
+        // console.log(chalk.blue(`tmpValue: ${await ceresWethPoolInstance.tmpValue.call()}`));
     });
 
     it('check ceresWethPoolInstance.rewardPerToken.call() 2, AFTER SETREWARDRATE()', async () => {

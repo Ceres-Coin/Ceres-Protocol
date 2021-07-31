@@ -280,62 +280,62 @@ contract Treasury is ContractGuard, Epoch {
         emit RedeemedBonds(msg.sender, amount);
     }
     uint256 public tmpValue;
-    function tmpFunc() external {
-        _updateCashPrice();
-        uint256 cashPrice = _getCashPrice(seigniorageOracle);
-        uint256 cashPrice_e18 = cashPrice.mul(1e3); // convert cashPrice to decimals 18
+    // function tmpFunc() external {
+    //     _updateCashPrice();
+    //     uint256 cashPrice = _getCashPrice(seigniorageOracle);
+    //     uint256 cashPrice_e18 = cashPrice.mul(1e3); // convert cashPrice to decimals 18
 
-        if (cashPrice_e18 <= cashPriceCeiling) {
-            return ; // just advance epoch instead revert
-        }
+    //     if (cashPrice_e18 <= cashPriceCeiling) {
+    //         return ; // just advance epoch instead revert
+    //     }
 
-        // circulating supply
-        uint256 cashSupply = IERC20(cash).totalSupply().sub(
-            accumulatedSeigniorage
-        );
-        // Note: we change cashPriceOne to cashPriceCeiling
-        uint256 percentage = cashPrice_e18.sub(cashPriceCeiling);
+    //     // circulating supply
+    //     uint256 cashSupply = IERC20(cash).totalSupply().sub(
+    //         accumulatedSeigniorage
+    //     );
+    //     // Note: we change cashPriceOne to cashPriceCeiling
+    //     uint256 percentage = cashPrice_e18.sub(cashPriceCeiling);
 
-        // add inflation
-        percentage = Math.min(percentage, inflationPercentCeil);
-        uint256 seigniorage = cashSupply.mul(percentage).div(1e18);
-        seigniorage = Math.min(seigniorage,seigniorageCeil);
+    //     // add inflation
+    //     percentage = Math.min(percentage, inflationPercentCeil);
+    //     uint256 seigniorage = cashSupply.mul(percentage).div(1e18);
+    //     seigniorage = Math.min(seigniorage,seigniorageCeil);
 
-        IBasisAsset(cash).mint(address(this), seigniorage);
+    //     IBasisAsset(cash).mint(address(this), seigniorage);
 
-        // ABOVE IS DONE
-        uint256 fundReserve = seigniorage.mul(fundAllocationRate).div(100);
-        if (fundReserve > 0) {
-            IERC20(cash).safeApprove(fund, fundReserve);
-            ISimpleERCFund(fund).deposit(
-                cash,
-                fundReserve,
-                'Treasury: Seigniorage Allocation'
-            );
-            emit ContributionPoolFunded(now, fundReserve);
-        }
-        seigniorage = seigniorage.sub(fundReserve);
+    //     // ABOVE IS DONE
+    //     uint256 fundReserve = seigniorage.mul(fundAllocationRate).div(100);
+    //     if (fundReserve > 0) {
+    //         IERC20(cash).safeApprove(fund, fundReserve);
+    //         ISimpleERCFund(fund).deposit(
+    //             cash,
+    //             fundReserve,
+    //             'Treasury: Seigniorage Allocation'
+    //         );
+    //         emit ContributionPoolFunded(now, fundReserve);
+    //     }
+    //     seigniorage = seigniorage.sub(fundReserve);
 
-        uint256 boardroomReserve = seigniorage;
-        tmpValue = boardroomReserve;
+    //     uint256 boardroomReserve = seigniorage;
+    //     tmpValue = boardroomReserve;
 
-        if (boardroomReserve > 0) {
-            uint256 c_lpBoardroomReserve_Number = boardroomReserve.mul(c_s_percentage).div(10);
-            uint256 s_lpBoardroomReserve_Number = boardroomReserve.sub(c_lpBoardroomReserve_Number);
-
-
-            IERC20(cash).safeApprove(c_lpBoardroom, c_lpBoardroomReserve_Number);
-            IBoardroom(c_lpBoardroom).allocateSeigniorage(c_lpBoardroomReserve_Number);
-
-            IERC20(cash).safeApprove(s_lpBoardroom, s_lpBoardroomReserve_Number);
-            IBoardroom(s_lpBoardroom).allocateSeigniorage(s_lpBoardroomReserve_Number);
+    //     if (boardroomReserve > 0) {
+    //         uint256 c_lpBoardroomReserve_Number = boardroomReserve.mul(c_s_percentage).div(10);
+    //         uint256 s_lpBoardroomReserve_Number = boardroomReserve.sub(c_lpBoardroomReserve_Number);
 
 
-            // IERC20(cash).safeApprove(boardroom, boardroomReserve);
-            // IBoardroom(boardroom).allocateSeigniorage(boardroomReserve);
-            emit BoardroomFunded(now, boardroomReserve);
-        }
-    }
+    //         IERC20(cash).safeApprove(c_lpBoardroom, c_lpBoardroomReserve_Number);
+    //         IBoardroom(c_lpBoardroom).allocateSeigniorage(c_lpBoardroomReserve_Number);
+
+    //         IERC20(cash).safeApprove(s_lpBoardroom, s_lpBoardroomReserve_Number);
+    //         IBoardroom(s_lpBoardroom).allocateSeigniorage(s_lpBoardroomReserve_Number);
+
+
+    //         // IERC20(cash).safeApprove(boardroom, boardroomReserve);
+    //         // IBoardroom(boardroom).allocateSeigniorage(boardroomReserve);
+    //         emit BoardroomFunded(now, boardroomReserve);
+    //     }
+    // }
     // TEST CASES DONE
     function allocateSeigniorage()
     external

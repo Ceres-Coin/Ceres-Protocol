@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.29.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.28.0...v1.29.0) (2021-08-25)
+
+
+### Features
+
+* [REDUCED][MANY TEST SCRIPTS] && [NO USED CONTRACTS] ([610634f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/610634f999f6f8b2c4f5b2b23b318d3a49d4211d))
+* [REMOVE][ONLY OPERATOR MODIFIERES] ([1a21774](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1a21774e366ec174688f3a732db09e217149ae3a))
+* [removed] ([798778d](https://github.com/Ceres-Coin/Ceres-Protocol/commit/798778dedc5a1b2ece5c170cca74ce8a80d123ca))
+* **contracts/amos/css_amo.sol && contracts/amos/cerespoolinvestorforv2.sol:** [removed][UNUSED][CONTRACTS FILE] ([1bfe78f](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1bfe78f49f7f339b4d3d5e3df3dd9b72eaf7d77c))
+* **contracts/boardroom.sol:** [REMOVED][REFERRAL FUNC()] ([ef1bb43](https://github.com/Ceres-Coin/Ceres-Protocol/commit/ef1bb435fa2485f5e572b9430d8e5ed88607a19c))
+* **contracts/boardroom.sol:** [REMOVED][REFERRAL FUNC] ([630d605](https://github.com/Ceres-Coin/Ceres-Protocol/commit/630d60590ad53fbd6ee8b3ed01d0ff6df64553f4))
+* **contracts/treasury.sol:** [REMOVED][FUNC]: TMPFUNC() ([8776cd7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/8776cd700f5bbebed4ee8bf18f0fc3b74f687f48))
+* **contracts/treasury.sol:** [REMOVED][REFERRAL CODE] ([1315d41](https://github.com/Ceres-Coin/Ceres-Protocol/commit/1315d4106ae9044656e77bf7deb2457b02be22dd))
+* **log/log_bsc_2.log:** [CREATED][NEW][LOG FILE]: log/log_bsc_2.log ([6202d99](https://github.com/Ceres-Coin/Ceres-Protocol/commit/6202d996a174fe5db745486c73aff4df20d7e46d))
+
+
+### Tests
+
+* **test/css_amo.test.js:** [TUNED][FAILED TEST CASES] ([aae2ff7](https://github.com/Ceres-Coin/Ceres-Protocol/commit/aae2ff74c14b09472e7f60aeabcb04cc993ee05e))
+
 ## [1.28.0](https://github.com/Ceres-Coin/Ceres-Protocol/compare/v1.27.0...v1.28.0) (2021-07-30)
 
 

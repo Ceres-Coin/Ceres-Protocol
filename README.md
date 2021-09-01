@@ -95,7 +95,7 @@ STAKING REQUIREMENT
    2. minium participle AUTOMATED MINTING period
 2. Withdraw rewards need a "LOCKED"
    1. withdraw usdc/crs/asc need a "LOCKED"
-   2. withdraw STAKING rewards need a "LOCKED"
+   2. withdraw STAKING rewards need a "LOCKED" 
    3. withdraw MINTING rewards "ASC" NEED A MECHANISM
 
 
@@ -111,7 +111,7 @@ STAKING REQUIREMENT
    2. EACH MINTING NEED re-caculate according to new "CR" & "CRS" price
 3. Detailed minting algorithm is defined in whitepaper [tbd]
 3. MINTEED "ASC" ALLOCATION MECHANISM Principle
-   1. get all minted "ASC" in a period time
+   1. auto-mint "ASC" instantly
    2. according to USDC & "CRS" market value to get minted "ASC"
 
 # TX Fees

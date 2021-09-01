@@ -73,6 +73,60 @@ STAKING REQUIREMENT
    3. MINT ALOGRITHM
    4. MINTED ASC ALLOCATION MECHANISM
 
+# STAKING & WITHDRAW FEATURES
+1. ONLY one-time staking for USER. 
+   1. ONLY STAKING ONE-TIME, staking = staking + automated minting
+   2. STAKING USDC MEANS TO GET TWO REWARDS
+      1. GET CRS FROM staking pool
+      2. GET MINTED "ASC" FROM automated mechanism
+   3. STAKING CRS -> GET TWO REWARDS
+      1. GET "CRS" FROM staking pool
+      2. GET MINTED "ASC" FROM automated minting mechanism
+   4. STAKING "ASC" -> GET ONE REWARDS
+      1. GET "CRS" FROM staking pool
+2. CRS Amount in different STAKING POOL
+   1. usdc-crs staking pool (e.g: 15%)
+   2. crs-crs staking pool (e.g: 15%)
+   3. asc-crs staking pool (e.g: 70%)
+
+# LOCKED FEATURES
+1. Staking USDC/CRS/ASC NEED A "LOCKED"
+   1. minium participle STAKING period
+   2. minium participle AUTOMATED MINTING period
+2. Withdraw rewards need a "LOCKED"
+   1. withdraw usdc/crs/asc need a "LOCKED"
+   2. withdraw rewards need a "LOCKED"
+   3. withdraw automated minint "ASC" NEED A MECHANISM
+
+
+# MINT FEATURES
+1. AUTOMATED MECHANISM IS defined in WHITEPAPER, INCLUDING BELOW FACTORS
+   1. MINT YES/NO
+   2. MINT PERIOD
+   3. MINT ALGORITHM
+2. MINT ALGORITHM Principle 
+   1. USDC & CRS according to 
+      1. CR ratio
+      2. CRS x-day MA  PRICE
+   2. EACH MINTING NEED re-caculate according to new "CR" & "CRS" price
+3. Detailed minting algorithm is defined in whitepaper [tbd]
+3. MINTEED "ASC" ALLOCATION MECHANISM Principle
+   1. get all minted "ASC" in a period time
+   2. according to USDC & "CRS" market value to get minted "ASC"
+
+# TX Fees
+1. "ASC" transaction will collec some tx fees
+2. ITS tx fees will be collected to a special benefits pool
+3. it will be shared by all staked USDC/CRS/ASC, according to below rules
+   1. shared by the market value of USDC/CRS/ASC
+   2. SHARED MECHANISM WILL BE A LONG PERIOD, NOT INSTANTLY, TO MAKE SURE EACH STAKED USERS TO GET BONUS IN A LONG TIME
+4. AMO & OTHER BENEFITS will also be collected in this "BENEFITS POOL"
+
+# REDEEM FEATURES
+
+
+
+
 
 
 

@@ -61,7 +61,7 @@ STAKING REQUIREMENT
 3. STAKING "ASC" -> GET "CRS"
 4. CRS is allocated to staking Pool
 
-# STAKING USDC to AUTOMATED MINTING "ASC"
+# STAKING USDC && CRS to AUTOMATED MINTING "ASC"
 1. Mint Mechanism is automated
 2. MINT "ASC" USING
    1. USDC
@@ -95,8 +95,8 @@ STAKING REQUIREMENT
    2. minium participle AUTOMATED MINTING period
 2. Withdraw rewards need a "LOCKED"
    1. withdraw usdc/crs/asc need a "LOCKED"
-   2. withdraw rewards need a "LOCKED"
-   3. withdraw automated minint "ASC" NEED A MECHANISM
+   2. withdraw STAKING rewards need a "LOCKED"
+   3. withdraw MINTING rewards "ASC" NEED A MECHANISM
 
 
 # MINT FEATURES

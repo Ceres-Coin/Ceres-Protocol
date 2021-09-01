@@ -112,7 +112,7 @@ STAKING REQUIREMENT
 3. Detailed minting algorithm is defined in whitepaper [tbd]
 3. MINTEED "ASC" ALLOCATION MECHANISM Principle
    1. auto-mint "ASC" instantly
-   2. according to staking "USDC" & "CRS" market value to get minted "ASC"
+   2. according to staking "USDC" && "CRS" market value to get minted "ASC"
 
 # TX Fees
 1. "ASC" transaction will collec some tx fees

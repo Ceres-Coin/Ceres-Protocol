@@ -43,4 +43,36 @@ TODO: Design-draft
 
 
 
+TODO: SCOPE
+staking
+withdraw
+locked
+mint
+mint-withdraw
+redeem
+tx-fees
+
+TODO: Requirement:
+
+STAKING REQUIREMENT
+# STAKING POOL TO GET "CRS"
+1. STAKING "USDC" -> GET "CRS"
+2. STAKING "CRS" -> GET "CRS"
+3. STAKING "ASC" -> GET "CRS"
+4. CRS is allocated to staking Pool
+
+# STAKING USDC to AUTOMATED MINTING "ASC"
+1. Mint Mechanism is automated
+2. MINT "ASC" USING
+   1. USDC
+   2. CRS
+3. [OPTIONAL] SUPPORT ETH TO AUTOSWAP TO USDC AND Enter in automated minting
+4. AUTOMATED MECHANISM IS defined in WHITEPAPER, INCLUDING BELOW FACTORS
+   1. MINT YES/NO
+   2. MINT PERIOD
+   3. MINT ALOGRITHM
+   4. MINTED ASC ALLOCATION MECHANISM
+
+
+
 

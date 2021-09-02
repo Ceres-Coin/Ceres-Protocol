@@ -41,11 +41,15 @@ TODO: Requirement:
    2. STAKING USDC MEANS TO GET TWO REWARDS
       1. GET CRS FROM staking pool
       2. GET MINTED "ASC" FROM automated mechanism
+      3. Rewards "ASC" & "CRS" will be automated allocated to "ASC" STAKING POOL
    3. STAKING CRS -> GET TWO REWARDS
       1. GET "CRS" FROM staking pool
       2. GET MINTED "ASC" FROM automated minting mechanism
+      3. Rewards "ASC" & "CRS" will be automated allocated to "ASC" STAKING POOL
    4. STAKING "ASC" -> GET ONE REWARDS
       1. GET "CRS" FROM staking pool
+      2. GET "USDC" & "CRS" from automated redeem mechanism
+      3. "CRS" will be automated allocated to "ASC" STAKING POOL
 2. CRS Amount in different STAKING POOL
    1. usdc-crs staking pool (e.g: 15%)
    2. crs-crs staking pool (e.g: 15%)
